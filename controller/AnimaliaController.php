@@ -9,6 +9,11 @@ class AnimaliaController {
         $this->model = $model;
     }
 
+    public function mostrarPantallaInicial() {
+        $datos =null;
+        $this->render->printView('home', $datos);
+    }
+
 
 
     

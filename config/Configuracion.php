@@ -1,6 +1,5 @@
 <?php
 include_once('helper/Database.php');
-include_once('helper/Render.php');
 include_once('helper/MustacheRender.php');
 include_once("helper/Router.php");
 include_once("helper/Logger.php");
