@@ -1,4 +1,3 @@
-Options -Indexes
 
 <FilesMatch ".*\.(log|ini|htaccess)$">
     deny from all
