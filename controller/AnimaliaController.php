@@ -11,7 +11,7 @@ class AnimaliaController {
 
     public function mostrarPantallaInicial() {
         $datos =null;
-        $this->render->printView('home', $datos);
+        $this->render->printView('index', $datos);
     }
 
 

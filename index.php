@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0185fce6ff757edab8c196415d1118eecf78285d
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 session_start();
@@ -11,4 +14,6 @@ $router = $configuracion->getRouter();
 // $method = $_GET['method'] ?? 'mostrarPantallaInicial';
 
 $router->route("Animalia","mostrarPantallaInicial");
+
+
 ?>
