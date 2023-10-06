@@ -10,11 +10,14 @@ include_once('helper/Redirect.php');
 
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 
-class Configuracion {
-    public function __construct() {
+class Configuracion
+{
+    public function __construct()
+    {
     }
 
-    public function getDatabase() {
+    public function getDatabase()
+    {
         $config = parse_ini_file('configuration.ini');
         $database = new Database(
             $config['servername'],
@@ -25,17 +28,20 @@ class Configuracion {
         return $database;
     }
 
-    public function getRender() {
+    public function getRender()
+    {
         return new MustacheRender();
     }
 
 
- public function getAnimaliaController() {
-     $model = new AnimaliaModel($this->getDatabase());
-   return new AnimaliaController($this->getRender(), $model);
-     }
+    public function getAnimaliaController()
+    {
+        $model = new AnimaliaModel($this->getDatabase());
+        return new AnimaliaController($this->getRender(), $model);
+    }
 
-public function getRouter() {
-     return new Router($this,"getAnimaliaController","list");
+    public function getRouter()
+    {
+        return new Router($this, "getAnimaliaController", "list");
     }
 }
