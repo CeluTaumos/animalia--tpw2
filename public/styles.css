@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,300;1,400&family=Roboto+Mono:ital,wght@1,300&family=Roboto:ital@1&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+}
+.header{
+    background-color: #FD79A8;
+    height: 200px;
+}
+.logo{
+    width:145px;
+    height: 145px;
+}
+.account{
+    width:45px;
+    height: 45px;
+}
