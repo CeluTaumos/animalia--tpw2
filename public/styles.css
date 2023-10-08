@@ -1,25 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,300;1,400&family=Roboto+Mono:ital,wght@1,300&family=Roboto:ital@1&display=swap');
+
 *{
     box-sizing: border-box;
     margin: 0;
 }
+
 body{
     font-family: 'Roboto', sans-serif;
     font-family: 'Roboto Condensed', sans-serif;
     font-family: 'Roboto Mono', monospace;
 }
+
 .header{
     background-color: #FD79A8;
-    height: 180px;
+    height: 100px;
 }
+
 .logo{
-    width:145px;
-    height: 145px;
+    width:80px;
+    height: 80px;
 }
+
 .account{
     width:45px;
     height: 45px;
 }
+
 .flex{
     display: flex;
     flex-direction: row;
@@ -27,8 +33,41 @@ body{
     justify-content: space-around;
     padding-top: 20px;
 }
+
 .formulario{
-    width: 450px;
-    height: 450px;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
     background-color: #FAB1A0;
+    position: relative;
+    top:50px;
+    left:700px;
 }
+
+.input{
+    margin: 10px 37px;
+    padding: 13px;
+    outline: none;
+} 
+select{
+    width: 192px;
+    margin: 10px 37px;
+    outline: none;
+    height: 20px;
+}
+
+.boton{
+    background-color: #FD79A8;
+    height: 40px;
+    text-align: center;
+    width: 70%;
+    margin: auto 40px;
+    border: none;
+}
+
+.boton:hover{
+    background-color: #F9F5E3;
+    color: #342d2d;
+}
+

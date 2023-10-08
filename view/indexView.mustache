@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animalia -- Home</title>
+    <link rel="stylesheet" type="text/css" href="../public/styles.css">
 </head>
 <body>
     <p>Bienvenido al juego!!!!!!!!!!</p>
 
     <div class="formulario">
         <form method="post">
-            <input type="text" placeholder="Nombre completo">
-            <input type="date">
+            <input type="text" placeholder="Nombre completo" class="input" autofocus required>
+            <input type="date" class="input" required>
             <select>
                 <option>Masculino</option>  
                 <option>Femenino</option> 
                 <option>Prefiero no decirlo</option> 
             </select>
-            <input type="text" placeholder="Pais">
-            <input type="text" placeholder="Ciudad">
-            <input type="submit" value="Registrarse">
+            <input type="text" placeholder="Pais" class="input" required>
+            <input type="text" placeholder="Ciudad" class="input" required>
+            <input type="submit" value="Registrarse" class="boton">
         </form>
     </div>
 
