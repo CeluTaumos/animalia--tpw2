@@ -10,7 +10,7 @@ body{
 }
 .header{
     background-color: #FD79A8;
-    height: 200px;
+    height: 180px;
 }
 .logo{
     width:145px;
@@ -19,4 +19,16 @@ body{
 .account{
     width:45px;
     height: 45px;
+}
+.flex{
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+.formulario{
+    width: 450px;
+    height: 450px;
+    background-color: #FAB1A0;
 }
