@@ -2,7 +2,8 @@
     <p class="centrado">Bienvenido al juego!!!!!!!!!!</p>
 
     <div class="formulario">
-        <form method="post" action="../controller/AnimaliaController.php">
+        <form method="post" action="./index.php?controller=Animalia&method=procesarFormulario">
+
             <input type="text" placeholder="Nombre completo" class="input" autofocus required name="nombre">
             <input type="date" class="input" required name="fecha">
             <select name="sexo">
@@ -11,9 +12,10 @@
                 <option value="femenino">Femenino</option> 
                 <option value="nodice">Prefiero no decirlo</option> 
             </select>
-            <input type="hidden">
+        <!-- PA MÁS ADELANTE--MAPA -->
+           <!-- <input type="hidden"> -->
             <input type="text" placeholder="Pais" class="input" required>
-            <input type="hidden">
+          <!-- <input type="hidden"> -->
             <input type="text" placeholder="Ciudad" class="input" required>
             <input type="text" placeholder="Nombre de usuario" class="input" required name="user">
             <input type="password" placeholder="Contraseña" class="input" required name="pass">

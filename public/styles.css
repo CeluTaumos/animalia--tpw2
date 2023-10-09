@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,300;1,400&family=Roboto+Mono:ital,wght@1,300&family=Roboto:ital@1&display=swap');
 
+
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto+Slab:wght@100;400&display=swap');
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -16,11 +21,22 @@ body{
 .header{
     background-color: #FD79A8;
     height: 100px;
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    justify-content: space-around;
+    padding-top: 20px;
+    align-items: center;
+
 }
 
 .logo{
-    width:80px;
-    height: 80px;
+   
+        width: 80px;
+        height: 80px;
+        margin: 0;
+        padding: 5%;
+   
 }
 
 .account{
@@ -28,12 +44,9 @@ body{
     height: 45px;
 }
 
-.flex{
-    display: flex;
-    flex-direction: row;
-    vertical-align: middle;
-    justify-content: space-around;
-    padding-top: 20px;
+.account img{
+    fill: #F9F5E3;
+    
 }
 
 .formulario{
@@ -79,13 +92,48 @@ select{
     text-align: center;
 }
 
-footer{
-    margin-top: 90px;
-    position: relative;
-    bottom: 0px;
-    background-color: #444;
-    color: #fff;
-    padding: 15px;
-    text-align: center;
-    font-weight: lighter;
+
+    footer {
+        display: flex;
+        /* margin-top: 90px; */
+        position: relative;
+        bottom: 0px;
+        background-color: #444;
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+        font-weight: lighter;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-around;
+        align-items: center;
+    
 }
+
+footer img{
+   width: 1.875em;
+}
+    .caja {
+        margin: 2%;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .caja img{
+        width: 100px;
+    }
+
+    .nombre{
+        color: white;
+        font-size:3.125em;
+        font-family: 'Lilita One', cursive;
+
+    }
+
+    .integrantes{
+        list-style-type:none;
+    }
+
