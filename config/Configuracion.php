@@ -5,9 +5,7 @@ include_once("helper/Router.php");
 include_once("helper/Logger.php");
 include_once('helper/Redirect.php');
 include_once('model/AnimaliaModel.php');
-
-
-
+include_once('controller/AnimaliaController.php');
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 
 class Configuracion
@@ -23,7 +21,8 @@ class Configuracion
             $config['servername'],
             $config['username'],
             $config['password'],
-            $config['dbname']
+            $config['dbname'],
+            $config['port']
         );
         return $database;
     }

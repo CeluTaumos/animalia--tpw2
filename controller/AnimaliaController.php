@@ -14,7 +14,17 @@ class AnimaliaController {
         $this->render->printView('index', $datos);
     }
 
+    //Validacion de los formularios
+    public function procesarFormulario() {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nombre = $_POST["nombre"];
+        $fecha = $_POST["fecha"];
+        $sexo = $_POST["sexo"];
 
+        echo "Nombre: " . $nombre . "<br>";
+        echo "Fecha: " . $fecha . "<br>";
+        echo "Sexo: " . $sexo . "<br>";
+}
 
-    
+}   
 }
