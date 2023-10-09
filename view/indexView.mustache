@@ -2,23 +2,24 @@
     <p class="centrado">Bienvenido al juego!!!!!!!!!!</p>
 
     <div class="formulario">
-        <form method="post" action="index.php">
-            <input type="text" placeholder="Nombre completo" class="input" autofocus required>
-            <input type="date" class="input" required>
-            <select>
+        <form method="post" action="../controller/AnimaliaController.php">
+            <input type="text" placeholder="Nombre completo" class="input" autofocus required name="nombre">
+            <input type="date" class="input" required name="fecha">
+            <select name="sexo">
                 <option disabled selected>Seleccionar sexo</option> 
-                <option>Masculino</option>  
-                <option>Femenino</option> 
-                <option>Prefiero no decirlo</option> 
+                <option value="masculino">Masculino</option>  
+                <option value="femenino">Femenino</option> 
+                <option value="nodice">Prefiero no decirlo</option> 
             </select>
+            <input type="hidden">
             <input type="text" placeholder="Pais" class="input" required>
-            
+            <input type="hidden">
             <input type="text" placeholder="Ciudad" class="input" required>
-            <input type="text" placeholder="Nombre de usuario" class="input" required>
-            <input type="password" placeholder="Contraseña" class="input" required>
-            <input type="password" placeholder="Repita la contraseña" class="input" required>
-            <input type="file" placeholder="Foto de perfil" class="input">
-            <input type="submit" value="Registrarse" class="boton">
+            <input type="text" placeholder="Nombre de usuario" class="input" required name="user">
+            <input type="password" placeholder="Contraseña" class="input" required name="pass">
+            <input type="password" placeholder="Repita la contraseña" class="input" required name="pass2">
+            <input type="file" placeholder="Foto de perfil" class="input" name="file">
+            <input type="submit" value="Registrarse" class="boton" name="enviar">
         </form>
     </div>
 
