@@ -22,7 +22,12 @@ CREATE TABLE usuario(
   sexo char(1) NOT NULL,
   mail varchar(25) NOT NULL,
   foto_de_perfil blob NOT NULL
-)
+);
+
+INSERT INTO pregunta(id, descripcion, repuesta_correcta) VALUES
+(1, '¿Qué es más peligroso, un hipopótamo o un rinoceronte',"ambos"),
+(2, '¿Pescar deja ciegos a los pelícanos?',"no"),
+(3, '¿Cuál es el pez más grande del mundo?',"tiburon ballena");
 
 
 

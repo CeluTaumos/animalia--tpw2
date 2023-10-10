@@ -33,6 +33,6 @@ class AnimaliaController {
 //         echo "Sexo: " . $sexo . "<br>";
 // }
         $datos =null;
-        $this->render->printView('registroExitoo', $datos);
-}   
+        $this->render->printView('lobby', $datos);
+    }   
 }

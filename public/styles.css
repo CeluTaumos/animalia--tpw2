@@ -3,22 +3,28 @@
 
 
 
-  @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto+Slab:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto+Slab:wght@100;400&display=swap');
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
 }
 
-body{
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-family: 'Roboto Mono', monospace;
+body {
+    font-family: 'Lilita One', cursive;
     height: 100%;
-    background-color: #F9F5E3;
+    background: rgba(255, 255, 255, 1);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(4%, rgba(255, 255, 255, 1)), color-stop(21%, rgba(255, 212, 228, 1)), color-stop(37%, rgba(250, 205, 222, 1)), color-stop(55%, rgba(252, 174, 203, 1)), color-stop(80%, rgba(250, 140, 180, 1)), color-stop(100%, rgba(253, 121, 168, 1)));
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#fd79a8', GradientType=0);
+
 }
 
-.header{
+.header {
     background-color: #FD79A8;
     height: 100px;
     display: flex;
@@ -30,110 +36,146 @@ body{
 
 }
 
-.logo{
-   
-        width: 80px;
-        height: 80px;
-        margin: 0;
-        padding: 5%;
-   
+.logo {
+
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    padding: 5%;
+
 }
 
-.account{
-    width:45px;
+.account {
+    width: 45px;
     height: 45px;
     fill: #F9F5E3;
 }
 
 .account:hover {
-    fill: #FF0000; /* Cambia a rojo cuando el mouse está sobre él */
+    fill: #FF0000;
+    /* Cambia a rojo cuando el mouse está sobre él */
 }
 
-.formulario{
+
+.contenedorPapa {
     display: flex;
-    flex-direction: column;
-    width: 350px;
-    height: 350px;
-    background-color: #FAB1A0;
-    position: relative;
-    top:20px;
-    left:700px;
-    border-radius: 10px;
+    /* background-color: #FD79A8; */
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    margin: 2%;
 }
 
-.input{
+.formulario {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 5%;
+    width: 21.875em;
+    margin: 5%;
+    height: max-content;
+    background-color: #FAB1A0;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    -webkit-box-shadow: -2px -3px 30px -29px rgba(74, 19, 51, 0.71);
+    -moz-box-shadow: -2px -3px 30px -29px rgba(74, 19, 51, 0.71);
+    box-shadow: -2px -3px 30px -29px rgba(74, 19, 51, 0.71);
+
+}
+
+.formulario h3 {
+    font-weight: 200;
+
+    margin: 2%;
+    color: white;
+    font-family: 'Lilita One', cursive;
+}
+
+.input {
     margin: 3px 37px;
     padding: 3px;
     outline: none;
-} 
-select{
+}
+
+select {
     width: 173px;
     margin: 4px 37px;
     outline: none;
     height: 20px;
 }
 
-.boton{
+.boton {
     background-color: #FD79A8;
-    height: 40px;
     text-align: center;
     width: 70%;
-    margin: auto 40px;
+    margin: 3.125em;
+    color: white;
     border: none;
+    text-transform: uppercase;
     border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: 'Lilita One', cursive;
+    font-weight: 300;
+    box-sizing: border-box;
+    padding: 5%;
 }
 
-.boton:hover{
+.boton:hover {
     background-color: #F9F5E3;
     color: #342d2d;
 }
 
-.centrado{
+.centrado {
     text-align: center;
 }
 
 
-    footer {
-        display: flex;
-        margin-top: 26px; 
-        position: relative;
-        bottom: 0px;
-        background-color: #444;
-        color: #fff;
-        padding: 15px;
-        text-align: center;
-        font-weight: lighter;
-        flex-direction: row;
-        align-content: center;
-        justify-content: space-around;
-        align-items: center;
-    
+footer {
+    display: flex;
+    margin-top: 26px;
+    position: relative;
+    bottom: 0px;
+    background-color: #323a4ae3;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-weight: lighter;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+
 }
 
-footer img{
-   width: 1.875em;
+footer img {
+    width: 1.875em;
 }
-    .caja {
-        margin: 2%;
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        justify-content: center;
-        align-items: center;
-    }
 
-    .caja img{
-        width: 100px;
-    }
+.caja {
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
 
-    .nombre{
-        color: white;
-        font-size:3.125em;
-        font-family: 'Lilita One', cursive;
+.caja img {
+    width: 100px;
+}
 
-    }
+.nombre {
+    color: white;
+    font-size: 3.125em;
+    font-family: 'Lilita One', cursive;
 
-    .integrantes{
-        list-style-type:none;
-    }
+}
 
+.integrantes {
+    list-style-type: none;
+}
