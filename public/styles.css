@@ -42,11 +42,11 @@ body{
 .account{
     width:45px;
     height: 45px;
+    fill: #F9F5E3;
 }
 
-.account img{
-    fill: #F9F5E3;
-    
+.account:hover {
+    fill: #FF0000; /* Cambia a rojo cuando el mouse está sobre él */
 }
 
 .formulario{
