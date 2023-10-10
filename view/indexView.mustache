@@ -1,7 +1,7 @@
 
-    <p class="centrado">Bienvenido al juego!!!!!!!!!!</p>
-
+<div class="contenedorPapa">
     <div class="formulario">
+        <h3>¿Todavía no te sumaste? Empeza a jugar</h3>
         <form method="post" action="./index.php?controller=Animalia&method=procesarFormulario">
 
             <input type="text" placeholder="Nombre completo" class="input" autofocus required name="nombre">
@@ -25,6 +25,15 @@
         </form>
     </div>
 
+    <div class="formulario">
+      <h3>Vos ya formas parte capo,adelante,tira tu data </h3>
+        <form method="post" action="./index.php?controller=Animalia&method=procesarFormulario">
+            <input type="text" placeholder="Correo Electrónico" class="input" autofocus required name="correo">
+            <input type="password" placeholder="Contraseña" class="input" required name="pass">
+            <input type="submit" value="Loggin" class="boton" name="enviar">
+        </form>
+    </div>
+</div>
 
 
 
