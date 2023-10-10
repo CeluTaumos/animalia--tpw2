@@ -96,8 +96,11 @@ body {
 }
 
 .input {
-    margin: 3px 37px;
-    padding: 3px;
+    border: none;
+    border-radius: 20px;
+    margin: 2%;
+    box-sizing: border-box;
+    padding: 3%;
     outline: none;
 }
 
