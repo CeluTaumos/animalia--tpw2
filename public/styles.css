@@ -96,33 +96,36 @@ body {
 }
 
 .input {
-    margin: 3px 37px;
-    padding: 3px;
+    border: none;
+    border-radius: 20px;
+    margin: 2%;
+    box-sizing: border-box;
+    padding: 3%;
     outline: none;
 }
 
 select {
-    width: 173px;
-    margin: 4px 37px;
-    outline: none;
-    height: 20px;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 3%;
 }
 
 .boton {
     background-color: #FD79A8;
-    text-align: center;
     width: 70%;
-    margin: 3.125em;
+    text-align: center;
     color: white;
     border: none;
     text-transform: uppercase;
     border-radius: 10px;
     text-align: center;
-    box-sizing: border-box;
     font-family: 'Lilita One', cursive;
     font-weight: 300;
     box-sizing: border-box;
     padding: 5%;
+    margin-top: 7%;
 }
 
 .boton:hover {
@@ -130,10 +133,25 @@ select {
     color: #342d2d;
 }
 
+.botonArchivo{
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.botonArchivo input[type="file"] {
+    display: none;
+    
+}
 .centrado {
     text-align: center;
 }
 
+.mt{
+    margin-top: 7%;
+}
 
 footer {
     display: flex;
