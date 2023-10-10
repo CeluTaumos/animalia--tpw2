@@ -56,7 +56,7 @@ body{
     height: 350px;
     background-color: #FAB1A0;
     position: relative;
-    top:50px;
+    top:20px;
     left:700px;
     border-radius: 10px;
 }
@@ -67,8 +67,8 @@ body{
     outline: none;
 } 
 select{
-    width: 192px;
-    margin: 10px 37px;
+    width: 173px;
+    margin: 4px 37px;
     outline: none;
     height: 20px;
 }
@@ -95,7 +95,7 @@ select{
 
     footer {
         display: flex;
-        /* margin-top: 90px; */
+        margin-top: 26px; 
         position: relative;
         bottom: 0px;
         background-color: #444;
