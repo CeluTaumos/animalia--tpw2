@@ -110,6 +110,7 @@ select {
     border-radius: 20px;
     box-sizing: border-box;
     padding: 3%;
+    outline: none;
 }
 
 .boton {
