@@ -7,6 +7,7 @@ include_once('helper/Redirect.php');
 include_once('model/AnimaliaModel.php');
 include_once('controller/AnimaliaController.php');
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
+//include_once('PHPMailer/Correo.php');
 
 class Configuracion
 {
