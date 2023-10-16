@@ -9,8 +9,9 @@
 <div class="caja_opciones center mt">
 {{#respuesta}}
 
-<a href="">{{descripcion}}</a>
-
+<form action="./index.php?controller=Partida&method=verificarRespuesta" method="post">
+    <button id="{{id}}" type="submit" name="opcion">{{descripcion}}</button>
+</form>
 
 {{/respuesta}}
 </div>
