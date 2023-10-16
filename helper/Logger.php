@@ -24,9 +24,16 @@ class Logger {
     }
 
     private static function writeLogFile(string $message): void {
-        $filename = "log/log-" . self::getDate() . ".txt";
+        $logDirectory = "log";
+        if (!is_dir($logDirectory)) {
+            // Si el directorio no existe, lo creamos con permisos 0755 (puedes ajustarlos según tus necesidades).
+            mkdir($logDirectory, 0755, true);
+        }
+    
+        $filename = $logDirectory . "/log-" . self::getDate() . ".txt";
         file_put_contents($filename, $message, FILE_APPEND);
     }
+    
 
     private static function getDate() {
         return date("Y-m-d");

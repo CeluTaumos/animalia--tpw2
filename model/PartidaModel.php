@@ -1,10 +1,33 @@
 <?php
 
-class PartidaModel {
-    private $datos;
+class PartidaModel
+{
 
-    public function __construct($datos) {
-        $this->datos = $datos;
+    private $database;
+
+    public function __construct($database)
+    {
+        $this->database = $database;
     }
+
+    public function getPreguntaYSuRespuesta()
+    {
+        return $this->database->query(
+        'select * 
+        from (SELECT *
+        FROM pregunta
+        ORDER BY RAND()
+        LIMIT 1) a
+        left join respuesta
+        on a.id = respuesta.pregunta');
+
+    }
+
+
+    public function getRespuestas()
+    {
+        return $this->database->query('SELECT * FROM respuesta');
+    }
+    
 
 }

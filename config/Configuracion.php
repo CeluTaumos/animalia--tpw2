@@ -7,6 +7,8 @@ include_once('helper/Redirect.php');
 include_once('model/AnimaliaModel.php');
 include_once('controller/AnimaliaController.php');
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
+include_once('model/PartidaModel.php');
+include_once('controller/PartidaController.php');
 //include_once('PHPMailer/Correo.php');
 
 class Configuracion
@@ -43,5 +45,11 @@ class Configuracion
     public function getRouter()
     {
         return new Router($this, "getAnimaliaController", "list");
+    }
+
+    public function getPartidaController()
+    {
+        $model = new PartidaModel($this->getDatabase());
+        return new PartidaController($this->getRender(), $model);
     }
 }
