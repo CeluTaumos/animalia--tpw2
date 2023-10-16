@@ -1,0 +1,31 @@
+[2023-10-16][INFO]Ejecutando Query select * 
+        from (SELECT *
+        FROM pregunta
+        ORDER BY RAND()
+        LIMIT 1) a
+        left join respuesta
+        on a.id = respuesta.pregunta 
+[2023-10-16][INFO]Ejecutando Query select * 
+        from (SELECT *
+        FROM pregunta
+        ORDER BY RAND()
+        LIMIT 1) a
+        left join respuesta
+        on a.id = respuesta.pregunta 
+[2023-10-16][INFO]Ejecutando Query SELECT * FROM respuesta 
+[2023-10-16][INFO]Ejecutando Query SELECT * FROM respuesta 
+[2023-10-16][INFO]Ejecutando Query SELECT * FROM respuesta 
+[2023-10-16][INFO]Ejecutando Query SELECT * FROM respuesta 
+[2023-10-16][INFO]Ejecutando Query SELECT * FROM respuesta 
+[2023-10-16][INFO]Ejecutando query: SELECT * FROM respuesta
+[2023-10-16][INFO]Ejecutando query: SELECT * FROM respuesta
+[2023-10-16][INFO]Ejecutando query: SELECT * FROM respuesta
+[2023-10-16][INFO]Ejecutando query: SELECT * FROM respuesta
+[2023-10-16][INFO]Ejecutando query: SELECT * FROM respuesta
+[2023-10-16][INFO]Ejecutando query: select * 
+        from (SELECT *
+        FROM pregunta
+        ORDER BY RAND()
+        LIMIT 1) a
+        left join respuesta
+        on a.id = respuesta.pregunta

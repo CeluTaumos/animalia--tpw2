@@ -1,0 +1,42 @@
+<div class="contenedorPapa">
+    <div class="formulario">
+        <h3>¿Todavía no te sumaste? Empeza a jugar</h3>
+        <form method="post" action="./index.php?controller=Animalia&method=procesarFormulario">
+
+            <input type="text" placeholder="Nombre completo" class="input" autofocus required name="nombre">
+            <input type="date" class="input" required name="fecha">
+            <select name="sexo">
+                <option disabled selected>Seleccionar sexo</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="nodice">Prefiero no decirlo</option>
+            </select>
+            <!-- PA MÁS ADELANTE--MAPA -->
+            <!-- <input type="hidden"> -->
+            <input type="text" placeholder="Pais" class="input" required>
+            <!-- <input type="hidden"> -->
+            <input type="text" placeholder="Ciudad" class="input" required>
+            <input type="text" placeholder="Correo electrónico" class="input" required name="user">
+            <input type="password" placeholder="Contraseña" class="input" required name="pass">
+
+            <div class="mt centrado">
+                <label for="file" class="botonArchivo">
+                    Subir foto de perfil
+                    <input type="file" class="botonArchivo" name="file" id="file" accept=".jpg, .png">
+                </label>
+            </div>
+
+            <input type="submit" value="Registrarse" class="boton" name="enviar">
+        </form>
+    </div>
+
+
+    <div class="formulario">
+        <h3>¡Vos ya formas parte, adelante! Tira tu data </h3>
+        <form method="post" action="./index.php?controller=Animalia&method=procesarFormulario">
+            <input type="text" placeholder="Correo Electrónico" class="input" autofocus required name="correo">
+            <input type="password" placeholder="Contraseña" class="input" required name="pass">
+            <input type="submit" value="Loggin" class="boton" name="enviar">
+        </form>
+    </div>
+</div>
