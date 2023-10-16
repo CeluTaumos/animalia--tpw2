@@ -1,8 +1,11 @@
 create database animalia;
 use animalia;
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 3b0c3dfcbced6136ee2d9aa75ba05ba55dc4575b
 CREATE TABLE pregunta (
   id int(11) PRIMARY KEY NOT NULL,
   descripcion varchar(100) NOT NULL
@@ -15,6 +18,10 @@ CREATE TABLE respuesta (
   pregunta int(11) not null,
   CONSTRAINT pregunta_fk FOREIGN KEY (pregunta) REFERENCES pregunta(id)
 );
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3b0c3dfcbced6136ee2d9aa75ba05ba55dc4575b
 CREATE TABLE usuario (
     user_name VARCHAR(10) PRIMARY KEY NOT NULL,
     contrasenia VARCHAR(10) NOT NULL,
