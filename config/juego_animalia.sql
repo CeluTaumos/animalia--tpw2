@@ -1,17 +1,17 @@
 create database animalia;
 use animalia;
 
+CREATE TABLE pregunta (
+  id int(11) PRIMARY KEY NOT NULL,
+  descripcion varchar(100) NOT NULL
+);
+
 CREATE TABLE respuesta (
   id int(11) primary key NOT NULL,
   descripcion varchar(100) NOT NULL,
   es_correcta boolean not null, 
   pregunta int(11) not null,
   CONSTRAINT pregunta_fk FOREIGN KEY (pregunta) REFERENCES pregunta(id)
-);
-
-CREATE TABLE pregunta (
-  id int(11) PRIMARY KEY NOT NULL,
-  descripcion varchar(100) NOT NULL
 );
 
 CREATE TABLE usuario (
