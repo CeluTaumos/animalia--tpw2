@@ -5,13 +5,7 @@ include_once("helper/Router.php");
 include_once("helper/Logger.php");
 include_once('helper/Redirect.php');
 include_once('model/AnimaliaModel.php');
-<<<<<<< HEAD
-
-
-
-=======
 include_once('controller/AnimaliaController.php');
->>>>>>> 09ec306297ee0a4a3dba0b25fc8c1c937fbee547
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once('model/PartidaModel.php');
 include_once('controller/PartidaController.php');
