@@ -1,13 +1,16 @@
 
 
 <div class="caja_pregunta">
+    {{#pregunta}}
+    <h1>{{descripcion}}</h1>
+    {{/pregunta}}
 </div>
 
-<div class="caja_opciones">
+<div class="caja_opciones center mt">
 {{#respuesta}}
+
 <a href="">{{descripcion}}</a>
-<a href="">{{descripcion}}</a>
-<a href="">{{descripcion}}</a>
-<a href="">{{descripcion}}</a>
+
+
 {{/respuesta}}
 </div>
