@@ -4,7 +4,7 @@ include_once('helper/MustacheRender.php');
 include_once("helper/Router.php");
 include_once("helper/Logger.php");
 include_once('helper/Redirect.php');
-
+include_once('model/AnimaliaModel.php');
 
 
 
