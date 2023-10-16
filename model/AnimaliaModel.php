@@ -7,7 +7,4 @@ class AnimaliaModel {
         $this->database = $database;
     }
 
-
-    
-
 }
