@@ -13,13 +13,14 @@ class PartidaModel
     public function getPreguntaYSuRespuesta()
     {
         return $this->database->query(
-        'select * 
+            'select * 
         from (SELECT *
         FROM pregunta
         ORDER BY RAND()
         LIMIT 1) a
         left join respuesta
-        on a.id = respuesta.pregunta');
+        on a.id = respuesta.pregunta'
+        );
 
     }
 
@@ -28,6 +29,6 @@ class PartidaModel
     {
         return $this->database->query('SELECT * FROM respuesta');
     }
-    
+
 
 }

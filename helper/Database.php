@@ -18,12 +18,8 @@ class Database {
     }
 
     public function query($sql) {
-        Logger::info("Ejecutando Query $sql ");
+        Logger::info('Ejecutando query: ' . $sql);
         $result = mysqli_query($this->conn, $sql);
-
-        if (!is_bool($result))
-            return mysqli_fetch_all($result, MYSQLI_BOTH);
-        else
-            return [];
+        return mysqli_fetch_all($result, MYSQLI_BOTH);
     }
 }

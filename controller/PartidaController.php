@@ -14,7 +14,7 @@ class PartidaController
     public function mostrarPantallaPartida()
     {
         // array de preguntas y array de respuestas
-        $datos = $this->model->getRespuestas();
+        $datos['pregunta_y_respuestas'] = $this->model->getPreguntaYSuRespuesta();
         $this->render->printView('jugarPartida', $datos);
     }
 }
