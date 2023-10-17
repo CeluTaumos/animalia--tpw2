@@ -10,7 +10,8 @@
 {{#respuesta}}
 
 <form action="./index.php?controller=Partida&method=verificarRespuesta" method="post">
-    <button id="{{id}}" type="submit" name="opcion">{{descripcion}}</button>
+    
+    <button type="submit" name="id" value="{{id}}">{{descripcion}}</button>
 </form>
 
 {{/respuesta}}

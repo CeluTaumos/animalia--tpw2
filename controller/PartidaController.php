@@ -34,19 +34,23 @@ class PartidaController
     public function verificarRespuesta()
     {
         $datos = array();
-        if (isset($_POST['opcion'])) {
-            $id = $_POST['opcion']; // $id ahora contiene el ID de la respuesta seleccionada
+        if (isset($_POST['id'])) {
+            $id = $_POST['id']; // $id ahora contiene el ID de la respuesta seleccionada
+           
             $respuesta = $this->model->getRespuesta($id);
-
-            if ($respuesta == 1) {
+            
+            $resultado = $respuesta[0]["es_correcta_int"];
+            if ($resultado == '1') {
                 $this->mostrarPantallaPartida();
                 return; // Agrega un return para evitar que el código siguiente se ejecute
             } else {
-
-
                 // Si no se cumple la condición anterior, muestra la pantalla de perdedor
                 $this->render->printView('pantallaPerdedor', $datos);
             }
         }
     }
+
+
 }
+
+

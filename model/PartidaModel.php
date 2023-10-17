@@ -48,11 +48,10 @@ class PartidaModel
         return $this->database->query('SELECT * FROM respuesta WHERE pregunta like  ' . $idRandom);
     }
 
-  
-
     public function getRespuesta($idRandom)
-    {
-        return $this->database->query('SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id =  ' . $idRandom) ;
-    
-    }
+{
+    $idRandom = (int)$idRandom; // Asegurarse de que $idRandom sea un entero válido
+    $query = 'SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = ' . $idRandom;
+    return $this->database->query($query);
+}
 }

@@ -29,7 +29,7 @@ insert into pregunta (id, descripcion) values (1, "¿Cuál es el mamífero más 
 
 insert into respuesta (id, descripcion, es_correcta, pregunta) values (1, "La ballena azul", true, 1), (2, "El bicho palo", false, 1), (3, "Elon Musk", false, 1), (4, "Nemo", false, 1);
 
-insert into respuesta (id, descripcion, es_correcta, pregunta) values (5, "El armadillo", true, 2), (6, "El Chaqueño Palavecino", false, 2), (7, "Caracol gigante africano", false, 2), (8, "Almeja gigante", false, 3);
+insert into respuesta (id, descripcion, es_correcta, pregunta) values (5, "El armadillo", true, 2), (6, "El Chaqueño Palavecino", false, 2), (7, "Caracol gigante africano", false, 2), (8, "Almeja gigante", false, 2);
 
 insert into respuesta (id, descripcion, es_correcta, pregunta) values (9, "El picaflor", false, 3), (10, "El cóndor andino", false, 3), (11, "El ñandu", true, 3), (12, "La paloma", false, 3);
 
