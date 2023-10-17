@@ -43,3 +43,18 @@
 [2023-10-18][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 11
 [2023-10-18][INFO]Ejecutando query: SELECT * FROM pregunta WHERE id like 4
 [2023-10-18][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  4
+[2023-10-18][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 11
+[2023-10-18][INFO]Ejecutando query: SELECT * FROM pregunta WHERE id like 4
+[2023-10-18][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  4
+[2023-10-18][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 13
+[2023-10-18][INFO]Ejecutando query: SELECT * FROM pregunta WHERE id like 1
+[2023-10-18][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  1
+[2023-10-18][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 1
+[2023-10-18][INFO]Ejecutando query: SELECT * FROM pregunta WHERE id like 2
+[2023-10-18][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  2
+[2023-10-18][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 5
+[2023-10-18][INFO]Ejecutando query: SELECT * FROM pregunta WHERE id like 3
+[2023-10-18][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  3
+[2023-10-18][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 11
+[2023-10-18][INFO]Ejecutando query: SELECT * FROM pregunta WHERE id like 4
+[2023-10-18][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  4
