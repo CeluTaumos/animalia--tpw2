@@ -1,19 +1,7 @@
  create database animalia;
  use animalia;
 
-CREATE TABLE pregunta (
-  id int(11) PRIMARY KEY NOT NULL,
-  descripcion varchar(100) NOT NULL
-);
-
-CREATE TABLE respuesta (
-  id int(11) primary key NOT NULL,
-  descripcion varchar(100) NOT NULL,
-  es_correcta boolean not null, 
-  pregunta int(11) not null,
-  CONSTRAINT pregunta_fk FOREIGN KEY (pregunta) REFERENCES pregunta(id)
-);
-
+/*CREACION DE TABLAS*/
 
 CREATE TABLE usuario (
     user_name VARCHAR(10) PRIMARY KEY NOT NULL,
@@ -25,7 +13,31 @@ CREATE TABLE usuario (
     foto_de_perfil BLOB NOT NULL
 );
 
-insert into pregunta (id, descripcion) values (1, "¿Cuál es el mamífero más grande?"), (2, "¿Qué animal es conocido por su caparazón de placas y se encuentra en el Gran Chaco?"), (3, "¿Cuál es el ave más grande de Argentina?"), (4, "¿Cuál de estos animales es endémico de la región patagónica argentina?");
+create table Categoria(
+id int (11) primary key not null,
+descripcion varchar(100) NOT NULL
+);
+
+CREATE TABLE pregunta (
+  id int(11) PRIMARY KEY NOT NULL,
+  descripcion varchar(100) NOT NULL,
+  categoria int (11) not null,
+  constraint categoria_fk foreign key (categoria) references categoria(id)
+);
+
+CREATE TABLE respuesta (
+  id int(11) primary key NOT NULL,
+  descripcion varchar(100) NOT NULL,
+  es_correcta boolean not null, 
+  pregunta int(11) not null,
+  CONSTRAINT pregunta_fk FOREIGN KEY (pregunta) REFERENCES pregunta(id)
+);
+
+/*INSERCION DE DATOS*/
+
+insert into categoria(id, descripcion)values(1, "Historia"), (2, "Cultura"), (3, "Deporte"), (4, "Geografía"), (5, "Ciencia");
+
+insert into pregunta (id, descripcion, categoria) values (1, "¿Cuál es el mamífero más grande?", 5), (2, "¿Qué animal es conocido por su caparazón de placas y se encuentra en el Gran Chaco?", 5), (3, "¿Cuál es el ave más grande de Argentina?", 5), (4, "¿Cuál de estos animales es endémico de la región patagónica argentina?", 5);
 
 insert into respuesta (id, descripcion, es_correcta, pregunta) values (1, "La ballena azul", true, 1), (2, "El bicho palo", false, 1), (3, "Elon Musk", false, 1), (4, "Nemo", false, 1);
 
@@ -34,5 +46,9 @@ insert into respuesta (id, descripcion, es_correcta, pregunta) values (5, "El ar
 insert into respuesta (id, descripcion, es_correcta, pregunta) values (9, "El picaflor", false, 3), (10, "El cóndor andino", false, 3), (11, "El ñandu", true, 3), (12, "La paloma", false, 3);
 
 insert into respuesta (id, descripcion, es_correcta, pregunta) values (13, "El guanaco", true, 4), (14, "El yacaré", false, 4), (15, "El coatí", false, 4), (16, "El caballo", false, 4);
+
+/*insert into pregunta (id, descripcion, categoria) values (5, "¿Cuál es el punto más alto de Argentina y de toda América del Sur, y en qué provincia se encuentra?", 4), ();
+*/
+
 
 SELECT es_correcta FROM respuesta WHERE id like  2;
