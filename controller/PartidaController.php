@@ -13,7 +13,6 @@ class PartidaController
         $this->render = $render;
         $this->model = $model;
         $this->partidaJugada = array();
-        $this->puntaje = 0;
     }
 
 
@@ -36,20 +35,19 @@ class PartidaController
     public function verificarRespuesta()
     {
         $datos = array();
-        $puntajeActual = 0;
         if (isset($_POST['id'])) {
-            $id = $_POST['id']; // $id ahora contiene el ID de la respuesta seleccionada
+            $id = $_POST['id'];
 
             $respuesta = $this->model->getRespuesta($id);
 
             $resultado = $respuesta[0]["es_correcta_int"];
 
             if ($resultado == '1') {
-                $puntajeActual = $this->puntaje + 1;
+                $this->puntaje++;
                 $this->mostrarPantallaPartida();
             } else {
 
-                $datos['puntaje'] = $puntajeActual;
+                $datos['puntaje'] =  $this->puntaje;
                 //PARA GUARDAR EN BDD
                 //  guardarPuntaje($this->puntaje);
                 // Si no se cumple la condición anterior, muestra la pantalla de perdedor
