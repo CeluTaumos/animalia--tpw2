@@ -8,9 +8,11 @@ include_once('model/AnimaliaModel.php');
 include_once('controller/AnimaliaController.php');
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once('model/PartidaModel.php');
+include_once('model/RankingModel.php');
 include_once('controller/PartidaController.php');
 include_once('controller/LobbyController.php');
 include_once('model/LobbyModel.php');
+include_once('controller/RankingController.php');
 //include_once('PHPMailer/Correo.php');
 
 class Configuracion
@@ -57,5 +59,11 @@ class Configuracion
     {
         $model = new PartidaModel($this->getDatabase());
         return new PartidaController($this->getRender(), $model);
+    }
+
+    public function getRankingController()
+    {
+        $model = new RankingModel($this->getDatabase());
+        return new RankingController($this->getRender(), $model);
     }
 }

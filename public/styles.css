@@ -128,10 +128,18 @@ select {
     padding: 5%;
     margin-top: 7%;
 }
+.boton a{
+    text-decoration: none;
+    color: white;
+}
+.boton a:hover {
+    background-color: #F9F5E3;
+    color: #ba2f2f;
+}
 
 .boton:hover {
     background-color: #F9F5E3;
-    color: #342d2d;
+    color: #0e0b0b;
 }
 
 .botonArchivo{
