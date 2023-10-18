@@ -1,15 +1,22 @@
-<div class="caja_pregunta">
-    <h1>Ranking</h1>
-    {{#partida}}
-    <span>{{user_name}} </span><span> {{puntaje}}</span><br>
-        <h1></h1>
-        <h1></h1>
-    {{/partida}}
-</div>
 
-<div class="caja_pregunta">
-    <h1>Partidas previas</h1>
-    {{#pregunta}}
-    <h1>{{descripcion}}</h1>
-    {{/pregunta}}
+<div class="contenedorPapa">
+    <div class="caja_ranking">
+        <h1>Ranking</h1>
+        {{#partida}}
+        <span><h3 class="inline">👑 {{user_name}}</h3>  </span><span> {{puntaje}}</span><br>
+            <h1></h1>
+            <h1></h1>
+        {{/partida}}
+    </div>
+    
+    <div class="caja_partidas">
+        <h1>Partidas previas</h1>
+        {{#pregunta}}
+        <span>Usuario: {{user_name}}</span>
+        <span>Puntaje: {{puntaje}}</span>
+        <span>Fecha: {{date}}</span>
+        
+        {{/pregunta}}
+    </div>
+
 </div>
