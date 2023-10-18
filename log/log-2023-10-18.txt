@@ -539,3 +539,14 @@
 [2023-10-18][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 78
 [2023-10-18][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC
 [2023-10-18][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC
+[2023-10-18][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC
+[2023-10-18][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC
+[2023-10-18][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC
+[2023-10-18][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC
+[2023-10-18][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC
+[2023-10-18][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC
+[2023-10-18][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC
+[2023-10-18][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC
+[2023-10-18][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC
+[2023-10-18][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC
+[2023-10-18][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC

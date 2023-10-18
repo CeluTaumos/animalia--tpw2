@@ -7,8 +7,8 @@ class RankingModel{
         $this->database = $database;
     }
     public function getRanking(){
-        // esto va en el modelo del ranking.
-        return $this-> database->query('SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC');
+        $query = 'SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC';
+        return $this->database->query($query);
     }
 }
 

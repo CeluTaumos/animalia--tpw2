@@ -7,11 +7,8 @@ class RankingController{
         $this->render = $render;
         $this->model = $model;
     }
-
     public function mostrarPantallaRanking(){
-        //$respuesta = $this->model->getRespuesta($id);
-        $datos=$this->model->getRanking();
-        var_dump($datos);
+        $datos['partida']=$this->model->getRanking();
         $this->render->printView('ranking', $datos);
     }
 
