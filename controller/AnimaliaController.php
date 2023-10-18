@@ -36,20 +36,17 @@ class AnimaliaController
     }
     public function iniciarSesion()
     {
-        //ARRANCA SESIÓN\(￣︶￣*\))
-        session_start();
+        
         //$error = "";
         // si esta apretado el boton d enviar
         if (isset($_POST["enviar"])) {
 
             //  if ($_POST["user"] == "mica" && $_POST["pw"] == 123) {
 
-            $_SESSION["user"] = $_POST["username"];
+            $_SESSION["user"] = "user";
             //mica-axel-ludmi-cele--MALC *^____^*
-            //CREO LA COOKIE
-            setcookie("malc", "users", time() + 1600);
-            // lo q hace lo redirige a otra pag. --no lo ve el user
-            exit();
+           
+       
             // } else {
             //     //$error = "user o clave erroneos";
             //     session_destroy();

@@ -13,6 +13,7 @@ class PartidaController
         $this->render = $render;
         $this->model = $model;
         $this->partidaJugada = array();
+        $this->puntaje=0;
     }
 
 
@@ -44,10 +45,12 @@ class PartidaController
 
             if ($resultado == '1') {
                 $this->puntaje++;
+                $_SESSION['puntaje'] =  $this->puntaje;
                 $this->mostrarPantallaPartida();
             } else {
-
-                $datos['puntaje'] =  $this->puntaje;
+            
+                $datos['puntaje'] = $_SESSION['puntaje'];
+                $_SESSION['puntaje'] =  $this->puntaje;
                 //PARA GUARDAR EN BDD
                 //  guardarPuntaje($this->puntaje);
                 // Si no se cumple la condición anterior, muestra la pantalla de perdedor

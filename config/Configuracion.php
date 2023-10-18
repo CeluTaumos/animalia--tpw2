@@ -9,6 +9,8 @@ include_once('controller/AnimaliaController.php');
 include_once('third-party/mustache/src/Mustache/Autoloader.php');
 include_once('model/PartidaModel.php');
 include_once('controller/PartidaController.php');
+include_once('controller/LobbyController.php');
+include_once('model/LobbyModel.php');
 //include_once('PHPMailer/Correo.php');
 
 class Configuracion
@@ -41,7 +43,11 @@ class Configuracion
         $model = new AnimaliaModel($this->getDatabase());
         return new AnimaliaController($this->getRender(), $model);
     }
-
+    public function getLobbyController()
+    {
+        $model = new LobbyModel($this->getDatabase());
+        return new LobbyController($this->getRender(), $model);
+    }
     public function getRouter()
     {
         return new Router($this, "getAnimaliaController", "list");
