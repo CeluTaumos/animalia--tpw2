@@ -19,7 +19,7 @@ class PartidaController
     public function generarRandom()
     {
 
-        return rand(1, 4);
+        return rand(1, 20);
     }
 
     public function mostrarPantallaPartida()
