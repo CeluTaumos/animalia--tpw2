@@ -1,0 +1,12 @@
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
