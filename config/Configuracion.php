@@ -13,6 +13,8 @@ include_once('controller/PartidaController.php');
 include_once('controller/LobbyController.php');
 include_once('model/LobbyModel.php');
 include_once('controller/RankingController.php');
+include_once('controller/PerfilController.php');
+include_once('model/PerfilModel.php');
 //include_once('PHPMailer/Correo.php');
 
 class Configuracion
@@ -65,5 +67,10 @@ class Configuracion
     {
         $model = new RankingModel($this->getDatabase());
         return new RankingController($this->getRender(), $model);
+    }
+    public function getPerfilController()
+    {
+        $model = new PerfilModel($this->getDatabase());
+        return new PerfilController($this->getRender(), $model);
     }
 }

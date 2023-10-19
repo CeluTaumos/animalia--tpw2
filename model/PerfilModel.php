@@ -7,7 +7,7 @@ class PerfilModel{
         $this->database = $database;
     }
     public function getUsuario($usuario){
-        $query = 'SELECT * FROM usuario WHERE user_name = ' . $usuario;
+        $query = "SELECT * FROM usuario WHERE user_name =  '$usuario'";
         return $this->database->query($query);
     }
 }
