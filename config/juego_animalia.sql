@@ -41,6 +41,7 @@ puntaje int(11) not null
 );
 /*INSERCION DE USUARIOS DE PRUEBA*/
 insert into usuario(user_name, contrasenia)values("mica","1234"), ("axel", "1234"), ("cele", "1234"), ("ludmi", "1234");
+insert into usuario(user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail)values("user","cortalapipo", "Diego A Maradona", '1960-10-30', 'M', "elultimo10@gmail.com" );
 insert into Partida(id, user_name, puntaje)values(1, "mica",86),(2, "axel",77), (3, "cele",90),(4, "ludmi",99);
 /*INSERCION DE DATOS*/
 

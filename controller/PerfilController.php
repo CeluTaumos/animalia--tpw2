@@ -11,6 +11,7 @@ class PerfilController{
     }
     public function mostrarPantallaPerfil(){
         $datos['usuario']=$this->model->getUsuario($this->usuario);
+        
         $this->render->printView('perfil', $datos);
     }
 
