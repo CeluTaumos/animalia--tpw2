@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,300;1,400&family=Roboto+Mono:ital,wght@1,300&family=Roboto:ital@1&display=swap');
 
-
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
 
 
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto+Slab:wght@100;400&display=swap');
@@ -130,6 +130,26 @@ select {
     padding: 5%;
     margin-top: 7%;
 }
+.boton-sec {
+    background-color: #FD79A8;
+    
+    text-align: center;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Lilita One', cursive;
+    font-weight: 300;
+    box-sizing: border-box;
+    padding: 5%;
+    margin-top: 7%;
+}
+.botonera{
+    display: flex;
+    flex-direction: row;
+    
+}
 .boton a{
     text-decoration: none;
     color: white;
@@ -212,4 +232,9 @@ footer img {
     margin: 20px 20px;
     background-color: #F9F5E3;
     padding: 50px;
+}
+.arcade{
+    font-family: 'Pixelify Sans', sans-serif;
+    color: rgb(34, 23, 236);
+    text-shadow: 4px 3px 3px rgba(0, 0, 0, 0.5);
 }
