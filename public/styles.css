@@ -42,7 +42,7 @@ body {
     height: 5em;
     margin: 0;
     padding: 5%;
-    letter-spacing: 0.313em;
+   
   
 
 }
@@ -241,6 +241,7 @@ footer img {
     color: white;
     font-size: 3.125em;
     font-family: 'Lilita One', cursive;
+    letter-spacing: 0.125em;
 
 }
 
@@ -315,6 +316,7 @@ footer img {
 }
 .caja_ranking h1{
     text-shadow: 2px 2px 3px rgb(0, 0, 0);
+  margin-bottom: 5%;
 }
 .caja-pt-previas {
     text-align: center;
@@ -338,6 +340,7 @@ footer img {
 .caja_ranking,
 .caja-pt-previas h1 {
     margin-top: 1%;
+    margin-bottom: 2%;
     text-transform: uppercase;
     letter-spacing: 0.438em;
 
@@ -361,4 +364,9 @@ a {
 .contenedorPadre {
     display: flex;
     flex-direction: column;
+}
+
+.user_name{
+    color: #F9F5E3;
+    text-align: center;
 }

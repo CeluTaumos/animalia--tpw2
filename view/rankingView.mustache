@@ -2,10 +2,12 @@
 <div class="contenedorPapa">
     <div class="caja_ranking">
         <h1>Ranking</h1>
+       
         {{#partida}}
-        <a href="./index.php?controller=Perfil&method=mostrarPantallaPerfil"> 👑 {{user_name}}</a><span> {{puntaje}}</span><br>
+        <a class="user_name" href="./index.php?controller=Perfil&method=mostrarPantallaPerfil"> 👑 {{user_name}} </a><span> {{puntaje}}</span><br>
         
         {{/partida}}
+    
     </div>
     
     <div class="caja-pt-previas">
