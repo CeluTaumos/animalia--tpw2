@@ -129,6 +129,7 @@ select {
     box-sizing: border-box;
     padding: 5%;
     margin-top: 7%;
+    transition: background-color 0.3s, color 0.3s;
 }
 .boton-sec {
     background-color: #FD79A8;
@@ -142,22 +143,30 @@ select {
     font-family: 'Lilita One', cursive;
     font-weight: 300;
     box-sizing: border-box;
-    padding: 5%;
-    margin-top: 7%;
+    padding: 1%;
+    margin-top:3%;
+    transition: background-color 0.3s, color 0.3s;
 }
 .botonera{
     display: flex;
     flex-direction: row;
-    
+    justify-content: flex-end;
+    margin: 5px 0px;
+}
+.botonera .boton-sec{
+    margin: 0 1px;
+    text-decoration: none;
+}
+.boton-sec:hover {
+    background-color: #F9F5E3;
+    color: #ea3d3d;
+    cursor:pointer;
 }
 .boton a{
     text-decoration: none;
     color: white;
 }
-.boton a:hover {
-    background-color: #F9F5E3;
-    color: #ba2f2f;
-}
+
 
 .boton:hover {
     background-color: #F9F5E3;
@@ -229,12 +238,28 @@ footer img {
     list-style-type: none;
 }
 .caja_ranking{
+    height: max-content;
     margin: 20px 20px;
     background-color: #F9F5E3;
-    padding: 50px;
+    padding: 30px 50px;
+}
+.caja_ranking h1{
+    margin-top: 2px;
 }
 .arcade{
     font-family: 'Pixelify Sans', sans-serif;
     color: rgb(34, 23, 236);
     text-shadow: 4px 3px 3px rgba(0, 0, 0, 0.5);
+}
+a{
+    text-decoration: none;
+}
+
+.perfil{
+    
+    padding: 20px;
+}
+.contenedorPadre{
+    display: flex;
+    flex-direction: column;
 }
