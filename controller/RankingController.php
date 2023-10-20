@@ -9,7 +9,8 @@ class RankingController{
     }
     public function mostrarPantallaRanking(){
         $datos['partida']=$this->model->getRanking();
-        //var_dump($datos['partida']);
+        $datos['partidasPrevias']=$this->model->getPartidasPrevias();
+        var_dump($datos['partidasPrevias']);
         $this->render->printView('ranking', $datos);
     }
 

@@ -60,3 +60,24 @@
 [2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
 [2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
 [2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida WHERE user_name = 'user' ORDER BY fecha DESC LIMIT 10
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM usuario WHERE user_name =  'user'
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM usuario WHERE user_name =  'user'
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM pregunta WHERE id like 3
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  3
+[2023-10-20][INFO]Ejecutando query: SELECT p.*, c.descripcion AS categoria_descripcion 
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 14
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  14
+[2023-10-20][INFO]Ejecutando query: SELECT p.*, c.descripcion AS categoria_descripcion 
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 1
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  1
+[2023-10-20][INFO]Ejecutando query: SELECT p.*, c.descripcion AS categoria_descripcion 
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 16
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  16

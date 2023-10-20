@@ -5,7 +5,7 @@
 
 CREATE TABLE usuario (
     user_name VARCHAR(10) PRIMARY KEY NOT NULL,
-    contrasenia VARCHAR(10) NOT NULL,
+    contrasenia VARCHAR(12) NOT NULL,
     nombre_completo VARCHAR(20) NOT NULL,
     anio_de_nacimiento DATE NOT NULL,
     sexo CHAR(1) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE usuario (
 
 create table Categoria(
 id int (11) primary key not null,
-descripcion varchar(100) NOT NULL
+tipo varchar(100) NOT NULL
 );
 
 CREATE TABLE pregunta (
@@ -48,7 +48,7 @@ insert into Partida(id, user_name, puntaje, fecha)values(1, "mica",86, DATE_SUB(
 
 /*INSERCION DE DATOS*/
 
-insert into categoria(id, descripcion)values(1, "Historia"), (2, "Cultura"), (3, "Deporte"), (4, "Geografía"), (5, "Ciencia");
+insert into categoria(id, tipo)values(1, "Historia", "images/historia.gif"), (2, "Cultura", "images/cultura.gif"), (3, "Deporte", "images/deporte.gif"), (4, "Geografía", "images/geografia.gif"), (5, "Ciencia", "images/ciencia.gif");
 
 insert into pregunta (id, descripcion, categoria) values (1, "¿Cuál es el mamífero más grande?", 5), (2, "¿Qué animal es conocido por su caparazón de placas y se encuentra en el Gran Chaco?", 5), (3, "¿Cuál es el ave más grande de Argentina?", 5), (4, "¿Cuál de estos animales es endémico de la región patagónica argentina?", 5);
 
