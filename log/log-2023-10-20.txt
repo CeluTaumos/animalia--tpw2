@@ -81,3 +81,136 @@
               JOIN categoria c ON p.categoria = c.id
               WHERE p.id = 16
 [2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  16
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 13
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  13
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 7
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  7
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 3
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  3
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 2
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  2
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 2
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  2
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 2
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  2
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 19
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  19
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 16
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  16
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 9
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  9
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 15
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  15
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 3
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  3
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 11
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 3
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  3
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 11
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 4
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  4
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 13
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 8
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  8
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 13
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 15
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  15
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 13
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 3
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  3
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 13
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 9
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  9
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 35
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 17
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  17
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 65
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 10
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  10
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 37
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 9
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  9
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 35
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 15
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  15
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 60
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 16
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  16
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 63
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 8
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  8
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 30
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 10
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  10
