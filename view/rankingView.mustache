@@ -2,7 +2,7 @@
 <div class="contenedorPapa">
     <div class="caja_ranking">
         <h1>Ranking</h1>
-       
+        <iframe src="https://giphy.com/embed/gxhU80is6fOKI" width="240" height="162" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         {{#partida}}
         <a class="user_name" href="./index.php?controller=Perfil&method=mostrarPantallaPerfil"> 👑 {{user_name}} </a><span> {{puntaje}}</span><br>
         
@@ -10,14 +10,15 @@
     
     </div>
     
+    
     <div class="caja-pt-previas">
         <h1>Partidas previas</h1>
-        {{#pregunta}}
+        {{#partida}}
         <span>Usuario: {{user_name}}</span>
-        <span>Puntaje: {{puntaje}}</span>
-        <span>Fecha: {{date}}</span>
+        <span> {{puntaje}}</span>
+        <span>Fecha: {{fecha}}</span>
         
-        {{/pregunta}}
+        {{/partida}}
     </div>
 
 </div>

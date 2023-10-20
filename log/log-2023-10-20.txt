@@ -24,3 +24,39 @@
 [2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
 [2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
 [2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM pregunta WHERE id like 6
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  6
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 21
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM pregunta WHERE id like 10
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  10
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 38
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM usuario WHERE user_name =  'user'
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM usuario WHERE user_name =  'user'
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM pregunta WHERE id like 17
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  17
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 66
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM usuario WHERE user_name =  'user'
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM usuario WHERE user_name =  'user'
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida ORDER BY puntaje DESC LIMIT 7

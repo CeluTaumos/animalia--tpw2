@@ -7,7 +7,7 @@ class RankingModel{
         $this->database = $database;
     }
     public function getRanking(){
-        $query = 'SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7';
+        $query = 'SELECT user_name, puntaje, fecha FROM Partida ORDER BY puntaje DESC LIMIT 7';
         return $this->database->query($query);
     }
 }
