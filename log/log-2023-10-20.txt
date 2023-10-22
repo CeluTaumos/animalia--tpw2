@@ -214,3 +214,26 @@
               JOIN categoria c ON p.categoria = c.id
               WHERE p.id = 10
 [2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  10
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 37
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 11
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  11
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 41
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 13
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  13
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 51
+[2023-10-20][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 1
+[2023-10-20][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  1
+[2023-10-20][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 2
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida WHERE user_name = 'user' ORDER BY fecha DESC LIMIT 10
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-20][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida WHERE user_name = 'user' ORDER BY fecha DESC LIMIT 10
