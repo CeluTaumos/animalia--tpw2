@@ -23,7 +23,14 @@ class AnimaliaController
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $usuario = $_POST["username"];
             $password= $_POST["pass"];
-        }
+            $nombre= $_POST["nombre"];
+            $fecha= $_POST["fecha"];
+            $sexo= $_POST["nombre"];
+            $mail= $_POST["user"];
+            if (!empty($usuario) && !empty($password) && !empty($nombre) && !empty($fecha) && !empty($sexo) && !empty($mail)) {
+            //registrarUsuario($usuario, $password, $nombre, $fecha, $sexo, $mail)
+                $this->model->registrarUsuario($usuario, $password, $nombre, $fecha, $sexo, $mail);
+            }
         $this->iniciarSesion();
 
         $datos = null;
@@ -32,6 +39,7 @@ class AnimaliaController
 
         $this->render->printView('lobby', $datos);
     }
+}
     public function validarCorreo(){
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $usuario = $_POST["username"];
@@ -61,10 +69,7 @@ class AnimaliaController
             //mica-axel-ludmi-cele--MALC *^____^*
            
        
-            // } else {
-            //     //$error = "user o clave erroneos";
-            //     session_destroy();
-            // }
+          
         }
     }
 }

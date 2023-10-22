@@ -304,3 +304,10 @@
 [2023-10-22][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'axel' AND contrasenia = '1234'
 [2023-10-22][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'axel' AND contrasenia = '1234'
 [2023-10-22][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'axel' AND contrasenia = '1234'
+[2023-10-22][INFO]Ejecutando query: INSERT INTO usuario (user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail) 
+              VALUES (Axeld, 1234, Axel daniel, 1996-04-02, Axel daniel, axeelleguero@gmail.com)
+[2023-10-22][INFO]Ejecutando query: INSERT INTO usuario (user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail) 
+              VALUES ('Axeld', '1234', 'Axel daniel', '1996-04-02', 'Axel daniel', 'axeelleguero@gmail.com')
+[2023-10-22][INFO]Ejecutando query: INSERT INTO usuario (user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail) 
+              VALUES ('Axeld', '1234', 'Axel daniel', '1996-04-02', 'Axel daniel', 'axeelleguero@gmail.com')
+[2023-10-22][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'Axeld' AND contrasenia = '1234'
