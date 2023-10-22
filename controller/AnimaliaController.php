@@ -1,6 +1,4 @@
 <?php
-//include_once("../PHPMailer/Correo.php");
-
 class AnimaliaController
 {
     private $render;
@@ -39,9 +37,11 @@ class AnimaliaController
             $usuario = $_POST["username"];
             $password= $_POST["pass"];
             $datos = $this->model->revisarUsuarioYPass($usuario, $password);
-            //var_dump($datos);
-            if($datos!=null){
-                $this->render->printView('jugarPartida', $datos);
+
+            if(!empty($datos)){
+                //para pasar los datos a mustache, debo guardar datos con elnombre entre []
+                $datos['user'] = $datos[0]['user_name'];
+                $this->render->printView('lobby', $datos);
             }else{
                 $this->render->printView('index', $datos);
             }
