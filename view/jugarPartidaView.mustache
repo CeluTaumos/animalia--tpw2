@@ -1,28 +1,30 @@
-
-
-<div class="caja">
-    {{#pregunta}}
+{{#pregunta}}
+<div class="cardPartida {{tipo}}">
+    <div class="caja">
+        
+        
+        <h1>{{tipo}}</h1>
+        <h2>⏳ Tiempo: </h2>
+        <img src="{{imagen}}" width="200" height="150" alt="">
+        <h1>{{descripcion}}</h1>
+        {{/pregunta}}
+    </div>
     
-    <h1>{{tipo}}</h1>
-    <h2>⏳ Tiempo: </h2>
-    <img src="{{imagen}}" width="200" height="150" alt="">
-    <h1>{{descripcion}}</h1>
-    {{/pregunta}}
-</div>
-
-<div >
-{{#respuesta}}
-
-<form action="./index.php?controller=Partida&method=verificarRespuesta" method="post" class="caja">
+    <div >
+    {{#respuesta}}
     
-    <button type="submit" name="id" value="{{id}}" class="boton_respuesta">{{descripcion}}</button>
-</form>
-
-{{/respuesta}}
+    <form action="./index.php?controller=Partida&method=verificarRespuesta" method="post" class="caja">
+        
+        <button type="submit" name="id" value="{{id}}" class="boton_respuesta">{{descripcion}}</button>
+    </form>
+    
+    {{/respuesta}}
+    </div>
+    
+    <div class="botonera">
+        <button>💣</button>
+        <button>💫</button>
+        <button>🃏</button>
+    </div>
 </div>
 
-<div class="botonera">
-    <button>💣</button>
-    <button>💫</button>
-    <button>🃏</button>
-</div>
