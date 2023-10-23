@@ -1,0 +1,7 @@
+[2023-10-21][INFO]Ejecutando query: SELECT * FROM pregunta WHERE id like 8
+[2023-10-21][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  8
+[2023-10-21][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 30
+[2023-10-21][INFO]Ejecutando query: SELECT * FROM pregunta WHERE id like 14
+[2023-10-21][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  14
+[2023-10-21][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 54
+[2023-10-21][INFO]Ejecutando query: SELECT user_name, puntaje FROM Partida ORDER BY puntaje DESC LIMIT 7

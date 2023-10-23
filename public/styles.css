@@ -42,8 +42,8 @@ body {
     height: 5em;
     margin: 0;
     padding: 5%;
-   
-  
+
+
 
 }
 
@@ -120,18 +120,17 @@ select {
 
 .boton {
     background-color: #FD79A8;
-    width: 70%;
+    width: 40%;
     text-align: center;
     color: white;
     border: none;
     text-transform: uppercase;
     border-radius: 10px;
-    text-align: center;
     font-family: 'Lilita One', cursive;
     font-weight: 300;
     font-size: 1.563em;
     box-sizing: border-box;
-    padding: 5%;
+    padding: 2%;
     margin-top: 7%;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -202,6 +201,29 @@ select {
     margin-top: 7%;
 }
 
+.boton_respuesta {
+
+    background: linear-gradient(164deg, rgba(99, 186, 228, 0.7120973389355743) 13%, rgba(131, 188, 215, 0.6644782913165266) 57%, rgba(175, 220, 242, 0.6336659663865547) 97%);
+    width: 35%;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Lilita One', cursive;
+    font-size: 1.500em;
+    /* box-sizing: border-box; */
+    padding: 1%;
+    margin-top: 1%;
+    transition: background-color 0.3s, padding 0.3s;
+
+}
+
+.boton_respuesta:hover {
+    background-color: #3498db;
+    color: white;
+    padding: 3%;
+}
 
 footer {
     display: flex;
@@ -262,9 +284,9 @@ footer img {
 
 .ranking {
     color: #FD79A8;
+    width: 40%;
     background-color: black;
     margin-top: 5%;
-    width: 70%;
     text-align: center;
     border: none;
     text-transform: uppercase;
@@ -273,7 +295,7 @@ footer img {
     font-family: 'Lilita One', cursive;
     font-weight: 300;
     box-sizing: border-box;
-    padding: 5%;
+    padding: 2%;
     transition: background-color 0.3s, color 0.3s;
 
 }
@@ -314,10 +336,12 @@ footer img {
     border-radius: 40px 25px 40px 15px;
     margin: 5%;
 }
-.caja_ranking h1{
+
+.caja_ranking h1 {
     text-shadow: 2px 2px 3px rgb(0, 0, 0);
-  margin-bottom: 5%;
+    margin-bottom: 5%;
 }
+
 .caja-pt-previas {
     text-align: center;
     width: 50%;
@@ -366,7 +390,11 @@ a {
     flex-direction: column;
 }
 
-.user_name{
+.user_name {
     color: #F9F5E3;
     text-align: center;
+}
+
+.caja_opciones {
+    background-color: #3498db;
 }
