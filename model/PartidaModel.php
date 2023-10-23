@@ -32,6 +32,11 @@ class PartidaModel
         return $this->database->query('SELECT * FROM respuesta');
     }
 
+    public function aumentarPuntuacionEnPartida($usuario)
+    {
+        // este metodo esta jodiendooo
+        $this->database->query("UPDATE partida SET puntaje = puntaje + 1 where user_name like '" . $usuario . "'");
+    }
 
     public function getPreguntas()
     {
@@ -45,7 +50,7 @@ class PartidaModel
               FROM pregunta p
               JOIN categoria c ON p.categoria = c.id
               WHERE p.id = ' . $idRandom;
-    
+
         return $this->database->query($query);
     }
 
@@ -55,9 +60,9 @@ class PartidaModel
     }
 
     public function getRespuesta($idRandom)
-{
-    $idRandom = (int)$idRandom; // Asegurarse de que $idRandom sea un entero válido
-    $query = 'SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = ' . $idRandom;
-    return $this->database->query($query);
-}
+    {
+        $idRandom = (int) $idRandom; // Asegurarse de que $idRandom sea un entero válido
+        $query = 'SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = ' . $idRandom;
+        return $this->database->query($query);
+    }
 }

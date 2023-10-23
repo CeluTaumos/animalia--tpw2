@@ -9,9 +9,9 @@ class LobbyModel
         $this->database = $database;
     }
 
-    public function getUser($usuario)
+    public function getPartida($usuario)
     {
-        $query = "SELECT * from usuario where user_name like" . $usuario . "";
+        $query = "SELECT * FROM partida WHERE user_name LIKE '" . $usuario . "'";
         return $this->database->query($query);
     }
 

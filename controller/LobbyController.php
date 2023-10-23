@@ -18,8 +18,8 @@ class LobbyController
     public function mostrarPantallaLobby()
     {
         $usuario = $_SESSION['user'];
-        $user = $this->model->getUser($usuario);
-        $datos = $user[0]['puntaje'];
+        $partida = $this->model->getPartida($usuario);
+        $datos['puntaje'] = $partida[0]['puntaje'];
         $this->render->printView('lobby', $datos);
     }
 }
