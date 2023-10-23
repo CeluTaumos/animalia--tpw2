@@ -399,3 +399,6 @@
 [2023-10-23][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'ludmi' AND contrasenia = '1234'
 [2023-10-23][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'ludmi' AND contrasenia = '1234'
 [2023-10-23][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'mica' AND contrasenia = '1234'
+[2023-10-23][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'ludmi' AND contrasenia = '1234'
+[2023-10-23][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'ludmi' AND contrasenia = '1234'
+[2023-10-23][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'ludmi' AND contrasenia = '1234'

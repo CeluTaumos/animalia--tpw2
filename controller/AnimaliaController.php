@@ -40,7 +40,7 @@ class AnimaliaController
             $password= $_POST["pass"];
             $datosObtenidos = $this->model->revisarUsuarioYPass($usuario, $password);
 
-            if(!empty($datos)){
+            if(!empty($datosObtenidos)){
                 //para pasar los datos a mustache, debo guardar datos con el nombre entre []
                 $datos['user'] = $datosObtenidos[0]['user_name'];
                 $_SESSION['user'] = $usuario;
