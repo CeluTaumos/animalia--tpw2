@@ -239,6 +239,8 @@ footer {
     align-content: center;
     justify-content: space-around;
     align-items: center;
+    animation: footer-color 5s infinite;
+    animation-direction: alternate;
 
 }
 
@@ -397,4 +399,27 @@ a {
 
 .caja_opciones {
     background-color: #3498db;
+}
+
+
+@keyframes footer-color {
+    0% {
+        background-color: #323a;
+        opacity: 1;
+    }
+
+    25% {
+        background-color: rgba(65, 44, 65, 0.667);
+        opacity: 1;
+    }
+
+    50% {
+        background-color:rgba(83, 52, 83, 0.667);
+        opacity: 1;
+    }
+
+    100% {
+        background-color: rgba(102, 60, 102, 0.667);
+        opacity: 1;
+    }
 }
