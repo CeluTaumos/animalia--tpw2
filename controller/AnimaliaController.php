@@ -15,8 +15,6 @@ class AnimaliaController
         $datos = null;
         $this->render->printView('index', $datos);
     }
-
-    //Validacion de los formularios
     public function procesarFormulario()
     {
         //LOGICA PARA DESPUES
@@ -28,15 +26,10 @@ class AnimaliaController
             $sexo= $_POST["nombre"];
             $mail= $_POST["user"];
             if (!empty($usuario) && !empty($password) && !empty($nombre) && !empty($fecha) && !empty($sexo) && !empty($mail)) {
-            //registrarUsuario($usuario, $password, $nombre, $fecha, $sexo, $mail)
                 $this->model->registrarUsuario($usuario, $password, $nombre, $fecha, $sexo, $mail);
+                $this->enviarCorreo();
             }
-        $this->iniciarSesion();
-
         $datos = null;
-        //         //Si todo esta correcto envia el correo
-        //         $exitoso = getCorreo($correo);
-
         $this->render->printView('lobby', $datos);
     }
 }
@@ -47,8 +40,9 @@ class AnimaliaController
             $datos = $this->model->revisarUsuarioYPass($usuario, $password);
 
             if(!empty($datos)){
-                //para pasar los datos a mustache, debo guardar datos con elnombre entre []
+                //para pasar los datos a mustache, debo guardar datos con el nombre entre []
                 $datos['user'] = $datos[0]['user_name'];
+                $_SESSION['user'] = $usuario;
                 $this->render->printView('lobby', $datos);
             }else{
                 $this->render->printView('index', $datos);
@@ -56,16 +50,13 @@ class AnimaliaController
             
         }
     }
-    public function iniciarSesion()
+    public function enviarCorreo()
     {
-        
-        //$error = "";
-        // si esta apretado el boton d enviar
         if (isset($_POST["enviar"])) {
 
             //  if ($_POST["user"] == "mica" && $_POST["pw"] == 123) {
 
-            $_SESSION["user"] = "user";
+            //$_SESSION["user"] = "user";
             //mica-axel-ludmi-cele--MALC *^____^*
            
        

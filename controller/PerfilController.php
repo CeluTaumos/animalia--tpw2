@@ -10,7 +10,7 @@ class PerfilController{
         $this->usuario = $_SESSION['user'];
     }
     public function mostrarPantallaPerfil(){
-        $datos['usuario']=$this->model->getUsuario($this->usuario);
+        $datos['usuario']=$this->model->getUsuario();
         
         $this->render->printView('perfil', $datos);
     }
