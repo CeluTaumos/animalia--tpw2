@@ -46,6 +46,7 @@ class PartidaController
             if ($resultado == '1') {
                 $this->puntaje++;
                 $_SESSION['puntaje'] +=  $this->puntaje;
+                
                 $this->mostrarPantallaPartida();
             } else {
             

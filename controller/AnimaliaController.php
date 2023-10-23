@@ -34,14 +34,15 @@ class AnimaliaController
     }
 }
     public function validarCorreo(){
+        $datos=null;
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $usuario = $_POST["username"];
             $password= $_POST["pass"];
-            $datos = $this->model->revisarUsuarioYPass($usuario, $password);
+            $datosObtenidos = $this->model->revisarUsuarioYPass($usuario, $password);
 
             if(!empty($datos)){
                 //para pasar los datos a mustache, debo guardar datos con el nombre entre []
-                $datos['user'] = $datos[0]['user_name'];
+                $datos['user'] = $datosObtenidos[0]['user_name'];
                 $_SESSION['user'] = $usuario;
                 $this->render->printView('lobby', $datos);
             }else{

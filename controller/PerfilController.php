@@ -7,11 +7,10 @@ class PerfilController{
     public function __construct($render, $model) {
         $this->render = $render;
         $this->model = $model;
-        $this->usuario = $_SESSION['user'];
+        $this->usuario = $this->model->getUsuario();
     }
     public function mostrarPantallaPerfil(){
-        $datos['usuario']=$this->model->getUsuario();
-        
+        $datos['usuario']=$this->usuario;
         $this->render->printView('perfil', $datos);
     }
 
