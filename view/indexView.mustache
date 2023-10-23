@@ -4,6 +4,7 @@
         <form method="post" action="./index.php?controller=Animalia&method=procesarFormulario">
 
             <input type="text" placeholder="Nombre completo" class="input" autofocus required name="nombre">
+            <input type="text" placeholder="Nombre de usuario" class="input" required name="username">
             <input type="date" class="input" required name="fecha">
             <select name="sexo">
                 <option disabled selected>Seleccionar sexo</option>
@@ -33,8 +34,8 @@
 
     <div class="formulario">
         <h3>¡A vos te conozco! Tira tu data </h3>
-        <form method="post" action="./index.php?controller=Animalia&method=procesarFormulario">
-            <input type="text" placeholder="Correo Electrónico" class="input" autofocus required name="correo">
+        <form method="post" action="./index.php?controller=Animalia&method=validarCorreo">
+            <input type="text" placeholder="Correo Electrónico" class="input" autofocus required name="username">
             <input type="password" placeholder="Contraseña" class="input" required name="pass">
             <input type="submit" value="Loggin" class="boton" name="enviar">
         </form>

@@ -40,7 +40,13 @@ class PartidaModel
 
     public function getPreguntaPorID($idRandom)
     {
-        return $this->database->query('SELECT * FROM pregunta WHERE id like ' .  $idRandom);
+        //return $this->database->query('SELECT * FROM pregunta WHERE id like ' .  $idRandom);
+        $query = 'SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = ' . $idRandom;
+    
+        return $this->database->query($query);
     }
 
     public function getRespuestaPorID($idRandom)

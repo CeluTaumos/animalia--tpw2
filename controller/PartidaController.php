@@ -29,7 +29,7 @@ class PartidaController
         array_push($this->partidaJugada, $idGenerado);
         $datos['pregunta'] = $this->model->getPreguntaPorID($idGenerado);
         $datos['respuesta'] = $this->model->getRespuestaPorID($idGenerado);
-
+        
         $this->render->printView('jugarPartida', $datos);
     }
 
