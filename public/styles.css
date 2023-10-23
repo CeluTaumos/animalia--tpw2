@@ -258,7 +258,10 @@ footer img {
 }
 
 .caja img {
-    width: 100px;
+    width: 20%;
+    height: 20%;
+    border-radius: 10px;
+    margin: 2%;
 }
 
 .nombre {
