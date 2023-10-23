@@ -120,18 +120,16 @@ select {
 
 .boton {
     background-color: #FD79A8;
-    width: 40%;
     text-align: center;
     color: white;
     border: none;
     text-transform: uppercase;
     border-radius: 10px;
     font-family: 'Lilita One', cursive;
-    font-weight: 300;
-    font-size: 1.563em;
+    font-size: 1.25em;
     box-sizing: border-box;
-    padding: 2%;
-    margin-top: 7%;
+    padding: 3%;
+    margin-top: 3%;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -281,7 +279,7 @@ footer img {
     background: rgb(99, 186, 228);
     background: linear-gradient(164deg, rgba(99, 186, 228, 0.7120973389355743) 13%, rgba(131, 188, 215, 0.6644782913165266) 57%, rgba(175, 220, 242, 0.6336659663865547) 97%);
     box-sizing: border-box;
-    padding: 3%;
+    padding: 2%;
     border-radius: 40px 25px 40px 15px;
     margin: 5%;
 }

@@ -1,8 +1,6 @@
-
-
 <div class="caja">
     {{#pregunta}}
-    
+
     <h1>{{tipo}}</h1>
     <h2>⏳ Tiempo: </h2>
     <img src="{{imagen}}" width="200" height="150" alt="">
@@ -10,15 +8,15 @@
     {{/pregunta}}
 </div>
 
-<div >
-{{#respuesta}}
+<div>
+    {{#respuesta}}
 
-<form action="./index.php?controller=Partida&method=verificarRespuesta" method="post" class="caja">
-    
-    <button type="submit" name="id" value="{{id}}" class="boton_respuesta">{{descripcion}}</button>
-</form>
+    <form action="./index.php?controller=Partida&method=verificarRespuesta" method="post" class="caja">
 
-{{/respuesta}}
+        <button type="submit" name="id" value="{{id}}" class="boton_respuesta">{{descripcion}}</button>
+    </form>
+
+    {{/respuesta}}
 </div>
 
 <div class="botonera">
