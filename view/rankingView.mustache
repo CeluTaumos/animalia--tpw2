@@ -13,12 +13,13 @@
     
     <div class="caja-pt-previas">
         <h1>Partidas previas</h1>
-        {{#partida}}
+        {{#partidasPrevias}}
         <span>Usuario: {{user_name}}</span>
         <span> {{puntaje}}</span>
         <span>Fecha: {{fecha}}</span>
         
-        {{/partida}}
+        {{/partidasPrevias}}
+        <button class="mt boton"><a href="./index.php?controller=Lobby&method=mostrarPantallaLobby">VOLVER</a></button>
     </div>
 
 </div>
