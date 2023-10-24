@@ -25,7 +25,8 @@ body {
 }
 
 .header {
-    background-color: #4770c4a8;
+    background: rgb(146, 191, 230);
+    background: linear-gradient(171deg, rgba(146, 191, 230, 0.7401085434173669) 13%, rgba(71, 112, 192, 0.7989320728291316) 57%, rgba(71, 139, 196, 0.7793242296918768) 97%);
     display: flex;
     flex-direction: row;
     vertical-align: middle;
@@ -37,7 +38,7 @@ body {
 
 
 .logo {
-    width:6em;
+    width: 6em;
     height: 6em;
     background: rgba(255, 255, 255, 1);
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
@@ -90,7 +91,7 @@ body {
     width: 21.875em;
     margin: 5%;
     height: max-content;
-    background-color:#4770c491;
+    background-color: #4770c491;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
@@ -260,7 +261,8 @@ footer {
 }
 
 footer img {
-    width: 1.875em;
+    width: 4em;
+    height: 4em;
 }
 
 .caja {
@@ -303,6 +305,9 @@ footer img {
     margin: 5%;
 }
 
+.m {
+    margin: 2%;
+}
 
 .ranking {
     color: #FD79A8;
@@ -423,6 +428,14 @@ a {
     background-color: #3498db;
 }
 
+.bye {
+    display: flex;
+    align-content: flex-end;
+    align-items: center;
+    width: 20%;
+    justify-content: center;
+    flex-direction: column;
+}
 
 @keyframes footer-color {
     0% {
