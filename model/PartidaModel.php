@@ -34,8 +34,7 @@ class PartidaModel
 
     public function aumentarPuntuacionEnPartida($usuario)
     {
-        // este metodo esta jodiendooo
-        $this->database->query("UPDATE partida SET puntaje = puntaje + 1 where user_name like '" . $usuario . "'");
+        $this->database->queryB("UPDATE partida SET puntaje = puntaje + 1 where user_name like '" . $usuario . "'");
     }
 
     public function getPreguntas()

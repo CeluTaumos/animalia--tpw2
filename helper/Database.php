@@ -22,4 +22,9 @@ class Database {
         $result = mysqli_query($this->conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_BOTH);
     }
+
+    public function queryB($sql) {
+        Logger::info('Ejecutando query: ' . $sql);
+        $result = mysqli_query($this->conn, $sql);
+    }
 }
