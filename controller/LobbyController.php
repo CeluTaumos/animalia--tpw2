@@ -17,9 +17,14 @@ class LobbyController
 
     public function mostrarPantallaLobby()
     {
-        $usuario = $_SESSION['user'];
-        $partida = $this->model->getPartida($usuario);
-        $datos['puntaje'] = $partida[0]['puntaje'];
+        $datos = null;
         $this->render->printView('lobby', $datos);
+    }
+
+    public function cerrarSesion()
+    {
+        $datos = null;
+        session_destroy();
+        $this->render->printView('index', $datos);
     }
 }

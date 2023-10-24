@@ -128,6 +128,9 @@
 [2023-10-23][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 46
 [2023-10-23][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'root' AND contrasenia = 'testlink'
 [2023-10-23][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'root' AND contrasenia = 'testlink'
+<<<<<<< HEAD
+[2023-10-23][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'cele' AND contrasenia = '1234'
+=======
 [2023-10-23][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
               FROM pregunta p
               JOIN categoria c ON p.categoria = c.id
@@ -359,6 +362,7 @@
               WHERE p.id = 13
 [2023-10-23][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  13
 [2023-10-23][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 51
+>>>>>>> 9ee03eaeb4ab1ebd2ce1ab16661dd9a56efbc193
 [2023-10-23][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
               FROM pregunta p
               JOIN categoria c ON p.categoria = c.id
@@ -370,6 +374,9 @@
               JOIN categoria c ON p.categoria = c.id
               WHERE p.id = 20
 [2023-10-23][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  20
+<<<<<<< HEAD
+[2023-10-23][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 79
+=======
 [2023-10-23][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 80
 [2023-10-23][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
               FROM pregunta p
@@ -417,6 +424,7 @@
 [2023-10-23][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida WHERE user_name = 'ludmi' ORDER BY fecha DESC LIMIT 10
 [2023-10-23][INFO]Ejecutando query: SELECT * from partida where user_name like ludmi
 [2023-10-23][INFO]Ejecutando query: SELECT * FROM partida WHERE user_name LIKE 'ludmi'
+>>>>>>> 9ee03eaeb4ab1ebd2ce1ab16661dd9a56efbc193
 [2023-10-23][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
               FROM pregunta p
               JOIN categoria c ON p.categoria = c.id
@@ -429,17 +437,55 @@
               WHERE p.id = 9
 [2023-10-23][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  9
 [2023-10-23][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 36
+<<<<<<< HEAD
+[2023-10-23][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 8
+[2023-10-23][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  8
+[2023-10-23][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 29
+[2023-10-23][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 17
+[2023-10-23][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  17
+[2023-10-23][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 65
+[2023-10-23][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 6
+[2023-10-23][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  6
+[2023-10-23][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 21
+=======
 [2023-10-23][INFO]Ejecutando query: SELECT * FROM partida WHERE user_name LIKE 'ludmi'
 [2023-10-23][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida ORDER BY puntaje DESC LIMIT 7
 [2023-10-23][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida WHERE user_name = 'ludmi' ORDER BY fecha DESC LIMIT 10
 [2023-10-23][INFO]Ejecutando query: SELECT * FROM partida WHERE user_name LIKE 'ludmi'
 [2023-10-23][INFO]Ejecutando query: SELECT * FROM partida WHERE user_name LIKE 'ludmi'
+>>>>>>> 9ee03eaeb4ab1ebd2ce1ab16661dd9a56efbc193
 [2023-10-23][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
               FROM pregunta p
               JOIN categoria c ON p.categoria = c.id
               WHERE p.id = 5
 [2023-10-23][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  5
 [2023-10-23][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 17
+<<<<<<< HEAD
+[2023-10-23][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 13
+[2023-10-23][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  13
+[2023-10-23][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 51
+[2023-10-23][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 12
+[2023-10-23][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  12
+[2023-10-23][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 46
+[2023-10-23][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'mica' AND contrasenia = '1234'
+[2023-10-23][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'root' AND contrasenia = 'testlink'
+[2023-10-23][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'mica' AND contrasenia = '1234'
+=======
 [2023-10-23][INFO]Ejecutando query: UPDATE Partida SET puntaje = puntaje + 1 where user_name like'ludmi'
 [2023-10-23][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
               FROM pregunta p
@@ -521,3 +567,4 @@
               JOIN categoria c ON p.categoria = c.id
               WHERE p.id = 10
 [2023-10-23][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  10
+>>>>>>> 9ee03eaeb4ab1ebd2ce1ab16661dd9a56efbc193

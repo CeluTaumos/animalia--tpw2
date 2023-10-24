@@ -25,12 +25,27 @@ class PartidaController
 
     public function mostrarPantallaPartida()
     {
-        $idGenerado = $this->generarRandom();
-        array_push($this->partidaJugada, $idGenerado);
+        // $idGenerado = $this->generarRandom();
+        // array_push($this->partidaJugada, $idGenerado);
+        // $datos['pregunta'] = $this->model->getPreguntaPorID($idGenerado);
+        // $datos['respuesta'] = $this->model->getRespuestaPorID($idGenerado);
+        if (!isset($_SESSION['preguntas_mostradas'])) {
+            $_SESSION['preguntas_mostradas'] = array();
+        }
+    
+        // Obtén una pregunta aleatoria que no se haya mostrado
+        do {
+            $idGenerado = $this->generarRandom();
+        } while (in_array($idGenerado, $_SESSION['preguntas_mostradas']));
+    
+        // Agrega la pregunta actual al registro de preguntas mostradas
+        $_SESSION['preguntas_mostradas'][] = $idGenerado;
+    
         $datos['pregunta'] = $this->model->getPreguntaPorID($idGenerado);
         $datos['respuesta'] = $this->model->getRespuestaPorID($idGenerado);
         
         $this->render->printView('jugarPartida', $datos);
+    
     }
 
     public function verificarRespuesta()
