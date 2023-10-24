@@ -25,27 +25,36 @@ body {
 }
 
 .header {
-    background-color: #FD79A8;
-    height: 100px;
+    background-color: #4770c4a8;
     display: flex;
     flex-direction: row;
     vertical-align: middle;
-    justify-content: space-around;
-    padding-top: 20px;
+    justify-content: space-between;
     align-items: center;
+    padding: 2%;
 
 }
+
 
 .logo {
-
-    width: 5em;
-    height: 5em;
-    margin: 0;
-    padding: 5%;
-
+    width:6em;
+    height: 6em;
+    background: rgba(255, 255, 255, 1);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(4%, rgba(255, 255, 255, 1)), color-stop(21%, rgba(255, 212, 228, 1)), color-stop(37%, rgba(250, 205, 222, 1)), color-stop(55%, rgba(252, 174, 203, 1)), color-stop(80%, rgba(250, 140, 180, 1)), color-stop(100%, rgba(253, 121, 168, 1)));
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
+    border-radius: 80px;
+    margin: 5%;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#fd79a8', GradientType=0);
 
 
 }
+
+
+
 
 .account {
     width: 45px;
@@ -81,7 +90,7 @@ body {
     width: 21.875em;
     margin: 5%;
     height: max-content;
-    background-color: #FAB1A0;
+    background-color:#4770c491;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
@@ -192,12 +201,10 @@ select {
     flex-direction: column;
     align-items: center;
 }
- 
-}
+
 
 .botonArchivo input[type="file"] {
     display: none;
-    margin: 2%;
 
 }
 
@@ -273,8 +280,10 @@ footer img {
 }
 
 .nombre {
-    color: white;
-    font-size: 3.125em;
+    color: #fff;
+    text-shadow: 3px 3px 4px #8a3855;
+    text-transform: uppercase;
+    font-size: 30px;
     font-family: 'Lilita One', cursive;
     letter-spacing: 0.125em;
 
@@ -298,7 +307,7 @@ footer img {
 .ranking {
     color: #FD79A8;
     width: 70%;
-   
+
     background-color: black;
     margin-top: 5%;
     text-align: center;
@@ -353,6 +362,7 @@ footer img {
 
 .caja_ranking h1 {
     text-shadow: 2px 2px 3px rgb(0, 0, 0);
+
     margin-bottom: 5%;
 }
 
@@ -426,7 +436,7 @@ a {
     }
 
     50% {
-        background-color:rgba(83, 52, 83, 0.667);
+        background-color: rgba(83, 52, 83, 0.667);
         opacity: 1;
     }
 
