@@ -306,7 +306,7 @@ footer img {
 }
 
 .m {
-    margin: 2%;
+    margin: 5%;
 }
 
 .ranking {
@@ -427,7 +427,6 @@ a {
 .caja_opciones {
     background-color: #3498db;
 }
-<<<<<<< HEAD
 
 .bye {
     display: flex;
@@ -438,31 +437,6 @@ a {
     flex-direction: column;
 }
 
-=======
-.Geografía{
-    background-color: #3498db;
-}
-.Historia{
-    background-color: #dcf61b;
-}
-.Ciencia{
-    background-color: #1db454;
-}
-.Cultura{
-    background-color: #f967c6;
-}
-.Deporte{
-    background-color: #efa721;
-}
-.cardPartida{
-    width:60%;
-    margin: auto;
-    border-radius: 10px;
-}
-.registro{
-    width: 70%;
-}
->>>>>>> 9ee03eaeb4ab1ebd2ce1ab16661dd9a56efbc193
 @keyframes footer-color {
     0% {
         background-color: #323a;
