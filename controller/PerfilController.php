@@ -10,7 +10,8 @@ class PerfilController{
         $this->usuario = $this->model->getUsuario();
     }
     public function mostrarPantallaPerfil(){
-        $datos['usuario']=$this->usuario;
+        $user= $_POST['user'];
+        $datos['usuario']= $this->model->buscarUsuario($user);
         $this->render->printView('perfil', $datos);
     }
 

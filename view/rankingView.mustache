@@ -4,7 +4,12 @@
         <h1>Ranking</h1>
         <iframe src="https://giphy.com/embed/gxhU80is6fOKI" width="240" height="162" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         {{#partida}}
-        <a class="user_name" href="./index.php?controller=Perfil&method=mostrarPantallaPerfil"> 👑 {{user_name}} </a><span> {{puntaje}}</span><br>
+        <form action="./index.php?controller=Perfil&method=mostrarPantallaPerfil" method="post">
+            <input type="hidden" name="user" value="{{user_name}}">
+            <button class="user_name" type="submit" name="enviar">👑 {{user_name}}</button>
+        </form>
+        <span> {{puntaje}}</span><br>
+        <!-- <a class="user_name" href="./index.php?controller=Perfil&method=mostrarPantallaPerfil"> 👑 {{user_name}} </a><span> {{puntaje}}</span><br> -->
         
         {{/partida}}
     
