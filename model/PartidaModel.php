@@ -31,10 +31,10 @@ class PartidaModel
     {
         return $this->database->query('SELECT * FROM respuesta');
     }
-//  public function aumentarPuntuacionEnPartida($usuario)
-//     {
-//         $this->database->queryB("UPDATE partida SET puntaje = puntaje + 1 where user_name like '" . $usuario . "'");
-//     }
+ public function subirPuntuacionEnPartida($usuario)
+    {
+        $this->database->queryB("UPDATE partida SET puntaje = puntaje + 1 where user_name like '" . $usuario . "'");
+    }
 public function aumentarPuntuacionEnPartida($usuario, $id)
 {
     if($id!==NULL)
@@ -81,14 +81,15 @@ public function aumentarPuntuacionEnPartida($usuario, $id)
         $query = "SELECT MAX(id) AS max_id FROM partida WHERE user_name = '" . $usuario . "'";
         $result = $this->database->query($query);
     
-        if ($result !== false && $result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            if ($row) {
-                return $row['max_id'];
-            }
-        }
+        // if ($result !== false && $result->num_rows > 0) {
+        //     $row = $result->fetch_assoc();
+        //     if ($row) {
+        //         return $row['max_id'];
+        //     }
+        // }
     
-        return null;
+       return null;
+
     }
     
     

@@ -76,7 +76,12 @@ class PartidaController
                 $_SESSION['puntaje'] +=  $this->puntaje;
                 $usuario = $_SESSION['user'];
                 $id = $this->model-> getIdPartida($usuario);
-                 $this->model->aumentarPuntuacionEnPartida($usuario, $id);
+                if ($id !== null) {
+                    $this->model->aumentarPuntuacionEnPartida($usuario, $id);
+                }else{
+                    $this->model->subirPuntuacionEnPartida($usuario);
+                }
+                
                 $this->mostrarPantallaPartida();
             } else {
 
