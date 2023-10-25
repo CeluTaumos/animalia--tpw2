@@ -20,7 +20,7 @@ class PartidaController
     public function generarRandom()
     {
 
-        return rand(1, 20);
+        return rand(1, 22);
     }
 
     public function mostrarPantallaPartida()
@@ -32,7 +32,9 @@ class PartidaController
         if (!isset($_SESSION['preguntas_mostradas'])) {
             $_SESSION['preguntas_mostradas'] = array();
         }
-
+        // do {
+        //     $idGenerado = $this->generarRandom();
+        // } while (in_array($idGenerado, $_SESSION['preguntas_mostradas']));
         if (empty($_SESSION['preguntas_disponibles'])) {
 
             $preguntas = $this->model->getPreguntas();

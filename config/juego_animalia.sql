@@ -10,7 +10,7 @@ CREATE TABLE usuario (
     anio_de_nacimiento DATE NOT NULL,
     sexo CHAR(1) NOT NULL,
     mail VARCHAR(25) NOT NULL,
-    foto_de_perfil BLOB NOT NULL
+    foto_de_perfil VARCHAR(40) NOT NULL
 );
 
 create table Categoria(
@@ -43,8 +43,7 @@ fecha DATETIME
 );
 
 /*INSERCION DE USUARIOS DE PRUEBA*/
-insert into usuario(user_name, contrasenia)values("mica","1234"), ("axel", "1234"), ("cele", "1234"), ("ludmi", "1234");
-insert into usuario(user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail)values("user","cortalapipo", "Diego A Maradona", '1960-10-30', 'M', "elultimo10@gmail.com" );
+insert into usuario(user_name, contrasenia, nombre_completo)values("mica","1234", "Micaela Zara"), ("axel", "1234", "Axel Leguero"), ("cele", "1234", "Celena Moscovich"), ("ludmi", "1234", "Ludmila Pereyra");
 insert into Partida(id, user_name, puntaje, fecha)values(1, "mica",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)),(2, "axel",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)), (3, "cele",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)),(4, "ludmi",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY));
 
 /*INSERCION DE DATOS*/
@@ -91,7 +90,11 @@ insert into pregunta (id, descripcion, categoria) values
 (21, "¿En qué año se promulgó la Ley de Divorcio en Argentina?", 1);
 
 insert into Pregunta (id, descripcion, categoria) values (22, "¿De qué murió Favaloro?", 2);
-
+insert into respuesta (id, descripcion, es_correcta, pregunta) values 
+(85, "Suicidio", true, 22), 
+(86, "Se comió un pez globo", false, 22), 
+(87, "Murió en el atentado a las torres gemelas", false, 22), 
+(88, "Lo balearon", false, 22);
 /*respuestas*/
 insert into respuesta (id, descripcion, es_correcta, pregunta) values 
 (17, "El Aconcagua", true, 5), 
@@ -155,7 +158,7 @@ insert into respuesta (id, descripcion, es_correcta, pregunta) values
 
 insert into respuesta (id, descripcion, es_correcta, pregunta) values
 (57, "Billetera mata galán", false, 15),
-(58, "Parala pipo", false, 15),
+(58, "Cortala pipo", false, 15),
 (59, "Es una nena...", false, 15),
 (60, "¿Quiénes son?", true, 15);
 

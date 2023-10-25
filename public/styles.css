@@ -437,6 +437,29 @@ a {
     flex-direction: column;
 }
 
+.Geografía{
+    background-color: #3498db;
+}
+.Historia{
+    background-color: #dcf61b;
+}
+.Ciencia{
+    background-color: #1db454;
+}
+.Cultura{
+    background-color: #f967c6;
+}
+.Deporte{
+    background-color: #efa721;
+}
+.cardPartida{
+    width:60%;
+    margin: auto;
+    border-radius: 10px;
+}
+.registro{
+    width: 70%;
+}
 @keyframes footer-color {
     0% {
         background-color: #323a;
