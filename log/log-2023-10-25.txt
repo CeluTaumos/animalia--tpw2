@@ -141,7 +141,127 @@
 [2023-10-25][INFO]Ejecutando query: SELECT * FROM partida WHERE user_name LIKE 'mica'
 =======
 [2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 2
+<<<<<<< HEAD
+[2023-10-25][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 18
+[2023-10-25][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  18
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 69
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like ''
+[2023-10-25][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 6
+[2023-10-25][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  6
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 21
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like ''
+[2023-10-25][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 7
+[2023-10-25][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  7
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 28
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like ''
+[2023-10-25][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 11
+[2023-10-25][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  11
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 41
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like ''
+[2023-10-25][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 2
+[2023-10-25][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  2
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 5
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like ''
+[2023-10-25][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 5
+[2023-10-25][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  5
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 17
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like ''
+[2023-10-25][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 12
+[2023-10-25][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  12
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 47
+[2023-10-25][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-25][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida WHERE user_name = '' ORDER BY fecha DESC LIMIT 10
+[2023-10-25][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-25][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida WHERE user_name = '' ORDER BY fecha DESC LIMIT 10
+[2023-10-25][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida ORDER BY puntaje DESC LIMIT 7
+[2023-10-25][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida WHERE user_name = '' ORDER BY fecha DESC LIMIT 10
+[2023-10-25][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'mica' AND contrasenia = '1234'
+[2023-10-25][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 14
+[2023-10-25][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  14
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 55
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'mica' AND contrasenia = '1234'
+[2023-10-25][INFO]Ejecutando query: SELECT * FROM pregunta
+[2023-10-25][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 8
+[2023-10-25][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  8
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 29
+[2023-10-25][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 13
+[2023-10-25][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  13
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 51
+[2023-10-25][INFO]Ejecutando query: UPDATE partida SET puntaje = puntaje + 1 where user_name like 'mica'
+[2023-10-25][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
+              FROM pregunta p
+              JOIN categoria c ON p.categoria = c.id
+              WHERE p.id = 2
+[2023-10-25][INFO]Ejecutando query: SELECT * FROM respuesta WHERE pregunta like  2
+[2023-10-25][INFO]Ejecutando query: SELECT CAST(es_correcta AS SIGNED) AS es_correcta_int FROM respuesta WHERE id = 7
+=======
 >>>>>>> ba0cc796b763aa44b951237ebcb2039c473d886b
+<<<<<<< HEAD
 [2023-10-25][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'mica' AND contrasenia = '1234'
 [2023-10-25][INFO]Ejecutando query: SELECT p.descripcion, c.tipo, c.imagen
               FROM pregunta p
@@ -279,3 +399,6 @@
 [2023-10-25][INFO]Ejecutando query: SELECT user_name, puntaje, fecha FROM Partida WHERE user_name = 'mica' ORDER BY fecha DESC LIMIT 10
 [2023-10-25][INFO]Ejecutando query: SELECT * FROM usuario WHERE user_name =  'mica'
 [2023-10-25][INFO]Ejecutando query: SELECT * FROM usuario WHERE user_name =  'mica'
+=======
+>>>>>>> 10e140eb8e03d57a20741935caea8c191c5f9aba
+>>>>>>> 3cde9f0ff86f91b7d1d6c0298882e2fa89f72aad
