@@ -13,7 +13,7 @@ class PartidaController
         $this->render = $render;
         $this->model = $model;
         $this->partidaJugada = array();
-        $this->puntaje=0;
+        $this->puntaje = 0;
     }
 
 
@@ -32,20 +32,31 @@ class PartidaController
         if (!isset($_SESSION['preguntas_mostradas'])) {
             $_SESSION['preguntas_mostradas'] = array();
         }
-    
-        // Obtén una pregunta aleatoria que no se haya mostrado
-        do {
-            $idGenerado = $this->generarRandom();
-        } while (in_array($idGenerado, $_SESSION['preguntas_mostradas']));
-    
-        // Agrega la pregunta actual al registro de preguntas mostradas
+
+        if (empty($_SESSION['preguntas_disponibles'])) {
+
+            $preguntas = $this->model->getPreguntas();
+            $_SESSION['preguntas_disponibles'] = array_column($preguntas, 'id');
+        }
+
+
+        $preguntas_disponibles = $_SESSION['preguntas_disponibles'];
+        $idGenerado = $preguntas_disponibles[array_rand($preguntas_disponibles)];
+
+
         $_SESSION['preguntas_mostradas'][] = $idGenerado;
-    
+
+
+        $key = array_search($idGenerado, $preguntas_disponibles);
+        if ($key !== false) {
+            unset($preguntas_disponibles[$key]);
+            $_SESSION['preguntas_disponibles'] = array_values($preguntas_disponibles);
+        }
+
         $datos['pregunta'] = $this->model->getPreguntaPorID($idGenerado);
         $datos['respuesta'] = $this->model->getRespuestaPorID($idGenerado);
-        
+
         $this->render->printView('jugarPartida', $datos);
-    
     }
 
     public function verificarRespuesta()
@@ -65,7 +76,7 @@ class PartidaController
                 $this->model->aumentarPuntuacionEnPartida($usuario);
                 $this->mostrarPantallaPartida();
             } else {
-            
+
                 $datos['puntaje'] = $_SESSION['puntaje'];
                 $_SESSION['puntaje'] =  $this->puntaje;
                 //PARA GUARDAR EN BDD
