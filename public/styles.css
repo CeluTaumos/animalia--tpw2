@@ -420,10 +420,16 @@ a {
 }
 
 .user_name {
-    color: #F9F5E3;
+    border: none;
+    background: rgb(99, 186, 228);
+    background: linear-gradient(164deg, rgba(99, 108, 228, 0.7120973389355743) 13%, rgba(167, 131, 215, 0.6644782913165266) 57%, rgba(224, 175, 242, 0.6336659663865547) 97%);
+    color: #151511;
     text-align: center;
 }
-
+.row{
+    display: flex;
+    flex-direction: row;
+}
 .caja_opciones {
     background-color: #3498db;
 }

@@ -75,15 +75,16 @@ class PartidaController
                 $this->puntaje++;
                 $_SESSION['puntaje'] +=  $this->puntaje;
                 $usuario = $_SESSION['user'];
-                $this->model->aumentarPuntuacionEnPartida($usuario);
+                $id = $this->model-> getIdPartida($usuario);
+                 $this->model->aumentarPuntuacionEnPartida($usuario, $id);
                 $this->mostrarPantallaPartida();
             } else {
 
                 $datos['puntaje'] = $_SESSION['puntaje'];
                 $_SESSION['puntaje'] =  $this->puntaje;
+                $this->model->guardarPartida();
                 //PARA GUARDAR EN BDD
                 //  guardarPuntaje($this->puntaje);
-                // Si no se cumple la condición anterior, muestra la pantalla de perdedor
                 $this->render->printView('pantallaPerdedor', $datos);
             }
         }
