@@ -466,6 +466,11 @@ a {
 .registro{
     width: 70%;
 }
+.contenedor_cerrar_sesion{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
 @keyframes footer-color {
     0% {
         background-color: #323a;
