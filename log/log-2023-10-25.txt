@@ -1628,3 +1628,4 @@
 [2023-10-25][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'mica' AND contrasenia = '1234'
 [2023-10-25][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'mica' AND contrasenia = '1234'
 [2023-10-25][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'mica' AND contrasenia = '1234'
+[2023-10-25][INFO]Ejecutando query: SELECT user_name, contrasenia FROM usuario WHERE user_name = 'mica' AND contrasenia = '1234'
