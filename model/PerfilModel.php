@@ -7,7 +7,11 @@ class PerfilModel{
         $this->database = $database;
     }
     public function getUsuario(){
-        $usuario = $_POST['user'];
+        if(isset($_POST["user"])){
+            $usuario = $_POST['user'];
+    }else{
+        $usuario= $_SESSION["user"];
+    }
         $query = "SELECT * FROM usuario WHERE user_name =  '$usuario'";
         return $this->database->query($query);
     }
