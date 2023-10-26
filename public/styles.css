@@ -320,7 +320,7 @@ footer img {
     margin: 5%;
 }
 
-.ranking {
+/* .ranking { */
     /* color: #FD79A8;
     width: 70%;
 
@@ -340,7 +340,7 @@ footer img {
     transition: background-color 0.3s, color 0.3s; 
     */
     /* background-color: rgba(71, 112, 192, 0.7989320728291316); */
-}
+/* } */
 
 .ranking a {
     color: #FD79A8;

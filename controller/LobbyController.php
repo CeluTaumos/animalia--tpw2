@@ -17,7 +17,7 @@ class LobbyController
 
     public function mostrarPantallaLobby()
     {
-        $datos = null;
+        $datos['puntaje'] = $_SESSION['puntaje'];
         $this->render->printView('lobby', $datos);
     }
 

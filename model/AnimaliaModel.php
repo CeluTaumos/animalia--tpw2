@@ -21,4 +21,18 @@ class AnimaliaModel {
             echo "Error al registrar el usuario: " . mysqli_error($this->database);
         }
     }
+
+    public function subirFoto($usuario, $imagen){
+        if (!empty($imagen)) {
+        $query = "UPDATE usuario
+        SET foto_de_perfil = '$imagen'
+        WHERE id = $usuario";
+        $resultado = $this->database->query($query);
+        if ($resultado) {
+            echo "Foto subida con éxito.";
+        } else {
+            echo "Error al subir la foto: " . mysqli_error($this->database);
+  }
+    }
+}
 }

@@ -25,8 +25,21 @@ class AnimaliaController
             $fecha= $_POST["fecha"];
             $sexo= $_POST["nombre"];
             $mail= $_POST["user"];
+            $imagen = $_POST["file"];
             if (!empty($usuario) && !empty($password) && !empty($nombre) && !empty($fecha) && !empty($sexo) && !empty($mail)) {
                 $this->model->registrarUsuario($usuario, $password, $nombre, $fecha, $sexo, $mail);
+                if (isset($_FILES["file"])) {
+                    $nombreArchivo = $_FILES["file"]["name"];
+                    $rutaTemporal = $_FILES["file"]["tmp_name"];
+                    $directorioDestino = "config/images/" . $nombreArchivo;
+        
+                    if (move_uploaded_file($rutaTemporal, $directorioDestino)) {
+                        $imagen = $directorioDestino;
+                    } else {
+                        echo "Error al subir la imagen.";
+                    }
+                }
+                $this->model->subirFoto($usuario, $imagen);
                 $this->enviarCorreo();
             }
         $datos = null;
@@ -44,6 +57,8 @@ class AnimaliaController
                 //para pasar los datos a mustache, debo guardar datos con el nombre entre []
                 $datos['user'] = $datosObtenidos[0]['user_name'];
                 $_SESSION['user'] = $usuario;
+                $_SESSION['puntaje'] =0;
+                $datos['puntaje'] = $_SESSION['puntaje'];
                 $this->render->printView('lobby', $datos);
             }else{
                 $this->render->printView('index', $datos);
