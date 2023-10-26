@@ -296,7 +296,7 @@ footer img {
 .caja-dos {
     width: 50%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     background: rgb(99, 186, 228);
@@ -312,22 +312,25 @@ footer img {
 }
 
 .ranking {
-    color: #FD79A8;
+    /* color: #FD79A8;
     width: 70%;
 
     background-color: black;
     margin-top: 5%;
     text-align: center;
-    border: none;
-    text-transform: uppercase;
-    border-radius: 40px 25px 40px 15px;
+    /* border: none; */
+    /* text-transform: uppercase; */
+    /* border-radius: 40px 25px 40px 15px; */
+    /*
+    border-radius: 10px;
     text-align: center;
     font-family: 'Lilita One', cursive;
     font-weight: 300;
     box-sizing: border-box;
     padding: 2%;
-    transition: background-color 0.3s, color 0.3s;
-
+    transition: background-color 0.3s, color 0.3s; 
+    */
+    /* background-color: rgba(71, 112, 192, 0.7989320728291316); */
 }
 
 .ranking a {
