@@ -172,6 +172,7 @@ select {
 .botonera .boton-sec {
     margin: 0 1px;
     text-decoration: none;
+    width: 20%;
 }
 
 .boton-sec:hover {
@@ -415,10 +416,16 @@ a {
 }
 
 .perfil {
-
+    width: 90%;
+    margin: auto;
     padding: 20px;
+    
 }
-
+.titulo{
+    font-weight: 200;
+    background-color: rgba(71, 112, 192, 0.7989320728291316);
+    padding: 30px;
+}
 .contenedorPadre {
     display: flex;
     flex-direction: column;
