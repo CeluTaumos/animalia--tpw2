@@ -131,7 +131,7 @@ select {
 }
 
 .boton {
-    background-color: #FD79A8;
+    /* background-color: #FD79A8; */
     width: 70%;
     text-align: center;
     color: white;
@@ -144,6 +144,14 @@ select {
     padding: 3%;
     margin-top: 3%;
     transition: background-color 0.3s, color 0.3s;
+}
+
+.boton-nueva-partida{
+    background-color: #FD79A8;
+}
+
+.boton-ver-ranking{
+    background-color: rgba(71, 112, 192, 0.7989320728291316);
 }
 
 .boton-sec {
