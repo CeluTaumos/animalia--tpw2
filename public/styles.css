@@ -13,7 +13,7 @@
 body {
     font-family: 'Lilita One', cursive;
     height: 100%;
-    background-color: rgba(250, 205, 222, 1);
+    background-color: #facdde;
     /*
     background: rgba(255, 255, 255, 1);
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
@@ -79,7 +79,11 @@ body {
     box-sizing: border-box;
     margin: 2%;
 }
-
+.index{
+    background-image: url(../public/fondo-arg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .inline {
     display: inline;
 }
