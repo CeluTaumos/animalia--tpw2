@@ -26,7 +26,7 @@ class AnimaliaModel {
         if (!empty($imagen)) {
         $query = "UPDATE usuario
         SET foto_de_perfil = '$imagen'
-        WHERE id = $usuario";
+        WHERE user_name = '$usuario'";
         $resultado = $this->database->query($query);
         if ($resultado) {
             echo "Foto subida con éxito.";
