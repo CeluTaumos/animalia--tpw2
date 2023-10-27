@@ -98,10 +98,10 @@ body {
     justify-content: center;
     align-items: center;
     align-content: center;
-    -webkit-box-shadow: -2px -3px 30px -29px rgba(74, 19, 51, 0.71);
+    /* -webkit-box-shadow: -2px -3px 30px -29px rgba(74, 19, 51, 0.71);
     -moz-box-shadow: -2px -3px 30px -29px rgba(74, 19, 51, 0.71);
-    box-shadow: -2px -3px 30px -29px rgba(74, 19, 51, 0.71);
-
+    box-shadow: -2px -3px 30px -29px rgba(74, 19, 51, 0.71); */
+    box-shadow: 11px 9px 29px -8px rgba(50,58,74,0.74);
 }
 
 .formulario h3 {
