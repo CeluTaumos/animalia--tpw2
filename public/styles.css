@@ -501,7 +501,9 @@ a {
     width: 100%;
     transition: width 1s linear;
   }
-  
+  #hornerito{
+   width: 100%;
+  }
 @keyframes footer-color {
     0% {
         background-color: #323a;
