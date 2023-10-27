@@ -318,6 +318,7 @@ footer img {
     padding: 2%;
     border-radius: 40px 25px 40px 15px;
     margin: 5%;
+    gap:25px;
 }
 
 .m {
