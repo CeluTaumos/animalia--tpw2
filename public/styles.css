@@ -131,7 +131,7 @@ select {
 }
 
 .boton {
-    /* background-color: #FD79A8; */
+     background-color: #FD79A8; 
     width: 70%;
     text-align: center;
     color: white;
@@ -464,19 +464,19 @@ a {
 }
 
 .Geografía{
-    background-color: #3498db;
+    background-color: #6db5e5ad;
 }
 .Historia{
-    background-color: #dcf61b;
+    background-color: #f5fb7cd3;
 }
 .Ciencia{
-    background-color: #1db454;
+    background-color: #5ac481c1;
 }
 .Cultura{
-    background-color: #f967c6;
+    background-color: #f39cd4c4;
 }
 .Deporte{
-    background-color: #efa721;
+    background-color: #b573e8aa;
 }
 .cardPartida{
     width:60%;
@@ -491,6 +491,17 @@ a {
     flex-direction: row;
     justify-content: flex-end;
 }
+
+
+#barraTiempo {
+    height: 1em;
+    border-radius: 20px;
+    margin: 2%;
+    background-color: #ffffffb5;
+    width: 100%;
+    transition: width 1s linear;
+  }
+  
 @keyframes footer-color {
     0% {
         background-color: #323a;
