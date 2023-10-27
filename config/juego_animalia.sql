@@ -198,6 +198,8 @@ insert into respuesta (id, descripcion, es_correcta, pregunta) values
 (83, "1992", false, 21),
 (84, "2000", false, 21);
 
-
+update pregunta
+set descripcion = "Cortala, pipo"
+where id = 58;
 
 
