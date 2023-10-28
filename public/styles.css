@@ -258,7 +258,7 @@ select {
 }
 
 .boton_respuesta:hover {
-    background-color: #3498db;
+    background-color: #1189d9;
     color: white;
     padding: 3%;
 }
@@ -355,7 +355,7 @@ footer img {
 /* } */
 
 .ranking a {
-    color: #FD79A8;
+    color: #fbb5cd;
     font-size: 1.563em;
 }
 
@@ -437,15 +437,14 @@ a {
 
 .perfil {
     width: 90%;
-    margin: auto;
-    padding: 20px;
+    margin: 2%;
+    background-color: rgb(71 112 192 / 52%);
+    padding: 5%;
+    box-shadow: 11px 9px 29px -8px rgba(50,58,74,0.74);
+    border-radius: 10px;
     
 }
-.titulo{
-    font-weight: 200;
-    background-color: rgba(71, 112, 192, 0.7989320728291316);
-    padding: 30px;
-}
+
 .contenedorPadre {
     display: flex;
     flex-direction: column;
@@ -528,12 +527,12 @@ a {
     }
 
     50% {
-        background-color: rgba(83, 52, 83, 0.667);
+        background-color: rgba(22, 66, 77, 0.667);
         opacity: 1;
     }
 
     100% {
-        background-color: rgba(102, 60, 102, 0.667);
+        background-color: rgba(20, 39, 101, 0.667);
         opacity: 1;
     }
 }
