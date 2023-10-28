@@ -23,31 +23,22 @@ class PartidaController
         return rand(1, 22);
     }
 
+
     public function mostrarPantallaPartida()
     {
-        // $idGenerado = $this->generarRandom();
-        // array_push($this->partidaJugada, $idGenerado);
-        // $datos['pregunta'] = $this->model->getPreguntaPorID($idGenerado);
-        // $datos['respuesta'] = $this->model->getRespuestaPorID($idGenerado);
         if (!isset($_SESSION['preguntas_mostradas'])) {
             $_SESSION['preguntas_mostradas'] = array();
         }
-        // do {
-        //     $idGenerado = $this->generarRandom();
-        // } while (in_array($idGenerado, $_SESSION['preguntas_mostradas']));
-        if (empty($_SESSION['preguntas_disponibles'])) {
 
+        if (empty($_SESSION['preguntas_disponibles'])) {
             $preguntas = $this->model->getPreguntas();
             $_SESSION['preguntas_disponibles'] = array_column($preguntas, 'id');
         }
 
-
         $preguntas_disponibles = $_SESSION['preguntas_disponibles'];
         $idGenerado = $preguntas_disponibles[array_rand($preguntas_disponibles)];
 
-
         $_SESSION['preguntas_mostradas'][] = $idGenerado;
-
 
         $key = array_search($idGenerado, $preguntas_disponibles);
         if ($key !== false) {
@@ -57,6 +48,11 @@ class PartidaController
 
         $datos['pregunta'] = $this->model->getPreguntaPorID($idGenerado);
         $datos['respuesta'] = $this->model->getRespuestaPorID($idGenerado);
+
+        // Establece el tiempo inicial en la sesión
+        if (!isset($_SESSION['tiempoRestante'])) {
+            $_SESSION['tiempoRestante'] = 60; // 60 segundos iniciales
+        }
 
         $this->render->printView('jugarPartida', $datos);
     }
@@ -75,22 +71,26 @@ class PartidaController
                 $this->puntaje++;
                 $_SESSION['puntaje'] +=  $this->puntaje;
                 $usuario = $_SESSION['user'];
-                $id = $this->model-> getIdPartida($usuario);
+                $id = $this->model->getIdPartida($usuario);
                 if ($id !== null) {
                     $this->model->aumentarPuntuacionEnPartida($usuario, $id);
-                }else{
+                } else {
                     $this->model->subirPuntuacionEnPartida($usuario);
                 }
-                
+
                 $this->mostrarPantallaPartida();
             } else {
-
                 $datos['puntaje'] = $_SESSION['puntaje'];
                 $_SESSION['puntaje'] =  $this->puntaje;
                 $this->model->guardarPartida();
-                //PARA GUARDAR EN BDD
-                //  guardarPuntaje($this->puntaje);
-                $this->render->printView('pantallaPerdedor', $datos);
+
+                // Redirige a la vista de pantalla de perdedor si el tiempo se agota
+                if (isset($_SESSION['tiempoRestante']) && $_SESSION['tiempoRestante'] <= 0) {
+                    $datos['puntaje'] = $_SESSION['puntaje'];
+                    $_SESSION['puntaje'] =  $this->puntaje;
+                    $this->model->guardarPartida();
+                    $this->render->printView('pantallaPerdedor', $datos);
+                }
             }
         }
     }
