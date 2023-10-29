@@ -50,13 +50,17 @@ class PartidaController
         $datos['respuesta'] = $this->model->getRespuestaPorID($idGenerado);
 
         // Establece el tiempo inicial en la sesión
-        if (!isset($_SESSION['tiempoRestante'])) {
-            $_SESSION['tiempoRestante'] = 60; // 60 segundos iniciales
-        }
+        // if (!isset($_SESSION['tiempoRestante'])) {
+        //     //$_SESSION['tiempoRestante'] = 60; // 60 segundos iniciales
+        // }
 
         $this->render->printView('jugarPartida', $datos);
     }
 
+    public function pantallaPerdedor(){
+        $datos['puntaje'] = $_SESSION['puntaje'];
+        $this->render->printView('pantallaPerdedor', $datos);
+    }
     public function verificarRespuesta()
     {
         $datos = array();
