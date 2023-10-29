@@ -19,11 +19,18 @@ tipo varchar(100) NOT NULL,
 imagen varchar(50) NOT NULL
 );
 
+create table dificultad(
+id int (10) primary key not null,
+nombre varchar(100) NOT NULL
+);
+
 CREATE TABLE pregunta (
   id int(11) PRIMARY KEY NOT NULL,
   descripcion varchar(100) NOT NULL,
   categoria int (11) not null,
-  constraint categoria_fk foreign key (categoria) references categoria(id)
+  dificultad int (10) not null,
+  constraint categoria_fk foreign key (categoria) references categoria(id),
+  constraint dificultad_fk foreign key (dificultad) references dificultad(id)
 );
 
 CREATE TABLE respuesta (
@@ -49,7 +56,9 @@ insert into Partida(id, user_name, puntaje, fecha)values(1, "mica",0, DATE_SUB(N
 /*INSERCION DE DATOS*/
 
 insert into categoria(id, tipo, imagen)values(1, "Historia", "config/images/historia.gif"), (2, "Cultura", "config/images/cultura.gif"), (3, "Deporte", "config/images/deporte.gif"), (4, "Geografía", "config/images/geografia.gif"), (5, "Ciencia", "config/images/ciencia.gif");
+insert into dificultad(id, nombre)values(1, "principiante"), (2, "intermedio"), (3, "avanzado");
 
+-- primeras preguntas de prueba con sus respuestas
 insert into pregunta (id, descripcion, categoria) values (1, "¿Cuál es el mamífero más grande?", 5), (2, "¿Qué animal es conocido por su caparazón de placas y se encuentra en el Gran Chaco?", 5), (3, "¿Cuál es el ave más grande de Argentina?", 5), (4, "¿Cuál de estos animales es endémico de la región patagónica argentina?", 5);
 
 insert into respuesta (id, descripcion, es_correcta, pregunta) values (1, "La ballena azul", true, 1), (2, "El bicho palo", false, 1), (3, "Elon Musk", false, 1), (4, "Nemo", false, 1);
@@ -73,7 +82,8 @@ insert into pregunta (id, descripcion, categoria) values
 (10, "¿Cuál es el deporte nacional de Argentina?", 3), 
 (11, "¿De qué signo es Messi?", 3), 
 (12, "¿Cuál es el primer campeón mundial de box argentino?", 3),
-(13, "¿A qué edad obtuvo el título de Gran Maestra Femenina de ajedrez Candela Belén Francisco Guecamburu?", 3);
+(13, "¿A qué edad obtuvo el título de Gran Maestra Femenina de ajedrez Candela Belén Francisco Guecamburu?", 3),
+;
 
 /*pregunta de cultura*/
 insert into pregunta (id, descripcion, categoria) values
