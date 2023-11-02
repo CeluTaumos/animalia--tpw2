@@ -17,14 +17,10 @@ function reducirTiempo() {
     tiempoRestante--;
     actualizarBarraTiempo();
     actualizarContadorTiempo();
-  } else {
-    // Redirige a la vista de perdedor cuando se agote el tiempo
-    window.location.href = "index.php?controller=Partida&method=pantallaPerdedor" //"view/pantallaPerdedorView.mustache"; // Reemplaza con la ruta correcta
-  }
+  } 
 }
 
 const interval = setInterval(reducirTiempo, 1000);
 
 actualizarBarraTiempo();
 actualizarContadorTiempo();
-//window.location.href = "partida/pantallaPerdedor"
