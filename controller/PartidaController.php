@@ -49,10 +49,7 @@ class PartidaController
         $datos['pregunta'] = $this->model->getPreguntaPorID($idGenerado);
         $datos['respuesta'] = $this->model->getRespuestaPorID($idGenerado);
 
-        // Establece el tiempo inicial en la sesión
-        // if (!isset($_SESSION['tiempoRestante'])) {
-        //     //$_SESSION['tiempoRestante'] = 60; // 60 segundos iniciales
-        // }
+     
 
         $this->render->printView('jugarPartida', $datos);
     }

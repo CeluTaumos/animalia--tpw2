@@ -83,6 +83,7 @@ body {
     background-image: url(../public/fondo-arg-index.png);
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center center;
 }
 .partida{
     background-image: url(../public/fondo-arg-partida.png);
@@ -109,9 +110,6 @@ body {
     justify-content: center;
     align-items: center;
     align-content: center;
-    /* -webkit-box-shadow: -2px -3px 30px -29px rgba(74, 19, 51, 0.71);
-    -moz-box-shadow: -2px -3px 30px -29px rgba(74, 19, 51, 0.71);
-    box-shadow: -2px -3px 30px -29px rgba(74, 19, 51, 0.71); */
     box-shadow: 11px 9px 29px -8px rgba(50,58,74,0.74);
 }
 
@@ -143,7 +141,7 @@ select {
 
 .boton {
      background-color: #FD79A8; 
-    width: 70%;
+    
     text-align: center;
     color: white;
     border: none;
@@ -332,27 +330,6 @@ footer img {
     margin: 5%;
 }
 
-/* .ranking { */
-    /* color: #FD79A8;
-    width: 70%;
-
-    background-color: black;
-    margin-top: 5%;
-    text-align: center;
-    /* border: none; */
-    /* text-transform: uppercase; */
-    /* border-radius: 40px 25px 40px 15px; */
-    /*
-    border-radius: 10px;
-    text-align: center;
-    font-family: 'Lilita One', cursive;
-    font-weight: 300;
-    box-sizing: border-box;
-    padding: 2%;
-    transition: background-color 0.3s, color 0.3s; 
-    */
-    /* background-color: rgba(71, 112, 192, 0.7989320728291316); */
-/* } */
 
 .ranking a {
     color: #fbb5cd;
@@ -500,6 +477,7 @@ a {
 .contenedor_cerrar_sesion{
     display: flex;
     flex-direction: row;
+    width: 50%;
     justify-content: flex-end;
 }
 
