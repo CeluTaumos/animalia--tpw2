@@ -514,3 +514,25 @@ a {
         opacity: 1;
     }
 }
+
+@media (max-width: 768px) {
+    .index {
+        background-size: cover;
+    }
+
+    .partida {
+        background-size: cover;
+        padding: 0.625em; 
+    }
+
+ 
+    .caja {
+        margin: 0.313em;
+    }
+
+    .botonArchivo {
+        font-size: 0.875em;
+    }
+
+    /* Otros ajustes de estilo según sea necesario */
+}
