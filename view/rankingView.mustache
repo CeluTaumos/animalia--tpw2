@@ -5,7 +5,7 @@
         <iframe src="https://giphy.com/embed/gxhU80is6fOKI" width="240" height="162" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         {{#partida}}
         <div class="row">
-            <form action="./index.php?controller=Perfil&method=mostrarPantallaPerfil" method="post">
+            <form action="/Perfil/mostrarPantallaPerfil" method="post">
                 <input type="hidden" name="user" value="{{user_name}}">
                 <button class="user_name" type="submit" name="enviar">👑 {{user_name}}</button>
             </form>
@@ -25,7 +25,7 @@
         <span>Fecha: {{fecha}}</span>
         
         {{/partidasPrevias}}
-        <button class="mt boton"><a href="./index.php?controller=Lobby&method=mostrarPantallaLobby">VOLVER</a></button>
+        <button class="mt boton"><a href="/Lobby/mostrarPantallaLobby">VOLVER</a></button>
     </div>
 
 </div>

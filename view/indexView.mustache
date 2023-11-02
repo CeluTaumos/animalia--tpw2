@@ -1,7 +1,7 @@
 <div class="contenedorPapa index">
     <div class="formulario">
         <h3>¿Todavía out? Empeza a jugar</h3>
-        <form method="post" action="./index.php?controller=Animalia&method=procesarFormulario" enctype="multipart/form-data">
+        <form method="post" action="/Animalia/procesarFormulario" enctype="multipart/form-data">
 
             <input type="text" placeholder="Nombre completo" class="input" autofocus required name="nombre">
             <input type="text" placeholder="Nombre de usuario" class="input" required name="username">
@@ -31,10 +31,9 @@
         </form>
     </div>
 
-
     <div class="formulario">
         <h3>¡A vos te conozco! Tira tu data </h3>
-        <form method="post" action="./index.php?controller=Animalia&method=validarCorreo">
+        <form method="post" action="/Animalia/validarCorreo">
             <input type="text" placeholder="Correo Electrónico" class="input" autofocus required name="username">
             <input type="password" placeholder="Contraseña" class="input" required name="pass">
             <input type="submit" value="Loggin" class="boton" name="enviar">

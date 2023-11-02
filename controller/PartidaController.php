@@ -63,6 +63,7 @@ class PartidaController
     }
     public function verificarRespuesta()
     {
+        
         $datos = array();
         if (isset($_POST['id'])) {
             $id = $_POST['id'];
@@ -87,6 +88,7 @@ class PartidaController
                 $datos['puntaje'] = $_SESSION['puntaje'];
                 $_SESSION['puntaje'] =  $this->puntaje;
                 $this->model->guardarPartida();
+                $this->render->printView('pantallaPerdedor', $datos);
 
                 // Redirige a la vista de pantalla de perdedor si el tiempo se agota
                 if (isset($_SESSION['tiempoRestante']) && $_SESSION['tiempoRestante'] <= 0) {

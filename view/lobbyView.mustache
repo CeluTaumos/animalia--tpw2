@@ -1,7 +1,7 @@
 <div class="contenedor_cerrar_sesion">
     <div class="caja bye centrado">
         <p class="m mt">¿Te vas pibe?</p>
-        <a href="./index.php?controller=Lobby&method=cerrarSesion" class="boton m">cerrar sesión</a>
+        <a href="/Lobby/cerrarSesion" class="boton m">cerrar sesión</a>
     </div>
 </div>
 <div class="caja ">
@@ -9,20 +9,16 @@
     <div class="caja-uno centrado mt ">
         
         <h1>¡Bienvenido, {{user}}!</h1>
-        <img src="public/hornerito-panzon-color.svg" alt="hornerito" id="hornerito">
+        <img src="../public/hornerito-panzon-color.svg" alt="hornerito" id="hornerito">
         <p>PUNTAJE ALCANZADO : <span>{{puntaje}}</span> </p>
 
 
     </div>
 
     <div class="caja-dos centrado ">
-        <a href="./index.php?controller=Partida&method=mostrarPantallaPartida" class="boton boton-nueva-partida">Nueva partida</a>
+        <a href="/Partida/mostrarPantallaPartida" class="boton boton-nueva-partida">Nueva partida</a>
 
-        <a href="./index.php?controller=Ranking&method=mostrarPantallaRanking" class="boton boton-ver-ranking">Ver ranking</a>
+        <a href="/Ranking/mostrarPantallaRanking" class="boton boton-ver-ranking">Ver ranking</a>
 
-        <!-- <button class="boton">
-            <a href="./index.php?controller=Ranking&method=mostrarPantallaRanking">
-                Ver ranking</a>
-        </button> -->
     </div>
 </div>
