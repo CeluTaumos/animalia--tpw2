@@ -38,16 +38,14 @@ class PartidaController
     $preguntaAnteriorId = $_SESSION['pregunta_actual'];
 
     if ($preguntaAnteriorId) {
-        // Calcular el tiempo transcurrido para la pregunta anterior
+        
         $tiempoInicioPreguntaAnterior = $_SESSION['tiempo_inicio'][$preguntaAnteriorId];
         $tiempoActual = time();
         $tiempoTranscurrido = $tiempoActual - $tiempoInicioPreguntaAnterior;
 
-        if ($tiempoTranscurrido <= 10) {
-            // El usuario respondió en menos de 10 segundos, así que sumamos puntaje y pasamos a la siguiente pregunta
-            $this->puntaje++;
-            $_SESSION['puntaje'] += $this->puntaje;
-        }
+       
+        $this->puntaje++;
+        $_SESSION['puntaje'] += $this->puntaje;
     }
 
     $preguntas_disponibles = $_SESSION['preguntas_disponibles'];
@@ -64,14 +62,17 @@ class PartidaController
     $datos['pregunta'] = $this->model->getPreguntaPorID($idGenerado);
     $datos['respuesta'] = $this->model->getRespuestaPorID($idGenerado);
 
-    // Generar una clave única para esta pregunta
     $pregunta_id = uniqid();
 
-    // Guardar el tiempo de inicio y la pregunta actual en la sesión
     $_SESSION['tiempo_inicio'][$pregunta_id] = time();
     $_SESSION['pregunta_actual'] = $pregunta_id;
 
     $this->render->printView('jugarPartida', $datos);
+    if ($tiempoTranscurrido > 10) {
+        $this->pantallaPerdedor();
+        return;
+    }
+
 }
 
     //VERIFICACION DE LO QUE EL USUARIO RESPONDE 
@@ -94,6 +95,7 @@ class PartidaController
                     $tiempoTranscurrido = $tiempoActual - $tiempoInicioPregunta;
     
                     if ($tiempoTranscurrido <= 10) {
+                        // El usuario respondió correctamente en menos de 10 segundos, se suma puntaje
                         $this->puntaje++;
                         $_SESSION['puntaje'] += $this->puntaje;
                         $usuario = $_SESSION['user'];
@@ -104,7 +106,7 @@ class PartidaController
                             $this->model->subirPuntuacionEnPartida($usuario);
                         }
     
-                        // Continuar mostrando una nueva pregunta
+                    
                         $this->mostrarPantallaPartida();
                         return;
                     }
@@ -112,8 +114,7 @@ class PartidaController
             }
         }
     
-        // El usuario no respondió correctamente en 10 segundos o la respuesta es incorrecta
-        // Redirigir a la pantalla de perdedor
+   
         $this->pantallaPerdedor();
     }
     
