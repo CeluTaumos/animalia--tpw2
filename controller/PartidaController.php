@@ -23,6 +23,14 @@ class PartidaController
         return rand(1, 22);
     }
 
+public function seRecargo() {
+        foreach ($_SESSION['preguntas_mostradas']['id'] as $id) {
+            if (!in_array($id, $_SESSION['preguntas_respondidas'])) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public function mostrarPantallaPartida()
 {
