@@ -238,5 +238,18 @@ insert into respuesta (id, descripcion, es_correcta, pregunta) values
 (102, "Juan Domingo Perón", false, 26), 
 (103, "Jorge Luis Borges", false, 26), 
 (104, "Juan Carlos Altavista", false, 26);
-
+ALTER TABLE partida
+ADD COLUMN respuestas_correctas INT DEFAULT 0;
+ALTER TABLE partida
+ADD COLUMN cant_preguntas_entregadas INT DEFAULT 0;
 -- preguntas geo intermedio
+ALTER TABLE pregunta
+ADD COLUMN respuestas_correctas INT DEFAULT 0;
+
+ALTER TABLE pregunta
+ADD COLUMN respuestas_totales INT DEFAULT 0;
+
+ALTER TABLE pregunta
+ADD COLUMN dificultad VARCHAR(255) DEFAULT 'desconocida';
+ALTER TABLE usuario
+ADD COLUMN nivel VARCHAR(255) DEFAULT 'principiante';
