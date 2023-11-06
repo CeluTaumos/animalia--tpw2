@@ -27,7 +27,7 @@ class PartidaController
         $_SESSION['preguntas_disponibles'] = array();
     }
     if (!isset($_SESSION['nivel_usuario'])) {
-        $_SESSION['nivel_usuario'] = 'principiante'; // Cambia 'principiante' al valor por defecto que desees.
+        $_SESSION['nivel_usuario'] = 'principiante'; 
     }
     if (!isset($_SESSION['preguntas_mostradas'])) {
         $_SESSION['preguntas_mostradas']; 
@@ -161,14 +161,13 @@ class PartidaController
 
         $_SESSION['preguntas_respondidas'][] = $id;
 
-        // Verifica si se ha entregado la pregunta en los últimos 10 segundos
         if (isset($_SESSION['tiempo_entrega_pregunta'])) {
             $tiempoEntregaPregunta = $_SESSION['tiempo_entrega_pregunta'];
             $tiempoActual = microtime(true);
             $tiempoTranscurrido = $tiempoActual - $tiempoEntregaPregunta;
             if ($tiempoTranscurrido <= 10) {
                 if ($resultado == '1') {
-                    // El usuario respondió correctamente en menos de 10 segundos, suma puntaje
+                    
                     $this->puntaje++;
                     $_SESSION['puntaje'] += $this->puntaje;
                     $usuario = $_SESSION['user'];
@@ -180,7 +179,7 @@ class PartidaController
                         $this->model->subirPuntuacionEnPartida($usuario);
                     }
 
-                    // Continúa con la siguiente pregunta
+        
                     $this->mostrarPantallaPartida();
                     return;
                 }
@@ -188,7 +187,7 @@ class PartidaController
         }
     }
     
-    // Si la respuesta no es correcta o el tiempo se ha agotado, muestra la pantalla de perdedor
+
     $this->pantallaPerdedor();
 }
     
