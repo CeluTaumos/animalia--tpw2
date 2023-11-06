@@ -81,18 +81,120 @@ public function aumentarPuntuacionEnPartida($usuario, $id)
         $query = "SELECT MAX(id) AS max_id FROM partida WHERE user_name = '" . $usuario . "'";
         $result = $this->database->query($query);
     
-        // if ($result !== false && $result->num_rows > 0) {
-        //     $row = $result->fetch_assoc();
-        //     if ($row) {
-        //         return $row['max_id'];
-        //     }
-        // }
+      
     
        return null;
 
     }
     
+    public function getPorcentajeRespuestasCorrectas($usuario)
+    {
+        $query = "SELECT SUM(respuestas_correctas) AS total_respuestas_correctas, SUM(cant_preguntas_entregadas) AS total_preguntas_entregadas FROM partida WHERE user_name = '" . $usuario . "'";
+        $result = $this->database->query($query);
     
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $totalRespuestasCorrectas = $row['total_respuestas_correctas'];
+            $totalPreguntasEntregadas = $row['total_preguntas_entregadas'];
     
+            if ($totalPreguntasEntregadas > 0) {
+                $porcentajeRespuestasCorrectas = ($totalRespuestasCorrectas / ($totalPreguntasEntregadas)) * 100;
+            } else {
+                $porcentajeRespuestasCorrectas = 0;
+            }
+        }
     
+        return $porcentajeRespuestasCorrectas;
+    }
+    
+    public function aumentarPreguntasEntregadas($usuario)
+    {
+        $query = "UPDATE partida SET cant_preguntas_entregadas = cant_preguntas_entregadas + 1 WHERE user_name = '" . $usuario . "'";
+        $this->database->queryB($query);
+    }
+
+
+public function actualizarPreguntaRespuestaCorrecta($idPregunta)
+{
+    $this->database->queryB("UPDATE pregunta SET respuestas_correctas = respuestas_correctas + 1, respuestas_totales = respuestas_totales + 1 WHERE id = " . $idPregunta);
+}
+
+public function getDificultadPregunta($idPregunta)
+{
+    if (!is_numeric($idPregunta) || $idPregunta <= 0) {
+        return 'desconocida'; // Otra respuesta predeterminada o manejo del error.
+    }
+    $query = "SELECT respuestas_correctas, respuestas_totales FROM pregunta WHERE id = " . $idPregunta;
+    $result = $this->database->query($query);
+
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $respuestasCorrectas = $row['respuestas_correctas'];
+        $respuestasTotales = $row['respuestas_totales'];
+
+        if ($respuestasTotales > 0) {
+            $porcentajeCorrectas = ($respuestasCorrectas / $respuestasTotales) * 100;
+
+            if ($porcentajeCorrectas > 70) {
+                return 'fácil';
+            } elseif ($porcentajeCorrectas < 30) {
+                return 'difícil';
+            } else {
+                return 'intermedia';
+            }
+        }
+    }
+
+    return 'desconocida'; 
+}
+public function getPreguntaSegunNivel($nivelUsuario)
+{
+    $dificultad = '';
+    
+    if ($nivelUsuario == 'principiante') {
+        $dificultad = 'fácil';
+    } elseif ($nivelUsuario == 'intermedio') {
+        $dificultad = 'intermedia';
+    } elseif ($nivelUsuario == 'experto') {
+        $dificultad = 'difícil';
+    }
+
+    $query = "SELECT id FROM pregunta WHERE dificultad = '" . $dificultad . "'";
+    
+    $result = $this->database->query($query);
+
+    if ($result && $result->num_rows > 0) {
+        $preguntas = $result->fetch_all(MYSQLI_ASSOC);
+
+       
+        $preguntaElegida = $preguntas[array_rand($preguntas)];
+        
+        return $preguntaElegida['id'];
+    }
+   
+    return null;
+}
+public function actualizarNivelUsuario($usuario)
+{
+    $porcentajeRespuestasCorrectas = $this->getPorcentajeRespuestasCorrectas($usuario);
+
+    $umbralPrincipiante = 30;
+    $umbralIntermedio = 70;
+    $nuevoNivel = 'desconocido';
+
+    if ($porcentajeRespuestasCorrectas >= 0 && $porcentajeRespuestasCorrectas <= $umbralPrincipiante) {
+        $nuevoNivel = 'principiante';
+    } elseif ($porcentajeRespuestasCorrectas > $umbralPrincipiante && $porcentajeRespuestasCorrectas <= $umbralIntermedio) {
+        $nuevoNivel = 'intermedio';
+    } elseif ($porcentajeRespuestasCorrectas > $umbralIntermedio && $porcentajeRespuestasCorrectas <= 100) {
+        $nuevoNivel = 'experto';
+    }
+
+    $query = "UPDATE usuarios SET nivel = '" . $nuevoNivel . "' WHERE username = '" . $usuario . "'";
+    $this->database->queryB($query);
+
+    return $nuevoNivel;
+}
+
+
 }

@@ -17,71 +17,112 @@ class PartidaController
     }
 
 
-    public function generarRandom()
-    {
-
-       // return rand(1, 22);
-    }
+ 
 
 
     public function mostrarPantallaPartida()
-    {
+{
+
+    if (!isset($_SESSION['preguntas_disponibles'])) {
+        $_SESSION['preguntas_disponibles'] = array();
+    }
+    if (!isset($_SESSION['nivel_usuario'])) {
+        $_SESSION['nivel_usuario'] = 'principiante'; // Cambia 'principiante' al valor por defecto que desees.
+    }
+    if (!isset($_SESSION['preguntas_mostradas'])) {
+        $_SESSION['preguntas_mostradas']; 
+    }
+   
+    if (!isset($_SESSION['preguntas_mostradas'])) {
+        $_SESSION['preguntas_mostradas'] = array();
+    }
     
-        if (!isset($_SESSION['preguntas_mostradas'])) {
-            $_SESSION['preguntas_mostradas'] = array();
+    $preguntas_disponibles = $_SESSION['preguntas_disponibles'];
+    $nivelUsuario = $_SESSION['nivel_usuario'];
+    $idGenerado = null;
+    
+    
+    $datos['dificultad'] = 'desconocida';
+    
+    
+    
+    
+    while ($idGenerado === null) {
+        
+        if ($nivelUsuario === 'principiante' || $nivelUsuario === 'intermedio' || $nivelUsuario === 'experto') {
+            $idGenerado = $this->model->getPreguntaSegunNivel($nivelUsuario);
         }
+        
+           
+        
+       
+            if (in_array($idGenerado, $_SESSION['preguntas_mostradas'])) {
+        
+                $idGenerado = null;
+            } else {
+        
+                $this->model->aumentarPreguntasEntregadas($_SESSION['user']);
+                $_SESSION['preguntas_mostradas'][] = $idGenerado;
+        
+          
+                $preguntaDificultad = $this->model->getDificultadPregunta($idGenerado);
+                $datos['dificultad'] = $preguntaDificultad;
+            }
+    }
+    
+    if ($idGenerado === null) {
 
         if (empty($_SESSION['preguntas_disponibles'])) {
             $preguntas = $this->model->getPreguntas();
             $_SESSION['preguntas_disponibles'] = array_column($preguntas, 'id');
         }
-
+        
         $preguntaAnteriorId = $_SESSION['pregunta_actual'];
-
+        
         if ($preguntaAnteriorId) {
-
             $tiempoInicioPreguntaAnterior = $_SESSION['tiempo_inicio'][$preguntaAnteriorId];
             $tiempoActual = time();
             $tiempoTranscurrido = $tiempoActual - $tiempoInicioPreguntaAnterior;
-
-
+            
             $this->puntaje++;
             $_SESSION['puntaje'] += $this->puntaje;
         }
-
-        $preguntas_disponibles = $_SESSION['preguntas_disponibles'];
+        
         $idGenerado = $preguntas_disponibles[array_rand($preguntas_disponibles)];
-
+        
         $_SESSION['preguntas_mostradas'][] = $idGenerado;
-
+        
         $key = array_search($idGenerado, $preguntas_disponibles);
         if ($key !== false) {
             unset($preguntas_disponibles[$key]);
             $_SESSION['preguntas_disponibles'] = array_values($preguntas_disponibles);
         }
-
+        
         $datos['pregunta'] = $this->model->getPreguntaPorID($idGenerado);
         $datos['respuesta'] = $this->model->getRespuestaPorID($idGenerado);
-
+        
         $pregunta_id = uniqid();
-
+        
         $_SESSION['tiempo_inicio'][$pregunta_id] = time();
         $_SESSION['pregunta_actual'] = $pregunta_id;
-
-        $this->render->printView('jugarPartida', $datos);
-        if ($tiempoTranscurrido > 10 && !isset($_SESSION['pantalla_perdedor_mostrada'])) {
-            $_SESSION['pantalla_perdedor_mostrada'] = true;
-            $this->pantallaPerdedor();
-            return;
-        }
-
     }
+    
+    $this->render->printView('jugarPartida', $datos);
+    
+    if ($tiempoTranscurrido > 10 && !isset($_SESSION['pantalla_perdedor_mostrada'])) {
+        $_SESSION['pantalla_perdedor_mostrada'] = true;
+        $this->pantallaPerdedor();
+        return;
+    }
+}
+
 
     //VERIFICACION DE LO QUE EL USUARIO RESPONDE 
 
     public function verificarRespuesta()
     {
-        $datos = array();
+      
+        
         if (isset($_POST['id'])) {
             $id = $_POST['id'];
 
@@ -117,14 +158,15 @@ class PartidaController
                 }
             } $this->pantallaPerdedor(); return;
         }
-
         $this->pantallaPerdedor();
-    
+        
     }
-
-
+    
+    
     public function pantallaPerdedor()
     {
+        $nivelUsuario = $this->model->actualizarNivelUsuario($_SESSION['user']);
+        $_SESSION['nivel_usuario'] = $nivelUsuario;
         $datos['puntaje'] = $_SESSION['puntaje'];
         $this->render->printView('pantallaPerdedor', $datos);
     }
