@@ -39,7 +39,7 @@ class PartidaController
     $preguntas_disponibles = $_SESSION['preguntas_disponibles'];
     $nivelUsuario = $_SESSION['nivel_usuario'];
     $idGenerado = null;
-    
+    $porcentajeRespuestasCorrectas = 0;
     
     $datos['dificultad'] = 'desconocida';
     

@@ -89,10 +89,12 @@ public function aumentarPuntuacionEnPartida($usuario, $id)
     
     public function getPorcentajeRespuestasCorrectas($usuario)
     {
+        $porcentajeRespuestasCorrectas = 0;
         $query = "SELECT SUM(respuestas_correctas) AS total_respuestas_correctas, SUM(cant_preguntas_entregadas) AS total_preguntas_entregadas FROM partida WHERE user_name = '" . $usuario . "'";
         $result = $this->database->query($query);
     
-        if ($result && $result->num_rows > 0) {
+        //if ($result && $result->num_rows > 0) {
+        if ($result && $result instanceof mysqli_result && $result->num_rows > 0) {    
             $row = $result->fetch_assoc();
             $totalRespuestasCorrectas = $row['total_respuestas_correctas'];
             $totalPreguntasEntregadas = $row['total_preguntas_entregadas'];
@@ -190,7 +192,7 @@ public function actualizarNivelUsuario($usuario)
         $nuevoNivel = 'experto';
     }
 
-    $query = "UPDATE usuarios SET nivel = '" . $nuevoNivel . "' WHERE username = '" . $usuario . "'";
+    $query = "UPDATE usuario SET nivel = '" . $nuevoNivel . "' WHERE user_name = '" . $usuario . "'";
     $this->database->queryB($query);
 
     return $nuevoNivel;
