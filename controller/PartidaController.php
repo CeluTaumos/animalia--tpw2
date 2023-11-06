@@ -62,11 +62,11 @@ class PartidaController
     
         if ($idGenerado === null) {
 
-        if (empty($_SESSION['preguntas_disponibles'])) {
-            $preguntas = $this->model->getPreguntas();
-            $_SESSION['preguntas_disponibles'] = array_column($preguntas, 'id');
+            if (empty($_SESSION['preguntas_disponibles'])) {
+                $preguntas = $this->model->getPreguntas();
+                $_SESSION['preguntas_disponibles'] = array_column($preguntas, 'id');
         }
-        
+        $_SESSION['tiempo_entrega_pregunta'] = microtime(true);
         $preguntaAnteriorId = $_SESSION['pregunta_actual'];
         
         if ($preguntaAnteriorId) {
@@ -109,49 +109,88 @@ class PartidaController
 
     //VERIFICACION DE LO QUE EL USUARIO RESPONDE 
 
-    public function verificarRespuesta()
-    {
+    // public function verificarRespuesta()
+    // {
       
         
-        if (isset($_POST['id'])) {
-            $id = $_POST['id'];
+    //     if (isset($_POST['id'])) {
+    //         $id = $_POST['id'];
 
-            $respuesta = $this->model->getRespuesta($id);
+    //         $respuesta = $this->model->getRespuesta($id);
 
-            $resultado = $respuesta[0]["es_correcta_int"];
+    //         $resultado = $respuesta[0]["es_correcta_int"];
 
-            $_SESSION['preguntas_respondidas'][] = $id;
+    //         $_SESSION['preguntas_respondidas'][] = $id;
 
-            if ($resultado == '1') {
-                $preguntaActualId = $_SESSION['pregunta_actual'];
-                if ($preguntaActualId && isset($_SESSION['tiempo_inicio'][$preguntaActualId])) {
-                    $tiempoActual = time();
-                    $tiempoInicioPregunta = $_SESSION['tiempo_inicio'][$preguntaActualId];
-                    $tiempoTranscurrido = $tiempoActual - $tiempoInicioPregunta;
+    //         if ($resultado == '1') {
+    //             $preguntaActualId = $_SESSION['pregunta_actual'];
+    //             if ($preguntaActualId && isset($_SESSION['tiempo_inicio'][$preguntaActualId])) {
+    //                 $tiempoActual = time();
+    //                 $tiempoInicioPregunta = $_SESSION['tiempo_inicio'][$preguntaActualId];
+    //                 $tiempoTranscurrido = $tiempoActual - $tiempoInicioPregunta;
 
-                    if ($tiempoTranscurrido <= 10) {
-                        // El usuario respondió correctamente en menos de 10 segundos, se suma puntaje
-                        $this->puntaje++;
-                        $_SESSION['puntaje'] += $this->puntaje;
-                        $usuario = $_SESSION['user'];
-                        $idPartida = $this->model->getIdPartida($usuario);
-                        if ($idPartida !== null) {
-                            $this->model->aumentarPuntuacionEnPartida($usuario, $idPartida);
-                        } else {
-                            $this->model->subirPuntuacionEnPartida($usuario);
-                        }
+    //                 if ($tiempoTranscurrido <= 10) {
+    //                     // El usuario respondió correctamente en menos de 10 segundos, se suma puntaje
+    //                     $this->puntaje++;
+    //                     $_SESSION['puntaje'] += $this->puntaje;
+    //                     $usuario = $_SESSION['user'];
+    //                     $idPartida = $this->model->getIdPartida($usuario);
+    //                     if ($idPartida !== null) {
+    //                         $this->model->aumentarPuntuacionEnPartida($usuario, $idPartida);
+    //                     } else {
+    //                         $this->model->subirPuntuacionEnPartida($usuario);
+    //                     }
 
 
-                        //$this->mostrarPantallaPartida();
-                        return;
-                    }
-                }
-            } $this->pantallaPerdedor(); return;
-        }
-        $this->pantallaPerdedor();
+    //                     //$this->mostrarPantallaPartida();
+    //                     return;
+    //                 }
+    //             }
+    //         } $this->pantallaPerdedor(); return;
+    //     }
+    //     $this->pantallaPerdedor();
         
+    // }
+    public function verificarRespuesta()
+{
+    if (isset($_POST['id'])) {
+        $id = $_POST['id'];
+
+        $respuesta = $this->model->getRespuesta($id);
+        $resultado = $respuesta[0]["es_correcta_int"];
+
+        $_SESSION['preguntas_respondidas'][] = $id;
+
+        // Verifica si se ha entregado la pregunta en los últimos 10 segundos
+        if (isset($_SESSION['tiempo_entrega_pregunta'])) {
+            $tiempoEntregaPregunta = $_SESSION['tiempo_entrega_pregunta'];
+            $tiempoActual = microtime(true);
+            $tiempoTranscurrido = $tiempoActual - $tiempoEntregaPregunta;
+            if ($tiempoTranscurrido <= 10) {
+                if ($resultado == '1') {
+                    // El usuario respondió correctamente en menos de 10 segundos, suma puntaje
+                    $this->puntaje++;
+                    $_SESSION['puntaje'] += $this->puntaje;
+                    $usuario = $_SESSION['user'];
+                    $idPartida = $this->model->getIdPartida($usuario);
+
+                    if ($idPartida !== null) {
+                        $this->model->aumentarPuntuacionEnPartida($usuario, $idPartida);
+                    } else {
+                        $this->model->subirPuntuacionEnPartida($usuario);
+                    }
+
+                    // Continúa con la siguiente pregunta
+                    $this->mostrarPantallaPartida();
+                    return;
+                }
+            }
+        }
     }
     
+    // Si la respuesta no es correcta o el tiempo se ha agotado, muestra la pantalla de perdedor
+    $this->pantallaPerdedor();
+}
     
     public function pantallaPerdedor()
     {

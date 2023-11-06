@@ -197,6 +197,6 @@ public function actualizarNivelUsuario($usuario)
 
     return $nuevoNivel;
 }
-
+//Guardar la pregunta y id en la session, validar que la ultima entregada y la ultima respondida sea la misma
 
 }
