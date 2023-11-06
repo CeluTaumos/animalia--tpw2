@@ -159,7 +159,7 @@ public function getPreguntaSegunNivel($nivelUsuario)
         $dificultad = 'difícil';
     }
 
-    $query = "SELECT id FROM pregunta WHERE dificultad = '" . $dificultad . "'";
+    $query = "SELECT id FROM pregunta WHERE dificultad = '" . $dificultad . "' LIMIT 10";
     
     $result = $this->database->query($query);
 

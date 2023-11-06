@@ -17,12 +17,30 @@ class Database {
         mysqli_close($this->conn);
     }
 
-    public function query($sql) {
+    // public function query($sql) {
+    //     Logger::info('Ejecutando query: ' . $sql);
+    //     $result = mysqli_query($this->conn, $sql);
+    //     return mysqli_fetch_all($result, MYSQLI_BOTH);
+    // }
+    public function query($sql, $params = array()) {
         Logger::info('Ejecutando query: ' . $sql);
-        $result = mysqli_query($this->conn, $sql);
-        return mysqli_fetch_all($result, MYSQLI_BOTH);
+        $stmt = mysqli_prepare($this->conn, $sql);
+    
+        if ($stmt) {
+            if (!empty($params)) {
+                $types = str_repeat('s', count($params)); // Tipos de datos: 's' para cadenas
+                mysqli_stmt_bind_param($stmt, $types, ...$params);
+            }
+    
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            return mysqli_fetch_all($result, MYSQLI_BOTH);
+        } else {
+            Logger::error('Error al preparar la consulta: ' . $sql);
+            return false;
+        }
     }
-
+    
     public function queryB($sql) {
         Logger::info('Ejecutando query: ' . $sql);
         $result = mysqli_query($this->conn, $sql);

@@ -32,7 +32,6 @@ class PartidaController
     if (!isset($_SESSION['preguntas_mostradas'])) {
         $_SESSION['preguntas_mostradas']; 
     }
-   
     if (!isset($_SESSION['preguntas_mostradas'])) {
         $_SESSION['preguntas_mostradas'] = array();
     }
@@ -44,18 +43,11 @@ class PartidaController
     
     $datos['dificultad'] = 'desconocida';
     
-    
-    
-    
     while ($idGenerado === null) {
         
         if ($nivelUsuario === 'principiante' || $nivelUsuario === 'intermedio' || $nivelUsuario === 'experto') {
             $idGenerado = $this->model->getPreguntaSegunNivel($nivelUsuario);
         }
-        
-           
-        
-       
             if (in_array($idGenerado, $_SESSION['preguntas_mostradas'])) {
         
                 $idGenerado = null;
@@ -63,14 +55,12 @@ class PartidaController
         
                 $this->model->aumentarPreguntasEntregadas($_SESSION['user']);
                 $_SESSION['preguntas_mostradas'][] = $idGenerado;
-        
-          
                 $preguntaDificultad = $this->model->getDificultadPregunta($idGenerado);
                 $datos['dificultad'] = $preguntaDificultad;
             }
-    }
+    //}
     
-    if ($idGenerado === null) {
+        if ($idGenerado === null) {
 
         if (empty($_SESSION['preguntas_disponibles'])) {
             $preguntas = $this->model->getPreguntas();
@@ -100,7 +90,6 @@ class PartidaController
         
         $datos['pregunta'] = $this->model->getPreguntaPorID($idGenerado);
         $datos['respuesta'] = $this->model->getRespuestaPorID($idGenerado);
-        
         $pregunta_id = uniqid();
         
         $_SESSION['tiempo_inicio'][$pregunta_id] = time();
@@ -114,6 +103,7 @@ class PartidaController
         $this->pantallaPerdedor();
         return;
     }
+}
 }
 
 
@@ -152,7 +142,7 @@ class PartidaController
                         }
 
 
-                        $this->mostrarPantallaPartida();
+                        //$this->mostrarPantallaPartida();
                         return;
                     }
                 }
