@@ -70,8 +70,8 @@ class PartidaController
                     $tiempoActual = time();
                     $tiempoTranscurrido = $tiempoActual - $tiempoInicioPreguntaAnterior;
 
-                    $this->puntaje++;
-                    $_SESSION['puntaje'] += $this->puntaje;
+                    // $this->puntaje++;
+                    // $_SESSION['puntaje'] += $this->puntaje;
                 }
 
                 $idGenerado = $preguntas_disponibles[array_rand($preguntas_disponibles)];
@@ -164,8 +164,8 @@ class PartidaController
                 if ($tiempoTranscurrido <= 10) {
                     if ($resultado == '1') {
 
-                        $this->puntaje++;
-                        $_SESSION['puntaje'] += $this->puntaje;
+                        
+                        $_SESSION['puntaje'] = $_SESSION['puntaje']+1;
                         $usuario = $_SESSION['user'];
                         $idPartida = $this->model->getIdPartida($usuario);
 

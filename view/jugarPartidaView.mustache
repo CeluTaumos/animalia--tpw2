@@ -1,4 +1,5 @@
 <div class=" partida">
+
 {{#pregunta}}
 <div class="cardPartida {{tipo}}">
     <div class="caja">
@@ -13,14 +14,16 @@
     </div>
     
     <div >
+    <form action="/Partida/verificarRespuesta" method="post" class="caja">
     {{#respuesta}}
     
-    <form action="/Partida/verificarRespuesta" method="post" class="caja">
+    
         
         <button type="submit" name="id" value="{{id}}" class="boton_respuesta shadow-drop-center">{{descripcion}}</button>
-    </form>
+    
     
     {{/respuesta}}
+    </form>
     </div>
     
     <div class="botonera">
