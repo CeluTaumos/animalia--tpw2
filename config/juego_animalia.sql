@@ -10,8 +10,12 @@ CREATE TABLE usuario (
     anio_de_nacimiento DATE NOT NULL,
     sexo CHAR(1) NOT NULL,
     mail VARCHAR(25) NOT NULL,
-    foto_de_perfil VARCHAR(40) NOT NULL
+    foto_de_perfil VARCHAR(40) NOT NULL,
+    rol VARCHAR(20) NOT NULL
 );
+
+ALTER TABLE usuario
+ADD COLUMN nivel VARCHAR(255) DEFAULT 'principiante';
 
 create table Categoria(
 id int (11) primary key not null,
@@ -49,13 +53,19 @@ puntaje int(11) not null,
 fecha DATETIME
 );
 
-/*INSERCION DE USUARIOS DE PRUEBA*/
-insert into usuario(user_name, contrasenia, nombre_completo)values("mica","1234", "Micaela Zara"), ("axel", "1234", "Axel Leguero"), ("cele", "1234", "Celena Moscovich"), ("ludmi", "1234", "Ludmila Pereyra");
+
+insert into usuario(user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail, foto_de_perfil, rol, nivel)values
+("mica","1234", "Micaela Zara", "2003-07-21", "f", "m1ca3l4@hotmail.com", "", "jugador", "principiante"), 
+("axel", "1234", "Axel Leguero", "1996-04-02", "m", "axeelleguero@gmail.com", "", "admin", "principiante"), 
+("cele", "1234", "Celena Moscovich", "2004-06-15", "f", "celu_mari_posa@gmail.com", "", "jugador", "intermedio"), 
+("ludmi", "1234", "Ludmila Pereyra", "2001-04-23", "f", "ludmila.pereyra543@gmail.com", "", "editor", "principiante");
+
 insert into Partida(id, user_name, puntaje, fecha)values(1, "mica",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)),(2, "axel",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)), (3, "cele",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)),(4, "ludmi",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY));
 
 /*INSERCION DE DATOS*/
 
 insert into categoria(id, tipo, imagen)values(1, "Historia", "config/images/historia.gif"), (2, "Cultura", "config/images/cultura.gif"), (3, "Deporte", "config/images/deporte.gif"), (4, "Geografía", "config/images/geografia.gif"), (5, "Ciencia", "config/images/ciencia.gif");
+
 insert into dificultad(id, nombre)values(1, "principiante"), (2, "intermedio"), (3, "avanzado");
 
 -- primeras preguntas de prueba con sus respuestas
@@ -251,5 +261,4 @@ ADD COLUMN respuestas_totales INT DEFAULT 0;
 
 -- ALTER TABLE pregunta
 -- ADD COLUMN dificultad VARCHAR(255) DEFAULT 'desconocida';
-ALTER TABLE usuario
-ADD COLUMN nivel VARCHAR(255) DEFAULT 'principiante';
+
