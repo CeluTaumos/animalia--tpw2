@@ -63,7 +63,6 @@ class AnimaliaController
                 $datos['puntaje'] = $_SESSION['puntaje'];
                 //CHEQUEO SEGUN EL ROL A QUE VISTA LO LLEVO
                 if ($rol == 'admin') {
-
                     $this->render->printView('lobbyadmin', $datos);
                 } elseif ($rol == 'editor') {
 

@@ -17,9 +17,9 @@ class AdminController
         $cantidadPartidas = $this->model->obtenerCantidadPartidas();
         $cantidadPreguntas = $this->model->obtenerCantidadPreguntas();
         $usuariosNuevos = $this->model->obtenerUsuariosNuevos();
-
+         $datos = null;
       
-        $context = [
+        $datos = [
             'cantidadJugadores' => $cantidadJugadores['cantidad'],
             'cantidadPartidas' => $cantidadPartidas['cantidad'],
             'cantidadPreguntas' => $cantidadPreguntas['cantidad'],
@@ -27,7 +27,7 @@ class AdminController
         ];
 
     
-        $this->render->renderView('lobbyadmin', $context);
+        $this->render->printView('lobbyadmin', $datos);
     }
 }
 
