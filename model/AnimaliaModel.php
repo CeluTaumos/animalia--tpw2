@@ -11,6 +11,26 @@ class AnimaliaModel {
         $query = ("SELECT user_name, contrasenia FROM usuario WHERE user_name = '$usuario' AND contrasenia = '$password'");
         return $this->database->query($query);
     }
+
+    
+    public function obtenerRolUsuario($usuario){
+        $query = "SELECT rol FROM usuario WHERE user_name = '$usuario'";
+        $result = $this->database->queryB($query);
+
+        if ($result) {
+            $row = $result->fetch_assoc(); // Obtener la primera fila de resultados
+            if ($row) {
+                return $row['rol']; // Devolver el valor del rol
+            }
+        }
+        
+        // Manejar el error o devolver un valor por defecto en caso de que no se encuentre el usuario
+        return 'usuario'; // Valor por defecto si no se encuentra el usuario
+    }   
+    
+    
+    
+    
     public function registrarUsuario($usuario, $password, $nombre, $fecha, $sexo, $mail){
         $query = "INSERT INTO usuario (user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail) 
               VALUES ('$usuario', '$password', '$nombre', '$fecha', '$sexo', '$mail')";

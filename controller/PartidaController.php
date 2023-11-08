@@ -25,9 +25,7 @@ class PartidaController
         if (!isset($_SESSION['nivel_usuario'])) {
             $_SESSION['nivel_usuario'] = 'principiante';
         }
-        if (!isset($_SESSION['preguntas_mostradas'])) {
-            $_SESSION['preguntas_mostradas'];
-        }
+       
         if (!isset($_SESSION['preguntas_mostradas'])) {
             $_SESSION['preguntas_mostradas'] = array();
         }

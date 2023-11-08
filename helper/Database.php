@@ -44,5 +44,13 @@ class Database {
     public function queryB($sql) {
         Logger::info('Ejecutando query: ' . $sql);
         $result = mysqli_query($this->conn, $sql);
+    
+        if ($result) {
+            return $result;
+        } else {
+            echo "Error en la consulta SQL: " . mysqli_error($this->conn);
+            return false;
+        }
     }
 }
+    

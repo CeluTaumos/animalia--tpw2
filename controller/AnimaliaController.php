@@ -16,14 +16,14 @@ class AnimaliaController
     }
     public function procesarFormulario()
     {
-        
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $usuario = $_POST["username"];
-            $password= $_POST["pass"];
-            $nombre= $_POST["nombre"];
-            $fecha= $_POST["fecha"];
-            $sexo= $_POST["nombre"];
-            $mail= $_POST["user"];
+            $password = $_POST["pass"];
+            $nombre = $_POST["nombre"];
+            $fecha = $_POST["fecha"];
+            $sexo = $_POST["nombre"];
+            $mail = $_POST["user"];
             $imagen = $_POST["file"];
             if (!empty($usuario) && !empty($password) && !empty($nombre) && !empty($fecha) && !empty($sexo) && !empty($mail)) {
                 $this->model->registrarUsuario($usuario, $password, $nombre, $fecha, $sexo, $mail);
@@ -31,7 +31,7 @@ class AnimaliaController
                     $nombreArchivo = $_FILES["file"]["name"];
                     $rutaTemporal = $_FILES["file"]["tmp_name"];
                     $directorioDestino = "config/images/" . $nombreArchivo;
-        
+
                     if (move_uploaded_file($rutaTemporal, $directorioDestino)) {
                         $imagen = $directorioDestino;
                     } else {
@@ -41,28 +41,38 @@ class AnimaliaController
                 $this->model->subirFoto($usuario, $imagen);
                 $this->enviarCorreo();
             }
-        $datos = null;
-        $this->render->printView('lobby', $datos);
+            $datos = null;
+            $this->render->printView('lobby', $datos);
+        }
     }
-}
-    public function validarCorreo(){
-        $datos=null;
+    public function validarCorreo()
+    {
+        $datos = null;
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $usuario = $_POST["username"];
-            $password= $_POST["pass"];
+            $password = $_POST["pass"];
             $datosObtenidos = $this->model->revisarUsuarioYPass($usuario, $password);
+            $rol = $this->model->obtenerRolUsuario($usuario);
 
-            if(!empty($datosObtenidos)){
-                //para pasar los datos a mustache, debo guardar datos con el nombre entre []
+
+            if (!empty($datosObtenidos)) {
                 $datos['user'] = $datosObtenidos[0]['user_name'];
                 $_SESSION['user'] = $usuario;
-                $_SESSION['puntaje'] =0;
+                $_SESSION['rol'] = $rol;
+                $_SESSION['puntaje'] = 0;
                 $datos['puntaje'] = $_SESSION['puntaje'];
-                $this->render->printView('lobby', $datos);
-            }else{
-                $this->render->printView('index', $datos);
+                //CHEQUEO SEGUN EL ROL A QUE VISTA LO LLEVO
+                if ($rol == 'admin') {
+
+                    $this->render->printView('lobbyadmin', $datos);
+                } elseif ($rol == 'editor') {
+
+                    $this->render->printView('lobbyeditor', $datos);
+                } else {
+
+                    $this->render->printView('lobby', $datos);
+                }
             }
-            
         }
     }
     public function enviarCorreo()
@@ -72,7 +82,8 @@ class AnimaliaController
             //  if ($_POST["user"] == "mica" && $_POST["pw"] == 123) {
 
             //$_SESSION["user"] = "user";
-            //mica-axel-ludmi-cele--MALC *^____^*
+            //micaa-axell-ludmii-celu--MALC *^____^*
+            //MICA->USER CELE->USER LU->EDITOR AXEL->ADMIN
         }
     }
 }

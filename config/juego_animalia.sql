@@ -1,4 +1,4 @@
- create database animalia;
+ -- create database animalia;
  use animalia;
 
 /*CREACION DE TABLAS*/
@@ -36,7 +36,12 @@ CREATE TABLE pregunta (
   constraint categoria_fk foreign key (categoria) references categoria(id),
   constraint dificultad_fk foreign key (dificultad) references dificultad(id)
 );
+-- preguntas geo intermedio
+ALTER TABLE pregunta
+ADD COLUMN respuestas_correctas INT DEFAULT 0;
 
+ALTER TABLE pregunta
+ADD COLUMN respuestas_totales INT DEFAULT 0;
 CREATE TABLE respuesta (
   id int(11) primary key NOT NULL,
   descripcion varchar(100) NOT NULL,
@@ -52,13 +57,18 @@ constraint user_name_fk foreign key (user_name) references usuario(user_name),
 puntaje int(11) not null,
 fecha DATETIME
 );
-
+ALTER TABLE partida
+ADD COLUMN respuestas_correctas INT DEFAULT 0;
+ALTER TABLE partida
+ADD COLUMN cant_preguntas_entregadas INT DEFAULT 0;
 
 insert into usuario(user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail, foto_de_perfil, rol, nivel)values
-("mica","1234", "Micaela Zara", "2003-07-21", "f", "m1ca3l4@hotmail.com", "", "jugador", "principiante"), 
-("axel", "1234", "Axel Leguero", "1996-04-02", "m", "axeelleguero@gmail.com", "", "admin", "principiante"), 
-("cele", "1234", "Celena Moscovich", "2004-06-15", "f", "celu_mari_posa@gmail.com", "", "jugador", "intermedio"), 
-("ludmi", "1234", "Ludmila Pereyra", "2001-04-23", "f", "ludmila.pereyra543@gmail.com", "", "editor", "principiante");
+("micaa","1234", "Micaela Zara", "2003-07-21", "f", "m1ca3l4@hotmail.com", "", "jugador", "principiante"), 
+("axell", "1234", "Axel Leguero", "1996-04-02", "m", "axeelleguero@gmail.com", "", "admin", "principiante"), 
+("celu", "1234", "Celena Moscovich", "2004-06-15", "f", "celu_mari_posa@gmail.com", "", "jugador", "intermedio"), 
+("ludmii", "1234", "Ludmila Pereyra", "2001-04-23", "f", "ludmila.pereyra543@gmail.com", "", "editor", "principiante");
+insert into usuario(user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail, foto_de_perfil, rol, nivel)values
+("admin", "1234", "Ludmila Pereyra", "2001-04-23", "f", "ludmila.pereyra543@gmail.com", "", "admin", "principiante");
 
 insert into Partida(id, user_name, puntaje, fecha)values(1, "mica",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)),(2, "axel",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)), (3, "cele",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)),(4, "ludmi",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY));
 
@@ -248,16 +258,8 @@ insert into respuesta (id, descripcion, es_correcta, pregunta) values
 (102, "Juan Domingo Perón", false, 26), 
 (103, "Jorge Luis Borges", false, 26), 
 (104, "Juan Carlos Altavista", false, 26);
-ALTER TABLE partida
-ADD COLUMN respuestas_correctas INT DEFAULT 0;
-ALTER TABLE partida
-ADD COLUMN cant_preguntas_entregadas INT DEFAULT 0;
--- preguntas geo intermedio
-ALTER TABLE pregunta
-ADD COLUMN respuestas_correctas INT DEFAULT 0;
 
-ALTER TABLE pregunta
-ADD COLUMN respuestas_totales INT DEFAULT 0;
+
 
 -- ALTER TABLE pregunta
 -- ADD COLUMN dificultad VARCHAR(255) DEFAULT 'desconocida';
