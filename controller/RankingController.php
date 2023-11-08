@@ -16,12 +16,16 @@ class RankingController{
     public function imprimirQR() {
         //$datos = "Nombre:Cacho";
         //QRcode::png($datos,false,QR_ECLEVEL_L,8);
-        $usuario = $_SESSION['user'];
+        if(isset($_POST['enviar'])){
+            $usuario = $_POST['user'];
+            
+        }
+        
         //QRcode::png('xdlfjhsdfljghsfd','cacho.png');
         $datosUsuario = $this->model->getUsuario($usuario);
         
         // Construye la URL con el parámetro del usuario
-        $url = "http://localhost/Perfil/mostrarPantallaPerfil?usuario=" . urlencode($usuario);
+        $url = "http://localhost/Perfil/mostrarPantallaPerfilNuevo?usuario=" . urlencode($usuario);
     
         // Genera el código QR con la URL
         //include('phpqrcode/qrlib.php');

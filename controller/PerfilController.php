@@ -18,6 +18,13 @@ class PerfilController{
         $datos['usuario']= $this->model->buscarUsuario($user);
         $this->render->printView('perfil', $datos);
     }
-
+    public function mostrarPantallaPerfilNuevo(){
+        if(isset($_POST["user"])){
+            $user= $_POST['user'];
+            $datos['usuario']= $this->model->buscarUsuario($user);
+        }
+        
+        $this->render->printView('perfilEstatico', $datos);
+    }
     
 }
