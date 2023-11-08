@@ -15,6 +15,7 @@ include_once('model/LobbyModel.php');
 include_once('controller/RankingController.php');
 include_once('controller/PerfilController.php');
 include_once('model/PerfilModel.php');
+include("phpqrcode/qrlib.php");
 //include_once('PHPMailer/Correo.php');
 
 class Configuracion

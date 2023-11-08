@@ -16,7 +16,10 @@ class RankingModel{
         $query = "SELECT  user_name, puntaje, fecha FROM Partida WHERE user_name = '" . $_SESSION['user'] . "' ORDER BY fecha DESC LIMIT 10";
         return $this->database->query($query);
     }
-    
+    public function getUsuario($user){
+        $query = "SELECT * FROM usuario WHERE user_name =  '$user'";
+        return $this->database->query($query);
+    }
 }
 
 // arreglar el htaccess

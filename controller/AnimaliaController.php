@@ -9,7 +9,6 @@ class AnimaliaController
         $this->render = $render;
         $this->model = $model;
     }
-
     public function mostrarPantallaInicial()
     {
         $datos = null;
@@ -17,7 +16,7 @@ class AnimaliaController
     }
     public function procesarFormulario()
     {
-        //LOGICA PARA DESPUES
+        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $usuario = $_POST["username"];
             $password= $_POST["pass"];
@@ -74,9 +73,6 @@ class AnimaliaController
 
             //$_SESSION["user"] = "user";
             //mica-axel-ludmi-cele--MALC *^____^*
-           
-       
-          
         }
     }
 }

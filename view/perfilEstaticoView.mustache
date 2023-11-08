@@ -1,0 +1,21 @@
+<div class="contenedorPadre">
+    <div class="botonera">
+        <button class="boton-sec ranking"><a href="/Partida/mostrarPantallaPartida">Jugar otra vez</a></button>
+        <button class="boton-sec ranking"><a href="/Ranking/mostrarPantallaRanking">Ranking</a></button>
+        <button class="boton-sec ranking"><a href="/Animalia/mostrarPantallaInicial">Cerrar Sesión</a></button>
+    </div>
+    <div class="perfil">
+        <h1 class="centrado nombre ">Perfil</h1>
+    
+        {{#usuario}}
+            <img src="{{foto_de_perfil}}" alt="">
+            <p>Usuario: {{user_name}}</p>
+            <p>Nombre: {{nombre_completo}}</p>
+            <p>Fecha de nacimiento: {{anio_de_nacimiento}}</p>
+            <p>Mail: {{mail}}</p>
+            <p>Nivel: {{nivel}}</p>
+        {{/usuario}} 
+        
+    </div>
+   
+</div>
