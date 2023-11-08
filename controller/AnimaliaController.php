@@ -82,8 +82,8 @@ class AnimaliaController
             //  if ($_POST["user"] == "mica" && $_POST["pw"] == 123) {
 
             //$_SESSION["user"] = "user";
-            //micaa-axell-ludmii-celu--MALC *^____^*
-            //MICA->USER CELE->USER LU->EDITOR AXEL->ADMIN
+            //MALC *^____^*
+            //MICAA->USER CELU->USER LUDMII->EDITOR AXELL->ADMIN
         }
     }
 }

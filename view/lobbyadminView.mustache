@@ -1,24 +1,36 @@
 
 <div class="caja ">
-
+    <!-- el usuario administrador, capaz de ver la cantidad de jugadores que tiene
+    la aplicación, cantidad de partidas jugadas, cantidad de preguntas en el juego, cantidad de
+    preguntas creadas, cantidad de usuarios nuevos, porcentaje de preguntas respondidas
+    correctamente por usuario, cantidad de usuarios por pais, cantidad de usuarios por sexo, cantidad
+    de usuarios por grupo de edad (menores, jubilados, medio). Todos estos gráficos deben poder
+    filtrarse por día, semana, mes o año. Estos reportes tienen que poder imprimirse (al menos las
+    tablas de datos) -->
     <div class="caja-uno centrado mt ">
-        <h1 class="scale-up-vertical-center">¡Bienvenido, {{user}}!</h1>
-        <img src="../public/epic-hornero-admin-.png" alt="hornerito" id="hornerito">
+       <h2>Nos honra recibirlo,</h2>
+        <h1 class="scale-up-vertical-center"> Soberano de la Gestion, {{user}}</h1>
+        <img src="../public/epic-hornero-admin.svg" alt="hornerito" id="hornerito" >
        
         
 
     </div>
 
     <div class="caja-dos centrado ">
-        <a href="/Partida/mostrarPantallaPartida" class="boton boton-nueva-partida">Nueva partida</a>
-
-        <
-
+        <div class="m">
+            <h3>ESTADO DE LA APLICACIÓN :</h3>
+            <p>Cantidad de jugadores:<span>{{cantidadJugadores}}</span> </p>
+            <p>Cantidad de partidas jugadas: {{cantidadPartidas}}</p>
+            <p>Cantidad de preguntas en el juego: {{cantidadPreguntas}}</p>
+            <p>Cantidad de usuarios nuevos: {{usuariosNuevos}}</p>
+        </div>
     </div>
+    
+    
 
     <div class="contenedor_cerrar_sesion">
     <div class="caja bye centrado">
-        <p class="m mt">¿Te vas pibe?</p>
+        <p class="m mt">¿Se va Señor Admin?</p>
         <a href="/Lobby/cerrarSesion" class="boton m">cerrar sesión</a>
     </div>
 </div>
