@@ -1,4 +1,4 @@
- -- create database animalia;
+ create database animalia;
  use animalia;
 
 /*CREACION DE TABLAS*/
@@ -16,7 +16,7 @@ CREATE TABLE usuario (
 
 ALTER TABLE usuario
 ADD COLUMN nivel VARCHAR(255) DEFAULT 'principiante';
-
+ALTER TABLE usuario ADD fecha_registro DATE NOT NULL DEFAULT CURRENT_DATE;
 create table Categoria(
 id int (11) primary key not null,
 tipo varchar(100) NOT NULL,
@@ -70,7 +70,7 @@ insert into usuario(user_name, contrasenia, nombre_completo, anio_de_nacimiento,
 insert into usuario(user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail, foto_de_perfil, rol, nivel)values
 ("admin", "1234", "Ludmila Pereyra", "2001-04-23", "f", "ludmila.pereyra543@gmail.com", "", "admin", "principiante");
 
-insert into Partida(id, user_name, puntaje, fecha)values(1, "mica",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)),(2, "axel",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)), (3, "cele",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)),(4, "ludmi",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY));
+insert into Partida(id, user_name, puntaje, fecha)values(1, "micaa",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)),(2, "axell",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)), (3, "celu",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)),(4, "ludmii",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY));
 
 /*INSERCION DE DATOS*/
 

@@ -63,6 +63,10 @@ class AnimaliaController
                 $datos['puntaje'] = $_SESSION['puntaje'];
                 //CHEQUEO SEGUN EL ROL A QUE VISTA LO LLEVO
                 if ($rol == 'admin') {
+                    //Aca deberia haber un metodo que le pase los datos de las estadisticas a lobbyAdmin
+                    $_SESSION['estadisticas'] = $this->model->obtenerEstadisticas();
+                    $datos = $_SESSION['estadisticas'];
+                    var_dump($datos);
                     $this->render->printView('lobbyadmin', $datos);
                 } elseif ($rol == 'editor') {
 
@@ -85,4 +89,5 @@ class AnimaliaController
             //MICAA->USER CELU->USER LUDMII->EDITOR AXELL->ADMIN
         }
     }
+    
 }
