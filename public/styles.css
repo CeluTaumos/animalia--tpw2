@@ -156,7 +156,6 @@ select {
 
 .boton-sec {
     background-color: #FD79A8;
-    text-align: center;
     color: white;
     border: none;
     text-transform: uppercase;
@@ -173,10 +172,16 @@ select {
 .botonera {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    margin: 5px 0px;
+    justify-content: center;
+    margin: 5px 10px;
 }
-
+.trampita{
+    padding: 15px;
+    background-color: rgb(203, 193, 193);
+    width: 150px;
+    margin: 5px 10px;
+    border: none;
+}
 .botonera .boton-sec {
     margin: 0 1px;
     text-decoration: none;
@@ -223,7 +228,13 @@ select {
 .centrado {
     text-align: center;
 }
-
+.centro{
+    margin: 5px auto;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .mt {
     margin-top: 7%;
 }

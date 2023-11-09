@@ -11,7 +11,7 @@ CREATE TABLE usuario (
     sexo CHAR(1) NOT NULL,
     mail VARCHAR(25) NOT NULL,
     foto_de_perfil VARCHAR(40) NOT NULL,
-    rol VARCHAR(20) NOT NULL
+    rol VARCHAR(20) DEFAULT 'jugador' NOT NULL
 );
 
 ALTER TABLE usuario
@@ -74,7 +74,7 @@ insert into Partida(id, user_name, puntaje, fecha)values(1, "micaa",0, DATE_SUB(
 
 /*INSERCION DE DATOS*/
 
-insert into categoria(id, tipo, imagen)values(1, "Historia", "config/images/historia.gif"), (2, "Cultura", "config/images/cultura.gif"), (3, "Deporte", "config/images/deporte.gif"), (4, "Geografía", "config/images/geografia.gif"), (5, "Ciencia", "config/images/ciencia.gif");
+insert into categoria(id, tipo, imagen)values(1, "Historia", "./config/images/historia.gif"), (2, "Cultura", "config/images/cultura.gif"), (3, "Deporte", "./config/images/deporte.gif"), (4, "Geografía", "config/images/geografia.gif"), (5, "Ciencia", "config/images/ciencia.gif");
 
 insert into dificultad(id, nombre)values(1, "principiante"), (2, "intermedio"), (3, "avanzado");
 
