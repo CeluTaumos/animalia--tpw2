@@ -17,10 +17,16 @@ CREATE TABLE usuario (
 ALTER TABLE usuario
 ADD COLUMN nivel VARCHAR(255) DEFAULT 'principiante';
 ALTER TABLE usuario ADD fecha_registro DATE NOT NULL DEFAULT CURRENT_DATE;
+
 create table Categoria(
 id int (11) primary key not null,
 tipo varchar(100) NOT NULL,
 imagen varchar(50) NOT NULL
+);
+
+create table categoriaSugerida(
+id int (11) AUTO_INCREMENT primary key not null,
+tipo varchar(100) NOT NULL
 );
 
 create table dificultad(
@@ -36,12 +42,35 @@ CREATE TABLE pregunta (
   constraint categoria_fk foreign key (categoria) references categoria(id),
   constraint dificultad_fk foreign key (dificultad) references dificultad(id)
 );
+CREATE TABLE preguntaSugerida (
+  id int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  descripcion varchar(100) NOT NULL,
+  categoria int (11) not null,
+  dificultad int (10) DEFAULT 1 not null,
+  constraint categoria_fk foreign key (categoria) references categoria(id),
+  constraint dificultad_fk foreign key (dificultad) references dificultad(id)
+);
+CREATE TABLE respuestasSugeridas (
+  id int(11) primary key NOT NULL,
+  descripcion varchar(100) NOT NULL,
+  es_correcta boolean not null, 
+  pregunta int(11) not null,
+  CONSTRAINT pregunta_fk FOREIGN KEY (pregunta) REFERENCES preguntaSugerida(id)
+);
+CREATE TABLE preguntasReportadas (
+  id int(11) PRIMARY KEY AUTO_INCREMENT,
+  pregunta_id int(11) NOT NULL,
+  descripcion_reporte varchar(255) NOT NULL,
+  resuelto boolean DEFAULT 0,
+  FOREIGN KEY (pregunta_id) REFERENCES pregunta(id)
+);
 -- preguntas geo intermedio
 ALTER TABLE pregunta
 ADD COLUMN respuestas_correctas INT DEFAULT 0;
 
 ALTER TABLE pregunta
 ADD COLUMN respuestas_totales INT DEFAULT 0;
+
 CREATE TABLE respuesta (
   id int(11) primary key NOT NULL,
   descripcion varchar(100) NOT NULL,
