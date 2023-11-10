@@ -9,9 +9,9 @@ class PerfilModel{
     public function getUsuario(){
         if(isset($_POST["user"])){
             $usuario = $_POST['user'];
-    }else{
+        }else{
         $usuario= $_SESSION["user"];
-    }
+        }
         $query = "SELECT * FROM usuario WHERE user_name =  '$usuario'";
         return $this->database->query($query);
     }

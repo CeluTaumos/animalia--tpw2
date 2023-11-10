@@ -34,9 +34,14 @@ class PerfilController{
         if(isset($_POST['enviar'])){
             $categoria = $_POST['categoria'];
             $this->model-> agregarCategoria($categoria);
+            $datos['usuario'] =  $_SESSION['user'];
+            $this->render->printView('sugerencia', $datos);
+        }else{
+            $datos['usuario'] =  $_SESSION['user'];
+            echo "Error al agregar categoria";
+            $this->render->printView('perfil', $datos);
         }
-        $datos['usuario'] =  $_SESSION['user'];
-        $this->render->printView('sugerencia', $datos);
+        
     }
 
     public function sugerirPregunta(){
