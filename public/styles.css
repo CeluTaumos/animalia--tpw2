@@ -145,6 +145,20 @@ select {
     margin-top: 2%;
     transition: background-color 0.3s, color 0.3s;
 }
+.columnas{
+    display: flex;
+    flex-direction: row;
+}
+
+.sugerencia{
+    margin: 5px auto;
+    width: 250px;
+    outline: none;
+}
+.opcion{
+    width: 250px;
+    margin: 5px auto;
+}
 .botonEditor {
     background-color: #FD79A8; 
     text-align: center;
