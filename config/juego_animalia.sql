@@ -42,20 +42,25 @@ CREATE TABLE pregunta (
   constraint categoria_fk foreign key (categoria) references categoria(id),
   constraint dificultad_fk foreign key (dificultad) references dificultad(id)
 );
+
+CREATE TABLE respuesta (
+  id int(11) primary key NOT NULL,
+  descripcion varchar(100) NOT NULL,
+  es_correcta boolean not null, 
+  pregunta int(11) not null,
+  CONSTRAINT pregunta_fk FOREIGN KEY (pregunta) REFERENCES pregunta(id)
+);
 CREATE TABLE preguntaSugerida (
   id int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   descripcion varchar(100) NOT NULL,
-  categoria int (11) not null,
-  dificultad int (10) DEFAULT 1 not null,
-  constraint categoria_fk foreign key (categoria) references categoria(id),
-  constraint dificultad_fk foreign key (dificultad) references dificultad(id)
+  categoria int (11) not null
 );
 CREATE TABLE respuestasSugeridas (
   id int(11) primary key NOT NULL,
   descripcion varchar(100) NOT NULL,
   es_correcta boolean not null, 
   pregunta int(11) not null,
-  CONSTRAINT pregunta_fk FOREIGN KEY (pregunta) REFERENCES preguntaSugerida(id)
+  CONSTRAINT pregunta_sug_fk FOREIGN KEY (pregunta) REFERENCES preguntaSugerida(id)
 );
 CREATE TABLE preguntasReportadas (
   id int(11) PRIMARY KEY AUTO_INCREMENT,
@@ -71,13 +76,7 @@ ADD COLUMN respuestas_correctas INT DEFAULT 0;
 ALTER TABLE pregunta
 ADD COLUMN respuestas_totales INT DEFAULT 0;
 
-CREATE TABLE respuesta (
-  id int(11) primary key NOT NULL,
-  descripcion varchar(100) NOT NULL,
-  es_correcta boolean not null, 
-  pregunta int(11) not null,
-  CONSTRAINT pregunta_fk FOREIGN KEY (pregunta) REFERENCES pregunta(id)
-);
+
 
 create table Partida (
 id int(11) AUTO_INCREMENT PRIMARY KEY,
