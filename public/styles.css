@@ -528,6 +528,23 @@ a {
     flex-direction: row;
 }
 
+.preguntas{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 70%;
+    margin: 20px auto;
+    background-color: #81c6f5;
+    border-radius: 25px;
+    padding: 10px;
+}
+.pregunta{
+    display: flex;
+    flex-direction: row;
+}
+.pregunta p{
+    display: inline;
+}
 #barraTiempo {
     height: 1em;
     border-radius: 20px;

@@ -38,4 +38,31 @@ class PerfilController{
         $datos['usuario'] =  $_SESSION['user'];
         $this->render->printView('sugerencia', $datos);
     }
+
+    public function sugerirPregunta(){
+        if(isset($_POST['send'])){
+            $pregunta = $_POST['pregunta'];
+            $this->model-> agregarPregunta($pregunta);
+            $id = $this->model-> obtenerIdPregunta($pregunta);
+            $respuestas[] = $_POST['respuesta1'];
+            $respuestas[] = $_POST['respuesta2'];
+            $respuestas[] = $_POST['respuesta3'];
+            $respuestas[] = $_POST['respuesta4'];
+            $this->model->agregarRespuestas($respuestas);
+        }
+
+        $datos['usuario'] =  $_SESSION['user'];
+        $this->render->printView('sugerencia', $datos);
+    }
+
+    public function mostrarPantallaEditarSugerencias(){
+        $datos['usuario'] = $_SESSION['user'];
+        $this->render->printView('editarSugerencias', $datos);
+    }
+    public function editarPreguntas(){
+        $datos['pregunta'] = $this->model->obtenerPreguntas();
+        //var_dump($datos['pregunta']);
+        //echo "aaa" . " <br> <br> <br>";
+        $this->render->printView('editorPreguntas', $datos['pregunta']);
+    }
 }

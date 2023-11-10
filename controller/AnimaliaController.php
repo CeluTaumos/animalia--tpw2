@@ -24,7 +24,7 @@ class AnimaliaController
             $fecha = $_POST["fecha"];
             $sexo = $_POST["nombre"];
             $mail = $_POST["user"];
-            $imagen = $_POST["file"];
+            //$imagen = $_POST["file"];
             if (!empty($usuario) && !empty($password) && !empty($nombre) && !empty($fecha) && !empty($sexo) && !empty($mail)) {
                 $this->model->registrarUsuario($usuario, $password, $nombre, $fecha, $sexo, $mail);
                 if (isset($_FILES["file"])) {
@@ -41,7 +41,8 @@ class AnimaliaController
                 $this->model->subirFoto($usuario, $imagen);
                 $this->enviarCorreo();
             }
-            $datos = null;
+            $_SESSION['user'] = $usuario;
+            $datos = $_SESSION['user'];
             $this->render->printView('lobby', $datos);
         }
     }
@@ -66,7 +67,7 @@ class AnimaliaController
                     //Aca deberia haber un metodo que le pase los datos de las estadisticas a lobbyAdmin
                     $_SESSION['estadisticas'] = $this->model->obtenerEstadisticas();
                     $datos = $_SESSION['estadisticas'];
-                    var_dump($datos);
+                    //var_dump($datos);
                     $this->render->printView('lobbyadmin', $datos);
                 } elseif ($rol == 'editor') {
 

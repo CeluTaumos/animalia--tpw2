@@ -34,7 +34,7 @@ class AnimaliaModel {
     public function registrarUsuario($usuario, $password, $nombre, $fecha, $sexo, $mail){
         $query = "INSERT INTO usuario (user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail) 
               VALUES ('$usuario', '$password', '$nombre', '$fecha', '$sexo', '$mail')";
-        $resultado =$this->database->query($query);
+        $resultado =$this->database->queryB($query);
         if ($resultado) {
             echo "Usuario registrado con éxito.";
         } else {
@@ -47,7 +47,7 @@ class AnimaliaModel {
         $query = "UPDATE usuario
         SET foto_de_perfil = '$imagen'
         WHERE user_name = '$usuario'";
-        $resultado = $this->database->query($query);
+        $resultado = $this->database->queryB($query);
         if ($resultado) {
             echo "Foto subida con éxito.";
         } else {
