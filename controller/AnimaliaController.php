@@ -45,6 +45,7 @@ class AnimaliaController
                         $directorioDestino = "config/images/" . $nombreArchivo;
 
                         if (move_uploaded_file($rutaTemporal, $directorioDestino)) {
+                           // refac
                             $imagen = $directorioDestino;
                             $this->model->registrarUsuario($usuario, $password, $nombre, $fecha, $sexo, $mail, $imagen);
                             $this->model->subirFoto($usuario, $imagen);
@@ -146,7 +147,7 @@ class AnimaliaController
 
         $mail->isHTML(true);
         $mail->Subject = 'Registro exitoso';
-        $mail->Body =  $contenido_email;
+        $mail->Body =  "hola, tu registro fue existoso, ya podes empezar a jugar!";
         $mail->send();
 
     }
