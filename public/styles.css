@@ -14,21 +14,12 @@ body {
     font-family: 'Lilita One', cursive;
     height: 100%;
     background-color: #facdde;
-    /*
-    background: rgba(255, 255, 255, 1);
-    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(4%, rgba(255, 255, 255, 1)), color-stop(21%, rgba(255, 212, 228, 1)), color-stop(37%, rgba(250, 205, 222, 1)), color-stop(55%, rgba(252, 174, 203, 1)), color-stop(80%, rgba(250, 140, 180, 1)), color-stop(100%, rgba(253, 121, 168, 1)));
-    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
-    background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
-    background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#fd79a8', GradientType=0); */
+    
 
 }
 
 .header {
-    /* background: rgb(146, 191, 230);
-    background: linear-gradient(171deg, rgba(146, 191, 230, 0.7401085434173669) 13%, rgba(71, 112, 192, 0.7989320728291316) 57%, rgba(71, 139, 196, 0.7793242296918768) 97%); */
+    
     display: flex;
     flex-direction: row;
     vertical-align: middle;
@@ -149,7 +140,7 @@ select {
 }
 
 .boton {
-     background-color: #FD79A8; 
+    background-color: #FD79A8; 
     
     text-align: center;
     color: white;
@@ -160,10 +151,46 @@ select {
     font-size: 1.25em;
     box-sizing: border-box;
     padding: 3%;
-    margin-top: 3%;
+    margin-top: 2%;
     transition: background-color 0.3s, color 0.3s;
 }
+.columnas{
+    display: flex;
+    flex-direction: row;
+}
 
+.sugerencia{
+    margin: 5px auto;
+    width: 250px;
+    outline: none;
+    height: 35px;
+    border-radius: 25px;
+    border: none;
+}
+
+.tabla{
+    border: 1px solid white;
+    width: 500px;
+    height: 200px;
+}
+.opcion{
+    width: 250px;
+    margin: 5px auto;
+}
+.botonEditor {
+    background-color: #FD79A8; 
+    text-align: center;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    border-radius: 10px;
+    font-family: 'Lilita One', cursive;
+    font-size: 0.75em;
+    box-sizing: border-box;
+    padding: 3%;
+    margin-top: 2%;
+    transition: background-color 0.3s, color 0.3s;
+}
 .boton-nueva-partida{
     background-color: #FD79A8;
 }
@@ -174,7 +201,6 @@ select {
 
 .boton-sec {
     background-color: #FD79A8;
-    text-align: center;
     color: white;
     border: none;
     text-transform: uppercase;
@@ -191,10 +217,16 @@ select {
 .botonera {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    margin: 5px 0px;
+    justify-content: center;
+    margin: 5px 10px;
 }
-
+.trampita{
+    padding: 15px;
+    background-color: rgb(203, 193, 193);
+    width: 150px;
+    margin: 5px 10px;
+    border: none;
+}
 .botonera .boton-sec {
     margin: 0 1px;
     text-decoration: none;
@@ -212,7 +244,9 @@ select {
     color: white;
 }
 
-
+#texto{
+    font-size: -0.75em;
+}
 .boton:hover {
     background-color: #F9F5E3;
     color: #0e0b0b;
@@ -241,7 +275,13 @@ select {
 .centrado {
     text-align: center;
 }
-
+.centro{
+    margin: 5px auto;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .mt {
     margin-top: 7%;
 }
@@ -314,7 +354,7 @@ footer img {
     color: #fff;
     text-shadow: 3px 3px 4px #8a3855;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 1.875em;
     font-family: 'Lilita One', cursive;
     letter-spacing: 0.125em;
 
@@ -413,8 +453,11 @@ footer img {
 
 .arcade {
     font-family: 'Pixelify Sans', sans-serif;
-    color: rgb(34, 23, 236);
-    text-shadow: 4px 3px 3px rgba(0, 0, 0, 0.5);
+    color: #292c32;
+    text-transform: uppercase;
+    letter-spacing: 0.125em;
+    animation: arcade-color 5s infinite;
+    animation-direction: alternate;
 }
 
 a {
@@ -489,7 +532,10 @@ a {
     width: 50%;
     justify-content: flex-end;
 }
-
+.fila{
+    display: flex;
+    flex-direction: row;
+}
 
 #barraTiempo {
     height: 1em;
@@ -502,6 +548,18 @@ a {
   #hornerito{
    width: 100%;
   }
+  #horneritoEnojado{
+    width: 25%;
+    margin: 1%;
+   }
+ 
+   #puntaje{
+    font-size: 1.563em;
+   color: #0080d5;
+   }
+   
+   /* ANIMACIONES */
+
 @keyframes footer-color {
     0% {
         background-color: #323a;
@@ -524,6 +582,48 @@ a {
     }
 }
 
+
+@keyframes arcade-color {
+    0% {
+        color: white;
+   
+    }
+    5% {
+        color: #afc9da;
+     } 
+
+10% {
+       color: #79b0d4;
+    }
+    25% {
+       color: #5ba1cf;
+    }
+    35% {
+        color:#1396ec;
+     }
+     45% {
+        color: rgb(36, 152, 229);
+     }
+    50% {
+      color: #0080d5;
+    }
+    65% {
+        color: #07619c;
+     }
+     75% {
+        color: rgb(3, 73, 120);
+     }
+     85% {
+        color: #06426b;
+     }
+     95% {
+        color: #023251;
+     }
+    100% {
+       color: #000000;
+    }
+}
+
 @media (max-width: 768px) {
     .index {
         background-size: cover;
@@ -543,10 +643,9 @@ a {
         font-size: 0.875em;
     }
 
-    /* Otros ajustes de estilo según sea necesario */
+  
 }
 
-/* ANIMACIONES */
 
 .scale-up-vertical-center{animation:scale-up-vertical-center 1.2s} @keyframes scale-up-vertical-center{0%{transform:scaleY(.2)}100%{transform:scaleY(1)}}
 

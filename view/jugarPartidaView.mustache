@@ -16,21 +16,18 @@
     <div >
     <form action="/Partida/verificarRespuesta" method="post" class="caja">
     {{#respuesta}}
-    
-    
-        
         <button type="submit" name="id" value="{{id}}" class="boton_respuesta shadow-drop-center">{{descripcion}}</button>
-    
-    
     {{/respuesta}}
     </form>
+        <div class="botonera">
+            <button class="trampita"> 💣 </button>
+            <button class="trampita"> 💫 </button>
+            <button class="trampita"> 🃏 </button>
+        </div>
     </div>
+    <button class="boton-sec centro">Reportar Pregunta</button>
     
-    <div class="botonera">
-        <button>💣</button>
-        <button>💫</button>
-        <button>🃏</button>
-    </div>
 </div>
+
 <script src="../public/barratiempo.js"></script>
 </div>

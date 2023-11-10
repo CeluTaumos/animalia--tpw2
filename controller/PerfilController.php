@@ -26,5 +26,16 @@ class PerfilController{
         
         $this->render->printView('perfilEstatico', $datos);
     }
-    
+    public function mostrarPantallaSugerencias(){
+        $datos['usuario'] = $_SESSION['user'];
+        $this->render->printView('sugerencia', $datos);
+    }
+    public function sugerirCategoria(){
+        if(isset($_POST['enviar'])){
+            $categoria = $_POST['categoria'];
+            $this->model-> agregarCategoria($categoria);
+        }
+        $datos['usuario'] =  $_SESSION['user'];
+        $this->render->printView('sugerencia', $datos);
+    }
 }

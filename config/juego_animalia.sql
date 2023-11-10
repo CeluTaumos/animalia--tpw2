@@ -11,16 +11,22 @@ CREATE TABLE usuario (
     sexo CHAR(1) NOT NULL,
     mail VARCHAR(25) NOT NULL,
     foto_de_perfil VARCHAR(40) NOT NULL,
-    rol VARCHAR(20) NOT NULL
+    rol VARCHAR(20) DEFAULT 'jugador' NOT NULL
 );
 
 ALTER TABLE usuario
 ADD COLUMN nivel VARCHAR(255) DEFAULT 'principiante';
+ALTER TABLE usuario ADD fecha_registro DATE NOT NULL DEFAULT CURRENT_DATE;
 
 create table Categoria(
 id int (11) primary key not null,
 tipo varchar(100) NOT NULL,
 imagen varchar(50) NOT NULL
+);
+
+create table categoriaSugerida(
+id int (11) AUTO_INCREMENT primary key not null,
+tipo varchar(100) NOT NULL
 );
 
 create table dificultad(
@@ -44,6 +50,33 @@ CREATE TABLE respuesta (
   pregunta int(11) not null,
   CONSTRAINT pregunta_fk FOREIGN KEY (pregunta) REFERENCES pregunta(id)
 );
+CREATE TABLE preguntaSugerida (
+  id int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  descripcion varchar(100) NOT NULL,
+  categoria int (11) not null
+);
+CREATE TABLE respuestasSugeridas (
+  id int(11) primary key NOT NULL,
+  descripcion varchar(100) NOT NULL,
+  es_correcta boolean not null, 
+  pregunta int(11) not null,
+  CONSTRAINT pregunta_sug_fk FOREIGN KEY (pregunta) REFERENCES preguntaSugerida(id)
+);
+CREATE TABLE preguntasReportadas (
+  id int(11) PRIMARY KEY AUTO_INCREMENT,
+  pregunta_id int(11) NOT NULL,
+  descripcion_reporte varchar(255) NOT NULL,
+  resuelto boolean DEFAULT 0,
+  FOREIGN KEY (pregunta_id) REFERENCES pregunta(id)
+);
+-- preguntas geo intermedio
+ALTER TABLE pregunta
+ADD COLUMN respuestas_correctas INT DEFAULT 0;
+
+ALTER TABLE pregunta
+ADD COLUMN respuestas_totales INT DEFAULT 0;
+
+
 
 create table Partida (
 id int(11) AUTO_INCREMENT PRIMARY KEY,
@@ -52,19 +85,24 @@ constraint user_name_fk foreign key (user_name) references usuario(user_name),
 puntaje int(11) not null,
 fecha DATETIME
 );
-
+ALTER TABLE partida
+ADD COLUMN respuestas_correctas INT DEFAULT 0;
+ALTER TABLE partida
+ADD COLUMN cant_preguntas_entregadas INT DEFAULT 0;
 
 insert into usuario(user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail, foto_de_perfil, rol, nivel)values
-("mica","1234", "Micaela Zara", "2003-07-21", "f", "m1ca3l4@hotmail.com", "", "jugador", "principiante"), 
-("axel", "1234", "Axel Leguero", "1996-04-02", "m", "axeelleguero@gmail.com", "", "admin", "principiante"), 
-("cele", "1234", "Celena Moscovich", "2004-06-15", "f", "celu_mari_posa@gmail.com", "", "jugador", "intermedio"), 
-("ludmi", "1234", "Ludmila Pereyra", "2001-04-23", "f", "ludmila.pereyra543@gmail.com", "", "editor", "principiante");
+("micaa","1234", "Micaela Zara", "2003-07-21", "f", "m1ca3l4@hotmail.com", "", "jugador", "principiante"), 
+("axell", "1234", "Axel Leguero", "1996-04-02", "m", "axeelleguero@gmail.com", "", "admin", "principiante"), 
+("celu", "1234", "Celena Moscovich", "2004-06-15", "f", "celu_mari_posa@gmail.com", "", "jugador", "intermedio"), 
+("ludmii", "1234", "Ludmila Pereyra", "2001-04-23", "f", "ludmila.pereyra543@gmail.com", "", "editor", "principiante");
+insert into usuario(user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail, foto_de_perfil, rol, nivel)values
+("admin", "1234", "Ludmila Pereyra", "2001-04-23", "f", "ludmila.pereyra543@gmail.com", "", "admin", "principiante");
 
-insert into Partida(id, user_name, puntaje, fecha)values(1, "mica",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)),(2, "axel",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)), (3, "cele",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)),(4, "ludmi",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY));
+insert into Partida(id, user_name, puntaje, fecha)values(1, "micaa",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)),(2, "axell",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)), (3, "celu",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY)),(4, "ludmii",0, DATE_SUB(NOW(), INTERVAL FLOOR(RAND() * 365) DAY));
 
 /*INSERCION DE DATOS*/
 
-insert into categoria(id, tipo, imagen)values(1, "Historia", "config/images/historia.gif"), (2, "Cultura", "config/images/cultura.gif"), (3, "Deporte", "config/images/deporte.gif"), (4, "Geografía", "config/images/geografia.gif"), (5, "Ciencia", "config/images/ciencia.gif");
+insert into categoria(id, tipo, imagen)values(1, "Historia", "./config/images/historia.gif"), (2, "Cultura", "config/images/cultura.gif"), (3, "Deporte", "./config/images/deporte.gif"), (4, "Geografía", "config/images/geografia.gif"), (5, "Ciencia", "config/images/ciencia.gif");
 
 insert into dificultad(id, nombre)values(1, "principiante"), (2, "intermedio"), (3, "avanzado");
 
@@ -248,16 +286,8 @@ insert into respuesta (id, descripcion, es_correcta, pregunta) values
 (102, "Juan Domingo Perón", false, 26), 
 (103, "Jorge Luis Borges", false, 26), 
 (104, "Juan Carlos Altavista", false, 26);
-ALTER TABLE partida
-ADD COLUMN respuestas_correctas INT DEFAULT 0;
-ALTER TABLE partida
-ADD COLUMN cant_preguntas_entregadas INT DEFAULT 0;
--- preguntas geo intermedio
-ALTER TABLE pregunta
-ADD COLUMN respuestas_correctas INT DEFAULT 0;
 
-ALTER TABLE pregunta
-ADD COLUMN respuestas_totales INT DEFAULT 0;
+
 
 -- ALTER TABLE pregunta
 -- ADD COLUMN dificultad VARCHAR(255) DEFAULT 'desconocida';

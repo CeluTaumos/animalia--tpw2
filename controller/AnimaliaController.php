@@ -70,16 +70,29 @@ class AnimaliaController
             $usuario = $_POST["username"];
             $password = $_POST["pass"];
             $datosObtenidos = $this->model->revisarUsuarioYPass($usuario, $password);
+            $rol = $this->model->obtenerRolUsuario($usuario);
+
 
             if (!empty($datosObtenidos)) {
-                //para pasar los datos a mustache, debo guardar datos con el nombre entre []
                 $datos['user'] = $datosObtenidos[0]['user_name'];
                 $_SESSION['user'] = $usuario;
+                $_SESSION['rol'] = $rol;
                 $_SESSION['puntaje'] = 0;
                 $datos['puntaje'] = $_SESSION['puntaje'];
-                $this->render->printView('lobby', $datos);
-            } else {
-                $this->render->printView('index', $datos);
+                //CHEQUEO SEGUN EL ROL A QUE VISTA LO LLEVO
+                if ($rol == 'admin') {
+                    //Aca deberia haber un metodo que le pase los datos de las estadisticas a lobbyAdmin
+                    $_SESSION['estadisticas'] = $this->model->obtenerEstadisticas();
+                    $datos = $_SESSION['estadisticas'];
+                    var_dump($datos);
+                    $this->render->printView('lobbyadmin', $datos);
+                } elseif ($rol == 'editor') {
+
+                    $this->render->printView('lobbyeditor', $datos);
+                } else {
+
+                    $this->render->printView('lobby', $datos);
+                }
             }
 
         }
@@ -137,4 +150,5 @@ class AnimaliaController
         //mica-axel-ludmi-cele--MALC *^____^*
 
     }
+    
 }

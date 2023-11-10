@@ -1,0 +1,31 @@
+<div class="columnas">
+    <div class="formulario">
+        <div class="agregarPregunta">
+            <h1>Sugerir pregunta</h1>
+            <form action="./Perfil/sugerirPregunta" method="post">
+                <input class="sugerencia" type="text" placeholder="Ingrese su pregunta">
+                <select class="opcion">
+                    <legend>Seleccione la categoria</legend>
+                    <option value="Cultura">Cultura</option>
+                    <option value="Deporte">Deporte</option>
+                    <option value="Historia">Historia</option>
+                    <option value="Geografia">Geografia</option>
+                    <option value="Ciencia">Ciencia</option>
+                </select>
+                <input class="sugerencia" type="text" placeholder="Ingrese una respuesta (Correcta)" name="respuesta1">
+                <input class="sugerencia" type="text" placeholder="Ingrese una respuesta" name="respuesta2">
+                <input class="sugerencia" type="text" placeholder="Ingrese una respuesta" name="respuesta3">
+                <input class="sugerencia" type="text" placeholder="Ingrese una respuesta" name="respuesta4">
+                <input class="boton-sec" type="submit" value="Confirmar" name="send">
+            </form>
+        </div>
+        
+    </div>
+    <div class="formulario">
+        <h1>Sugerir categoria</h1>
+        <form action="./Perfil/sugerirCategoria" method="post">
+            <input class="sugerencia" type="text" placeholder="Ingrese una categoria" name="categoria">
+            <input class="boton-sec" type="submit" value="Confirmar" name="enviar">
+        </form>
+    </div>
+</div>
