@@ -47,7 +47,7 @@ class AnimaliaController
                         if (move_uploaded_file($rutaTemporal, $directorioDestino)) {
                             $imagen = $directorioDestino;
                             $this->model->registrarUsuario($usuario, $password, $nombre, $fecha, $sexo, $mail, $imagen);
-                            // $this->model->subirFoto($usuario, $imagen);
+                            $this->model->subirFoto($usuario, $imagen);
                             $this->enviarCorreoConfirmacion($mail,$nombre);
                             $datos['mensaje-registro-exitoso'] = "Tu registro fue exitoso, en breves recibiras un mail con la confirmacion";
                         } else {
@@ -142,12 +142,12 @@ class AnimaliaController
         $mail->setFrom('animaliaJuego@hotmail.com', 'Animalia');
         $mail->addAddress($correoDestinatario, $nombreDestinatario); // $mail contiene el correo del usuario, definido en tu función
 
+        $contenido_email = file_get_contents('public/mail.html');
+
         $mail->isHTML(true);
         $mail->Subject = 'Registro exitoso';
-        $mail->Body = 'Hola! bienvenido a Animalia, que te diviertas :) 
-        - MALC owo';
-
-        //mica-axel-ludmi-cele--MALC *^____^*
+        $mail->Body =  $contenido_email;
+        $mail->send();
 
     }
     
