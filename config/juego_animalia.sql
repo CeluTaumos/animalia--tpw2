@@ -45,7 +45,7 @@ CREATE TABLE pregunta (
 
 CREATE TABLE respuesta (
   id int(11) primary key NOT NULL,
-  descripcion varchar(100) NOT NULL,
+  descripcion varchar(120) NOT NULL,
   es_correcta boolean not null, 
   pregunta int(11) not null,
   CONSTRAINT pregunta_fk FOREIGN KEY (pregunta) REFERENCES pregunta(id)
