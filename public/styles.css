@@ -154,6 +154,15 @@ select {
     margin: 5px auto;
     width: 250px;
     outline: none;
+    height: 35px;
+    border-radius: 25px;
+    border: none;
+}
+
+.tabla{
+    border: 1px solid white;
+    width: 500px;
+    height: 200px;
 }
 .opcion{
     width: 250px;
@@ -514,7 +523,10 @@ a {
     width: 50%;
     justify-content: flex-end;
 }
-
+.fila{
+    display: flex;
+    flex-direction: row;
+}
 
 #barraTiempo {
     height: 1em;

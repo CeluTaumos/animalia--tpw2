@@ -2,7 +2,7 @@
     <div class="formulario">
         <div class="agregarPregunta">
             <h1>Sugerir pregunta</h1>
-            <form action="" method="post">
+            <form action="./Perfil/sugerirPregunta" method="post">
                 <input class="sugerencia" type="text" placeholder="Ingrese su pregunta">
                 <select class="opcion">
                     <legend>Seleccione la categoria</legend>
@@ -12,11 +12,11 @@
                     <option value="Geografia">Geografia</option>
                     <option value="Ciencia">Ciencia</option>
                 </select>
-                <input class="sugerencia" type="text" placeholder="Ingrese una respuesta (Correcta)">
-                <input class="sugerencia" type="text" placeholder="Ingrese una respuesta">
-                <input class="sugerencia" type="text" placeholder="Ingrese una respuesta">
-                <input class="sugerencia" type="text" placeholder="Ingrese una respuesta">
-                <input class="boton-sec" type="submit" value="Confirmar">
+                <input class="sugerencia" type="text" placeholder="Ingrese una respuesta (Correcta)" name="respuesta1">
+                <input class="sugerencia" type="text" placeholder="Ingrese una respuesta" name="respuesta2">
+                <input class="sugerencia" type="text" placeholder="Ingrese una respuesta" name="respuesta3">
+                <input class="sugerencia" type="text" placeholder="Ingrese una respuesta" name="respuesta4">
+                <input class="boton-sec" type="submit" value="Confirmar" name="send">
             </form>
         </div>
         
