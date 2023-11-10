@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto+Slab:wght@100;400&display=swap');
+
+body {
+    font-family: 'Lilita One', cursive;
+    width: 800px;
+}
+
+footer{
+    background-color: #323a4ae3;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-style: italic;
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+}
+
+.firma{
+    color: #836b77e3;
+}

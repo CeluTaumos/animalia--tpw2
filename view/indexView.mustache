@@ -1,24 +1,32 @@
-<div class="contenedorPapa index">
+
+<div class="contenedorPapa index"> 
     <div class="formulario">
         <h3>¿Todavía out? Empeza a jugar</h3>
+        <!-- formulario registro-->
         <form method="post" action="/Animalia/procesarFormulario" enctype="multipart/form-data">
-
+            
             <input type="text" placeholder="Nombre completo" class="input" autofocus required name="nombre">
+            
             <input type="text" placeholder="Nombre de usuario" class="input" required name="username">
+            
             <input type="date" class="input" required name="fecha">
+            
             <select name="sexo">
                 <option disabled selected>Seleccionar sexo</option>
                 <option value="masculino">Masculino</option>
                 <option value="femenino">Femenino</option>
                 <option value="nodice">Prefiero no decirlo</option>
             </select>
-            <!-- PA MÁS ADELANTE--MAPA -->
-            <!-- <input type="hidden"> -->
-            <input type="text" placeholder="Pais" class="input" required>
-            <!-- <input type="hidden"> -->
-            <input type="text" placeholder="Ciudad" class="input" required>
-            <input type="text" placeholder="Correo electrónico" class="input" required name="user">
+
+            <!-- reemplazar con mapa -->
+    <input type="text" class="input" id="addressInput" list="addressSuggestions" placeholder="Ingresa una dirección">
+
+    <datalist id="addressSuggestions"></datalist>
+
+            <input type="email" placeholder="Correo electrónico" class="input" required name="email">
+
             <input type="password" placeholder="Contraseña" class="input" required name="pass">
+            <input type="password" placeholder="Repeti la contraseña" class="input" required name="r_pass">
 
             <div class="mt centrado">
                 <label for="file" class="botonArchivo">
@@ -28,15 +36,47 @@
             </div>
 
             <input type="submit" value="Registrarse" class="boton registro" name="enviar">
+            <p class="mensaje-error-registro">{{mensaje-error-registro}}</p>
+            <p class="mensajeConf">{{mensaje-registro-exitoso}}</p>
         </form>
     </div>
 
     <div class="formulario">
         <h3>¡A vos te conozco! Tira tu data </h3>
-        <form method="post" action="/Animalia/validarCorreo">
-            <input type="text" placeholder="Correo Electrónico" class="input" autofocus required name="username">
+        <!-- formulario login-->
+        <form method="post" action="/Animalia/validarLoginUsuario">
+            <input type="text" placeholder="Usuario" class="input" autofocus required name="username">
             <input type="password" placeholder="Contraseña" class="input" required name="pass">
             <input type="submit" value="Loggin" class="boton" name="enviar">
+            <p class="mensaje-error-registro">{{error-login}}</p>
         </form>
     </div>
 </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const addressInput = document.getElementById('addressInput');
+            const addressSuggestions = document.getElementById('addressSuggestions');
+
+            addressInput.addEventListener('input', function () {
+                const searchTerm = addressInput.value;
+
+                // Limpia las sugerencias anteriores
+                addressSuggestions.innerHTML = '';
+
+                // Realiza una solicitud a la API de Nominatim
+                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(searchTerm)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Agrega nuevas sugerencias al datalist
+                        data.forEach(result => {
+                            const option = document.createElement('option');
+                            option.value = result.display_name;
+                            addressSuggestions.appendChild(option);
+                        });
+                    })
+                    .catch(error => console.error('Error al obtener sugerencias:', error));
+            });
+        });
+    </script>

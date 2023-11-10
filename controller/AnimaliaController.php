@@ -1,4 +1,7 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+require 'vendor/autoload.php'; // Asegúrate de que la ruta sea correcta según la estructura de tu proyecto
+
 class AnimaliaController
 {
     private $render;
@@ -16,37 +19,52 @@ class AnimaliaController
     }
     public function procesarFormulario()
     {
-
+        $datos = null;
+        // guardo los datos en variables para trabaajr con ellas
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $usuario = $_POST["username"];
             $password = $_POST["pass"];
+            $r_password = $_POST["r_pass"];
             $nombre = $_POST["nombre"];
             $fecha = $_POST["fecha"];
-            $sexo = $_POST["nombre"];
-            $mail = $_POST["user"];
-            //$imagen = $_POST["file"];
-            if (!empty($usuario) && !empty($password) && !empty($nombre) && !empty($fecha) && !empty($sexo) && !empty($mail)) {
-                $this->model->registrarUsuario($usuario, $password, $nombre, $fecha, $sexo, $mail);
-                if (isset($_FILES["file"])) {
-                    $nombreArchivo = $_FILES["file"]["name"];
-                    $rutaTemporal = $_FILES["file"]["tmp_name"];
-                    $directorioDestino = "config/images/" . $nombreArchivo;
+            $sexo = $_POST["sexo"];
+            $mail = $_POST["email"];
+            $imagen = $_FILES["file"];
 
-                    if (move_uploaded_file($rutaTemporal, $directorioDestino)) {
-                        $imagen = $directorioDestino;
-                    } else {
-                        echo "Error al subir la imagen.";
+            // valido que nada este vacio
+            if (!empty($usuario) && !empty($password) && !empty($r_password) && !empty($nombre) && !empty($fecha) && !empty($sexo) && !empty($mail)) {
+
+                /* valido todo, subo la imagen, si la imagen ya se subio, registro 
+                al ususario y mando el mail */
+
+                if ($this->usuarioDisponible($usuario, $datos) && $this->contraseñaValida($password, $r_password, $datos)) {
+
+                    if (isset($_FILES["file"])) {
+                        $nombreArchivo = $_FILES["file"]["name"];
+                        $rutaTemporal = $_FILES["file"]["tmp_name"];
+                        $directorioDestino = "config/images/" . $nombreArchivo;
+
+                        if (move_uploaded_file($rutaTemporal, $directorioDestino)) {
+                           // refac
+                            $imagen = $directorioDestino;
+                            $this->model->registrarUsuario($usuario, $password, $nombre, $fecha, $sexo, $mail, $imagen);
+                            $this->model->subirFoto($usuario, $imagen);
+                            $this->enviarCorreoConfirmacion($mail,$nombre);
+                            $datos['mensaje-registro-exitoso'] = "Tu registro fue exitoso, en breves recibiras un mail con la confirmacion";
+                        } else {
+                            $datos['mensaje-error-registro'] = "Error al subir la imagen";
+                        }
                     }
                 }
-                $this->model->subirFoto($usuario, $imagen);
-                $this->enviarCorreo();
+            } else {
+                $datos['mensaje-error-registro'] = 'los campos no pueden estar vacios';
             }
-            $_SESSION['user'] = $usuario;
-            $datos = $_SESSION['user'];
-            $this->render->printView('lobby', $datos);
+            $this->render->printView('index', $datos);
         }
     }
-    public function validarCorreo()
+
+
+    public function validarLoginUsuario()
     {
         $datos = null;
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -67,7 +85,6 @@ class AnimaliaController
                     //Aca deberia haber un metodo que le pase los datos de las estadisticas a lobbyAdmin
                     $_SESSION['estadisticas'] = $this->model->obtenerEstadisticas();
                     $datos = $_SESSION['estadisticas'];
-                    //var_dump($datos);
                     $this->render->printView('lobbyadmin', $datos);
                 } elseif ($rol == 'editor') {
 
@@ -77,18 +94,59 @@ class AnimaliaController
                     $this->render->printView('lobby', $datos);
                 }
             }
+
+        }
+
+
+    }
+
+
+
+    public function usuarioDisponible($usuario, &$datos)
+    {
+        if ($this->model->usuarioRepetido($usuario)) {
+            $datos['mensaje-error-registro'] = 'este nombre de usuario ya existe, elija otro';
+            return false;
+        }
+        return true;
+    }
+
+    public function contraseñaValida($contra, $contraR, &$datos)
+    {
+        if ($contra == $contraR) {
+            return true;
+        } else {
+            // Aquí estableces el mensaje de error específico para la contraseña
+            $datos['mensaje-error-registro'] = 'Las contraseñas no coinciden.';
+            return false;
         }
     }
-    public function enviarCorreo()
+
+    public function enviarCorreoConfirmacion($correoDestinatario, $nombreDestinatario)
     {
-        if (isset($_POST["enviar"])) {
+        // Instancia de PHPMailer
+        $mail = new PHPMailer;
 
-            //  if ($_POST["user"] == "mica" && $_POST["pw"] == 123) {
+        // Configuración del servidor SMTP
+        $mail->isSMTP();
+        $mail->Host = 'smtp-mail.outlook.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'animaliaJuego@hotmail.com'; // Tu correo electrónico
+        $mail->Password = 'animalia1234'; // Tu contraseña
+        $mail->SMTPSecure = 'tls'; // O ssl si corresponde
+        $mail->Port = 587; // El puerto puede variar, verifica con tu proveedor de correo
 
-            //$_SESSION["user"] = "user";
-            //MALC *^____^*
-            //MICAA->USER CELU->USER LUDMII->EDITOR AXELL->ADMIN
-        }
+        // Configuración del correo
+        $mail->setFrom('animaliaJuego@hotmail.com', 'Animalia');
+        $mail->addAddress($correoDestinatario, $nombreDestinatario); // $mail contiene el correo del usuario, definido en tu función
+
+        $contenido_email = file_get_contents('public/mail.html');
+
+        $mail->isHTML(true);
+        $mail->Subject = 'Registro exitoso';
+        $mail->Body =  "hola, tu registro fue existoso, ya podes empezar a jugar!";
+        $mail->send();
+
     }
     
 }

@@ -61,8 +61,6 @@ class PerfilController{
     }
     public function editarPreguntas(){
         $datos['pregunta'] = $this->model->obtenerPreguntas();
-        //var_dump($datos['pregunta']);
-        //echo "aaa" . " <br> <br> <br>";
         $this->render->printView('editorPreguntas', $datos['pregunta']);
     }
 }
