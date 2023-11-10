@@ -38,11 +38,7 @@ class AnimaliaModel
         $query = "INSERT INTO usuario (user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail) 
               VALUES ('$usuario', '$password', '$nombre', '$fecha', '$sexo', '$mail')";
         $resultado =$this->database->query($query);
-        if ($resultado) {
-            echo "Usuario registrado con éxito.";
-        } else {
-            echo "Error al registrar el usuario: " . mysqli_error($this->database);
-        }
+
     }
 
     public function subirFoto($usuario, $imagen)
