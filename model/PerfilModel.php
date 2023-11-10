@@ -24,8 +24,18 @@ class PerfilModel{
               VALUES ('$categoria')";
         $resultado =$this->database->queryB($query);
     }
-    public function agregarRespuestas($respuestas){
-        $query = "INSERT INTO respuestasSugeridas (descripcion) VALUES ()";
+    public function agregarPregunta($pregunta, $categoria){
+        $query = "INSERT INTO preguntaSugerida (descripcion, categoria) 
+              VALUES ('$pregunta', '$categoria')";
+        $resultado =$this->database->queryB($query);
+    }
+    public function obtenerIdPregunta($pregunta){
+        $query = "SELECT id FROM preguntaSugerida WHERE descripcion = '$pregunta'";
+        return $this->database->query($query);
+    }
+    public function agregarRespuestas($respuesta1, $respuesta2, $respuesta3, $respuesta4, $id){
+        $query = "INSERT INTO respuestassugeridas (descripcion, pregunta) 
+        VALUES ('$respuesta1', '$id'), ('$respuesta2', '$id'), ('$respuesta3', '$id'), ('$respuesta4', '$id')";
         $resultado =$this->database->queryB($query);
     }
 

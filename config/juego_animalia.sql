@@ -56,7 +56,7 @@ CREATE TABLE preguntaSugerida (
   categoria int (11) not null
 );
 CREATE TABLE respuestasSugeridas (
-  id int(11) primary key NOT NULL,
+  id int(11) primary key AUTO_INCREMENT NOT NULL,
   descripcion varchar(100) NOT NULL,
   es_correcta boolean not null, 
   pregunta int(11) not null,

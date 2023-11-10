@@ -47,13 +47,15 @@ class PerfilController{
     public function sugerirPregunta(){
         if(isset($_POST['send'])){
             $pregunta = $_POST['pregunta'];
-            $this->model-> agregarPregunta($pregunta);
+            $categoria = $_POST['categoria'];
+            $this->model-> agregarPregunta($pregunta, $categoria);
             $id = $this->model-> obtenerIdPregunta($pregunta);
-            $respuestas[] = $_POST['respuesta1'];
-            $respuestas[] = $_POST['respuesta2'];
-            $respuestas[] = $_POST['respuesta3'];
-            $respuestas[] = $_POST['respuesta4'];
-            $this->model->agregarRespuestas($respuestas);
+            
+            $respuesta1 = $_POST['respuesta1'];
+            $respuesta2 = $_POST['respuesta2'];
+            $respuesta3 = $_POST['respuesta3'];
+            $respuesta4 = $_POST['respuesta4'];
+            $this->model->agregarRespuestas($respuesta1, $respuesta2 , $respuesta3, $respuesta4, $id[0]['id']);
         }
 
         $datos['usuario'] =  $_SESSION['user'];
