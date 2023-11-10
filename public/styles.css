@@ -113,6 +113,15 @@ body {
     box-shadow: 11px 9px 29px -8px rgba(50,58,74,0.74);
 }
 
+.mensaje-error-registro{
+    color: red;
+}
+
+.mensaje-registro{
+    color: green;
+    text-align: center;
+}
+
 .formulario h3 {
     font-weight: 200;
 
