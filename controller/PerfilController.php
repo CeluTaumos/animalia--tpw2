@@ -26,5 +26,8 @@ class PerfilController{
         
         $this->render->printView('perfilEstatico', $datos);
     }
-    
+    public function mostrarPantallaSugerencias(){
+        $datos['usuario'] = $_SESSION['user'];
+        $this->render->printView('sugerencia', $datos);
+    }
 }
