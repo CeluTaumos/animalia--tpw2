@@ -131,7 +131,7 @@ select {
 }
 
 .boton {
-     background-color: #FD79A8; 
+    background-color: #FD79A8; 
     
     text-align: center;
     color: white;
@@ -145,7 +145,20 @@ select {
     margin-top: 2%;
     transition: background-color 0.3s, color 0.3s;
 }
-
+.botonEditor {
+    background-color: #FD79A8; 
+    text-align: center;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    border-radius: 10px;
+    font-family: 'Lilita One', cursive;
+    font-size: 0.75em;
+    box-sizing: border-box;
+    padding: 3%;
+    margin-top: 2%;
+    transition: background-color 0.3s, color 0.3s;
+}
 .boton-nueva-partida{
     background-color: #FD79A8;
 }
@@ -199,7 +212,9 @@ select {
     color: white;
 }
 
-
+#texto{
+    font-size: -0.75em;
+}
 .boton:hover {
     background-color: #F9F5E3;
     color: #0e0b0b;
