@@ -70,8 +70,14 @@ class PerfilController{
 
     public function mostrarPantallaEditarSugerencias(){
         $datos['reportadas'] = $this->model->getReportadas();
-        $datos['sugeridas'] = $this->model->getSugeridas();
-        var_dump($datos['sugeridas']);
+        $resultado = $this->model->getPreguntasSugeridas();
+        
+        $datos['descripcionRespuesta'] = array();
+        foreach ($resultado as $fila) {
+            $datos['descripcionPregunta'] = $fila['pregunta_descripcion'];
+            //$datos['descripcionRespuesta'] = $fila['respuesta_descripcion'];
+            $datos['numeroPregunta'] = $fila['pregunta'];
+        }
         $datos['usuario'] = $_SESSION['user'];
         $this->render->printView('editarSugerencias', $datos);
     }

@@ -1,13 +1,26 @@
 
 <div class="caja fila">
+    
     <div class="tabla">
         <h1>Últimas preguntas sugeridas</h1>
-        <span></span> <button>Eliminar</button><button>Aprobar</button>
+        <form action="" method="post">
+            <input type="hidden" name="id" value="{{numeroPregunta}}">
+            <span>{{descripcionPregunta}}</span> <button>Eliminar</button><button>Aprobar</button>
+        </form>
+        
+        <ul>
+            {{#descripcionRespuesta}}
+               <li>{{.}}</li>
+            {{/descripcionRespuesta}}
+         </ul>
     </div>
-    {{#reportadas}}
+    
+    
     <div class="tabla">
         <h1>Últimas preguntas reportadas</h1>
-        <span>{{descripcion_reporte}}</span> <button>Eliminar</button><button>Cancelar</button>
+        {{#reportadas}}
+        <span>{{descripcion_reporte}}</span> <button>Eliminar</button><button>Cancelar</button><br>
+        {{/reportadas}}
     </div>
-    {{/reportadas}}
+    
 </div>
