@@ -30,14 +30,25 @@ class AdminController
 
     public function reportarPregunta(){
         //Selecciono el id de la pregunta actual 
-        if(isset($_POST['id'])){
+        if(isset($_POST['enviar']) && is_numeric($_POST['id'])){
             $id = $_POST['id'];
         }
-        var_dump($id);
-        $pregunta = $this->model->getDescripcion($id);
-        //la busco y la copio para ingresarla a preguntas reportadas
-        var_dump($pregunta);
-        $this->model->reportar($pregunta, $id);
+    
+        if ($id !== null) {
+            $pregunta = $this->model->getDescripcion($id);
+            if ($pregunta) {
+                // Extraigo la fila asociada al resultado
+                $row = $pregunta->fetch_assoc();
+    
+                // Verifico si la columna 'descripcion' existe en la fila
+                if (isset($row['descripcion'])) {
+                    $pregunta = $row['descripcion'];
+                    
+            $this->model->reportar($pregunta, $id);
+        }
+    }
+        $datos['id'] = $_POST['id'];
+        $this->render->printView('jugarPartida', $datos);
     }
 }
-
+}

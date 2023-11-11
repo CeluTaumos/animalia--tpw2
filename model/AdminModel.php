@@ -38,7 +38,7 @@ class AdminModel {
         return $result;
     }
     public function reportar($descripcion, $id){
-        $query = "INSERT INTO pregunta (descripcion_reporte, pregunta_id) VALUES ('$descripcion', '$id')";
+        $query = "INSERT INTO preguntasreportadas (descripcion_reporte, pregunta_id) VALUES ('$descripcion', '$id')";
         $result = $this->database->queryB($query);
     }
 }

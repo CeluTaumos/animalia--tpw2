@@ -86,7 +86,6 @@ class PartidaController
                 $_SESSION['tiempo_inicio'][$pregunta_id] = time();
                 $_SESSION['pregunta_actual'] = $pregunta_id;
             }
-
             $this->render->printView('jugarPartida', $datos);
 
             if ($tiempoTranscurrido > 10 && !isset($_SESSION['pantalla_perdedor_mostrada'])) {
