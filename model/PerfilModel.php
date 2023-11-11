@@ -53,6 +53,14 @@ class PerfilModel{
             return array('pregunta' => array()); 
         }
     }
-    
+    public function getReportadas(){
+        $query = "SELECT pregunta_id, descripcion_reporte FROM preguntasreportadas";
+        return $result = $this->database->query($query);
+
+    }
+    public function getSugeridas(){
+        $query = "SELECT * FROM respuestassugeridas";
+        return $result = $this->database->query($query);
+    }
 }
 

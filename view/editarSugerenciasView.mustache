@@ -4,9 +4,10 @@
         <h1>Últimas preguntas sugeridas</h1>
         <span></span> <button>Eliminar</button><button>Aprobar</button>
     </div>
-
+    {{#reportadas}}
     <div class="tabla">
         <h1>Últimas preguntas reportadas</h1>
-        <span></span> <button>Eliminar</button><button>Aprobar</button>
+        <span>{{descripcion_reporte}}</span> <button>Eliminar</button><button>Cancelar</button>
     </div>
+    {{/reportadas}}
 </div>

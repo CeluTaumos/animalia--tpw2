@@ -69,6 +69,9 @@ class PerfilController{
     }
 
     public function mostrarPantallaEditarSugerencias(){
+        $datos['reportadas'] = $this->model->getReportadas();
+        $datos['sugeridas'] = $this->model->getSugeridas();
+        var_dump($datos['sugeridas']);
         $datos['usuario'] = $_SESSION['user'];
         $this->render->printView('editarSugerencias', $datos);
     }
