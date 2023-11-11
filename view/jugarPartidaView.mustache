@@ -25,7 +25,11 @@
             <button class="trampita"> 🃏 </button>
         </div>
     </div>
-    <button class="boton-sec centro">Reportar Pregunta</button>
+    <form action="/Admin/reportarPregunta" method="post">
+        <input type="hidden" value="{{id}}" name="{{id}}">
+        <input class="boton-sec centro" type="submit" value="Reportar Pregunta">
+    </form>
+    <!-- <button class="boton-sec centro">Reportar Pregunta</button> -->
     
 </div>
 

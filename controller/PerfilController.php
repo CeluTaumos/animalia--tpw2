@@ -15,8 +15,14 @@ class PerfilController{
         }else{
             $user= $_SESSION["user"];
         }
-        $datos['usuario']= $this->model->buscarUsuario($user);
-        $this->render->printView('perfil', $datos);
+        if($_SESSION['rol']=='admin'){
+            $datos['usuario']= $this->model->buscarUsuario($user);
+            $this->render->printView('perfilEstatico', $datos);
+        }else{
+            $datos['usuario']= $this->model->buscarUsuario($user);
+            $this->render->printView('perfil', $datos);
+        }
+        
     }
     public function mostrarPantallaPerfilNuevo(){
         if(isset($_POST["user"])){
