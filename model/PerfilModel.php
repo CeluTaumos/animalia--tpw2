@@ -58,10 +58,6 @@ class PerfilModel{
         return $result = $this->database->query($query);
 
     }
-    // public function getRespuestasSugeridas(){
-    //     $query = "SELECT * FROM respuestassugeridas";
-    //     return $result = $this->database->query($query);
-    // }
     public function getPreguntasSugeridas(){
         $query = "SELECT
         preguntaSugerida.descripcion AS pregunta_descripcion,

@@ -72,7 +72,7 @@ class PerfilController{
         $datos['reportadas'] = $this->model->getReportadas();
         $resultado = $this->model->getPreguntasSugeridas();
         
-        $datos['descripcionRespuesta'] = array();
+        //$datos['descripcionRespuesta'] = array();
         foreach ($resultado as $fila) {
             $datos['descripcionPregunta'] = $fila['pregunta_descripcion'];
             //$datos['descripcionRespuesta'] = $fila['respuesta_descripcion'];
