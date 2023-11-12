@@ -3,7 +3,7 @@
     
     <div class="tabla">
         <h1 class="centrado nombre">Últimas preguntas sugeridas</h1>
-        <form action="" method="post">
+        <form action="/Perfil/eliminarPreguntaReportada" method="post">
             <input type="hidden" name="id" value="{{numeroPregunta}}">
             <span>{{descripcionPregunta}}</span> <button class="delete">Eliminar</button><button class="add">Aprobar</button>
         </form>
@@ -19,7 +19,12 @@
     <div class="tabla">
         <h1 class="centrado nombre">Últimas preguntas reportadas</h1>
         {{#reportadas}}
-        <span>{{descripcion_reporte}}</span> <button class="delete">Eliminar</button><button class="cancel">Cancelar</button><br>
+        <form action="/Perfil/eliminarPreguntaReportada" method="post">
+            <span>{{descripcion_reporte}}</span> 
+            <input type="hidden" name="id" value="{{pregunta_id}}">
+            <input type="submit" value="Eliminar" class="delete"><br>
+            
+        </form>
         {{/reportadas}}
     </div>
     

@@ -62,6 +62,14 @@ class PerfilModel{
         return $result = $this->database->query($query);
 
     }
+    public function eliminarPregunta($id){
+        $deleteRespuestasQuery = "DELETE FROM respuesta WHERE pregunta = '$id'";
+        $this->database->queryB($deleteRespuestasQuery);
+        $deleteReportadasQuery = "DELETE FROM preguntasreportadas WHERE pregunta_id = '$id'";
+        $this->database->queryB($deleteReportadasQuery);
+        $query = "DELETE FROM pregunta WHERE id = '$id'";
+        $result = $this->database->queryB($query);
+    }
     public function getPreguntasSugeridas(){
         $query = "SELECT
         preguntaSugerida.descripcion AS pregunta_descripcion,
