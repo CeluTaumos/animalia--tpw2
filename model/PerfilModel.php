@@ -85,5 +85,17 @@ class PerfilModel{
         $query = "UPDATE pregunta SET descripcion = '$pregunta' WHERE id = '$id'";
         $result = $this->database->queryB($query);
     }
+    public function eliminarPregSugerida($id){
+        $deleteRespuestasQuery = "DELETE FROM respuestassugeridas WHERE pregunta = '$id'";
+        $this->database->queryB($deleteRespuestasQuery);
+        $query = "DELETE from preguntasugerida WHERE id = '$id'";
+        $this->database->queryB($query);
+    }
+    public function aprobarPregSugerida($id){
+        $query = "INSERT INTO pregunta () VALUES ()";
+        $this->database->queryB($query);
+        $query = "INSERT INTO respuesta () VALUES ()";
+        $this->database->queryB($query);
+    }
 }
 

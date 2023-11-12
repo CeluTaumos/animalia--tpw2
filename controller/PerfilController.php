@@ -67,6 +67,23 @@ class PerfilController{
         $datos['usuario'] =  $_SESSION['user'];
         $this->render->printView('sugerencia', $datos);
     }
+    public function actualizarSugerida(){
+        //Aca debo recibir todo para eliminar o insertar la pregunta
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['accion'])) {
+                $id = $_POST['id'];
+                $accion = $_POST['accion'];
+                if ($accion === 'Eliminar') {
+                    // Lógica para eliminar la pregunta
+                    $this->model->eliminarPregSugerida($id);
+                } elseif ($accion === 'Aprobar') {
+                    // Lógica para aprobar la pregunta
+                    $this->model->aprobarPregSugerida($id);
+                }
+            }
+        }
+        $this->mostrarPantallaEditarSugerencias();
+    }
 
     public function mostrarPantallaEditarSugerencias(){
         $datos['reportadas'] = $this->model->getReportadas();

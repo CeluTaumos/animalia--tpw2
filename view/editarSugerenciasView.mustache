@@ -3,9 +3,13 @@
     
     <div class="tabla">
         <h1 class="centrado nombre">Últimas preguntas sugeridas</h1>
-        <form action="/Perfil/eliminarPreguntaReportada" method="post">
+        <form action="/Perfil/actualizarSugerida" method="post">
             <input type="hidden" name="id" value="{{numeroPregunta}}">
-            <span>{{descripcionPregunta}}</span> <button class="delete">Eliminar</button><button class="add">Aprobar</button>
+            <input type="hidden" name="id" value="{{descripcion}}">
+            
+            <span>{{descripcionPregunta}}</span> 
+            <input type="submit" class="delete" name="accion" value="Eliminar">
+            <input type="submit" class="add" name="accion" value="Aprobar">
         </form>
         
         <ul>
