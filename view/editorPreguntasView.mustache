@@ -1,10 +1,15 @@
-<h1 class="centrado">Modificar preguntas</h1>
+<h1 class="centrado nombre">Modificar preguntas</h1>
 <div class="preguntas">
     
     <div class="pregunta">
         {{#pregunta}}
-        <span>{{descripcion}}</span><button class="boton-sec">Modificar</button><br>
-        <p></p> 
+        <form action="/Perfil/modificarPregunta" method="post">
+            <span>{{descripcion}}</span>
+            <input type="hidden" value="{{id}}" name="id" >
+            <input type="text" placeholder="Ingrese la pregunta modificada" name="pregunta">
+            <!-- <button class="boton-sec">Modificar</button> -->
+            <input class="boton-sec" type="submit" value="Modificar"><br>
+        </form>
         {{/pregunta}}
     </div>
 </div>

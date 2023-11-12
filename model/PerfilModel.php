@@ -40,14 +40,18 @@ class PerfilModel{
     }
 
     public function obtenerPreguntas() {
-        $query = "SELECT descripcion FROM pregunta";
+        $query = "SELECT id, descripcion FROM pregunta";
         $result = $this->database->queryB($query);
         if ($result && $result instanceof mysqli_result) {
             $preguntas = array();
             while ($row = $result->fetch_assoc()) {
-                $preguntas[] = array('descripcion' => $row['descripcion']);
+                $preguntas[] = array(
+                    'id' => $row['id'],
+                    'descripcion' => $row['descripcion']
+                );
             }
             return array('pregunta' => $preguntas);
+        
         } else {
             
             return array('pregunta' => array()); 
@@ -68,6 +72,10 @@ class PerfilModel{
     JOIN
         preguntaSugerida ON respuestasSugeridas.pregunta = preguntaSugerida.id";
         return $result = $this->database->query($query);
+    }
+    public function actualizarPregunta($id, $pregunta){
+        $query = "UPDATE pregunta SET descripcion = '$pregunta' WHERE id = '$id'";
+        $result = $this->database->queryB($query);
     }
 }
 

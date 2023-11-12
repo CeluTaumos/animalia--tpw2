@@ -85,4 +85,16 @@ class PerfilController{
         $datos['pregunta'] = $this->model->obtenerPreguntas();
         $this->render->printView('editorPreguntas', $datos['pregunta']);
     }
+    public function modificarPregunta(){
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
+            $pregunta = $_POST['pregunta'];
+            var_dump($id);
+            var_dump($pregunta);
+        }
+        $this->model->actualizarPregunta($id, $pregunta);
+        $datos['pregunta'] = $this->model->obtenerPreguntas();
+        $this->render->printView('editorPreguntas', $datos);
+    }
 }
