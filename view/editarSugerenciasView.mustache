@@ -1,8 +1,12 @@
 
 <div class="caja fila">
-    
+    <!-- //Necesito descripcion, 
+        es_correcta
+        y la pregunta(1) para la respuesta 
+    //Necesito descripcion(pregunta) para pregunta SI -->
     <div class="tabla">
         <h1 class="centrado nombre">Últimas preguntas sugeridas</h1>
+        {{#sugeridas}}
         <form action="/Perfil/actualizarSugerida" method="post">
             <input type="hidden" name="id" value="{{numeroPregunta}}">
             <input type="hidden" name="id" value="{{descripcion}}">
@@ -10,13 +14,15 @@
             <span>{{descripcionPregunta}}</span> 
             <input type="submit" class="delete" name="accion" value="Eliminar">
             <input type="submit" class="add" name="accion" value="Aprobar">
+            <ul>
+                <li>
+                    {{#respuestas}}
+                    <p>{{.}}</p>
+                    {{/respuestas}}
+                </li> 
+            </ul>
         </form>
-        
-        <ul>
-            {{#descripcionRespuesta}}
-               <li>{{.}}</li>
-            {{/descripcionRespuesta}}
-         </ul>
+        {{/sugeridas}}
     </div>
     
     

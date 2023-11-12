@@ -20,7 +20,7 @@ ALTER TABLE usuario ADD fecha_registro DATE NOT NULL DEFAULT CURRENT_DATE;
 
 create table Categoria(
 id int (11) primary key not null,
-tipo varchar(100) NOT NULL,
+tipo varchar(100) DEFAULT 'Cultura' NOT NULL,
 imagen varchar(50) NOT NULL
 );
 

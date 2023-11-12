@@ -33,9 +33,9 @@ class PerfilModel{
         $query = "SELECT id FROM preguntaSugerida WHERE descripcion = '$pregunta'";
         return $this->database->query($query);
     }
-    public function agregarRespuestas($respuesta1, $respuesta2, $respuesta3, $respuesta4, $id){
-        $query = "INSERT INTO respuestassugeridas (descripcion, pregunta) 
-        VALUES ('$respuesta1', '$id'), ('$respuesta2', '$id'), ('$respuesta3', '$id'), ('$respuesta4', '$id')";
+    public function agregarRespuestas($correcta, $respuesta1, $respuesta2, $respuesta3, $respuesta4, $id){
+        $query = "INSERT INTO respuestassugeridas (descripcion, pregunta, es_correcta) 
+        VALUES ('$respuesta1', '$id', $correcta), ('$respuesta2', '$id', 0), ('$respuesta3', '$id',0), ('$respuesta4', '$id',0)";
         $resultado =$this->database->queryB($query);
     }
 
