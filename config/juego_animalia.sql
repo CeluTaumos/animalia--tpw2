@@ -53,6 +53,7 @@ CREATE TABLE respuesta (
 CREATE TABLE preguntaSugerida (
   id int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   descripcion varchar(100) NOT NULL,
+  dificultad int(10) DEFAULT 1 NOT NULL,
   categoria int (11) not null
 );
 CREATE TABLE respuestasSugeridas (

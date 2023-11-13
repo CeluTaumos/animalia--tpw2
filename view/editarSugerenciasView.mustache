@@ -9,15 +9,18 @@
         {{#sugeridas}}
         <form action="/Perfil/actualizarSugerida" method="post">
             <input type="hidden" name="id" value="{{numeroPregunta}}">
-            <input type="hidden" name="id" value="{{descripcion}}">
-            
+            <<input type="hidden" name="descripcion" value="{{descripcionPregunta}}">
+            <input type="hidden" name="categoria" value="{{categoria}}">
+            <input type="hidden" name="dificultad" value="{{dificultad}}">
             <span>{{descripcionPregunta}}</span> 
             <input type="submit" class="delete" name="accion" value="Eliminar">
             <input type="submit" class="add" name="accion" value="Aprobar">
             <ul>
                 <li>
                     {{#respuestas}}
-                    <p>{{.}}</p>
+                    <p>< {{.}}</p>
+                    <input type="hidden" name="correcta" value="{{es_correcta}}">
+                    
                     {{/respuestas}}
                 </li> 
             </ul>

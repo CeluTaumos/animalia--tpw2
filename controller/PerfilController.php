@@ -73,6 +73,9 @@ class PerfilController{
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['accion'])) {
                 $id = $_POST['id'];
+                $descripcion = $_POST['descripcion'];
+                $categoria = $_POST['categoria'];
+                $dificultad= $_POST['dificultad'];
                 $accion = $_POST['accion'];
                 if ($accion === 'Eliminar') {
                     // Lógica para eliminar la pregunta
@@ -80,8 +83,12 @@ class PerfilController{
                 } elseif ($accion === 'Aprobar') {
                     //Necesito descripcion, es_correcta y la pregunta(1) para la respuesta
                     //Necesito descripcion(pregunta) para pregunta
+                    //Debo hacer un metodo que inserte primero la descripcion y a la primera poner es_correcta
                     // Lógica para aprobar la pregunta
-                    $this->model->aprobarPregSugerida($id);
+                    $this->model->aprobarPregSugerida($id, $dificultad);
+                    // $pregunta = $this->model-> elegirPregunta($id);
+                    // $idPreg = $this->model->obtenerIdPregunta($pregunta);
+                    //$this->model->actualizarRelacionPYR();
                 }
             }
         }
@@ -92,13 +99,17 @@ class PerfilController{
         $datos['reportadas'] = $this->model->getReportadas();
         $resultado = $this->model->getPreguntasSugeridas();
         
-        //$datos['respuestas'] = array();
         foreach ($resultado as $fila) {
             $datos['sugeridas']['descripcionPregunta'] = $fila['pregunta_descripcion'];
             if (is_string($fila['respuesta_descripcion'])) {
                 $datos['respuestas'][] = htmlspecialchars($fila['respuesta_descripcion'], ENT_QUOTES, 'UTF-8');
             }
+            if (is_numeric($fila['es_correcta'])) {
+                $datos['respuestas'][] = htmlspecialchars($fila['es_correcta'], ENT_QUOTES, 'UTF-8');
+            }
             $datos['sugeridas']['numeroPregunta'] = $fila['pregunta'];
+            $datos['sugeridas']['categoria'] = $fila['pregunta_categoria'];
+            $datos['sugeridas']['dificultad'] =1;
         }
         $datos['usuario'] = $_SESSION['user'];
         $this->render->printView('editarSugerencias', $datos);
