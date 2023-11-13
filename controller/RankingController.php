@@ -14,7 +14,7 @@ class RankingController
         $datos['partida'] = $this->model->getRanking();
         $datos['partidasPrevias'] = $this->model->getPartidasPrevias();
         $datos['user'] = $_SESSION['user'];
-        $this->render->printView('ranking', $datos);
+        echo $this->render->printView('ranking', $datos);
     }
     public function imprimirQR()
     {
@@ -38,9 +38,8 @@ class RankingController
         $datos['usuario'] = $datosUsuario;
         $datos['urlQR'] = $url;
         // Devolver los datos en formato JSON para que lo tome el ajax
-        echo json_encode($datos);
-        exit;
-        // $this->render->printView('perfilEstatico', $datos);
+        
+        $this->render->printView('perfilEstatico', $datos);
     }
 
 

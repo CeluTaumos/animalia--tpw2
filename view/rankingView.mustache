@@ -38,23 +38,22 @@
 <script>
 $(document).ready(function() {
     setInterval(function() {
-        // Realizar la solicitud Ajax para obtener los puntajes actualizados
         $(".ajax-form").each(function() {
             var form = $(this);
             $.ajax({
-                type: form.attr('method'),
-                url: form.attr('action'),
+                type: "POST",
+                url: "/Ranking/mostrarPantallaRanking",
                 data: form.serialize(),
                 dataType: "json",
+
                 success: function(response) {
-                    // Actualizar dinámicamente los puntajes en la vista
                     $("#usuario_" + response.user_name + " .puntajeUsuario").text(response.max_puntaje);
                 },
                 error: function(error) {
                     console.log("Error en la solicitud Ajax: " + error);
                 }
-            });
+            }); 
         });
-    }, 5000);  // Actualizar cada 5 segundos (ajusta según tus necesidades)
+    }, 5000);
 });
 </script>
