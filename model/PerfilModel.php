@@ -25,20 +25,23 @@ class PerfilModel{
         $resultado =$this->database->queryB($query);
     }
     public function agregarPregunta($pregunta, $categoria){
-        $query = "INSERT INTO preguntaSugerida (descripcion, categoria) 
-              VALUES ('$pregunta', '$categoria')";
+        $query = "INSERT INTO preguntaSugerida (descripcion, categoria, dificultad) 
+              VALUES ('$pregunta', '$categoria', 1)";
         $resultado =$this->database->queryB($query);
     }
     public function obtenerIdPregunta($pregunta){
         $query = "SELECT id FROM preguntaSugerida WHERE descripcion = '$pregunta'";
         return $this->database->query($query);
     }
-    public function agregarRespuestas($respuesta1, $respuesta2, $respuesta3, $respuesta4, $id){
-        $query = "INSERT INTO respuestassugeridas (descripcion, pregunta) 
-        VALUES ('$respuesta1', '$id'), ('$respuesta2', '$id'), ('$respuesta3', '$id'), ('$respuesta4', '$id')";
+    public function agregarRespuestas($correcta, $respuesta1, $respuesta2, $respuesta3, $respuesta4, $id){
+        $query = "INSERT INTO respuestassugeridas (descripcion, pregunta, es_correcta) 
+        VALUES ('$respuesta1', '$id', $correcta), ('$respuesta2', '$id', 0), ('$respuesta3', '$id',0), ('$respuesta4', '$id',0)";
         $resultado =$this->database->queryB($query);
     }
-
+    public function elegirPregunta($id){
+        $query = "SELECT descripcion FROM pregunta WHERE id = '$id'";
+        return $this->database->queryB($query);
+    }
     public function obtenerPreguntas() {
         $query = "SELECT id, descripcion FROM pregunta";
         $result = $this->database->queryB($query);
@@ -73,8 +76,9 @@ class PerfilModel{
     public function getPreguntasSugeridas(){
         $query = "SELECT
         preguntaSugerida.descripcion AS pregunta_descripcion,
+        preguntaSugerida.categoria AS pregunta_categoria,
         respuestasSugeridas.descripcion AS respuesta_descripcion,
-        respuestasSugeridas.pregunta
+        respuestasSugeridas.pregunta, respuestasSugeridas.es_correcta
     FROM
         respuestasSugeridas
     JOIN
@@ -92,9 +96,17 @@ class PerfilModel{
         $this->database->queryB($query);
     }
     public function aprobarPregSugerida($id){
-        $query = "INSERT INTO pregunta () VALUES ()";
+        $query = "INSERT INTO pregunta (descripcion, categoria, dificultad) SELECT descripcion, categoria, dificultad FROM preguntaSugerida WHERE id = '$id'";
+
         $this->database->queryB($query);
-        $query = "INSERT INTO respuesta () VALUES ()";
+        // $query = "INSERT INTO respuesta () VALUES ()";
+        // $this->database->queryB($query);
+    }
+    public function actualizarRelacionPYR(){
+        $query = "INSERT INTO respuesta (descripcion, es_correcta, pregunta)
+        SELECT descripcion, es_correcta, 'ID_DE_LA_PREGUNTA_RECIENTEMENTE_INSERTADA'
+        FROM respuestasSugeridas
+        WHERE pregunta = 'ID_DE_LA_PREGUNTA_SUGERIDA_A_APROBAR'";
         $this->database->queryB($query);
     }
 }
