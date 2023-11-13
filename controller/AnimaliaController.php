@@ -140,11 +140,15 @@ class AnimaliaController
         $mail->setFrom('animaliaJuego@hotmail.com', 'Animalia');
         $mail->addAddress($correoDestinatario, $nombreDestinatario); // $mail contiene el correo del usuario, definido en tu función
 
-        $contenido_email = file_get_contents('public/mail.html');
-
+       // $contenido_email = file_get_contents('public/horneroMail.png');
+        $imagePath = 'public\horneroMail.png';
+        $mail->addEmbeddedImage($imagePath, 'imagen_id'); 
         $mail->isHTML(true);
         $mail->Subject = 'Registro exitoso';
-        $mail->Body =  "hola, tu registro fue existoso, ya podes empezar a jugar!";
+        //   $mail->Body =  "hola, tu registro fue existoso, ya podes empezar a jugar!" ;
+        
+        $mail->Body = ' <img src="cid:imagen_id" width="500px">';
+
         $mail->send();
 
     }
