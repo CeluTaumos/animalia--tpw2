@@ -42,7 +42,7 @@ class AnimaliaController
                     if (isset($_FILES["file"])) {
                         $nombreArchivo = $_FILES["file"]["name"];
                         $rutaTemporal = $_FILES["file"]["tmp_name"];
-                        $directorioDestino = "config/images/" . $nombreArchivo;
+                        $directorioDestino = "public/img/" . $nombreArchivo;
 
                         if (move_uploaded_file($rutaTemporal, $directorioDestino)) {
                            // refac
@@ -80,6 +80,8 @@ class AnimaliaController
                 $_SESSION['rol'] = $rol;
                 $_SESSION['puntaje'] = 0;
                 $datos['puntaje'] = $_SESSION['puntaje'];
+                $datos['foto_de_usuario']=$this->model->verFoto($usuario);
+     
                 //CHEQUEO SEGUN EL ROL A QUE VISTA LO LLEVO
                 if ($rol == 'admin') {
                     //Aca deberia haber un metodo que le pase los datos de las estadisticas a lobbyAdmin
@@ -133,18 +135,20 @@ class AnimaliaController
         $mail->SMTPAuth = true;
         $mail->Username = 'animaliaJuego@hotmail.com'; // Tu correo electrónico
         $mail->Password = 'animalia1234'; // Tu contraseña
-        $mail->SMTPSecure = 'tls'; // O ssl si corresponde
-        $mail->Port = 587; // El puerto puede variar, verifica con tu proveedor de correo
+        $mail->SMTPSecure = 'tls'; 
+        $mail->Port = 587; 
 
-        // Configuración del correo
+
         $mail->setFrom('animaliaJuego@hotmail.com', 'Animalia');
-        $mail->addAddress($correoDestinatario, $nombreDestinatario); // $mail contiene el correo del usuario, definido en tu función
+        $mail->addAddress($correoDestinatario, $nombreDestinatario); 
 
-        $contenido_email = file_get_contents('public/mail.html');
 
+        $imagePath = 'public\horneroMail.png';
+        $mail->addEmbeddedImage($imagePath, 'imagen_id'); 
         $mail->isHTML(true);
         $mail->Subject = 'Registro exitoso';
-        $mail->Body =  "hola, tu registro fue existoso, ya podes empezar a jugar!";
+        $mail->Body = ' <img src="cid:imagen_id" width="500px">';
+
         $mail->send();
 
     }
