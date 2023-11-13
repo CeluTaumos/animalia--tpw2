@@ -20,7 +20,7 @@ ALTER TABLE usuario ADD fecha_registro DATE NOT NULL DEFAULT CURRENT_DATE;
 
 create table Categoria(
 id int (11) primary key not null,
-tipo varchar(100) NOT NULL,
+tipo varchar(100) DEFAULT 'Cultura' NOT NULL,
 imagen varchar(50) NOT NULL
 );
 
@@ -53,6 +53,7 @@ CREATE TABLE respuesta (
 CREATE TABLE preguntaSugerida (
   id int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   descripcion varchar(100) NOT NULL,
+  dificultad int(10) DEFAULT 1 NOT NULL,
   categoria int (11) not null
 );
 CREATE TABLE respuestasSugeridas (

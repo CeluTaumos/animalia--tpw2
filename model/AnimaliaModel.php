@@ -19,13 +19,13 @@ class AnimaliaModel
         $result = $this->database->queryB($query);
 
         if ($result) {
-            $row = $result->fetch_assoc(); // Obtener la primera fila de resultados
+            $row = $result->fetch_assoc(); 
             if ($row) {
-                return $row['rol']; // Devolver el valor del rol
+                return $row['rol']; 
             }
         }
-        // Manejar el error o devolver un valor por defecto en caso de que no se encuentre el usuario
-        return 'usuario'; // Valor por defecto si no se encuentra el usuario
+       
+        return 'usuario'; 
     }   
     public function registrarUsuario($usuario, $password, $nombre, $fecha, $sexo, $mail){
         $query = "INSERT INTO usuario (user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail) 
@@ -75,4 +75,12 @@ public function obtenerEstadisticas(){
 
     return $datos;
     }
+    public function verFoto($usuario){
+        $query = "SELECT foto_de_perfil FROM usuario WHERE user_name like '$usuario'";
+        $resultado = $this->database->query($query);
+        $foto_de_perfil = $resultado[0]['foto_de_perfil'];
+
+        return $foto_de_perfil;
+    }
+    
 }
