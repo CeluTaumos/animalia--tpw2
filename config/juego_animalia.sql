@@ -290,6 +290,74 @@ insert into respuesta (descripcion, es_correcta, pregunta) values
 ("Jorge Luis Borges", false, 26), 
 ("Juan Carlos Altavista", false, 26);
 
+-- preguntas intermedias
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el rio que separa argenitna del uruguay?", 4, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Rio Uruguay", true, 27), ("Fitz Roy", false, 27), ("Cerro Torre", false, 27), ("Rio petuña", false, 27);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es la provincia más poblada de Argentina?", 4, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Buenos Aires", true, 28), ("Córdoba", false, 28), ("Santa Fe", false, 28), ("Mendoza", false, 28);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿En qué provincia se encuentra la Quebrada de Humahuaca?", 4, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Jujuy", true, 29), ("Salta", false, 29), ("Tucumán", false, 29), ("Catamarca", false, 29);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el río más importante de la provincia de Misiones?", 4, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Paraná", false, 30), ("Uruguay", true, 30), ("Paraguay", false, 30), ("Bermejo", false, 30);
+
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿En qué deporte se utiliza una red y una pelota amarilla?", 3, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Tenis", true, 31), ("Vóley", false, 31), ("Bádminton", false, 31), ("Polo acuático", false, 31);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el equipo de fútbol más antiguo de Argentina?", 3, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Gimnasia y Esgrima La Plata", false, 32), ("Club Atlético Newell's Old Boys", false, 32), ("Club Atlético Rosario Central", false, 32), ("Club Atlético de San Isidro", true, 32);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿En qué país se originó el deporte del rugby?", 3, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Inglaterra", true, 33), ("Nueva Zelanda", false, 33), ("Sudáfrica", false, 33), ("Australia", false, 33);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el deporte acuático que se practica con una tabla y una vela?", 3, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Windsurf", true, 34), ("Surf", false, 34), ("Kitesurf", false, 34), ("Esquí acuático", false, 34);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿En qué año se firmó la Declaración de Independencia de Argentina?", 1, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("1816", true, 35), ("1820", false, 35), ("1830", false, 35), ("1800", false, 35);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue el pintor argentino conocido por su obra 'Abaporu'?", 2, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Tarsila do Amaral", true, 36), ("Diego Rivera", false, 36), ("Frida Kahlo", false, 36), ("Antonio Berni", false, 36);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el equipo de fútbol más laureado de Argentina en torneos internacionales?", 3, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Club Atlético Independiente", true, 37), ("Boca Juniors", false, 37), ("River Plate", false, 37), ("Racing Club", false, 37);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es la capital de la provincia de Salta?", 4, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Salta", true, 38), ("San Miguel de Tucumán", false, 38), ("Jujuy", false, 38), ("Mendoza", false, 38);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue el científico argentino ganador del Premio Nobel de Química en 1970?", 5, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Luis Federico Leloir", true, 39), ("César Milstein", false, 39), ("Bernardo Houssay", false, 39), ("Carlos Finlay", false, 39);
+
+
 
 
 -- ALTER TABLE pregunta
