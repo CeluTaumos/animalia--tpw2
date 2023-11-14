@@ -21,5 +21,3 @@ class RankingModel{
         return $this->database->query($query);
     }
 }
-
-// arreglar el htaccess
