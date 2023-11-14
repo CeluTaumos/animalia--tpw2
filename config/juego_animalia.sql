@@ -282,11 +282,168 @@ insert into respuesta (id, descripcion, es_correcta, pregunta) values
 (99, "INVAP", false, 25), 
 (100, "NASA", false, 25);
 
-insert into respuesta (id, descripcion, es_correcta, pregunta) values 
-(101, "Luis Federico Leloir", true, 26), 
-(102, "Juan Domingo Perón", false, 26), 
-(103, "Jorge Luis Borges", false, 26), 
-(104, "Juan Carlos Altavista", false, 26);
+insert into respuesta (descripcion, es_correcta, pregunta) values 
+("Luis Federico Leloir", true, 26), 
+("Juan Domingo Perón", false, 26), 
+("Jorge Luis Borges", false, 26), 
+("Juan Carlos Altavista", false, 26);
+
+-- preguntas intermedias
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el rio que separa argenitna del uruguay?", 4, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Rio Uruguay", true, 27), ("Fitz Roy", false, 27), ("Cerro Torre", false, 27), ("Rio petuña", false, 27);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es la provincia más poblada de Argentina?", 4, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Buenos Aires", true, 28), ("Córdoba", false, 28), ("Santa Fe", false, 28), ("Mendoza", false, 28);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿En qué provincia se encuentra la Quebrada de Humahuaca?", 4, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Jujuy", true, 29), ("Salta", false, 29), ("Tucumán", false, 29), ("Catamarca", false, 29);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el río más importante de la provincia de Misiones?", 4, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Paraná", false, 30), ("Uruguay", true, 30), ("Paraguay", false, 30), ("Bermejo", false, 30);
+
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿En qué deporte se utiliza una red y una pelota amarilla?", 3, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Tenis", true, 31), ("Vóley", false, 31), ("Bádminton", false, 31), ("Polo acuático", false, 31);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el equipo de fútbol más antiguo de Argentina?", 3, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Gimnasia y Esgrima La Plata", false, 32), ("Club Atlético Newell's Old Boys", false, 32), ("Club Atlético Rosario Central", false, 32), ("Club Atlético de San Isidro", true, 32);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿En qué país se originó el deporte del rugby?", 3, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Inglaterra", true, 33), ("Nueva Zelanda", false, 33), ("Sudáfrica", false, 33), ("Australia", false, 33);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el deporte acuático que se practica con una tabla y una vela?", 3, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Windsurf", true, 34), ("Surf", false, 34), ("Kitesurf", false, 34), ("Esquí acuático", false, 34);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿En qué año se firmó la Declaración de Independencia de Argentina?", 1, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("1816", true, 35), ("1820", false, 35), ("1830", false, 35), ("1800", false, 35);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue el pintor argentino conocido por su obra 'Abaporu'?", 2, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Tarsila do Amaral", true, 36), ("Diego Rivera", false, 36), ("Frida Kahlo", false, 36), ("Antonio Berni", false, 36);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el equipo de fútbol más laureado de Argentina en torneos internacionales?", 3, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Club Atlético Independiente", true, 37), ("Boca Juniors", false, 37), ("River Plate", false, 37), ("Racing Club", false, 37);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es la capital de la provincia de Salta?", 4, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Salta", true, 38), ("San Miguel de Tucumán", false, 38), ("Jujuy", false, 38), ("Mendoza", false, 38);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue el científico argentino ganador del Premio Nobel de Química en 1970?", 5, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Luis Federico Leloir", true, 39), ("César Milstein", false, 39), ("Bernardo Houssay", false, 39), ("Carlos Finlay", false, 39);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Qué escritor argentino recibió el Premio Nobel de Literatura en 1945?", 2, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("César Vallejo", false, 40), ("Jorge Luis Borges", false, 40), ("Gabriela Mistral", false, 40), ("Alejandro Casona", true, 40);
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el equipo de rugby más antiguo de Argentina?", 3, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Club Atlético de San Isidro", true, 41), ("Hindú Club", false, 41), ("Club Universitario de Buenos Aires", false, 41), ("Club Atlético Belgrano", false, 41);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿En qué provincia argentina se encuentra la región de la Puna?", 4, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Jujuy", true, 42), ("Salta", false, 42), ("Catamarca", false, 42), ("La Rioja", false, 42);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue el matemático argentino que desarrolló la Teoría de los Espacios Métricos?", 5, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Félix Christian Klein", false, 43), ("Federico García Lorca", false, 43), ("Ángel Gallardo", false, 43), ("Mauricio González Gordon", true, 43);
+
+-- preguntas avanzadas
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue el líder del movimiento peronista en Argentina durante la década de 1950?", 1, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Juan Domingo Perón", true, 44), ("Arturo Frondizi", false, 44), ("Arturo Illia", false, 44), ("Raúl Alfonsín", false, 44);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue el director de la película argentina 'El secreto de sus ojos'?", 2, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Juan José Campanella", true, 45), ("Pablo Trapero", false, 45), ("Lucrecia Martel", false, 45), ("Gastón Duprat", false, 45);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuántas veces Argentina ha ganado la Copa Mundial de la FIFA en fútbol masculino hasta la fecha de corte de mi conocimiento en enero de 2022?", 3, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Dos veces (1978 y 1986)", true, 46), ("Una vez (1978)", false, 46), ("Tres veces (1978, 1986 y 2014)", false, 46), ("Nunca ha ganado la Copa Mundial", false, 46);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el punto más alto de Argentina y de toda América del Sur?", 4, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Cerro Aconcagua", true, 47), ("Monte Fitz Roy", false, 47), ("Volcán Lanín", false, 47), ("Cerro Torre", false, 47);
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el campo de estudio principal de la física teórica argentina Juan Martín Maldacena?", 5, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Física de partículas", true, 48), ("Astrofísica", false, 48), ("Física cuántica", false, 48), ("Física nuclear", false, 48);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál fue la fecha de la Revolución de Mayo, que marcó el inicio del proceso de independencia de Argentina?", 1, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("25 de mayo de 1810", true, 49), ("9 de julio de 1816", false, 49), ("20 de junio de 1820", false, 49), ("3 de febrero de 1813", false, 49);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Qué escritor argentino ganó el Premio Nobel de la Paz en 2010?", 2, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Adolfo Pérez Esquivel", true, 50), ("Jorge Luis Borges", false, 50), ("Julio Cortázar", false, 50), ("Gabriel García Márquez", false, 50);
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuántas medallas de oro olímpicas ha ganado Argentina en su historia hasta la fecha de corte de mi conocimiento en enero de 2022?", 3, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("6", true, 51), ("3", false, 51), ("9", false, 51), ("12", false, 51);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es la segunda ciudad más poblada de Argentina?", 4, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Córdoba", false, 52), ("Rosario", false, 52), ("Mendoza", false, 52), ("La Plata", true, 52);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál fue la contribución más destacada del científico argentino René Favaloro?", 5, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Cirugía de bypass coronario", true, 53), ("Desarrollo de la vacuna contra la polio", false, 53), ("Descubrimiento de la penicilina", false, 53), ("Teoría de la relatividad", false, 53);
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue el líder del movimiento revolucionario que derrocó a Juan Domingo Perón en 1955?", 1, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Eduardo Lonardi", true, 54), ("Arturo Frondizi", false, 54), ("Armando Frondizi", false, 54), ("Arturo Illia", false, 54);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue el arquitecto argentino que diseñó el Obelisco de Buenos Aires?", 2, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Alberto Prebisch", true, 55), ("César Pelli", false, 55), ("Clorindo Testa", false, 55), ("Amancio Williams", false, 55);
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuántas veces Argentina ha ganado la Copa América hasta la fecha de corte de mi conocimiento en enero de 2022?", 3, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("15", true, 56), ("12", false, 56), ("18", false, 56), ("20", false, 56);
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el nombre de la mayor región desértica de Argentina?", 4, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Desierto del Monte", false, 57), ("Desierto del Atacama", false, 57), ("Desierto del Chaco", false, 57), ("Desierto del Patagones", true, 57);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál fue la contribución más destacada de la científica argentina Cecilia Grierson?", 5, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Primera médica argentina", true, 58), ("Descubrimiento de la penicilina", false, 58), ("Desarrollo de la bomba atómica", false, 58), ("Teoría de la relatividad", false, 58);
 
 
 SELECT COUNT(*) AS cantidad FROM usuario WHERE rol = 'jugador';
