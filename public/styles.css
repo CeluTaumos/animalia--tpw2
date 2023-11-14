@@ -592,7 +592,10 @@ a {
    }
 
    .input_mas_grande{
-    width: 339px;
+    width: 21.188em;
+    border: none;
+    outline: none;
+    border-radius: 1.25em;
   }
    
    /* ANIMACIONES */
