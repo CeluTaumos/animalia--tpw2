@@ -20,19 +20,20 @@ class AdminController
     
     public function estadisticas() {
         $cantidadJugadores = $this->model->obtenerCantidadJugadores();
+        
         $cantidadPartidas = $this->model->obtenerCantidadPartidas();
         $cantidadPreguntas = $this->model->obtenerCantidadPreguntas();
         $usuariosNuevos = $this->model->obtenerUsuariosNuevos();
         
         $datos = [
-            'cantidadJugadores' => $this->obtenerDato($cantidadJugadores),
+            'cantidadJugadores' =>$cantidadJugadores[0]['cantidad'],
             'cantidadPartidas' => $this->obtenerDato($cantidadPartidas),
             'cantidadPreguntas' => $this->obtenerDato($cantidadPreguntas),
             'usuariosNuevos' => $this->obtenerDato($usuariosNuevos),
         ];
     
         $_SESSION['estadisticas'] = $datos;
-        var_dump($datos);
+        
         $this->render->printView('verEstadisticas', $datos);
     }
     
