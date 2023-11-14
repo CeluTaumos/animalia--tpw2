@@ -32,6 +32,7 @@ class AdminController
         ];
     
         $_SESSION['estadisticas'] = $datos;
+        var_dump($datos);
         $this->render->printView('verEstadisticas', $datos);
     }
     
