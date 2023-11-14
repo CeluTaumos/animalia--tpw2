@@ -1,4 +1,4 @@
-create database animalia;
+-- create database animalia;
 use animalia;
 
 /*CREACION DE TABLAS*/
@@ -20,6 +20,7 @@ ALTER TABLE usuario ADD fecha_registro DATE NOT NULL DEFAULT CURRENT_DATE;
 
 create table Categoria(
 id int (11) primary key not null,
+pregunta
 tipo varchar(100) DEFAULT 'Cultura' NOT NULL,
 imagen varchar(50) NOT NULL
 );
