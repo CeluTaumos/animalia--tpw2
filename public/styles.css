@@ -590,6 +590,10 @@ a {
     font-size: 1.563em;
    color: #0080d5;
    }
+
+   .input_mas_grande{
+    width: 339px;
+  }
    
    /* ANIMACIONES */
 
@@ -676,9 +680,7 @@ a {
         font-size: 0.875em;
     }
 
-  .input_mas_grande{
-    width: 339px;
-  }
+  
 }
 
 
