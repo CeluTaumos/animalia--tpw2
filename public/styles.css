@@ -676,7 +676,9 @@ a {
         font-size: 0.875em;
     }
 
-  
+  .input_mas_grande{
+    width: 339px;
+  }
 }
 
 
