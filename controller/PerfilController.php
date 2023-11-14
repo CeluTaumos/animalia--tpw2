@@ -69,7 +69,7 @@ class PerfilController{
         $this->render->printView('sugerencia', $datos);
     }
     public function actualizarSugerida(){
-        //Aca debo recibir todo para eliminar o insertar la pregunta
+    
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['accion'])) {
                 $id = $_POST['id'];
@@ -83,7 +83,7 @@ class PerfilController{
                 $respuestasArray = array();
                 
                 foreach ($respuestas as $index => $respuesta) {
-                    // Asegurarse de que el índice exista antes de acceder a él
+                 
                     if (isset($respuesta['respuesta_descripcion'])) {
                         $respuestasArray[] = $respuesta['respuesta_descripcion'];
                         var_dump($respuestasArray[$index]);
@@ -103,10 +103,10 @@ class PerfilController{
                 } elseif ($accion === 'Aprobar') {
                     $idPregunta = $this->model->aprobarPregSugerida($id, $dificultad);
                     foreach ($respuestasArray as $index => $respuesta) {
-                        // Verificar si el índice es_correcta existe antes de acceder a él
+                       
                         $es_correcta_respuesta = isset($es_correcta[$index]['es_correcta']) ? $es_correcta[$index]['es_correcta'] : 0;
     
-                        // Llamar a la función para insertar la relación PYR
+                       
                         $this->model->actualizarRelacionPYR($respuesta, $es_correcta_respuesta, $idPregunta[0][0]);
                         $this->model->eliminarPregSugerida($id);
                     }

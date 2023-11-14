@@ -10,26 +10,42 @@ class AdminController
         $this->render = $render;
         $this->model = $model;
     }
-
+    public function mostrarDatos() {
+        $datos = [
+            'user' => $_SESSION['user'], 
+        ];
+    
+        return $this->render->printView('lobbyadmin', $datos);
+    }
+    
     public function estadisticas() {
-        $datos = null;
         $cantidadJugadores = $this->model->obtenerCantidadJugadores();
         $cantidadPartidas = $this->model->obtenerCantidadPartidas();
         $cantidadPreguntas = $this->model->obtenerCantidadPreguntas();
         $usuariosNuevos = $this->model->obtenerUsuariosNuevos();
+        
         $datos = [
-            'cantidadJugadores' => $cantidadJugadores['cantidad'],
-            'cantidadPartidas' => $cantidadPartidas['cantidad'],
-            'cantidadPreguntas' => $cantidadPreguntas['cantidad'],
-            'usuariosNuevos' => $usuariosNuevos['cantidad'],
+            'cantidadJugadores' => $this->obtenerDato($cantidadJugadores),
+            'cantidadPartidas' => $this->obtenerDato($cantidadPartidas),
+            'cantidadPreguntas' => $this->obtenerDato($cantidadPreguntas),
+            'usuariosNuevos' => $this->obtenerDato($usuariosNuevos),
         ];
-        $_SESSION['estadisticas'] = $datos;
     
-        $this->render->printView('lobbyadmin', $datos);
+        $_SESSION['estadisticas'] = $datos;
+        $this->render->printView('verEstadisticas', $datos);
     }
+    
+    private function obtenerDato($result) {
+        if ($result && is_object($result) && method_exists($result, 'fetch_assoc')) {
+            $row = $result->fetch_assoc();
+            return isset($row['cantidad']) ? $row['cantidad'] : 0;
+        }
+        return 0;
+    }
+    
 
     public function reportarPregunta(){
-        //Selecciono el id de la pregunta actual 
+      
         if(isset($_POST['enviar']) && is_numeric($_POST['id'])){
             $id = $_POST['id'];
         }
@@ -37,10 +53,8 @@ class AdminController
         if ($id !== null) {
             $pregunta = $this->model->getDescripcion($id);
             if ($pregunta) {
-                // Extraigo la fila asociada al resultado
+                
                 $row = $pregunta->fetch_assoc();
-    
-                // Verifico si la columna 'descripcion' existe en la fila
                 if (isset($row['descripcion'])) {
                     $pregunta = $row['descripcion'];
                     
@@ -50,5 +64,12 @@ class AdminController
         $datos['id'] = $_POST['id'];
         $this->render->printView('jugarPartida', $datos);
     }
+}
+
+public function cerrarSesion()
+{
+    $datos = null;
+    session_destroy();
+    $this->render->printView('index', $datos);
 }
 }

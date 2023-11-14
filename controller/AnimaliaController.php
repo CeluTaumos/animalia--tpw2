@@ -84,9 +84,7 @@ class AnimaliaController
      
                 //CHEQUEO SEGUN EL ROL A QUE VISTA LO LLEVO
                 if ($rol == 'admin') {
-                    //Aca deberia haber un metodo que le pase los datos de las estadisticas a lobbyAdmin
-                    $_SESSION['estadisticas'] = $this->model->obtenerEstadisticas();
-                    $datos = $_SESSION['estadisticas'];
+              
                     $this->render->printView('lobbyadmin', $datos);
                 } elseif ($rol == 'editor') {
 
