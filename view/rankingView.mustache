@@ -6,11 +6,11 @@
         {{#partida}}
         <div class="row">
             <!-- <form action="/Perfil/mostrarPantallaPerfilNuevo" method="post"> -->
-            <form action="/Ranking/imprimirQR" method="post">
+            <form class="ajax-form" action="/Ranking/imprimirQR" method="post">
                 <input type="hidden" name="user" value="{{user_name}}">
                 <button class="user_name" type="submit" name="enviar">👑 {{user_name}}</button>
             </form>
-            <span> {{MAX(puntaje)}}</span><br>
+            <span class="puntajeUsuario"> {{MAX(puntaje)}}</span><br>
             <!-- <div class="qr">
                  //Aca estaria el QR, AL HACER CLICK GENERA EL PDF DEL PERFIL Y LO MUESTRA EN OTRA PESTAÑA COMO UN ARCHIVO .PHP, guarda la url y los datos de usuario para renderizar 
                 <a href="/Ranking/imprimirQR/{{user_name}}" target="_blank">QR</a>
@@ -34,3 +34,26 @@
     </div>
 
 </div>
+
+<script>
+$(document).ready(function() {
+    setInterval(function() {
+        $(".ajax-form").each(function() {
+            var form = $(this);
+            $.ajax({
+                type: "POST",
+                url: "/Ranking/mostrarPantallaRanking",
+                data: form.serialize(),
+                dataType: "json",
+
+                success: function(response) {
+                    $("#usuario_" + response.user_name + " .puntajeUsuario").text(response.max_puntaje);
+                },
+                error: function(error) {
+                    console.log("Error en la solicitud Ajax: " + error);
+                }
+            }); 
+        });
+    }, 5000);
+});
+</script>

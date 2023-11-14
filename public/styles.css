@@ -257,7 +257,7 @@ select {
 
 .boton-sec:hover {
     background-color: #F9F5E3;
-    color: #ea3d3d;
+    color: black;
     cursor: pointer;
 }
 
@@ -590,6 +590,10 @@ a {
     font-size: 1.563em;
    color: #0080d5;
    }
+
+   .input_mas_grande{
+    width: 339px;
+  }
    
    /* ANIMACIONES */
 
