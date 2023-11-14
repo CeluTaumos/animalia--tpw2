@@ -17,11 +17,9 @@ class Database {
         mysqli_close($this->conn);
     }
 
-    // public function query($sql) {
-    //     Logger::info('Ejecutando query: ' . $sql);
-    //     $result = mysqli_query($this->conn, $sql);
-    //     return mysqli_fetch_all($result, MYSQLI_BOTH);
-    // }
+  
+
+    //ESTA ME TRAE UN ARRAY
     public function query($sql, $params = array()) {
         Logger::info('Ejecutando query: ' . $sql);
         $stmt = mysqli_prepare($this->conn, $sql);
@@ -40,7 +38,7 @@ class Database {
             return false;
         }
     }
-    
+    //ESTA ME TRAE UNSOLO RESULTADO
     public function queryB($sql) {
         Logger::info('Ejecutando query: ' . $sql);
         $result = mysqli_query($this->conn, $sql);

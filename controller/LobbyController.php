@@ -19,7 +19,7 @@ class LobbyController
     $user = $_SESSION['user'];
 
     if ($rol == 'admin') {
-        // Aca deberia haber un metodo que le pase los datos de las estadisticas a lobbyAdmin
+        
         $_SESSION['estadisticas'] = $this->model->obtenerEstadisticas();
         $datos = $_SESSION['estadisticas'];
         $this->render->printView('lobbyadmin', $datos);
@@ -30,7 +30,7 @@ class LobbyController
         $userResult = $this->model->getUser($user);
         
         if ($userResult) {
-            $userData = $userResult->fetch_assoc(); // Suponiendo que estás utilizando MySQLi
+            $userData = $userResult->fetch_assoc();
             $datos['puntaje'] = $_SESSION['puntaje'];
             $datos['user'] = $_SESSION['user'];
             $datos['nivel'] = $userData['nivel'];

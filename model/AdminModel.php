@@ -8,19 +8,12 @@ class AdminModel {
         $this->database = $database;
     }    
     public function obtenerCantidadJugadores() {
-        $query = "SELECT COUNT(*) AS cantidad FROM usuario WHERE rol = 'jugador'";
+        $query = "SELECT COUNT(*) AS cantidad FROM usuario WHERE rol LIKE 'jugador%'";
+
         $result = $this->database->queryB($query);
     
-        if ($result) {
-            $row = $result->fetch_assoc();
-    
-            if (isset($row['cantidad'])) {
-                $cantidadJugadores = $row['cantidad'];
-                return $cantidadJugadores;
-            }
-        }
-    
-        return 0; 
+
+        return $result->fetch_assoc(); 
     }
     
 
