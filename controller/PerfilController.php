@@ -73,27 +73,51 @@ class PerfilController{
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['accion'])) {
                 $id = $_POST['id'];
-                $descripcion = $_POST['descripcion'];
-                $categoria = $_POST['categoria'];
+                $descripcionPreg = $_POST['descripcion'];
+                $categoriaPreg = $_POST['categoria'];
                 $dificultad= $_POST['dificultad'];
+                $es_correcta = $this->model->getPreguntasSugeridas();
+                $respuestas = $this->model->getPreguntasSugeridas();
+                
+                $esCorrectaArray = array();
+                $respuestasArray = array();
+                
+                foreach ($respuestas as $index => $respuesta) {
+                    // Asegurarse de que el índice exista antes de acceder a él
+                    if (isset($respuesta['respuesta_descripcion'])) {
+                        $respuestasArray[] = $respuesta['respuesta_descripcion'];
+                        var_dump($respuestasArray[$index]);
+                    }
+                }
+                
+                for ($i = count($es_correcta) - 4; $i < count($es_correcta); $i++) {
+                    if (isset($es_correcta[$i]['es_correcta'])) {
+                        $esCorrectaArray[] = $es_correcta[$i]['es_correcta'];
+                        
+                    }
+                }
                 $accion = $_POST['accion'];
+                
                 if ($accion === 'Eliminar') {
-                    // Lógica para eliminar la pregunta
                     $this->model->eliminarPregSugerida($id);
                 } elseif ($accion === 'Aprobar') {
-                    //Necesito descripcion, es_correcta y la pregunta(1) para la respuesta
-                    //Necesito descripcion(pregunta) para pregunta
-                    //Debo hacer un metodo que inserte primero la descripcion y a la primera poner es_correcta
-                    // Lógica para aprobar la pregunta
-                    $this->model->aprobarPregSugerida($id, $dificultad);
-                    // $pregunta = $this->model-> elegirPregunta($id);
-                    // $idPreg = $this->model->obtenerIdPregunta($pregunta);
-                    //$this->model->actualizarRelacionPYR();
+                    $idPregunta = $this->model->aprobarPregSugerida($id, $dificultad);
+                    foreach ($respuestasArray as $index => $respuesta) {
+                        // Verificar si el índice es_correcta existe antes de acceder a él
+                        $es_correcta_respuesta = isset($es_correcta[$index]['es_correcta']) ? $es_correcta[$index]['es_correcta'] : 0;
+    
+                        // Llamar a la función para insertar la relación PYR
+                        $this->model->actualizarRelacionPYR($respuesta, $es_correcta_respuesta, $idPregunta[0][0]);
+                        $this->model->eliminarPregSugerida($id);
+                    }
+                    }
                 }
             }
+            $this->mostrarPantallaEditarSugerencias();
         }
-        $this->mostrarPantallaEditarSugerencias();
-    }
+        
+    
+
 
     public function mostrarPantallaEditarSugerencias(){
         $datos['reportadas'] = $this->model->getReportadas();
@@ -101,12 +125,19 @@ class PerfilController{
         
         foreach ($resultado as $fila) {
             $datos['sugeridas']['descripcionPregunta'] = $fila['pregunta_descripcion'];
-            if (is_string($fila['respuesta_descripcion'])) {
-                $datos['respuestas'][] = htmlspecialchars($fila['respuesta_descripcion'], ENT_QUOTES, 'UTF-8');
-            }
-            if (is_numeric($fila['es_correcta'])) {
-                $datos['respuestas'][] = htmlspecialchars($fila['es_correcta'], ENT_QUOTES, 'UTF-8');
-            }
+            // if (is_string($fila['respuesta_descripcion'])) {
+            //     $datos['respuestas'][] = htmlspecialchars($fila['respuesta_descripcion'], ENT_QUOTES, 'UTF-8');
+            // }
+            // if (is_numeric($fila['es_correcta'])) {
+            //     $datos['respuestas'][] = htmlspecialchars($fila['es_correcta'], ENT_QUOTES, 'UTF-8');
+            // }
+            // var_dump($datos['respuestas']);
+            // var_dump($datos['respuestas'][3][1]);
+            $respuesta = [
+                'descripcion' => htmlspecialchars($fila['respuesta_descripcion'], ENT_QUOTES, 'UTF-8'),
+                'es_correcta' => htmlspecialchars($fila['es_correcta'], ENT_QUOTES, 'UTF-8')
+            ];
+            $datos['respuestas'][] = $respuesta;
             $datos['sugeridas']['numeroPregunta'] = $fila['pregunta'];
             $datos['sugeridas']['categoria'] = $fila['pregunta_categoria'];
             $datos['sugeridas']['dificultad'] =1;

@@ -99,15 +99,18 @@ class PerfilModel{
         $query = "INSERT INTO pregunta (descripcion, categoria, dificultad) SELECT descripcion, categoria, dificultad FROM preguntaSugerida WHERE id = '$id'";
 
         $this->database->queryB($query);
-        // $query = "INSERT INTO respuesta () VALUES ()";
-        // $this->database->queryB($query);
+        $query = "SELECT LAST_INSERT_ID()";
+        return $this->database->query($query);
     }
-    public function actualizarRelacionPYR(){
-        $query = "INSERT INTO respuesta (descripcion, es_correcta, pregunta)
-        SELECT descripcion, es_correcta, 'ID_DE_LA_PREGUNTA_RECIENTEMENTE_INSERTADA'
-        FROM respuestasSugeridas
-        WHERE pregunta = 'ID_DE_LA_PREGUNTA_SUGERIDA_A_APROBAR'";
+    public function getEsCorrecta($id){
+        $query = "SELECT es_correcta FROM respuestassugeridas WHERE pregunta = '$id'";
+        return $this->database->query($query);
+    }
+    public function actualizarRelacionPYR($descr_respuesta, $es_correcta, $pregunta){
+        $query = "INSERT INTO respuesta (descripcion, es_correcta, pregunta) VALUES ('$descr_respuesta', '$es_correcta', '$pregunta')";
+        
         $this->database->queryB($query);
+    
     }
 }
 
