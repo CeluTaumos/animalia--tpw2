@@ -1,9 +1,5 @@
 
 <div class="caja fila">
-    <!-- //Necesito descripcion, 
-        es_correcta
-        y la pregunta(1) para la respuesta 
-    //Necesito descripcion(pregunta) para pregunta SI -->
     <div class="tabla">
         <h1 class="centrado nombre">Últimas preguntas sugeridas</h1>
         {{#sugeridas}}
@@ -18,9 +14,9 @@
             <ul>
                 <li>
                     {{#respuestas}}
-                    <p>< {{.}}</p>
+                    <p>< {{descripcion}}</p>
                     <input type="hidden" name="correcta" value="{{es_correcta}}">
-                    
+                    <input type="hidden" name="descripcionRespuesta" value="{{descripcion}}">
                     {{/respuestas}}
                 </li> 
             </ul>
