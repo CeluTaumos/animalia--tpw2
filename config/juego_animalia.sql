@@ -358,6 +358,23 @@ insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue 
 insert into respuesta (descripcion, es_correcta, pregunta) values ("Luis Federico Leloir", true, 39), ("César Milstein", false, 39), ("Bernardo Houssay", false, 39), ("Carlos Finlay", false, 39);
 
 
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Qué escritor argentino recibió el Premio Nobel de Literatura en 1945?", 2, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("César Vallejo", false, 40), ("Jorge Luis Borges", false, 40), ("Gabriela Mistral", false, 40), ("Alejandro Casona", true, 40);
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el equipo de rugby más antiguo de Argentina?", 3, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Club Atlético de San Isidro", true, 41), ("Hindú Club", false, 41), ("Club Universitario de Buenos Aires", false, 41), ("Club Atlético Belgrano", false, 41);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿En qué provincia argentina se encuentra la región de la Puna?", 4, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Jujuy", true, 42), ("Salta", false, 42), ("Catamarca", false, 42), ("La Rioja", false, 42);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue el matemático argentino que desarrolló la Teoría de los Espacios Métricos?", 5, 2);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Félix Christian Klein", false, 43), ("Federico García Lorca", false, 43), ("Ángel Gallardo", false, 43), ("Mauricio González Gordon", true, 43);
 
 
 -- ALTER TABLE pregunta
