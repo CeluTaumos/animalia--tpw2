@@ -257,7 +257,7 @@ select {
 
 .boton-sec:hover {
     background-color: #F9F5E3;
-    color: #ea3d3d;
+    color: black;
     cursor: pointer;
 }
 
