@@ -1,4 +1,4 @@
- create database animalia;
+-- create database animalia;
  use animalia;
 
 /*CREACION DE TABLAS*/
