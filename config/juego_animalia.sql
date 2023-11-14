@@ -376,6 +376,78 @@ insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue 
 
 insert into respuesta (descripcion, es_correcta, pregunta) values ("Félix Christian Klein", false, 43), ("Federico García Lorca", false, 43), ("Ángel Gallardo", false, 43), ("Mauricio González Gordon", true, 43);
 
+-- preguntas avanzadas
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue el líder del movimiento peronista en Argentina durante la década de 1950?", 1, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Juan Domingo Perón", true, 44), ("Arturo Frondizi", false, 44), ("Arturo Illia", false, 44), ("Raúl Alfonsín", false, 44);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue el director de la película argentina 'El secreto de sus ojos'?", 2, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Juan José Campanella", true, 45), ("Pablo Trapero", false, 45), ("Lucrecia Martel", false, 45), ("Gastón Duprat", false, 45);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuántas veces Argentina ha ganado la Copa Mundial de la FIFA en fútbol masculino hasta la fecha de corte de mi conocimiento en enero de 2022?", 3, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Dos veces (1978 y 1986)", true, 46), ("Una vez (1978)", false, 46), ("Tres veces (1978, 1986 y 2014)", false, 46), ("Nunca ha ganado la Copa Mundial", false, 46);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el punto más alto de Argentina y de toda América del Sur?", 4, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Cerro Aconcagua", true, 47), ("Monte Fitz Roy", false, 47), ("Volcán Lanín", false, 47), ("Cerro Torre", false, 47);
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el campo de estudio principal de la física teórica argentina Juan Martín Maldacena?", 5, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Física de partículas", true, 48), ("Astrofísica", false, 48), ("Física cuántica", false, 48), ("Física nuclear", false, 48);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál fue la fecha de la Revolución de Mayo, que marcó el inicio del proceso de independencia de Argentina?", 1, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("25 de mayo de 1810", true, 49), ("9 de julio de 1816", false, 49), ("20 de junio de 1820", false, 49), ("3 de febrero de 1813", false, 49);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Qué escritor argentino ganó el Premio Nobel de la Paz en 2010?", 2, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Adolfo Pérez Esquivel", true, 50), ("Jorge Luis Borges", false, 50), ("Julio Cortázar", false, 50), ("Gabriel García Márquez", false, 50);
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuántas medallas de oro olímpicas ha ganado Argentina en su historia hasta la fecha de corte de mi conocimiento en enero de 2022?", 3, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("6", true, 51), ("3", false, 51), ("9", false, 51), ("12", false, 51);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es la segunda ciudad más poblada de Argentina?", 4, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Córdoba", false, 52), ("Rosario", false, 52), ("Mendoza", false, 52), ("La Plata", true, 52);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál fue la contribución más destacada del científico argentino René Favaloro?", 5, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Cirugía de bypass coronario", true, 53), ("Desarrollo de la vacuna contra la polio", false, 53), ("Descubrimiento de la penicilina", false, 53), ("Teoría de la relatividad", false, 53);
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue el líder del movimiento revolucionario que derrocó a Juan Domingo Perón en 1955?", 1, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Eduardo Lonardi", true, 54), ("Arturo Frondizi", false, 54), ("Armando Frondizi", false, 54), ("Arturo Illia", false, 54);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Quién fue el arquitecto argentino que diseñó el Obelisco de Buenos Aires?", 2, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Alberto Prebisch", true, 55), ("César Pelli", false, 55), ("Clorindo Testa", false, 55), ("Amancio Williams", false, 55);
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuántas veces Argentina ha ganado la Copa América hasta la fecha de corte de mi conocimiento en enero de 2022?", 3, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("15", true, 56), ("12", false, 56), ("18", false, 56), ("20", false, 56);
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál es el nombre de la mayor región desértica de Argentina?", 4, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Desierto del Monte", false, 57), ("Desierto del Atacama", false, 57), ("Desierto del Chaco", false, 57), ("Desierto del Patagones", true, 57);
+
+
+insert into pregunta (descripcion, categoria, dificultad) values ("¿Cuál fue la contribución más destacada de la científica argentina Cecilia Grierson?", 5, 3);
+
+insert into respuesta (descripcion, es_correcta, pregunta) values ("Primera médica argentina", true, 58), ("Descubrimiento de la penicilina", false, 58), ("Desarrollo de la bomba atómica", false, 58), ("Teoría de la relatividad", false, 58);
+
+
 
 -- ALTER TABLE pregunta
 -- ADD COLUMN dificultad VARCHAR(255) DEFAULT 'desconocida';
