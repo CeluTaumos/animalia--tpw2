@@ -1,13 +1,22 @@
 <div class="caja">
-<div class="caja-dos centrado">
-    <div class="m centrado">
-        <h3>ESTADO DE LA APLICACIÓN :</h3>
-        
+    <div class="caja-dos centrado">
+        <div class="m centrado">
+            <h3>ESTADO DE LA APLICACIÓN :</h3>
+
             <p>Cantidad de jugadores:<span>{{cantidadJugadores}}</span> </p>
             <p>Cantidad de partidas jugadas: {{cantidadPartidas}}</p>
             <p>Cantidad de preguntas en el juego: {{cantidadPreguntas}}</p>
             <p>Cantidad de usuarios nuevos: {{usuariosNuevos}}</p>
-        
+
+            <form action="/Admin/obtenerPorcentajeDePreguntasRespondidasCorrectamentePorUsuario" method="post">
+                <p>Introduci el nombre de usuario de la persona de la cual quieras conocer la cantidad de preguntas que
+                    ha respondido correctamente: </p>
+                <input type="text" name="user_a_buscar">
+
+                <input type="submit" value="Enviar">
+            </form>
+            <p>Porcentaje de preguntas respondidas correctamente: {{preguntasRespondidasCorrectamentePorUsuario}}</p>
+
+        </div>
     </div>
-</div>
 </div>

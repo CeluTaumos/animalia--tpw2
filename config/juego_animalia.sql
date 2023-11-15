@@ -1,4 +1,4 @@
--- create database animalia;
+create database if not exists animalia;
 use animalia;
 
 /*CREACION DE TABLAS*/
@@ -20,7 +20,6 @@ ALTER TABLE usuario ADD fecha_registro DATE NOT NULL DEFAULT CURRENT_DATE;
 
 create table Categoria(
 id int (11) primary key not null,
-pregunta
 tipo varchar(100) DEFAULT 'Cultura' NOT NULL,
 imagen varchar(50) NOT NULL
 );
@@ -77,8 +76,6 @@ ADD COLUMN respuestas_correctas INT DEFAULT 0;
 
 ALTER TABLE pregunta
 ADD COLUMN respuestas_totales INT DEFAULT 0;
-
-
 
 create table Partida (
 id int(11) AUTO_INCREMENT PRIMARY KEY,
