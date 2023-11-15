@@ -33,6 +33,7 @@ class AdminModel
 
     public function obtenerPreguntasRespondidasCorrectamentePorUsuario($user_a_buscar)
     {
+        
         $query = "SELECT
         u.user_name,
         COUNT(p.id) AS total_preguntas,
@@ -43,14 +44,13 @@ class AdminModel
     JOIN
         partida p ON u.user_name = p.user_name
     WHERE
-        u.user_name = 'user_a_buscar'  -- Reemplaza 'nombre_de_usuario' con el nombre del usuario que estás buscando
+        u.user_name = '$user_a_buscar' 
     GROUP BY
-        u.user_name;
-    ";
+        u.user_name";
         $result = $this->database->query($query);
         return $result;
     }
-
+    
     public function obtenerUsuariosNuevos()
     {
         $query = "SELECT COUNT(*) AS cantidad FROM usuario WHERE DATE(fecha_registro) = CURDATE()";

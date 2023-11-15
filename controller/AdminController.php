@@ -52,7 +52,8 @@ tablas de datos)*/
         $user_a_buscar = $_POST['user_a_buscar'];
         $preguntasRespondidasCorrectamentePorUsuario = $this->model->obtenerPreguntasRespondidasCorrectamentePorUsuario($user_a_buscar);
         $datos['preguntasRespondidasCorrectamentePorUsuario']=$preguntasRespondidasCorrectamentePorUsuario;
-        $this->render->printView('verEstadisticas', $datos);
+        //var_dump($datos['preguntasRespondidasCorrectamentePorUsuario'][0]['porcentaje_correctas']);
+        $this->render->printView('verEstadisticas', $datos['preguntasRespondidasCorrectamentePorUsuario'][0]['porcentaje_correctas']);
     }
 
     private function obtenerDato($result)
