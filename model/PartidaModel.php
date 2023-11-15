@@ -198,5 +198,14 @@ public function actualizarNivelUsuario($usuario)
     return $nuevoNivel;
 }
 //Guardar la pregunta y id en la session, validar que la ultima entregada y la ultima respondida sea la misma
-
+    public function actualizarPartida($puntaje, $user){
+        $fechaActual = date('Y-m-d H:i:s');
+        $query = "INSERT INTO partida (user_name, puntaje, fecha, respuestas_correctas, cant_preguntas_entregadas) 
+        VALUES('$user', '$puntaje', '$fechaActual', '$puntaje', 1)
+        ON DUPLICATE KEY UPDATE
+              puntaje = puntaje + $puntaje,
+              respuestas_correctas = respuestas_correctas + $puntaje,
+              cant_preguntas_entregadas = cant_preguntas_entregadas + 1";
+        $this->database->queryB($query);
+    }
 }
