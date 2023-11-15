@@ -8,15 +8,16 @@
             <p>Cantidad de preguntas en el juego: {{cantidadPreguntas}}</p>
             <p>Cantidad de usuarios nuevos: {{usuariosNuevos}}</p>
 
-            <form action="/Admin/obtenerPorcentajeDePreguntasRespondidasCorrectamentePorUsuario" method="post">
+            <form action="/Admin/estadisticas" method="post">
                 <p>Introduci el nombre de usuario de la persona de la cual quieras conocer la cantidad de preguntas que
                     ha respondido correctamente: </p>
                 <input type="text" name="user_a_buscar">
 
                 <input type="submit" value="Enviar">
             </form>
-            <p>Porcentaje de preguntas respondidas correctamente: {{.}}</p>
-
+            {{#porcentajeCorrectas}} 
+                <p>Porcentaje de preguntas respondidas correctamente: {{porcentaje_correctas}}</p>
+            {{/porcentajeCorrectas}} 
         </div>
     </div>
 </div>

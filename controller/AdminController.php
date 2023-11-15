@@ -41,20 +41,31 @@ tablas de datos)*/
             'cantidadPreguntas' => $this->obtenerDato($cantidadPreguntas),
             'usuariosNuevos' => $this->obtenerDato($usuariosNuevos)
          ];
-
+            $datos['porcentajeCorrectas']=null;
+         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $user_a_buscar = $_POST['user_a_buscar'];
+            $porcentajeCorrectas = $this->model->obtenerPreguntasRespondidasCorrectamentePorUsuario($user_a_buscar);
+            $datos['porcentajeCorrectas'] = $porcentajeCorrectas[0];
+        }
         $_SESSION['estadisticas'] = $datos;
-
-        $this->render->printView('verEstadisticas', $datos);
+        $this->render->printView('verEstadisticas',$_SESSION['estadisticas']);
     }
 
-    public function obtenerPorcentajeDePreguntasRespondidasCorrectamentePorUsuario(){
-        $datos = null;
-        $user_a_buscar = $_POST['user_a_buscar'];
-        $preguntasRespondidasCorrectamentePorUsuario = $this->model->obtenerPreguntasRespondidasCorrectamentePorUsuario($user_a_buscar);
-        $datos['preguntasRespondidasCorrectamentePorUsuario']=$preguntasRespondidasCorrectamentePorUsuario;
-        //var_dump($datos['preguntasRespondidasCorrectamentePorUsuario'][0]['porcentaje_correctas']);
-        $this->render->printView('verEstadisticas', $datos['preguntasRespondidasCorrectamentePorUsuario'][0]['porcentaje_correctas']);
-    }
+//     public function obtenerPorcentajeDePreguntasRespondidasCorrectamentePorUsuario(){
+//         $porcentajeCorrectas = null;
+
+    
+//         $user_a_buscar = $_POST['user_a_buscar'];
+//         $porcentajeCorrectas = $this->model->obtenerPreguntasRespondidasCorrectamentePorUsuario($user_a_buscar);
+
+//     //     if (!empty($preguntasRespondidasCorrectamentePorUsuario)) {
+//     //         // Obtén el porcentaje de preguntas respondidas correctamente
+//     //         $porcentajeCorrectas = $preguntasRespondidasCorrectamentePorUsuario[0]['porcentaje_correctas'];
+        
+//     // }
+
+//     return $porcentajeCorrectas;
+// }
 
     private function obtenerDato($result)
     {
