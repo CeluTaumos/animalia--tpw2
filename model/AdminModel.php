@@ -30,7 +30,18 @@ class AdminModel
         $result = $this->database->queryB($query);
         return $result;
     }
-
+    public function obtenerCantidadUsuariosMujeres()
+    {
+        $query = "SELECT COUNT(*) AS cantidad FROM usuario WHERE sexo = 'f'";
+        $result = $this->database->queryB($query);
+        return $result;
+    }
+    public function obtenerCantidadUsuariosHombres()
+    {
+        $query = "SELECT COUNT(*) AS cantidad FROM usuario WHERE sexo = 'm'";
+        $result = $this->database->queryB($query);
+        return $result;
+    }
     public function obtenerPreguntasRespondidasCorrectamentePorUsuario($user_a_buscar)
     {
         

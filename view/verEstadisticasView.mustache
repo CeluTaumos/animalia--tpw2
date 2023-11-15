@@ -6,14 +6,16 @@
             <p>Cantidad de jugadores:<span>{{cantidadJugadores}}</span> </p>
             <p>Cantidad de partidas jugadas: {{cantidadPartidas}}</p>
             <p>Cantidad de preguntas en el juego: {{cantidadPreguntas}}</p>
+            <p>Cantidad de usuarios mujeres en el juego: {{cantidadMujeres}}</p>
+            <p>Cantidad de usuarios hombres en el juego: {{cantidadHombres}}</p>
             <p>Cantidad de usuarios nuevos: {{usuariosNuevos}}</p>
 
             <form action="/Admin/estadisticas" method="post">
                 <p>Introduci el nombre de usuario de la persona de la cual quieras conocer la cantidad de preguntas que
                     ha respondido correctamente: </p>
-                <input type="text" name="user_a_buscar">
+                <input class="input_mas_grande" type="text" name="user_a_buscar">
 
-                <input type="submit" value="Enviar">
+                <input  type="submit" value="Enviar">
             </form>
             {{#porcentajeCorrectas}} 
                 <p>Porcentaje de preguntas respondidas correctamente: {{porcentaje_correctas}}</p>

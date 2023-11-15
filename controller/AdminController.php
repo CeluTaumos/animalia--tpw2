@@ -34,9 +34,13 @@ tablas de datos)*/
         $cantidadPartidas = $this->model->obtenerCantidadPartidas();
         $cantidadPreguntas = $this->model->obtenerCantidadPreguntas();
         $usuariosNuevos = $this->model->obtenerUsuariosNuevos();
+        $usuariosMujeres = $this->model->obtenerCantidadUsuariosMujeres();
+        $usuariosHombres = $this->model->obtenerCantidadUsuariosHombres();
         
         $datos = [
             'cantidadJugadores' => $cantidadJugadores[0]['cantidad'],
+            'cantidadMujeres' => $this->obtenerDato($usuariosMujeres),
+            'cantidadHombres' => $this->obtenerDato($usuariosHombres),
             'cantidadPartidas' => $this->obtenerDato($cantidadPartidas),
             'cantidadPreguntas' => $this->obtenerDato($cantidadPreguntas),
             'usuariosNuevos' => $this->obtenerDato($usuariosNuevos)
@@ -48,6 +52,7 @@ tablas de datos)*/
             $datos['porcentajeCorrectas'] = $porcentajeCorrectas[0];
         }
         $_SESSION['estadisticas'] = $datos;
+        //var_dump($_SESSION['estadisticas']);
         $this->render->printView('verEstadisticas',$_SESSION['estadisticas']);
     }
 
