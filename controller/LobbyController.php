@@ -20,8 +20,7 @@ class LobbyController
 
     if ($rol == 'admin') {
         
-        $_SESSION['estadisticas'] = $this->model->obtenerEstadisticas();
-        $datos = $_SESSION['estadisticas'];
+       
         $this->render->printView('lobbyadmin', $datos);
     } elseif ($rol == 'editor') {
         $datos['user'] = $_SESSION['user'];
