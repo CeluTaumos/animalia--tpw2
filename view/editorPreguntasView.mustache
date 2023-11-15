@@ -1,17 +1,21 @@
-<h1 class="centrado nombre">Modificar preguntas</h1>
+<h1 class="centrado nombre" id="tit">Modificar preguntas</h1>
 <div class="preguntas">
-    
+
     <div class="pregunta">
         {{#pregunta}}
-        <form action="/Perfil/modificarPregunta" method="post">
-            <span>{{descripcion}}</span>
-            <input type="hidden" value="{{id}}" name="id">
-            <input type="text" name="pregunta" class ="input_mas_grande">
-            <input class="boton-sec" type="submit" value="Modificar"><br>
+        <form action="/Perfil/modificarPregunta" method="post" class="cont-modif-preg">
+            <div class="fila-preg-mod">
+                <span>{{descripcion}}</span>
+                <input type="hidden" value="{{id}}" name="id">
+                <div class="inputs">
+                    <input type="text" name="pregunta" class="input_mas_grande">
+                    <input class="boton-sec" type="submit" value="Modificar">
+                </div>
+            </div>
         </form>
         {{/pregunta}}
     </div>
 </div>
 <div class="caja ">
-<a href="/Lobby/mostrarPantallaLobby" class="boton  centrado">volver al lobby</a>
+    <a href="/Lobby/mostrarPantallaLobby" class="boton  centrado" id="volver-lobby">volver al lobby</a>
 </div>

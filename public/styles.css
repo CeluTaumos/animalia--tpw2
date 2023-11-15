@@ -24,15 +24,15 @@ body {
     flex-direction: row;
     vertical-align: middle;
     justify-content: space-between;
+    padding-left: 10px;
     align-items: center;
-    padding: 2%;
     background-color: rgba(71, 112, 192, 0.7989320728291316);
 }
 
 
 .logo {
-    width: 6em;
-    height: 6em;
+    width: 5em;
+    height: 5em;
     background: rgba(255, 255, 255, 1);
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 4%, rgba(255, 212, 228, 1) 21%, rgba(250, 205, 222, 1) 37%, rgba(252, 174, 203, 1) 55%, rgba(250, 140, 180, 1) 80%, rgba(253, 121, 168, 1) 100%);
     background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(4%, rgba(255, 255, 255, 1)), color-stop(21%, rgba(255, 212, 228, 1)), color-stop(37%, rgba(250, 205, 222, 1)), color-stop(55%, rgba(252, 174, 203, 1)), color-stop(80%, rgba(250, 140, 180, 1)), color-stop(100%, rgba(253, 121, 168, 1)));
@@ -149,7 +149,7 @@ select {
     font-family: 'Lilita One', cursive;
     font-size: 1.25em;
     box-sizing: border-box;
-    padding: 3%;
+    padding: 2%;
     margin-top: 2%;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -231,8 +231,7 @@ select {
     font-family: 'Lilita One', cursive;
     font-weight: 300;
     box-sizing: border-box;
-    padding: 1%;
-    margin-top: 3%;
+    padding: 4px;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -297,6 +296,11 @@ select {
 .centrado {
     text-align: center;
 }
+
+#tit{
+    margin-top: 20px;
+}
+
 .centro{
     margin: 5px auto;
     width: 30%;
@@ -339,7 +343,7 @@ footer {
     bottom: 0px;
     background-color: #323a4ae3;
     color: #fff;
-    padding: 15px;
+    padding: 5px;
     text-align: center;
     font-weight: lighter;
     flex-direction: row;
@@ -348,6 +352,7 @@ footer {
     align-items: center;
     animation: footer-color 5s infinite;
     animation-direction: alternate;
+    font-size: small;
 
 }
 
@@ -376,7 +381,7 @@ footer img {
     color: #fff;
     text-shadow: 3px 3px 4px #8a3855;
     text-transform: uppercase;
-    font-size: 1.875em;
+    font-size: 1.563em;
     font-family: 'Lilita One', cursive;
     letter-spacing: 0.125em;
 
@@ -562,9 +567,10 @@ a {
 .preguntas{
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 50%;
     height: 70%;
-    margin: 5%  auto;
+    margin: auto;
+    margin-top: 30px;
     background-color: #81c6f5;
     border-radius: 1.563em;
     padding: 0.625em;
@@ -596,6 +602,7 @@ a {
     border: none;
     outline: none;
     border-radius: 1.25em;
+    padding: 3px;
   }
    
    /* ANIMACIONES */
@@ -693,3 +700,24 @@ a {
 
 
 .shake-left-right{animation:shake-left-right 0.8s linear both} @keyframes shake-left-right{0%,100%{transform:rotate(0deg);transform-origin:50% 50%}10%{transform:rotate(8deg)}20%,40%,60%{transform:rotate(-10deg)}30%,50%,70%{transform:rotate(10deg)}80%{transform:rotate(-8deg)}90%{transform:rotate(8deg)}}
+
+.cont-modif-preg{
+display: flex;
+flex-direction: column;
+padding: 10px;
+
+
+}
+
+.fila-preg-mod{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    font-size: medium;
+}
+
+.inputs{
+    display: flex;
+    gap: 10px;
+}
