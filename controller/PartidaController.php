@@ -89,6 +89,10 @@ class PartidaController
             $this->render->printView('jugarPartida', $datos);
 
             if ($tiempoTranscurrido > 10 && !isset($_SESSION['pantalla_perdedor_mostrada'])) {
+                $puntaje = $_SESSION['puntaje'];
+                $user= $_SESSION['user'];
+                //$respuestasCorrectas = 
+                $this->model->actualizarPartida($puntaje, $user);
                 $_SESSION['pantalla_perdedor_mostrada'] = true;
                 $this->pantallaPerdedor();
                 return;

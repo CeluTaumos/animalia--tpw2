@@ -74,4 +74,12 @@ public function cerrarSesion()
     session_destroy();
     $this->render->printView('index', $datos);
 }
+public function mostrarPantallaLobby()
+{
+        
+        
+        $datos = null;
+        $this->render->printView('lobbyadmin', $datos);
+    
+    }
 }
