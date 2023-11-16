@@ -56,22 +56,6 @@ tablas de datos)*/
         $this->render->printView('verEstadisticas',$_SESSION['estadisticas']);
     }
 
-//     public function obtenerPorcentajeDePreguntasRespondidasCorrectamentePorUsuario(){
-//         $porcentajeCorrectas = null;
-
-    
-//         $user_a_buscar = $_POST['user_a_buscar'];
-//         $porcentajeCorrectas = $this->model->obtenerPreguntasRespondidasCorrectamentePorUsuario($user_a_buscar);
-
-//     //     if (!empty($preguntasRespondidasCorrectamentePorUsuario)) {
-//     //         // Obtén el porcentaje de preguntas respondidas correctamente
-//     //         $porcentajeCorrectas = $preguntasRespondidasCorrectamentePorUsuario[0]['porcentaje_correctas'];
-        
-//     // }
-
-//     return $porcentajeCorrectas;
-// }
-
     private function obtenerDato($result)
     {
         if ($result && is_object($result) && method_exists($result, 'fetch_assoc')) {
@@ -118,5 +102,10 @@ tablas de datos)*/
         $datos = null;
         $this->render->printView('lobbyadmin', $datos);
 
+    }
+    public function mostrarPantallaGraficos(){
+        $datos = null;
+        
+        $this->render->printView('graficos', $datos);
     }
 }
