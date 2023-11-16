@@ -169,7 +169,7 @@ tablas de datos)*/
     public function graficoMundial(){
         $data = array(40,60,21,33);
         $piepos = array(0.2,0.35,0.6,0.28,0.3,0.7,0.85,0.7);
-        $titles = array('USA','Sweden','South America','Australia');
+        $titles = array('Yankees','Europeos','Latam','Canguros');
 
         $n = count($piepos)/2;
         // A new graph
@@ -195,11 +195,11 @@ tablas de datos)*/
             // Set the titles
             $p[$i]->title->Set($titles[$i]);
             $p[$i]->title->SetFont(FF_DEFAULT, FS_BOLD, 10);
-            $p[$i]->title->SetColor('white');
+            $p[$i]->title->SetColor('teal');
 
             // Size of pie in fraction of the width of the graph
-            $p[$i]->SetSize(0.17);
-            $p[$i]->SetHeight(8);
+            $p[$i]->SetSize(0.07);
+            $p[$i]->SetHeight(5);
             $p[$i]->SetEdge(false);
             $p[$i]->ExplodeSlice(1,7);
             $p[$i]->value->Show(false);
