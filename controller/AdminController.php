@@ -106,30 +106,31 @@ tablas de datos)*/
     }
     public function mostrarPantallaGraficos(){
         $datos = null;
-        $this->graficoEdad();
+        //$this->graficoEdad();
         $this->render->printView('graficos', $datos);
     }
 
     public function graficoEdad(){
-        
-
-        $datay=array(62,105,85,50);
-
+        $menores = $this->model->getCantidadMenores();
+        $adolescentes = $this->model->getCantidadAdolescentes();
+        $medio = $this->model->getCantidadMedio();
+        $jubilados = $this->model->getCantidadJubilados();
+        //$datay=array(62,105,85,30); array original para usar si se rompe algo
+        $datay=array($menores[0]['cantidad_menores']*10,$adolescentes[0]['cantidad_adolescentes']*10, $medio[0]['cantidad_medio']*10, $jubilados[0]['cantidad_jubilados']*10);
 
 // Create the graph. These two calls are always required
-    $graph = new Graph(350,220,'auto');
+    $graph = new Graph(525,330,'auto');
     $graph->SetScale("textlin");
 
 //$theme_class="DefaultTheme";
 //$graph->SetTheme(new $theme_class());
-
 // set major and minor tick positions manually
     $graph->yaxis->SetTickPositions(array(0,30,60,90,120,150), array(15,45,75,105,135));
     $graph->SetBox(false);
 
 //$graph->ygrid->SetColor('gray');
     $graph->ygrid->SetFill(false);
-    $graph->xaxis->SetTickLabels(array('A','B','C','D'));
+    $graph->xaxis->SetTickLabels(array('Menores','Adolescentes','Medio','Jubilados'));
     $graph->yaxis->HideLine(false);
     $graph->yaxis->HideTicks(false,false);
 
@@ -143,7 +144,7 @@ tablas de datos)*/
     $b1plot->SetColor("white");
     $b1plot->SetFillGradient("#4B0082","white",GRAD_LEFT_REFLECTION);
     $b1plot->SetWidth(45);
-    $graph->title->Set("Bar Gradient(Left reflection)");
+    $graph->title->Set("Cantidad de usuarios(Distribuidos por edad)");
 
 // Display the graph
     $graph->Stroke();

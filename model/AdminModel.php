@@ -86,4 +86,28 @@ class AdminModel
         $query = "SELECT nivel FROM usuario WHERE user_name LIKE '" . $usuario . "'";
         return $this->database->queryB($query);
     }
+    public function getCantidadMenores(){
+        $query = "SELECT COUNT(*) AS cantidad_menores
+        FROM usuario
+        WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) < 18";
+        return $this->database->query($query);
+    }
+    public function getCantidadAdolescentes(){
+        $query = "SELECT COUNT(*) AS cantidad_adolescentes
+        FROM usuario
+        WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) BETWEEN 18 AND 21";
+        return $this->database->query($query);
+    }
+    public function getCantidadMedio(){
+        $query = "SELECT COUNT(*) AS cantidad_medio
+        FROM usuario
+        WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) BETWEEN 22 AND 60";
+        return $this->database->query($query);
+    }
+    public function getCantidadJubilados(){
+        $query = "SELECT COUNT(*) AS cantidad_jubilados
+        FROM usuario
+        WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) > 61";
+        return $this->database->query($query);
+    }
 }
