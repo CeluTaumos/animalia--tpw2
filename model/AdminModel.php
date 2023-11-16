@@ -110,4 +110,22 @@ class AdminModel
         WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) > 61";
         return $this->database->query($query);
     }
+    public function getCantidadHombres(){
+        $query = "SELECT COUNT(*) AS cantidad_usuarios_masculinos
+        FROM usuario
+        WHERE sexo = 'm'";
+        return $this->database->query($query);
+    }
+    public function getCantidadMujeres(){
+        $query = "SELECT COUNT(*) AS cantidad_usuarios_femeninos
+        FROM usuario
+        WHERE sexo = 'f'";
+        return $this->database->query($query);
+    }
+    public function getCantidadDesconocidos(){
+        $query = "SELECT COUNT(*) AS cantidad_usuarios_desconocidos
+        FROM usuario
+        WHERE sexo = 'd'";
+        return $this->database->query($query);
+    }
 }
