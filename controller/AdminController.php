@@ -222,7 +222,23 @@ tablas de datos)*/
         $graph->Stroke();
             }
 
-        public function imprimirPDF(){
+        public function imprimirPDF1(){
+            $pdf = new FPDF();
+            $pdf->AddPage();
+            $pdf->SetFont('Arial','B',16);
+            $pdf->Image('./public/graficoEdad.png');
+            $pdf->Cell(40,10,'Hello World!');
+            $pdf->Output();
+        }
+        public function imprimirPDF2(){
+            $pdf = new FPDF();
+            $pdf->AddPage();
+            $pdf->SetFont('Arial','B',16);
+            $pdf->Image('./public/graficoGenero.png');
+            $pdf->Cell(40,10,'Hello World!');
+            $pdf->Output();
+        }
+        public function imprimirPDF3(){
             $pdf = new FPDF();
             $pdf->AddPage();
             $pdf->SetFont('Arial','B',16);
@@ -230,7 +246,16 @@ tablas de datos)*/
             $pdf->Cell(40,10,'Hello World!');
             $pdf->Output();
         }
-        
+        public function imprimirTodo(){
+            $pdf = new FPDF();
+            $pdf->AddPage();
+            $pdf->SetFont('Arial','B',16);
+            $pdf->Image('./public/graficoEdad.png');
+            $pdf->Image('./public/graficoGenero.png');
+            $pdf->Image('./public/graficoMundial.png');
+            $pdf->Cell(40,10,'Hello World!');
+            $pdf->Output();
+        }
     }
 
 
