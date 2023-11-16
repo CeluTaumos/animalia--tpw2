@@ -1,40 +1,60 @@
+<p id="mensaje"></p>
 <div class=" partida">
 
-{{#pregunta}}
-<div class="cardPartida {{tipo}}">
-    <div class="caja">
-        
-        
-        <h1>{{tipo}}</h1>
-        <h2>⏳ Tiempo: <span id="tiempoRestante">60</span></h2>
-        <div id="barraTiempo"></div>
-        <img src="{{imagen}}" width="200" height="150" alt="">
-        <h1>{{descripcion}}</h1>
-        {{/pregunta}}
-    </div>
-    
-    <div >
-    <form action="/Partida/verificarRespuesta" method="post" class="caja">
-    {{#respuesta}}
-        <button type="submit" name="id" value="{{id}}" class="boton_respuesta shadow-drop-center">{{descripcion}}</button>
-    {{/respuesta}}
-    </form>
-        <div class="botonera">
-            <button class="trampita"> 💣 </button>
-            <button class="trampita"> 💫 </button>
-            <button class="trampita"> 🃏 </button>
-        </div>
-    </div>
     {{#pregunta}}
-    <form action="/Admin/reportarPregunta" method="post">
-        <!-- Tengo que poner el name como quiera  el post y el value como estaria llamado en mustache -->
-        <input type="hidden" value="{{id}}" name="id">
-        <input class="boton-sec centro" type="submit" name="enviar" value="Reportar Pregunta">
-    </form>
-    {{/pregunta}}
-    <!-- <button class="boton-sec centro">Reportar Pregunta</button> -->
-    
-</div>
+    <div class="cardPartida {{tipo}}">
+        <div class="caja">
+            <h1>{{tipo}}</h1>
+            <h2>⏳ Tiempo: <span id="tiempoRestante">60</span></h2>
+            <div id="barraTiempo"></div>
+            <img src="{{imagen}}" width="200" height="150" alt="">
+            <h1>{{descripcion}}</h1>
+            {{/pregunta}}
+        </div>
 
-<script src="../public/barratiempo.js"></script>
+        <div>
+            <form action="/Partida/verificarRespuesta" method="post" class="caja">
+                {{#respuesta}}
+                <button type="submit" name="id" value="{{id}}"
+                    class="boton_respuesta shadow-drop-center">{{descripcion}}</button>
+                {{/respuesta}}
+            </form>
+            <div class="botonera">
+                <button class="trampita"> 💣 </button>
+                <button class="trampita"> 💫 </button>
+                <button class="trampita"> 🃏 </button>
+            </div>
+        </div>
+        {{#pregunta}}
+        <form action="/Admin/reportarPregunta" method="post" id="reportarForm">
+            <!-- Tengo que poner el name como quiera  el post y el value como estaria llamado en mustache -->
+            <input type="hidden" value="{{id}}" name="id">
+            <input class="boton-sec centro" type="submit" name="enviar" value="Reportar Pregunta" id="reportarBtn">
+        </form>
+        {{/pregunta}}
+        <!-- <button class="boton-sec centro">Reportar Pregunta</button> -->
+
+    </div>
+
+    <script src="../public/barratiempo.js"></script>
+
+    <script>
+        $(document).ready(function () {       // Manejar clic en el botón de reportar      
+            $("#reportarBtn").click(function () {         // Obtener los datos del formulario        
+                var formData = $("#reportarForm").serialize();         // Realizar la solicitud AJAX        
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/reportarPregunta",
+                    data: formData,
+                    success: function (response) {             // Manipular la respuesta del servidor            
+                        if (response.success) {
+                            $("#mensaje").html(response.html); // Actualiza el contenido con el HTML renderizado
+                        } else {
+                            $("#mensaje").text("Hubo un problema: " + response.error);
+                        }
+                    }, error: function (error) { console.error('Error en la solicitud AJAX:', error); }
+                });
+            });
+        }); </script>
+
 </div>
