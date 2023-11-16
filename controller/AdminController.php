@@ -3,6 +3,7 @@ require_once ('./third-party/jpgraph/src/lib/jpgraph.php');
 require_once ('./third-party/jpgraph/src/lib/jpgraph_bar.php');
 require_once ('./third-party/jpgraph/src/lib/jpgraph_pie.php');
 require_once ('./third-party/jpgraph/src/lib/jpgraph_pie3d.php');
+require_once('./third-party/fpdf/fpdf.php');
 class AdminController
 {
     private $render;
@@ -71,7 +72,6 @@ tablas de datos)*/
 
     public function reportarPregunta()
     {
-
         if (isset($_POST['enviar']) && is_numeric($_POST['id'])) {
             $id = $_POST['id'];
         }
@@ -207,4 +207,13 @@ tablas de datos)*/
         $graph->SetAntiAliasing(false);
         $graph->Stroke();
             }
+
+        public function imprimirPDF(){
+            $pdf = new FPDF();
+            $pdf->AddPage();
+            $pdf->SetFont('Arial','B',16);
+            $pdf->Image('./public/graficoMundial.png');
+            $pdf->Cell(40,10,'Hello World!');
+            $pdf->Output();
+        }
 }
