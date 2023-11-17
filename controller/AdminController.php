@@ -225,25 +225,25 @@ tablas de datos)*/
         public function imprimirPDF1(){
             $pdf = new FPDF();
             $pdf->AddPage();
-            $pdf->SetFont('Arial','B',16);
+            $pdf->SetFont('Arial','B',11);
             $pdf->Image('./public/graficoEdad.png');
-            $pdf->Cell(40,10,'Hello World!');
+            $pdf->Cell(20,50,'         (Menos de 18)            (18-21)                (22-60)         (desde 61 en adelante)'); 
             $pdf->Output();
         }
         public function imprimirPDF2(){
             $pdf = new FPDF();
             $pdf->AddPage();
-            $pdf->SetFont('Arial','B',16);
+            $pdf->SetFont('Arial','B',12);
             $pdf->Image('./public/graficoGenero.png');
-            $pdf->Cell(40,10,'Hello World!');
+            $pdf->Cell(40,10,'El color violeta representa el sexo femenino, el azul el masculino y el verde los desconocidos');
             $pdf->Output();
         }
         public function imprimirPDF3(){
             $pdf = new FPDF();
             $pdf->AddPage();
-            $pdf->SetFont('Arial','B',16);
+            $pdf->SetFont('Arial','B',14);
             $pdf->Image('./public/graficoMundial.png');
-            $pdf->Cell(40,10,'Hello World!');
+            $pdf->Cell(40,10,'Grafico que muestra la mayor distribucion de usuarios alrededor del mundo');
             $pdf->Output();
         }
         public function imprimirTodo(){
@@ -253,7 +253,7 @@ tablas de datos)*/
             $pdf->Image('./public/graficoEdad.png');
             $pdf->Image('./public/graficoGenero.png');
             $pdf->Image('./public/graficoMundial.png');
-            $pdf->Cell(40,10,'Hello World!');
+            
             $pdf->Output();
         }
     }
