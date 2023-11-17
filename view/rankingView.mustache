@@ -1,8 +1,8 @@
-
 <div class="contenedorPapa">
     <div class="caja_ranking">
         <h1>Ranking</h1>
-        <iframe src="https://giphy.com/embed/gxhU80is6fOKI" width="240" height="162" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <iframe src="https://giphy.com/embed/gxhU80is6fOKI" width="240" height="162" frameBorder="0" class="giphy-embed"
+            allowFullScreen></iframe>
         {{#partida}}
         <div class="row">
             <!-- <form action="/Perfil/mostrarPantallaPerfilNuevo" method="post"> -->
@@ -16,44 +16,44 @@
                 <a href="/Ranking/imprimirQR/{{user_name}}" target="_blank">QR</a>
             </div> -->
         </div>
-        
+
         {{/partida}}
-    
+
     </div>
-    
-    
+
+
     <div class="caja-pt-previas">
         <h1>Partidas previas</h1>
         {{#partidasPrevias}}
         <span>Usuario: {{user_name}}</span>
         <span> {{puntaje}}</span>
         <span>Fecha: {{fecha}}</span>
-        
+
         {{/partidasPrevias}}
-        <button class="mt boton"><a href="/Lobby/mostrarPantallaLobby">VOLVER</a></button>
     </div>
 
+    
 </div>
 
 <script>
-$(document).ready(function() {
-    setInterval(function() {
-        $(".ajax-form").each(function() {
-            var form = $(this);
-            $.ajax({
-                type: "POST",
-                url: "/Ranking/mostrarPantallaRanking",
-                data: form.serialize(),
-                dataType: "json",
+    $(document).ready(function () {
+        setInterval(function () {
+            $(".ajax-form").each(function () {
+                var form = $(this);
+                $.ajax({
+                    type: "POST",
+                    url: "/Ranking/mostrarPantallaRanking",
+                    data: form.serialize(),
+                    dataType: "json",
 
-                success: function(response) {
-                    $("#usuario_" + response.user_name + " .puntajeUsuario").text(response.max_puntaje);
-                },
-                error: function(error) {
-                    console.log("Error en la solicitud Ajax: " + error);
-                }
-            }); 
-        });
-    }, 5000);
-});
+                    success: function (response) {
+                        $("#usuario_" + response.user_name + " .puntajeUsuario").text(response.max_puntaje);
+                    },
+                    error: function (error) {
+                        console.log("Error en la solicitud Ajax: " + error);
+                    }
+                });
+            });
+        }, 5000);
+    });
 </script>

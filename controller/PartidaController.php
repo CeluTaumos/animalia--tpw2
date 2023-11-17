@@ -25,7 +25,7 @@ class PartidaController
         if (!isset($_SESSION['nivel_usuario'])) {
             $_SESSION['nivel_usuario'] = 'principiante';
         }
-       
+
         if (!isset($_SESSION['preguntas_mostradas'])) {
             $_SESSION['preguntas_mostradas'] = array();
         }
@@ -90,7 +90,7 @@ class PartidaController
 
             if ($tiempoTranscurrido > 10 && !isset($_SESSION['pantalla_perdedor_mostrada'])) {
                 $puntaje = $_SESSION['puntaje'];
-                $user= $_SESSION['user'];
+                $user = $_SESSION['user'];
                 //$respuestasCorrectas = 
                 $this->model->actualizarPartida($puntaje, $user);
                 $_SESSION['pantalla_perdedor_mostrada'] = true;
@@ -117,8 +117,8 @@ class PartidaController
                 if ($tiempoTranscurrido <= 10) {
                     if ($resultado == '1') {
 
-                        
-                        $_SESSION['puntaje'] = $_SESSION['puntaje']+1;
+
+                        $_SESSION['puntaje'] = $_SESSION['puntaje'] + 1;
                         $usuario = $_SESSION['user'];
                         $idPartida = $this->model->getIdPartida($usuario);
 
@@ -147,4 +147,38 @@ class PartidaController
         $datos['puntaje'] = $_SESSION['puntaje'];
         $this->render->printView('pantallaPerdedor', $datos);
     }
+
+    public function reportarPregunta()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Obtener el ID de la pregunta desde la solicitud POST
+            $pregunta_id = $_POST['id'];
+    
+            // Realizar la lógica de reporte en la base de datos
+            if (isset($_POST['enviar']) && is_numeric($_POST['id'])) {
+                $id = $_POST['id'];
+    
+                $pregunta = $this->model->getDescripcion($id);
+                if ($pregunta != null) {
+                    $row = $pregunta->fetch_assoc();
+                    if (isset($row['descripcion'])) {
+                        $pregunta = $row['descripcion'];
+    
+                        // Supongamos que la lógica de reporte fue exitosa
+                        $this->model->reportar($pregunta, $id);
+    
+                        // Respondemos con un mensaje JSON
+                        header('Content-Type: application/json');
+                        echo json_encode(['success' => true, 'message' => 'La pregunta se reportó correctamente.']);
+                        return;
+                    }
+                }
+            }
+        }
+    
+        // Si la solicitud no es mediante POST o hay un error, responder con un mensaje de error
+        header('Content-Type: application/json');
+        echo json_encode(['success' => false, 'error' => 'Hubo un problema al reportar la pregunta.']);
+    }
+    
 }

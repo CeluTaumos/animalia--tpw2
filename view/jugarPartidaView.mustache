@@ -26,7 +26,7 @@
             </div>
         </div>
         {{#pregunta}}
-        <form action="/Admin/reportarPregunta" method="post" id="reportarForm">
+        <form action="/Partida/reportarPregunta" method="post" id="reportarForm">
             <!-- Tengo que poner el name como quiera  el post y el value como estaria llamado en mustache -->
             <input type="hidden" value="{{id}}" name="id">
             <input class="boton-sec centro" type="submit" name="enviar" value="Reportar Pregunta" id="reportarBtn">
@@ -38,23 +38,6 @@
 
     <script src="../public/barratiempo.js"></script>
 
-    <script>
-        $(document).ready(function () {       // Manejar clic en el botón de reportar      
-            $("#reportarBtn").click(function () {         // Obtener los datos del formulario        
-                var formData = $("#reportarForm").serialize();         // Realizar la solicitud AJAX        
-                $.ajax({
-                    type: "POST",
-                    url: "/Admin/reportarPregunta",
-                    data: formData,
-                    success: function (response) {             // Manipular la respuesta del servidor            
-                        if (response.success) {
-                            $("#mensaje").text(response.message); 
-                        } else {
-                            $("#mensaje").text("Hubo un problema: " + response.error);
-                        }
-                    }, error: function (error) { console.error('Error en la solicitud AJAX:', error); }
-                });
-            });
-        }); </script>
+    <script src="../public/reporte.js"></script>
 
 </div>

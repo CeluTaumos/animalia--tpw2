@@ -43,7 +43,18 @@ public function aumentarPuntuacionEnPartida($usuario, $id)
         $this->database->queryB("UPDATE partida SET puntaje = puntaje + 1 where user_name like '" . $usuario . "'");
     }    
 }
-
+public function getDescripcion($idRandom)
+{
+    //return $this->database->query('SELECT * FROM pregunta WHERE id like ' .  $idRandom);
+    $query = "SELECT descripcion FROM pregunta WHERE id = '$idRandom'";
+    $result = $this->database->queryB($query);
+    return $result;
+}
+public function reportar($descripcion, $id)
+{
+    $query = "INSERT INTO preguntasreportadas(descripcion_reporte, pregunta_id) VALUES ('$descripcion', '$id')";
+    $result = $this->database->queryB($query);
+}
 
     public function getPreguntas()
     {

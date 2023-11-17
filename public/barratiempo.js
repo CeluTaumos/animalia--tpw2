@@ -12,13 +12,6 @@ function actualizarContadorTiempo() {
   tiempoRestanteSpan.textContent = tiempoRestante + " segundos";
 }
 
-// function reducirTiempo() {
-//   if (tiempoRestante > 0) {
-//     tiempoRestante--;
-//     actualizarBarraTiempo();
-//     actualizarContadorTiempo();
-//   } 
-// }
 
 function redirigirAPantallaPerdedor() {
 

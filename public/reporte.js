@@ -1,21 +1,25 @@
-$(document).ready(function() {
-    // Después de reportar la pregunta correctamente
-    $.ajax({
-        type: 'POST',
-        url: '/Admin/reportarPregunta', // Ajusta la ruta según tu configuración
-        data: { 'id': tu_id }, // Ajusta esto según tus necesidades
-        dataType: 'json', // Espera una respuesta en formato JSON
-        success: function(response) {
-            if (response.success) {
-                // Si el reporte fue exitoso, muestra el mensaje en el elemento <p> con la clase 'reporte'
-                $('.reporte').text(response.message);
-            } else {
-                // Maneja cualquier otro caso de respuesta si es necesario
-                console.log('Error en la respuesta AJAX');
+$(document).ready(function () {
+    $("#reportarBtn").click(function () {
+        var formData = $("#reportarForm").serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "/Partida/reportarPregunta",
+            data: formData,
+            dataType: "json",
+            success: function (response) {
+                if (response.success) {
+                    $("#mensaje").text(response.message);
+                    
+                    // Redirige o renderiza la vista de la partida según tus necesidades
+                    window.location.href = '/Partida/mostrarPantallaPartida';
+                } else {
+                    $("#mensaje").text("Hubo un problema: " + response.error);
+                }
+            },
+            error: function (error) {
+                console.error('Error en la solicitud AJAX:', error);
             }
-        },
-        error: function() {
-            console.log('Error en la solicitud AJAX');
-        }
+        });
     });
 });
