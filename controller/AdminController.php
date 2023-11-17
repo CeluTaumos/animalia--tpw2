@@ -1,9 +1,9 @@
 <?php
 
-require_once ('./third-party/jpgraph/src/lib/jpgraph.php');
-require_once ('./third-party/jpgraph/src/lib/jpgraph_bar.php');
-require_once ('./third-party/jpgraph/src/lib/jpgraph_pie.php');
-require_once ('./third-party/jpgraph/src/lib/jpgraph_pie3d.php');
+require_once('./third-party/jpgraph/src/lib/jpgraph.php');
+require_once('./third-party/jpgraph/src/lib/jpgraph_bar.php');
+require_once('./third-party/jpgraph/src/lib/jpgraph_pie.php');
+require_once('./third-party/jpgraph/src/lib/jpgraph_pie3d.php');
 require_once('./third-party/fpdf/fpdf.php');
 
 class AdminController
@@ -88,9 +88,11 @@ tablas de datos)*/
 
                         $response = array();     // Supongamos que la lógica de reporte fue exitosa    
                         $this->model->reportar($pregunta, $id);
-                        $response['success'] = true;
-                        $response['message'] = 'La pregunta se reportó correctamente.';
-                        $response['html'] = $this->render->printView('jugarPartida', $response); // Renderizar el HTML con Mustache
+                        $data = array(
+                            $response['success'] = true,
+                            $response['message'] = 'La pregunta se reporto correctamente.'
+                        );
+                        $this->render->printView('jugarPartida', $data); // Renderizar el HTML con Mustache
 
                     }
                 }
@@ -104,6 +106,7 @@ tablas de datos)*/
 
         header('Content-Type: application/json');
         echo json_encode($response);
+
     }
     public function cerrarSesion()
     {
@@ -220,42 +223,46 @@ tablas de datos)*/
         }
         $graph->SetAntiAliasing(false);
         $graph->Stroke();
-            }
-
-        public function imprimirPDF1(){
-            $pdf = new FPDF();
-            $pdf->AddPage();
-            $pdf->SetFont('Arial','B',11);
-            $pdf->Image('./public/graficoEdad.png');
-            $pdf->Cell(20,50,'         (Menos de 18)            (18-21)                (22-60)         (desde 61 en adelante)'); 
-            $pdf->Output();
-        }
-        public function imprimirPDF2(){
-            $pdf = new FPDF();
-            $pdf->AddPage();
-            $pdf->SetFont('Arial','B',12);
-            $pdf->Image('./public/graficoGenero.png');
-            $pdf->Cell(40,10,'El color violeta representa el sexo femenino, el azul el masculino y el verde los desconocidos');
-            $pdf->Output();
-        }
-        public function imprimirPDF3(){
-            $pdf = new FPDF();
-            $pdf->AddPage();
-            $pdf->SetFont('Arial','B',14);
-            $pdf->Image('./public/graficoMundial.png');
-            $pdf->Cell(40,10,'Grafico que muestra la mayor distribucion de usuarios alrededor del mundo');
-            $pdf->Output();
-        }
-        public function imprimirTodo(){
-            $pdf = new FPDF();
-            $pdf->AddPage();
-            $pdf->SetFont('Arial','B',16);
-            $pdf->Image('./public/graficoEdad.png');
-            $pdf->Image('./public/graficoGenero.png');
-            $pdf->Image('./public/graficoMundial.png');
-            
-            $pdf->Output();
-        }
     }
+
+    public function imprimirPDF1()
+    {
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->Image('./public/graficoEdad.png');
+        $pdf->Cell(20, 50, '         (Menos de 18)            (18-21)                (22-60)         (desde 61 en adelante)');
+        $pdf->Output();
+    }
+    public function imprimirPDF2()
+    {
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->Image('./public/graficoGenero.png');
+        $pdf->Cell(40, 10, 'El color violeta representa el sexo femenino, el azul el masculino y el verde los desconocidos');
+        $pdf->Output();
+    }
+    public function imprimirPDF3()
+    {
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 14);
+        $pdf->Image('./public/graficoMundial.png');
+        $pdf->Cell(40, 10, 'Grafico que muestra la mayor distribucion de usuarios alrededor del mundo');
+        $pdf->Output();
+    }
+    public function imprimirTodo()
+    {
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Image('./public/graficoEdad.png');
+        $pdf->Image('./public/graficoGenero.png');
+        $pdf->Image('./public/graficoMundial.png');
+
+        $pdf->Output();
+    }
+}
 
 

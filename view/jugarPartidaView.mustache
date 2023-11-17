@@ -48,7 +48,7 @@
                     data: formData,
                     success: function (response) {             // Manipular la respuesta del servidor            
                         if (response.success) {
-                            $("#mensaje").html(response.html); // Actualiza el contenido con el HTML renderizado
+                            $("#mensaje").text(response.message); 
                         } else {
                             $("#mensaje").text("Hubo un problema: " + response.error);
                         }
