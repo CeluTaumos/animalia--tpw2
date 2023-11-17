@@ -1,28 +1,43 @@
 <div class="caja">
-    <div>
-        <a class="boton-sec" href="/Admin/mostrarPantallaGraficos">Ver gráficos</a>
-    </div>
-    <div class="caja-dos centrado">
+    <div class="centrado">
         <div class="m centrado">
             <h3>ESTADO DE LA APLICACIÓN :</h3>
+            <!-- Tarjetas de información -->
+            <div class="w3-card w3-red">
+                <p>Cantidad de jugadores: <span>{{cantidadJugadores}}</span></p>
+            </div>
+            <div class="w3-card w3-pink">
+                <p>Cantidad de partidas jugadas: {{cantidadPartidas}}</p>
+            </div>
+            <div class="w3-card w3-purple">
+                <p>Cantidad de preguntas en el juego: {{cantidadPreguntas}}</p>
+            </div>
+            <div class="w3-card w3-deep-purple">
+                <p>Cantidad de usuarios mujeres en el juego: {{cantidadMujeres}}</p>
+            </div>
+            <div class="w3-card w3-indigo">
+                <p>Cantidad de usuarios hombres en el juego: {{cantidadHombres}}</p>
+            </div>
+            <div class="w3-card w3-blue">
+                <p>Cantidad de usuarios nuevos: {{usuariosNuevos}}</p>
+            </div>
+            <div class="w3-card w3-light-blue">
+                <form action="/Admin/estadisticas" method="post">
+                    <p>Por favor, ingresa el nombre de usuario de la persona cuyas respuestas correctas deseas conocer:
+                    </p>
 
-            <p>Cantidad de jugadores:<span>{{cantidadJugadores}}</span> </p>
-            <p>Cantidad de partidas jugadas: {{cantidadPartidas}}</p>
-            <p>Cantidad de preguntas en el juego: {{cantidadPreguntas}}</p>
-            <p>Cantidad de usuarios mujeres en el juego: {{cantidadMujeres}}</p>
-            <p>Cantidad de usuarios hombres en el juego: {{cantidadHombres}}</p>
-            <p>Cantidad de usuarios nuevos: {{usuariosNuevos}}</p>
+                    <input class="input_mas_grande" type="text" name="user_a_buscar">
 
-            <form action="/Admin/estadisticas" method="post">
-                <p>Introduci el nombre de usuario de la persona de la cual quieras conocer la cantidad de preguntas que
-                    ha respondido correctamente: </p>
-                <input class="input_mas_grande" type="text" name="user_a_buscar">
-
-                <input class="boton-sec" type="submit" value="Enviar">
-            </form>
-            {{#porcentajeCorrectas}} 
-                <p>Porcentaje de preguntas respondidas correctamente: {{porcentaje_correctas}}</p>
-            {{/porcentajeCorrectas}} 
+                    <input class="boton-sec" type="submit" value="Enviar">
+                </form>
+            </div>
+            {{#porcentajeCorrectas}}
+            <p>Porcentaje de preguntas respondidas correctamente: {{porcentaje_correctas}}</p>
+            {{/porcentajeCorrectas}}
+        </div>
+        <div>
+            
+            <a class="boton mt" href="/Admin/mostrarPantallaGraficos">Ver gráficos</a>
         </div>
     </div>
 </div>
