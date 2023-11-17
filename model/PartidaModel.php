@@ -46,7 +46,7 @@ public function aumentarPuntuacionEnPartida($usuario, $id)
 public function getDescripcion($idRandom)
 {
     //return $this->database->query('SELECT * FROM pregunta WHERE id like ' .  $idRandom);
-    $query = "SELECT descripcion FROM pregunta WHERE id = '$idRandom'";
+    $query = "SELECT descripcion FROM pregunta WHERE id like '%$idRandom%'";
     $result = $this->database->queryB($query);
     return $result;
 }

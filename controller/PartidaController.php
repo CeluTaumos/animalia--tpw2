@@ -166,10 +166,11 @@ class PartidaController
     
                         // Supongamos que la lógica de reporte fue exitosa
                         $this->model->reportar($pregunta, $id);
-    
+                        $html = $this->render->printView('jugarPartida', ['success' => true, 'message' => 'La pregunta se reportó correctamente.']);
+
                         // Respondemos con un mensaje JSON
                         header('Content-Type: application/json');
-                        echo json_encode(['success' => true, 'message' => 'La pregunta se reportó correctamente.']);
+                        echo json_encode(['success' => true, 'message' => 'La pregunta se reportó correctamente.', 'html' => $html]);
                         return;
                     }
                 }

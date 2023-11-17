@@ -9,10 +9,11 @@ $(document).ready(function () {
             dataType: "json",
             success: function (response) {
                 if (response.success) {
-                    $("#mensaje").text(response.message);
-                    
+                    // $("#mensaje").text(response.message);
+                    $("#mensaje").html(response.html);
+
                     // Redirige o renderiza la vista de la partida según tus necesidades
-                    window.location.href = '/Partida/mostrarPantallaPartida';
+                    // window.location.href = '/Partida/mostrarPantallaPartida';
                 } else {
                     $("#mensaje").text("Hubo un problema: " + response.error);
                 }
