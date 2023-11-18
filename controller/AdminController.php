@@ -194,10 +194,33 @@ tablas de datos)*/
     {
         $pdf = new FPDF();
         $pdf->AddPage();
-        $pdf->SetFont('Arial', 'B', 11);
+        $pdf->SetFont('Arial', 'B', 10);
         $pdf->Image('./public/graficoEdad.png');
         $pdf->Cell(20, 50, '         (Menos de 18)            (18-21)                (22-60)         (desde 61 en adelante)');
-        $pdf->Ln(30);
+        $pdf->Ln(15);
+        $pdf->Cell(20, 50, 'Este grafico ofrece una representacion visual de la diversidad generacional dentro de nuestra comunidad');
+        $pdf->Ln(8);
+        $pdf->Cell(20, 50, 'de usuarios. Los datos se dividen en cuatro categorias principales: Menores de 18, Adolescentes, Adultos y Jubilados.');
+        $pdf->Ln(8);
+        $pdf->Cell(20, 50, 'La seccion "Menores de 18" muestra la cantidad de usuarios que son menores de edad, destacando la presencia de ');
+        $pdf->Ln(8);
+        $pdf->Cell(20, 50, 'jovenes en nuestra plataforma.');
+        $pdf->Ln(8);
+        $pdf->Cell(20, 50, '"Adolescentes" representa la participacion activa de usuarios en la adolescencia, ofreciendo una vision sobre');
+        $pdf->Ln(8);
+        $pdf->Cell(20, 50, 'la presencia de esta franja de edad en nuestra comunidad.');
+        $pdf->Ln(8);
+        $pdf->Cell(20, 50, 'La categoria "Adultos" refleja la cantidad de usuarios que se encuentran en el grupo demografico adulto,');
+        $pdf->Ln(8);
+        $pdf->Cell(20, 50, 'proporcionando informacion sobre la base principal de nuestra comunidad.');
+        $pdf->Ln(8);
+        $pdf->Cell(20, 50, 'La seccion "Jubilados" destaca la inclusion de usuarios en la etapa de jubilacion, subrayando la diversidad');
+        $pdf->Ln(8);
+        $pdf->Cell(20, 50, 'generacional y la accesibilidad de nuestra plataforma para todas las edades.');
+        $pdf->Ln(8);
+        $pdf->Cell(20, 50, 'Este grafico es una herramienta valiosa para comprender la estructura demografica de nuestra comunidad, ');
+        $pdf->Ln(8);
+        $pdf->Cell(20, 50, 'evidenciando nuestra dedicacion a la inclusion y la accesibilidad para usuarios de todas las edades.');
         $pdf->Output();
     }
     public function imprimirPDF2()
