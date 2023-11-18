@@ -107,14 +107,13 @@ h3 {
     flex-direction: column;
     box-sizing: border-box;
     padding: 5%;
-    width: 21.875em;
+    width: 100%;
     margin: 5%;
     height: max-content;
     background-color: #4770c491;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-    align-content: center;
     box-shadow: 11px 9px 29px -8px rgba(50, 58, 74, 0.74);
 }
 
@@ -135,6 +134,7 @@ h3 {
 }
 
 .input {
+    width: 100%;
     border: none;
     border-radius: 20px;
     margin: 2%;
