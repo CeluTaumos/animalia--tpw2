@@ -709,22 +709,51 @@ a {
     padding: 2%;
 }
 
+.gr-padre {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que las cajas se envuelvan en filas si no hay espacio suficiente */
+    justify-content: space-around; /* Distribuir las cajas uniformemente en el contenedor */
+}
+
 .gr {
     display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     padding: 2%;
     border-radius: 1em;
     margin: 2%;
-    width: 80%;
+    width: calc(30% - 4%); /* Utilizar calc para calcular el ancho exacto (30% con márgenes) */
+    height: auto;
     background: rgb(99, 186, 228);
     background: linear-gradient(164deg, rgba(99, 108, 228, 0.7120973389355743) 13%, rgba(167, 131, 215, 0.6644782913165266) 57%, rgba(224, 175, 242, 0.6336659663865547) 97%);
     align-items: center;
     justify-content: center;
+    text-align: center; /* Centrar el texto */
+}
+
+.gr img {
+    width: 80%; /* Ajustar el ancho de la imagen al 80% del contenedor */
+    max-width: 100%; /* Garantizar que no se desborde del contenedor */
+    height: auto; /* Mantener la proporción original */
+    margin-bottom: 10px; /* Espacio opcional entre la imagen y los enlaces */
 }
 
 .gr a {
-    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #1396ec;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 100%;
+    display: block; /* Convertir los enlaces en bloques para ocupar todo el ancho */
+    margin-top: 10px; /* Espacio opcional entre los enlaces y la imagen */
 }
+
+.gr a:hover {
+    background-color: #aa84cf;
+}
+
 
 /* ANIMACIONES */
 
@@ -822,7 +851,8 @@ a {
     }
 
     .gr {
-        display: block;
+        display: flex;
+        flex-direction: column;
     }
 
 }
