@@ -1,15 +1,14 @@
-{{! <p id="mensaje"></p> }}
 <div class=" partida">
-
+    
     {{#pregunta}}
     <div class="cardPartida {{tipo}}">
+        <p id="mensaje"></p> 
         <div class="caja">
             <h1>{{tipo}}</h1>
             <h2>⏳ Tiempo: <span id="tiempoRestante">60</span></h2>
             <div id="barraTiempo"></div>
-            <img src="{{imagen}}" width="200" height="150" alt="">
+            <img src="{{imagen}}" width="200" height="150" alt="gift">
             <h1>{{descripcion}}</h1>
-            {{/pregunta}}
         </div>
 
         <div>
@@ -25,7 +24,7 @@
                 <button class="trampita"> 🃏 </button>
             </div>
         </div>
-        {{#pregunta}}
+
         <form action="/Partida/reportarPregunta" method="post" id="reportarForm">
             <!-- Tengo que poner el name como quiera  el post y el value como estaria llamado en mustache -->
             <input type="hidden" value="{{id}}" name="id">

@@ -1,26 +1,29 @@
 $(document).ready(function () {
-    $("#reportarBtn").click(function () {
-        var formData = $("#reportarForm").serialize();
+  $("#reportarBtn").click(function (event) {
+    event.preventDefault(); // Evita el comportamiento predeterminado del formulario
 
-        $.ajax({
-            type: "POST",
-            url: "/Partida/reportarPregunta",
-            data: formData,
-            dataType: "json",
-            success: function (response) {
-                if (response.success) {
-                    // $("#mensaje").text(response.message);
-                    $("#mensaje").html(response.html);
+    var formData = $("#reportarForm").serialize();
 
-                    // Redirige o renderiza la vista de la partida según tus necesidades
-                    // window.location.href = '/Partida/mostrarPantallaPartida';
-                } else {
-                    $("#mensaje").text("Hubo un problema: " + response.error);
-                }
-            },
-            error: function (error) {
-                console.error('Error en la solicitud AJAX:', error);
-            }
-        });
+    $.ajax({
+      type: "POST",
+      url: "/Partida/reportarPregunta",
+      data: formData,
+      dataType: "json",
+      success: function (response) {
+        console.log(response); // Agrega esto para depuración
+        var mensajeElemento = $("#mensaje");
+
+        if (response.success) {
+          // Inserta el mensaje de éxito en el elemento <p>
+          mensajeElemento.text(response.message);
+        } else {
+          // Inserta el mensaje de error en el elemento <p>
+          mensajeElemento.text("Hubo un problema: " + response.error);
+        }
+      },
+      error: function (error) {
+        console.error("Error en la solicitud AJAX:", error);
+      },
     });
+  });
 });

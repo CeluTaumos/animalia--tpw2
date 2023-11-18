@@ -153,33 +153,34 @@ class PartidaController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Obtener el ID de la pregunta desde la solicitud POST
             $pregunta_id = $_POST['id'];
-    
+
             // Realizar la lógica de reporte en la base de datos
             if (isset($_POST['enviar']) && is_numeric($_POST['id'])) {
                 $id = $_POST['id'];
-    
+
                 $pregunta = $this->model->getDescripcion($id);
                 if ($pregunta != null) {
                     $row = $pregunta->fetch_assoc();
                     if (isset($row['descripcion'])) {
                         $pregunta = $row['descripcion'];
-    
+
                         // Supongamos que la lógica de reporte fue exitosa
                         $this->model->reportar($pregunta, $id);
-                        $html = $this->render->printView('jugarPartida', ['success' => true, 'message' => 'La pregunta se reportó correctamente.']);
+                        $message = 'La pregunta se reportó correctamente.';
 
                         // Respondemos con un mensaje JSON
-                        header('Content-Type: application/json');
-                        echo json_encode(['success' => true, 'message' => 'La pregunta se reportó correctamente.', 'html' => $html]);
+
+                        echo json_encode(['success' => true, 'message' => $message]);
                         return;
+                        exit;
                     }
                 }
             }
         }
-    
+
         // Si la solicitud no es mediante POST o hay un error, responder con un mensaje de error
-        header('Content-Type: application/json');
+
         echo json_encode(['success' => false, 'error' => 'Hubo un problema al reportar la pregunta.']);
+        exit;
     }
-    
 }

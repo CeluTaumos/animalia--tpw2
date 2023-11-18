@@ -19,6 +19,12 @@ p{
 h1{
     font-family: 'Lilita One', cursive !important;
 }
+h2{
+    font-family: 'Lilita One', cursive !important;
+}
+h3{
+    font-family: 'Lilita One', cursive !important;
+}
 .header {
 
     display: flex;
