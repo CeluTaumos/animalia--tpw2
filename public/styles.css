@@ -12,19 +12,23 @@ body {
     height: 100%;
     background-color: #facdde;
 }
-p{
+
+p {
     font-family: 'Lilita One', cursive !important;
 }
 
-h1{
+h1 {
     font-family: 'Lilita One', cursive !important;
 }
-h2{
+
+h2 {
     font-family: 'Lilita One', cursive !important;
 }
-h3{
+
+h3 {
     font-family: 'Lilita One', cursive !important;
 }
+
 .header {
 
     display: flex;
@@ -180,12 +184,20 @@ select {
 
 .tabla {
 
-    width: 40%;
-    height: 50vh;
-    margin: 10px 10px;
-    padding: 20px;
+    width: 50%;
+    height: auto;
+    margin: 0.625em 0.625em;
+    padding: 2%;
     background-color: rgba(131, 188, 215, 0.6644782913165266);
-    border-radius: 25px;
+    border-radius: 1.25em;
+}
+
+.sg {
+    margin: 2%;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .opcion {
@@ -225,10 +237,18 @@ select {
 }
 
 .delete {
+    box-sizing: border-box;
     background-color: rgb(227, 65, 65);
-    padding: 5px;
+    padding: 2%;
     border: none;
-    border-radius: 25px;
+    border-radius: 1.25em;
+
+}
+
+.delete:hover {
+
+    background-color: rgb(216, 127, 127);
+    transition: 0.5s;
 }
 
 .cancel {
@@ -451,15 +471,15 @@ footer img {
 }
 
 .botonEditor:hover {
-    background-color:#023251;
+    background-color: #023251;
 }
 
 .boton-nueva-partida {
-    background-color:#ce84cf;
+    background-color: #ce84cf;
 }
 
 .boton-ver-ranking {
-    background-color:#ce84cf;
+    background-color: #ce84cf;
 }
 
 
@@ -659,6 +679,7 @@ a {
 #hornerito {
     width: 100%;
 }
+
 #horneritoo {
     width: 60%;
 }
@@ -701,7 +722,7 @@ a {
     justify-content: center;
 }
 
-.gr a{
+.gr a {
     text-align: center;
 }
 
@@ -799,9 +820,10 @@ a {
     .botonArchivo {
         font-size: 0.875em;
     }
-.gr{
-    display: block;
-}
+
+    .gr {
+        display: block;
+    }
 
 }
 

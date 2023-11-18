@@ -5,7 +5,7 @@
         {{#sugeridas}}
         <form action="/Perfil/actualizarSugerida" method="post">
             <input type="hidden" name="id" value="{{numeroPregunta}}">
-            <<input type="hidden" name="descripcion" value="{{descripcionPregunta}}">
+            <input type="hidden" name="descripcion" value="{{descripcionPregunta}}">
             <input type="hidden" name="categoria" value="{{categoria}}">
             <input type="hidden" name="dificultad" value="{{dificultad}}">
             <span>{{descripcionPregunta}}</span> 
@@ -14,7 +14,7 @@
             <ul>
                 <li>
                     {{#respuestas}}
-                    <p>< {{descripcion}}</p>
+                    <p> {{descripcion}}</p>
                     <input type="hidden" name="correcta" value="{{es_correcta}}">
                     <input type="hidden" name="descripcionRespuesta" value="{{descripcion}}">
                     {{/respuestas}}
@@ -28,12 +28,14 @@
     <div class="tabla">
         <h1 class="centrado nombre">Últimas preguntas reportadas</h1>
         {{#reportadas}}
-        <form action="/Perfil/eliminarPreguntaReportada" method="post">
+        <form action="/Perfil/eliminarPreguntaReportada" method="post"  class="sg">
             <span>{{descripcion_reporte}}</span> 
             <input type="hidden" name="id" value="{{pregunta_id}}">
-            <input type="submit" value="Eliminar" class="delete"><br>
-            
+            <input type="submit" value="x" class="delete">
         </form>
+        <!-- <div class="centrado">
+        <input type="submit" value="Eliminar" class="delete"><br>
+    </div> -->
         {{/reportadas}}
     </div>
 </div>
