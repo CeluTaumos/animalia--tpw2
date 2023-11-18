@@ -165,4 +165,22 @@ class PerfilController{
         }
         $this->mostrarPantallaEditarSugerencias();
     }
+    public function editar(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $user = $_SESSION['user'];
+            $newUser = $_POST['user'];
+            //var_dump(''.$user.''.$newUser.'');
+            $newName = $_POST['name'];
+            $newDate = $_POST['date'];
+            //var_dump($newName);
+            //var_dump($newDate);
+            $newMail = $_POST['mail'];
+            //var_dump($newMail);
+            $this->model->actualizarDatos($user, $newUser, $newName, $newDate, $newMail);
+            if($newUser !== ""){
+                $_SESSION['user'] = $newUser;
+            }
+            $this->mostrarPantallaPerfil();
+    }
+}
 }

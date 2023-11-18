@@ -16,10 +16,19 @@
             <p>Nivel: {{nivel}}</p>
         {{/usuario}} 
         <div class=" centrado mt">
-        <a class="boton-sec">Editar perfil</a>
-        <a href="/Perfil/mostrarPantallaSugerencias" class="boton-sec">Sugerir Pregunta</a>
-        <a href="/Perfil/mostrarPantallaSugerencias" class="boton-sec">Añadir categoría</a>
-    </div>
+            <a class="boton-sec">Editar perfil</a>
+            <a href="/Perfil/mostrarPantallaSugerencias" class="boton-sec">Sugerir Pregunta</a>
+            <a href="/Perfil/mostrarPantallaSugerencias" class="boton-sec">Añadir categoría</a>
+        </div>
+        <div class="actualizar">
+            <form action="/Perfil/editar" method="post" class="formulario" > 
+                <input type="text" placeholder="Ingrese su nuevo username" name="user">
+                <input type="text" placeholder="Ingrese su nombre" name="name">
+                <input type="date" placeholder="Ingrese su fecha de nacimiento" name="date">
+                <input type="text" placeholder="Ingrese su nuevo correo" name="mail">
+                <input type="submit" value="Editar" class="boton-sec">
+            </form>
+        </div>
 </div>
 
 </div>

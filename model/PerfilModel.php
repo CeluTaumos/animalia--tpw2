@@ -112,5 +112,33 @@ class PerfilModel{
         $this->database->queryB($query);
     
     }
+    public function actualizarDatos($user, $newUser, $newName, $newDate, $newMail){
+        if($newName !== ""){
+            $query = "UPDATE usuario SET nombre_completo = '$newName' WHERE user_name = '$user'";
+            //var_dump($query);
+            $this->database->queryB($query);
+        }
+        if($newDate !== ""){
+            $query = "UPDATE usuario SET anio_de_nacimiento = '$newDate' WHERE user_name = '$user'";
+            //var_dump($query);
+            $this->database->queryB($query);
+        }
+        if($newMail !== ""){
+            $query = "UPDATE usuario SET mail = '$newMail' WHERE user_name = '$user'";
+            //var_dump($query);
+            $this->database->queryB($query);
+        }
+        if($newUser !== ""){
+            $usuario = $user;
+            
+            $query = "UPDATE usuario SET user_name = '$newUser' WHERE user_name = '$user'";
+            $this->database->queryB($query);
+            $query = "UPDATE partida SET user_name = '$newUser' WHERE user_name = '$usuario'";
+            $this->database->queryB($query);
+        }
+        // if($newUser !== ""){
+        //     $query = "UPDATE usuario SET user_name = '$newUser' WHERE nombre_completo = '$newName'";
+        // }
+    }
 }
 
