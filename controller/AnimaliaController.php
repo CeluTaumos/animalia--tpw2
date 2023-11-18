@@ -42,7 +42,7 @@ class AnimaliaController
                     if (isset($_FILES["file"])) {
                         $nombreArchivo = $_FILES["file"]["name"];
                         $rutaTemporal = $_FILES["file"]["tmp_name"];
-                        $directorioDestino = "public/img/" . $nombreArchivo;
+                        $directorioDestino = "./public/img/" . $nombreArchivo;
 
                         if (move_uploaded_file($rutaTemporal, $directorioDestino)) {
                            // refac
