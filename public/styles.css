@@ -694,7 +694,9 @@ a {
     font-size: 1.563em;
     color: #0080d5;
 }
-
+.foto{
+    width: 150px;
+}
 .input_mas_grande {
     width: 21.188em;
     border: none;

@@ -86,7 +86,7 @@ class PerfilController{
                  
                     if (isset($respuesta['respuesta_descripcion'])) {
                         $respuestasArray[] = $respuesta['respuesta_descripcion'];
-                        var_dump($respuestasArray[$index]);
+                        //var_dump($respuestasArray[$index]);
                     }
                 }
                 
