@@ -424,6 +424,45 @@ footer img {
     gap: 25px;
 }
 
+
+.grupo-botones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    font-size: 20px;
+    width: 100%;
+}
+
+
+.grupo-botones:nth-child(odd) {
+    justify-content: center;
+    display: flex;
+}
+
+.botonEditor {
+    text-decoration: none;
+    color: white;
+    background-color: #1396ec;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.botonEditor:hover {
+    background-color:#023251;
+}
+
+.boton-nueva-partida {
+    background-color:#ce84cf;
+}
+
+.boton-ver-ranking {
+    background-color:#ce84cf;
+}
+
+
 .m {
     margin: 5%;
 }
@@ -620,6 +659,10 @@ a {
 #hornerito {
     width: 100%;
 }
+#horneritoo {
+    width: 60%;
+}
+
 
 #horneritoEnojado {
     width: 25%;
