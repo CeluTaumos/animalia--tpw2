@@ -61,6 +61,9 @@ class PartidaController
                     $_SESSION['preguntas_disponibles'] = array_column($preguntas, 'id');
                 }
                 $_SESSION['tiempo_entrega_pregunta'] = microtime(true);
+                if (!isset($_SESSION['pregunta_actual'])) {
+                    $_SESSION['pregunta_actual'] = null;
+                }
                 $preguntaAnteriorId = $_SESSION['pregunta_actual'];
 
                 if ($preguntaAnteriorId) {
@@ -68,6 +71,12 @@ class PartidaController
                     $tiempoActual = time();
                     $tiempoTranscurrido = $tiempoActual - $tiempoInicioPreguntaAnterior;
                 }
+                if (empty($preguntas_disponibles)) {
+                    // Obtener preguntas solo si no hay preguntas disponibles
+                    $preguntas = $this->model->getPreguntas();
+                    $preguntas_disponibles = array_column($preguntas, 'id');
+                }
+                
 
                 $idGenerado = $preguntas_disponibles[array_rand($preguntas_disponibles)];
 
