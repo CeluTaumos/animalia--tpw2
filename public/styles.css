@@ -945,6 +945,11 @@ a {
     gap: 10px;
 }
 
+#map {
+    height: 300px; /* Ajusta la altura según sea necesario */
+    width: 100%;  /* O ajusta el ancho según sea necesario */
+  }
+
 /* body {
     font-family: 'Lilita One', cursive;
     height: 100%;
