@@ -101,7 +101,7 @@ insert into Partida(id, user_name, puntaje, fecha)values(1, "micaa",0, DATE_SUB(
 
 /*INSERCION DE DATOS*/
 
-insert into categoria(id, tipo, imagen)values(1, "Historia", "./public/img/historia.gif"), (2, "Cultura", "./public/img/cultura.gif"), (3, "Deporte", "./public/img/deporte.gif"), (4, "Geografía", "./public/img/geografia.gif"), (5, "Ciencia", "./public/img/ciencia.gif");
+insert into categoria(id, tipo, imagen)values(1, "Historia", "../public/img/historia.gif"), (2, "Cultura", "../public/img/cultura.gif"), (3, "Deporte", "../public/img/deporte.gif"), (4, "Geografía", "../public/img/geografia.gif"), (5, "Ciencia", "../public/img/ciencia.gif");
 
 insert into dificultad(id, nombre)values(1, "principiante"), (2, "intermedio"), (3, "avanzado");
 
