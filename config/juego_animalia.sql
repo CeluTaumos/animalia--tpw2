@@ -80,7 +80,7 @@ ADD COLUMN respuestas_totales INT DEFAULT 0;
 create table Partida (
 id int(11) AUTO_INCREMENT PRIMARY KEY,
 user_name VARCHAR(10) NOT NULL,
-constraint user_name_fk foreign key (user_name) references usuario(user_name),
+constraint user_name_fk foreign key (user_name) references usuario(user_name) ON UPDATE CASCADE,
 puntaje int(11) not null,
 fecha DATETIME
 );
