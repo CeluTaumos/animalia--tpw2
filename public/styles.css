@@ -107,14 +107,13 @@ h3 {
     flex-direction: column;
     box-sizing: border-box;
     padding: 5%;
-    width: 21.875em;
+    width: 100%;
     margin: 5%;
     height: max-content;
     background-color: #4770c491;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-    align-content: center;
     box-shadow: 11px 9px 29px -8px rgba(50, 58, 74, 0.74);
 }
 
@@ -135,6 +134,7 @@ h3 {
 }
 
 .input {
+    width: 100%;
     border: none;
     border-radius: 20px;
     margin: 2%;
@@ -523,14 +523,23 @@ footer img {
     padding: 3%;
     border-radius: 40px 25px 40px 15px;
     margin: 5%;
+    gap: 1em;
 }
 
 .caja_ranking h1 {
     text-shadow: 2px 2px 3px rgb(0, 0, 0);
-
     margin-bottom: 5%;
 }
+.caja_ranking button{
+    background-color:none;
+    padding: 2%;
+    background-color: #fbb5cd8c;
+    border: none;
+    border-radius: 1em;
+    width: 100%;
+    height: auto;
 
+}
 .caja-pt-previas {
     text-align: center;
     width: 50%;
@@ -589,15 +598,24 @@ a {
 
 .user_name {
     border: none;
+    width: 100%;
+    border-radius: 10px;
     background: rgb(99, 186, 228);
     background: linear-gradient(164deg, rgba(99, 108, 228, 0.7120973389355743) 13%, rgba(167, 131, 215, 0.6644782913165266) 57%, rgba(224, 175, 242, 0.6336659663865547) 97%);
     color: #151511;
     text-align: center;
+    box-sizing: border-box;
+    padding: 2%;
+    margin: 1%;
 }
 
 .row {
     display: flex;
     flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
 .caja_opciones {
@@ -686,7 +704,7 @@ a {
 
 
 #horneritoEnojado {
-    width: 25%;
+    width: 19%;
     margin: 1%;
 }
 
