@@ -4,11 +4,10 @@
         <iframe src="https://giphy.com/embed/gxhU80is6fOKI" width="240" height="162" frameBorder="0" class="giphy-embed"
             allowFullScreen></iframe>
         {{#partida}}
-        <div class="row">
-            <!-- <form action="/Perfil/mostrarPantallaPerfilNuevo" method="post"> -->
+        <div class="row user_name">
             <form class="ajax-form" action="/Ranking/imprimirQR" method="post">
                 <input type="hidden" name="user" value="{{user_name}}">
-                <button class="user_name" type="submit" name="enviar">👑 {{user_name}}</button>
+                <button type="submit" name="enviar">👑 {{user_name}}</button>
             </form>
             <span class="puntajeUsuario"> {{MAX(puntaje)}}</span><br>
             <!-- <div class="qr">
