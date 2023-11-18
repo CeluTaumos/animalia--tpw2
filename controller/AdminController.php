@@ -197,15 +197,34 @@ tablas de datos)*/
         $pdf->SetFont('Arial', 'B', 11);
         $pdf->Image('./public/graficoEdad.png');
         $pdf->Cell(20, 50, '         (Menos de 18)            (18-21)                (22-60)         (desde 61 en adelante)');
+        $pdf->Ln(30);
         $pdf->Output();
     }
     public function imprimirPDF2()
     {
         $pdf = new FPDF();
         $pdf->AddPage();
-        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->SetFont('Arial', 'B', 9);
         $pdf->Image('./public/graficoGenero.png');
-        $pdf->Cell(40, 10, 'El color violeta representa el sexo femenino, el azul el masculino y el verde los desconocidos');
+        $pdf->Cell(40, 10, 'Este grafico presenta una visualizacion clara y concisa de la distribucion de jugadores en nuestra comunidad segun su genero. ');
+        $pdf->Ln(10);
+        $pdf->Cell(40, 10, 'La informacion se clasifica en tres categorias principales: masculino, femenino y aquellos que han optado por no especificar su');
+        $pdf->Ln(10);
+        $pdf->Cell(40, 10, ' genero. La porcion de color azul corresponde al genero masculino e indica la cantidad de jugadores que se identifican como ');
+        $pdf->Ln(10);
+        $pdf->Cell(40, 10, 'hombres, ofreciendo una perspectiva de la participacion de este grupo en nuestra comunidad.');
+        $pdf->Ln(10);
+        $pdf->Cell(40, 10, 'La porcion de color violeta corresponde al genero femenino, representa la cantidad de jugadoras que forman parte de nuestra ');
+        $pdf->Ln(10);
+        $pdf->Cell(40, 10, 'comunidad. Este segmento destaca la presencia femenina en el contexto de juegos y entretenimiento.');
+        $pdf->Ln(10);
+        $pdf->Cell(40, 10, 'La tercera categoria, de color verde, "Prefiere no decirlo", abarca a aquellos jugadores que han optado por no proporcionar ');
+        $pdf->Ln(10);
+        $pdf->Cell(40, 10, 'informacion sobre su genero. Esta eleccion refleja nuestro respeto por la diversidad y la privacidad de nuestros miembros.');
+        $pdf->Ln(10);
+        $pdf->Cell(40, 10, 'Este grafico proporciona una vision general de la diversidad de genero en nuestra comunidad de jugadores, subrayando ');
+        $pdf->Ln(10);
+        $pdf->Cell(40, 10, 'nuestro compromiso con la inclusion y el respeto a la identidad de cada individuo.');
         $pdf->Output();
     }
     public function imprimirPDF3()
@@ -221,9 +240,17 @@ tablas de datos)*/
     {
         $pdf = new FPDF();
         $pdf->AddPage();
-        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->SetFont('Arial', 'B', 14);
         $pdf->Image('./public/graficoEdad.png');
+        $pdf->Cell(20, 50, '      (Menos de 18)    (18-21)             (22-60)       (desde 61 en adelante)');
+        $pdf->Ln(30);
+        
         $pdf->Image('./public/graficoGenero.png');
+        $pdf->Ln(30);
+        $pdf->Cell(40, 10, 'El color violeta representa el sexo femenino, el azul el masculino y el verde');
+        $pdf->Ln(10);
+        $pdf->Cell(40, 10, 'los desconocidos');
+        $pdf->Ln(30);
         $pdf->Image('./public/graficoMundial.png');
 
         $pdf->Output();

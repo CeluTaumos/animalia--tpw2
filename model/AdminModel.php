@@ -125,7 +125,7 @@ class AdminModel
     public function getCantidadDesconocidos(){
         $query = "SELECT COUNT(*) AS cantidad_usuarios_desconocidos
         FROM usuario
-        WHERE sexo = 'd'";
+        WHERE sexo = 'n'";
         return $this->database->query($query);
     }
 }
