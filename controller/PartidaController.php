@@ -132,7 +132,9 @@ class PartidaController
     {
 
         $idPreguntaReportada = $_GET['id'];
+    
         $pregunta = $this->model->getDescripcion($idPreguntaReportada);
+    
         $this->model->reportar($pregunta, $idPreguntaReportada);
     }
 }
