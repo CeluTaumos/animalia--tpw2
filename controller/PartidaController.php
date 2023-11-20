@@ -15,11 +15,11 @@ class PartidaController
         $this->partidaJugada = array();
         $this->puntaje = 0;
     }
-//INTENTE REFACTORIZAR PERO ---NO FUNKA
+    //INTENTE REFACTORIZAR PERO ---NO FUNKA
     public function mostrarPantallaPartida()
     {
-    
-        
+
+
         if (!isset($_SESSION['preguntas_disponibles'])) {
             $_SESSION['preguntas_disponibles'] = array();
         }
@@ -44,7 +44,6 @@ class PartidaController
                 $_SESSION['preguntas_mostradas'][] = $idGenerado;
                 $preguntaDificultad = $this->model->getDificultadPregunta($idGenerado);
                 $datos['dificultad'] = $preguntaDificultad;
-             
             }
             if ($idGenerado === null) {
                 if (empty($_SESSION['preguntas_disponibles'])) {
@@ -131,27 +130,33 @@ class PartidaController
 
     public function reportarPregunta()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $pregunta_id = $_POST['id2'];
-            var_dump('id');
-            if (isset($_POST['enviar']) && is_numeric($pregunta_id)) {
-                $id = $_POST['id2'];
-                $pregunta = $this->model->getDescripcion($id);
-                if ($pregunta != null) {
-                    $row = $pregunta->fetch_assoc();
-                    if (isset($row['descripcion'])) {
-                        $pregunta = $row['descripcion'];
-                        $this->model->reportar($pregunta, $id);
-                        $message = 'La pregunta se reportó correctamente.';
-                        echo json_encode(['success' => true, 'message' => $message]);
-                        return;
-                        //exit;
-                    }
-                }
-            }
-        }
-        echo json_encode(['success' => false, 'error' => 'Hubo un problema al reportar la pregunta. Detalles: ' ]);
 
-        exit;
+        $idPreguntaReportada = $_GET['id'];
+        $pregunta = $this->model->getDescripcion($idPreguntaReportada);
+        $this->model->reportar($pregunta, $idPreguntaReportada);
     }
 }
+    
+
+
+// public function reportarPregunta()
+//     {
+//         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//             $pregunta_id = $_POST['id'];
+//             if (isset($_POST['enviar']) && is_numeric($_POST['id'])) {
+//                 $id = $_POST['id'];
+//                 if ($pregunta != null) {
+//                     $row = $pregunta->fetch_assoc();
+//                     if (isset($row['descripcion'])) {
+//                         $pregunta = $row['descripcion'];
+//                         $this->model->reportar($pregunta, $id);
+//                         echo json_encode(['success' => true, 'message' => $message]);
+//                         return;
+//                         //exit;
+//                     }
+//                 }
+//             }
+//         }
+//         echo json_encode(['success' => false, 'error' => 'Hubo un problema al reportar la pregunta.']);
+//         exit;
+//     }
