@@ -85,28 +85,90 @@ class AdminModel
         $query = "SELECT nivel FROM usuario WHERE user_name LIKE '" . $usuario . "'";
         return $this->database->queryB($query);
     }
-    public function getCantidadMenores(){
-        $query = "SELECT COUNT(*) AS cantidad_menores
-        FROM usuario
-        WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) < 18";
+    public function getCantidadMenores($filtro){
+        //dia
+        if($filtro==1){
+            $query = "SELECT COUNT(*) AS cantidad_menores
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) < 18 AND fecha_registro >= NOW() - INTERVAL 1 DAY";
+        //semana
+        }else if($filtro==2){
+            $query = "SELECT COUNT(*) AS cantidad_menores
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) < 18 AND fecha_registro >= NOW() - INTERVAL 1 WEEK";
+        //mes
+        }else if($filtro==3){
+            $query = "SELECT COUNT(*) AS cantidad_menores
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) < 18 AND fecha_registro >= NOW() - INTERVAL 1 MONTH";
+        //año
+        }else{
+            $query = "SELECT COUNT(*) AS cantidad_menores
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) < 18";
+        }
+        
         return $this->database->query($query);
     }
-    public function getCantidadAdolescentes(){
-        $query = "SELECT COUNT(*) AS cantidad_adolescentes
-        FROM usuario
-        WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) BETWEEN 18 AND 21";
+    public function getCantidadAdolescentes($filtro){
+        if($filtro==1){
+            $query = "SELECT COUNT(*) AS cantidad_adolescentes
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) BETWEEN 18 AND 21 AND fecha_registro >= NOW() - INTERVAL 1 DAY";
+        }else if($filtro==2){
+            $query = "SELECT COUNT(*) AS cantidad_adolescentes
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) BETWEEN 18 AND 21 AND fecha_registro >= NOW() - INTERVAL 1 WEEK";
+        }else if($filtro==3){
+            $query = "SELECT COUNT(*) AS cantidad_adolescentes
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) BETWEEN 18 AND 21 AND fecha_registro >= NOW() - INTERVAL 1 MONTH";
+        }else{
+            $query = "SELECT COUNT(*) AS cantidad_adolescentes
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) BETWEEN 18 AND 21";
+        }
         return $this->database->query($query);
     }
-    public function getCantidadMedio(){
-        $query = "SELECT COUNT(*) AS cantidad_medio
-        FROM usuario
-        WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) BETWEEN 22 AND 60";
+    public function getCantidadMedio($filtro){
+        if($filtro==1){
+            $query = "SELECT COUNT(*) AS cantidad_medio
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) BETWEEN 22 AND 60 AND fecha_registro >= NOW() - INTERVAL 1 DAY";
+        }else if($filtro==2){
+            $query = "SELECT COUNT(*) AS cantidad_medio
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) BETWEEN 22 AND 60 AND fecha_registro >= NOW() - INTERVAL 1 WEEK";
+        }else if($filtro==3){
+            $query = "SELECT COUNT(*) AS cantidad_medio
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) BETWEEN 22 AND 60 AND fecha_registro >= NOW() - INTERVAL 1 MONTH";
+        }else{
+            $query = "SELECT COUNT(*) AS cantidad_medio
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) BETWEEN 22 AND 60";
+        }     
+        
         return $this->database->query($query);
     }
-    public function getCantidadJubilados(){
-        $query = "SELECT COUNT(*) AS cantidad_jubilados
-        FROM usuario
-        WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) > 61";
+    public function getCantidadJubilados($filtro){
+        if($filtro==1){
+            $query = "SELECT COUNT(*) AS cantidad_jubilados
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) > 61 AND fecha_registro >= NOW() - INTERVAL 1 DAY";
+        }else if($filtro==2){
+            $query = "SELECT COUNT(*) AS cantidad_jubilados
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) > 61 AND fecha_registro >= NOW() - INTERVAL 1 WEEK";
+        }else if($filtro==3){
+            $query = "SELECT COUNT(*) AS cantidad_jubilados
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) > 61 AND fecha_registro >= NOW() - INTERVAL 1 MONTH";
+        }else{
+            $query = "SELECT COUNT(*) AS cantidad_jubilados
+            FROM usuario
+            WHERE TIMESTAMPDIFF(YEAR, anio_de_nacimiento, CURDATE()) > 61";
+        }
         return $this->database->query($query);
     }
     public function getCantidadHombres(){

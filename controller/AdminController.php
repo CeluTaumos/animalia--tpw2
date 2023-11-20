@@ -21,20 +21,11 @@ class AdminController
         $datos = [
             'user' => $_SESSION['user'],
         ];
-
         return $this->render->printView('lobbyadmin', $datos);
     }
 
     public function estadisticas()
     {
-        /*Por otro lado debe existir el usuario administrador, capaz de ver la 
-         cantidad de preguntas creadas
-         porcentaje de preguntas respondidas correctamente por usuario, 
-         cantidad de usuarios por pais, 
-         cantidad de usuarios por sexo, cantidad de usuarios por grupo de edad (menores, jubilados, medio). 
-         Todos estos gráficos deben poder filtarse por día, semana, mes o año. 
-         Estos reportes tienen que poder imprimirse (al menos las
-tablas de datos)*/
         $cantidadJugadores = $this->model->obtenerCantidadJugadores();
 
         $cantidadPartidas = $this->model->obtenerCantidadPartidas();
@@ -58,7 +49,6 @@ tablas de datos)*/
             $datos['porcentajeCorrectas'] = $porcentajeCorrectas[0];
         }
         $_SESSION['estadisticas'] = $datos;
-        //var_dump($_SESSION['estadisticas']);
         $this->render->printView('verEstadisticas', $_SESSION['estadisticas']);
     }
 
@@ -70,8 +60,6 @@ tablas de datos)*/
         }
         return 0;
     }
-
-
 
     public function cerrarSesion()
     {
@@ -87,16 +75,16 @@ tablas de datos)*/
     public function mostrarPantallaGraficos()
     {
         $datos = null;
-        //$this->graficoEdad();
         $this->render->printView('graficos', $datos);
     }
 
     public function graficoEdad()
     {
-        $menores = $this->model->getCantidadMenores();
-        $adolescentes = $this->model->getCantidadAdolescentes();
-        $medio = $this->model->getCantidadMedio();
-        $jubilados = $this->model->getCantidadJubilados();
+        $filtro = $_POST['filtro'];
+        $menores = $this->model->getCantidadMenores($filtro);
+        $adolescentes = $this->model->getCantidadAdolescentes($filtro);
+        $medio = $this->model->getCantidadMedio($filtro);
+        $jubilados = $this->model->getCantidadJubilados($filtro);
         //$datay=array(62,105,85,30); array original para usar si se rompe algo
         $datay = array($menores[0]['cantidad_menores'] * 10, $adolescentes[0]['cantidad_adolescentes'] * 10, $medio[0]['cantidad_medio'] * 10, $jubilados[0]['cantidad_jubilados'] * 10);
         // Create the graph. These two calls are always required
@@ -152,7 +140,6 @@ tablas de datos)*/
         $data = array(40, 60, 21, 33);
         $piepos = array(0.2, 0.35, 0.6, 0.28, 0.3, 0.7, 0.85, 0.7);
         $titles = array('Yankees', 'Europeos', 'Latam', 'Canguros');
-
         $n = count($piepos) / 2;
         // A new graph
         $graph = new PieGraph(450, 300, 'auto');
@@ -173,12 +160,10 @@ tablas de datos)*/
             $graph->Add($p[$i]);
 
             $p[$i]->SetCenter($piepos[2 * $i], $piepos[2 * $i + 1]);
-
             // Set the titles
             $p[$i]->title->Set($titles[$i]);
             $p[$i]->title->SetFont(FF_DEFAULT, FS_BOLD, 10);
             $p[$i]->title->SetColor('teal');
-
             // Size of pie in fraction of the width of the graph
             $p[$i]->SetSize(0.07);
             $p[$i]->SetHeight(5);
