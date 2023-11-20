@@ -75,11 +75,7 @@ class AdminModel
         $result = $this->database->queryB($query);
         return $result;
     }
-    public function reportar($descripcion, $id)
-    {
-        $query = "INSERT INTO preguntasreportadas(descripcion_reporte, pregunta_id) VALUES ('$descripcion', '$id')";
-        $result = $this->database->queryB($query);
-    }
+
     public function getUser($usuario)
     {
         $query = "SELECT nivel FROM usuario WHERE user_name LIKE '" . $usuario . "'";

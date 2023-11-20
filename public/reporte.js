@@ -1,9 +1,11 @@
 $(document).ready(function () {
   $("#reportarBtn").click(function (event) {
-    event.preventDefault(); // Evita el comportamiento predeterminado del formulario
+ event.preventDefault(); // Evita el comportamiento predeterminado del formulario
 
     var formData = $("#reportarForm").serialize();
-
+  
+    console.log("FormData:", formData);
+    
     $.ajax({
       type: "POST",
       url: "/Partida/reportarPregunta",
@@ -22,7 +24,7 @@ $(document).ready(function () {
         }
       },
       error: function (error) {
-        console.error("Error en la solicitud AJAX:", error);
+        console.error("Error en la solicitud AJAX:",xhr, error);
       },
     });
   });

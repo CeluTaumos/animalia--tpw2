@@ -42,7 +42,7 @@ class PartidaModel
     public function reportar($descripcion, $id)
     {
         $query = "INSERT INTO preguntasreportadas(descripcion_reporte, pregunta_id) VALUES ('$descripcion', '$id')";
-        $result = $this->database->queryB($query);
+        $this->database->queryB($query);
     }
 
     public function getPreguntas()

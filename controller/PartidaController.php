@@ -132,9 +132,10 @@ class PartidaController
     public function reportarPregunta()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $pregunta_id = $_POST['id'];
-            if (isset($_POST['enviar']) && is_numeric($_POST['id'])) {
-                $id = $_POST['id'];
+            $pregunta_id = $_POST['id2'];
+            var_dump('id');
+            if (isset($_POST['enviar']) && is_numeric($pregunta_id)) {
+                $id = $_POST['id2'];
                 $pregunta = $this->model->getDescripcion($id);
                 if ($pregunta != null) {
                     $row = $pregunta->fetch_assoc();
@@ -149,7 +150,8 @@ class PartidaController
                 }
             }
         }
-        echo json_encode(['success' => false, 'error' => 'Hubo un problema al reportar la pregunta.']);
+        echo json_encode(['success' => false, 'error' => 'Hubo un problema al reportar la pregunta. Detalles: ' ]);
+
         exit;
     }
 }
