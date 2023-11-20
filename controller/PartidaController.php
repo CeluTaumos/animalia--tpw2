@@ -130,35 +130,22 @@ class PartidaController
 
     public function reportarPregunta()
     {
-
-        $idPreguntaReportada = $_GET['id'];
+        if (isset($_GET['id'])) {
+            $idPreguntaReportada = $_GET['id'];
+            echo "ID de la pregunta reportada: " . $idPreguntaReportada;
     
-        $pregunta = $this->model->getDescripcion($idPreguntaReportada);
+            $pregunta = $this->model->getDescripcion($idPreguntaReportada);
     
-        $this->model->reportar($pregunta, $idPreguntaReportada);
+            // Agrega mensajes de depuración
+            echo "Descripción de la pregunta: " . $pregunta;
+    
+            $this->model->reportar($pregunta, $idPreguntaReportada);
+            echo "Pregunta reportada correctamente.";
+        } else {
+            echo "Error: No se proporcionó el parámetro 'id'.";
+        }
     }
-}
     
 
 
-// public function reportarPregunta()
-//     {
-//         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//             $pregunta_id = $_POST['id'];
-//             if (isset($_POST['enviar']) && is_numeric($_POST['id'])) {
-//                 $id = $_POST['id'];
-//                 if ($pregunta != null) {
-//                     $row = $pregunta->fetch_assoc();
-//                     if (isset($row['descripcion'])) {
-//                         $pregunta = $row['descripcion'];
-//                         $this->model->reportar($pregunta, $id);
-//                         echo json_encode(['success' => true, 'message' => $message]);
-//                         return;
-//                         //exit;
-//                     }
-//                 }
-//             }
-//         }
-//         echo json_encode(['success' => false, 'error' => 'Hubo un problema al reportar la pregunta.']);
-//         exit;
-//     }
+}
