@@ -47,9 +47,9 @@ class AdminModel
         
         $query = "SELECT
         u.user_name,
-        COUNT(p.id) AS total_preguntas,
+        (p.cant_preguntas_entregadas) AS total_preguntas,
         SUM(p.respuestas_correctas) AS respuestas_correctas,
-        (SUM(p.respuestas_correctas) / COUNT(p.id)) * 100 AS porcentaje_correctas
+        (SUM(p.respuestas_correctas) / (p.cant_preguntas_entregadas)) * 100 AS porcentaje_correctas
     FROM
         usuario u
     JOIN
@@ -71,7 +71,6 @@ class AdminModel
 
     public function getDescripcion($idRandom)
     {
-        //return $this->database->query('SELECT * FROM pregunta WHERE id like ' .  $idRandom);
         $query = "SELECT descripcion FROM pregunta WHERE id = '$idRandom'";
         $result = $this->database->queryB($query);
         return $result;
