@@ -18,44 +18,35 @@ class PartidaController
 //INTENTE REFACTORIZAR PERO ---NO FUNKA
     public function mostrarPantallaPartida()
     {
-
+        //el nivel de la pregunta esta, elnivel del usuario esta, el puntaje no, el puntaje del ranking no,
+        //
         if (!isset($_SESSION['preguntas_disponibles'])) {
             $_SESSION['preguntas_disponibles'] = array();
         }
         if (!isset($_SESSION['nivel_usuario'])) {
             $_SESSION['nivel_usuario'] = 'principiante';
         }
-
         if (!isset($_SESSION['preguntas_mostradas'])) {
             $_SESSION['preguntas_mostradas'] = array();
         }
-
         $preguntas_disponibles = $_SESSION['preguntas_disponibles'];
         $nivelUsuario = $_SESSION['nivel_usuario'];
         $idGenerado = null;
         $porcentajeRespuestasCorrectas = 0;
-
         $datos['dificultad'] = 'desconocida';
-
         while ($idGenerado === null) {
-
             if ($nivelUsuario === 'principiante' || $nivelUsuario === 'intermedio' || $nivelUsuario === 'experto') {
                 $idGenerado = $this->model->getPreguntaSegunNivel($nivelUsuario);
             }
             if (in_array($idGenerado, $_SESSION['preguntas_mostradas'])) {
-
                 $idGenerado = null;
             } else {
-
-                $this->model->aumentarPreguntasEntregadas($_SESSION['user']);
                 $_SESSION['preguntas_mostradas'][] = $idGenerado;
                 $preguntaDificultad = $this->model->getDificultadPregunta($idGenerado);
                 $datos['dificultad'] = $preguntaDificultad;
+                var_dump($datos['dificultad']);
             }
-         
-
             if ($idGenerado === null) {
-
                 if (empty($_SESSION['preguntas_disponibles'])) {
                     $preguntas = $this->model->getPreguntas();
                     $_SESSION['preguntas_disponibles'] = array_column($preguntas, 'id');
@@ -65,29 +56,23 @@ class PartidaController
                     $_SESSION['pregunta_actual'] = null;
                 }
                 $preguntaAnteriorId = $_SESSION['pregunta_actual'];
-
                 if ($preguntaAnteriorId) {
                     $tiempoInicioPreguntaAnterior = $_SESSION['tiempo_inicio'][$preguntaAnteriorId];
                     $tiempoActual = time();
                     $tiempoTranscurrido = $tiempoActual - $tiempoInicioPreguntaAnterior;
                 }
                 if (empty($preguntas_disponibles)) {
-                    // Obtener preguntas solo si no hay preguntas disponibles
                     $preguntas = $this->model->getPreguntas();
                     $preguntas_disponibles = array_column($preguntas, 'id');
                 }
-                
-
                 $idGenerado = $preguntas_disponibles[array_rand($preguntas_disponibles)];
-
                 $_SESSION['preguntas_mostradas'][] = $idGenerado;
-
+                $this->model->aumentarPreguntasEntregadas($_SESSION['user']);
                 $key = array_search($idGenerado, $preguntas_disponibles);
                 if ($key !== false) {
                     unset($preguntas_disponibles[$key]);
                     $_SESSION['preguntas_disponibles'] = array_values($preguntas_disponibles);
                 }
-
                 $datos['pregunta'] = $this->model->getPreguntaPorID($idGenerado);
                 $datos['respuesta'] = $this->model->getRespuestaPorID($idGenerado);
                 $pregunta_id = uniqid();
@@ -96,11 +81,9 @@ class PartidaController
                 $_SESSION['pregunta_actual'] = $pregunta_id;
             }
             $this->render->printView('jugarPartida', $datos);
-
             if ($tiempoTranscurrido > 10 && !isset($_SESSION['pantalla_perdedor_mostrada'])) {
                 $puntaje = $_SESSION['puntaje'];
                 $user = $_SESSION['user'];
-        
                 $this->model->actualizarPartida($puntaje, $user);
                 $_SESSION['pantalla_perdedor_mostrada'] = true;
                 $this->pantallaPerdedor();
@@ -113,39 +96,28 @@ class PartidaController
     {
         if (isset($_POST['id'])) {
             $id = $_POST['id'];
-
             $respuesta = $this->model->getRespuesta($id);
             $resultado = $respuesta[0]["es_correcta_int"];
-
             $_SESSION['preguntas_respondidas'][] = $id;
-
             if (isset($_SESSION['tiempo_entrega_pregunta'])) {
                 $tiempoEntregaPregunta = $_SESSION['tiempo_entrega_pregunta'];
                 $tiempoActual = microtime(true);
                 $tiempoTranscurrido = $tiempoActual - $tiempoEntregaPregunta;
                 if ($tiempoTranscurrido <= 10) {
                     if ($resultado == '1') {
-
-
                         $_SESSION['puntaje'] = $_SESSION['puntaje'] + 1;
                         $usuario = $_SESSION['user'];
                         $idPartida = $this->model->getIdPartida($usuario);
-
                         if ($idPartida !== null) {
-                            $this->model->aumentarPuntuacionEnPartida($usuario, $idPartida);
-                        } else {
-                            $this->model->subirPuntuacionEnPartida($usuario);
+                            $this->model->aumentarPuntuacionEnPartida($usuario, $idPartida[0]['max_id']);
                         }
-
-
+                        $this->model->subirPuntajeMaximoEnPartida($usuario);
                         $this->mostrarPantallaPartida();
                         return;
                     }
                 }
             }
         }
-
-
         $this->pantallaPerdedor();
     }
 
@@ -160,34 +132,23 @@ class PartidaController
     public function reportarPregunta()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-          
             $pregunta_id = $_POST['id'];
-
-          
             if (isset($_POST['enviar']) && is_numeric($_POST['id'])) {
                 $id = $_POST['id'];
-
                 $pregunta = $this->model->getDescripcion($id);
                 if ($pregunta != null) {
                     $row = $pregunta->fetch_assoc();
                     if (isset($row['descripcion'])) {
                         $pregunta = $row['descripcion'];
-
-                       
                         $this->model->reportar($pregunta, $id);
                         $message = 'La pregunta se reportó correctamente.';
-
-
-
                         echo json_encode(['success' => true, 'message' => $message]);
                         return;
-                        exit;
+                        //exit;
                     }
                 }
             }
         }
-
-     
         echo json_encode(['success' => false, 'error' => 'Hubo un problema al reportar la pregunta.']);
         exit;
     }

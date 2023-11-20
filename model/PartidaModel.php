@@ -2,12 +2,7 @@
 
 class PartidaModel
 {
-
     private $database;
-
-    // $idRandom = rand(1, 100); // Genera un número aleatorio entre 1 y 100
-
-
     public function __construct($database)
     {
         $this->database = $database;
@@ -25,27 +20,21 @@ class PartidaModel
         on a.id = respuesta.pregunta'
         );
     }
-
-
     public function getRespuestas()
     {
         return $this->database->query('SELECT * FROM respuesta');
     }
- public function subirPuntuacionEnPartida($usuario)
+ public function subirPuntajeMaximoEnPartida($usuario)
     {
-        $this->database->queryB("UPDATE partida SET puntaje = puntaje + 1 where user_name like '" . $usuario . "'");
+        $this->database->queryB("UPDATE partida SET Maxpuntaje = Maxpuntaje + 1 where user_name like '" . $usuario . "'");
     }
 public function aumentarPuntuacionEnPartida($usuario, $id)
 {
-    if($id!==NULL)
-        $this->database->queryB("UPDATE partida SET puntaje = puntaje + 1 WHERE user_name = '" . $usuario . "' AND id = " . $id);
-    else{
-        $this->database->queryB("UPDATE partida SET puntaje = puntaje + 1 where user_name like '" . $usuario . "'");
-    }    
+        $this->database->queryB("UPDATE partida SET puntaje = puntaje + 1 WHERE user_name = '" . $usuario . "' AND id = " . $id); 
+        $this->database->queryB("UPDATE partida SET respuestas_correctas = respuestas_correctas + 1 WHERE user_name = '" . $usuario . "' AND id = " . $id);   
 }
 public function getDescripcion($idRandom)
 {
-    //return $this->database->query('SELECT * FROM pregunta WHERE id like ' .  $idRandom);
     $query = "SELECT descripcion FROM pregunta WHERE id like '%$idRandom%'";
     $result = $this->database->queryB($query);
     return $result;
@@ -71,12 +60,10 @@ public function reportar($descripcion, $id)
 
         return $this->database->query($query);
     }
-
     public function getRespuestaPorID($idRandom)
     {
         return $this->database->query('SELECT * FROM respuesta WHERE pregunta like  ' . $idRandom);
     }
-
     public function getRespuesta($idRandom)
     {
         $idRandom = (int) $idRandom; // Asegurarse de que $idRandom sea un entero válido
@@ -91,11 +78,7 @@ public function reportar($descripcion, $id)
     public function getIdPartida($usuario){
         $query = "SELECT MAX(id) AS max_id FROM partida WHERE user_name = '" . $usuario . "'";
         $result = $this->database->query($query);
-    
-      
-    
-       return null;
-
+        return $result;
     }
     
     public function getPorcentajeRespuestasCorrectas($usuario)
@@ -103,20 +86,12 @@ public function reportar($descripcion, $id)
         $porcentajeRespuestasCorrectas = 0;
         $query = "SELECT SUM(respuestas_correctas) AS total_respuestas_correctas, SUM(cant_preguntas_entregadas) AS total_preguntas_entregadas FROM partida WHERE user_name = '" . $usuario . "'";
         $result = $this->database->query($query);
-    
-        //if ($result && $result->num_rows > 0) {
-        if ($result && $result instanceof mysqli_result && $result->num_rows > 0) {    
-            $row = $result->fetch_assoc();
-            $totalRespuestasCorrectas = $row['total_respuestas_correctas'];
-            $totalPreguntasEntregadas = $row['total_preguntas_entregadas'];
-    
-            if ($totalPreguntasEntregadas > 0) {
-                $porcentajeRespuestasCorrectas = ($totalRespuestasCorrectas / ($totalPreguntasEntregadas)) * 100;
-            } else {
-                $porcentajeRespuestasCorrectas = 0;
-            }
+        $totalRespuestasCorrectas = $result[0]['total_respuestas_correctas'];            $totalPreguntasEntregadas = $result[0]['total_preguntas_entregadas'];
+        if ($totalPreguntasEntregadas > 0) {
+            $porcentajeRespuestasCorrectas = ($totalRespuestasCorrectas / ($totalPreguntasEntregadas)) * 100;
+        } else {
+            $porcentajeRespuestasCorrectas = 0;
         }
-    
         return $porcentajeRespuestasCorrectas;
     }
     
@@ -125,8 +100,6 @@ public function reportar($descripcion, $id)
         $query = "UPDATE partida SET cant_preguntas_entregadas = cant_preguntas_entregadas + 1 WHERE user_name = '" . $usuario . "'";
         $this->database->queryB($query);
     }
-
-
 public function actualizarPreguntaRespuestaCorrecta($idPregunta)
 {
     $this->database->queryB("UPDATE pregunta SET respuestas_correctas = respuestas_correctas + 1, respuestas_totales = respuestas_totales + 1 WHERE id = " . $idPregunta);
@@ -139,7 +112,8 @@ public function getDificultadPregunta($idPregunta)
     }
     $query = "SELECT respuestas_correctas, respuestas_totales FROM pregunta WHERE id = " . $idPregunta;
     $result = $this->database->query($query);
-
+    // var_dump($result);
+    // echo "<br><br><br>";
     if ($result && $result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $respuestasCorrectas = $row['respuestas_correctas'];
@@ -157,40 +131,32 @@ public function getDificultadPregunta($idPregunta)
             }
         }
     }
-
     return 'desconocida'; 
 }
 public function getPreguntaSegunNivel($nivelUsuario)
 {
     $dificultad = '';
-    
     if ($nivelUsuario == 'principiante') {
-        $dificultad = 'fácil';
+        $dificultad = 1;
     } elseif ($nivelUsuario == 'intermedio') {
-        $dificultad = 'intermedia';
+        $dificultad = 2;
     } elseif ($nivelUsuario == 'experto') {
-        $dificultad = 'difícil';
+        $dificultad = 3;
     }
-
+    var_dump($dificultad);
     $query = "SELECT id FROM pregunta WHERE dificultad = '" . $dificultad . "' LIMIT 10";
-    
     $result = $this->database->query($query);
-
     if ($result && $result->num_rows > 0) {
         $preguntas = $result->fetch_all(MYSQLI_ASSOC);
-
-       
         $preguntaElegida = $preguntas[array_rand($preguntas)];
-        
         return $preguntaElegida['id'];
     }
-   
     return null;
 }
 public function actualizarNivelUsuario($usuario)
 {
     $porcentajeRespuestasCorrectas = $this->getPorcentajeRespuestasCorrectas($usuario);
-
+    var_dump($porcentajeRespuestasCorrectas);
     $umbralPrincipiante = 30;
     $umbralIntermedio = 70;
     $nuevoNivel = 'desconocido';
@@ -205,7 +171,7 @@ public function actualizarNivelUsuario($usuario)
 
     $query = "UPDATE usuario SET nivel = '" . $nuevoNivel . "' WHERE user_name = '" . $usuario . "'";
     $this->database->queryB($query);
-
+    var_dump($nuevoNivel);
     return $nuevoNivel;
 }
 //Guardar la pregunta y id en la session, validar que la ultima entregada y la ultima respondida sea la misma
@@ -219,4 +185,9 @@ public function actualizarNivelUsuario($usuario)
               cant_preguntas_entregadas = cant_preguntas_entregadas + 1";
         $this->database->queryB($query);
     }
+    public function aumentarRespuestasCorrectas($usuario)
+{
+    $query = "UPDATE usuario SET respuestas_correctas = respuestas_correctas + 1 WHERE user_name = '" . $usuario . "'";
+    $this->database->queryB($query);
+}
 }
