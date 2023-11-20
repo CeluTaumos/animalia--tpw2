@@ -18,8 +18,8 @@ class PartidaController
 //INTENTE REFACTORIZAR PERO ---NO FUNKA
     public function mostrarPantallaPartida()
     {
-        //el nivel de la pregunta esta, elnivel del usuario esta, el puntaje no, el puntaje del ranking no,
-        //
+    
+        
         if (!isset($_SESSION['preguntas_disponibles'])) {
             $_SESSION['preguntas_disponibles'] = array();
         }
@@ -44,7 +44,7 @@ class PartidaController
                 $_SESSION['preguntas_mostradas'][] = $idGenerado;
                 $preguntaDificultad = $this->model->getDificultadPregunta($idGenerado);
                 $datos['dificultad'] = $preguntaDificultad;
-                var_dump($datos['dificultad']);
+             
             }
             if ($idGenerado === null) {
                 if (empty($_SESSION['preguntas_disponibles'])) {
