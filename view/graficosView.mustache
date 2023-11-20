@@ -25,11 +25,12 @@
         </a>
         <form action="/Admin/graficoGenero" method="post">
             <select name="filtro" id="">
-                <option value="1">Dia</option>
-                <option value="2">Semana</option>
-                <option value="3">Mes</option>
-                <option value="4">Año</option>
+                <option value="DAY">Dia</option>
+                <option value="WEEK">Semana</option>
+                <option value="MONTH">Mes</option>
+                <option value="YEAR">Año</option>
             </select>
+            <input class="boton" type="submit" value="Aplicar filtro">
         </form>
         <a href="/Admin/imprimirPDF2" target="_blank" class="boton">Imprimir</a>
     </div>

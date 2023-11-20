@@ -114,10 +114,10 @@ class AdminController
 
     public function graficoGenero()
     {
-        $hombre = $this->model->getCantidadHombres();
-        $mujeres = $this->model->getCantidadMujeres();
-        $desconocido = $this->model->getCantidadDesconocidos();
-        // Some data
+        $filtro = $_POST['filtro'];
+        $hombre = $this->model->getCantidadHombres($filtro);
+        $mujeres = $this->model->getCantidadMujeres($filtro);
+        $desconocido = $this->model->getCantidadDesconocidos($filtro);
         //$data = array(40,21,17);
         $data = array($hombre[0]['cantidad_usuarios_masculinos'] * 10, $mujeres[0]['cantidad_usuarios_femeninos'] * 10, $desconocido[0]['cantidad_usuarios_desconocidos'] * 10);
         // Create the Pie Graph. 

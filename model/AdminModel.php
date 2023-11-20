@@ -171,22 +171,22 @@ class AdminModel
         }
         return $this->database->query($query);
     }
-    public function getCantidadHombres(){
+    public function getCantidadHombres($filtro){
         $query = "SELECT COUNT(*) AS cantidad_usuarios_masculinos
         FROM usuario
-        WHERE sexo = 'm'";
+        WHERE sexo = 'm' AND fecha_registro >= NOW() - INTERVAL 1 $filtro";
         return $this->database->query($query);
     }
-    public function getCantidadMujeres(){
+    public function getCantidadMujeres($filtro){
         $query = "SELECT COUNT(*) AS cantidad_usuarios_femeninos
         FROM usuario
-        WHERE sexo = 'f'";
+        WHERE sexo = 'f' AND fecha_registro >= NOW() - INTERVAL 1 $filtro";
         return $this->database->query($query);
     }
-    public function getCantidadDesconocidos(){
+    public function getCantidadDesconocidos($filtro){
         $query = "SELECT COUNT(*) AS cantidad_usuarios_desconocidos
         FROM usuario
-        WHERE sexo = 'n'";
+        WHERE sexo = 'n' AND fecha_registro >= NOW() - INTERVAL 1 $filtro";
         return $this->database->query($query);
     }
 }
