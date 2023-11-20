@@ -1,5 +1,6 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
+
 require 'vendor/autoload.php'; // Asegúrate de que la ruta sea correcta según la estructura de tu proyecto
 
 class AnimaliaController
@@ -42,7 +43,7 @@ class AnimaliaController
                             $imagen = $directorioDestino;
                             $this->model->registrarUsuario($usuario, $password, $nombre, $fecha, $sexo, $mail, $imagen);
                             $this->model->subirFoto($usuario, $imagen);
-                            $this->enviarCorreoConfirmacion($mail,$nombre);
+                            $this->enviarCorreoConfirmacion($mail, $nombre);
                             $datos['mensaje-registro-exitoso'] = "Tu registro fue exitoso, en breves recibiras un mail con la confirmacion";
                         } else {
                             $datos['mensaje-error-registro'] = "Error al subir la imagen";
@@ -71,15 +72,28 @@ class AnimaliaController
                 $_SESSION['rol'] = $rol;
                 $_SESSION['puntaje'] = 0;
                 $datos['puntaje'] = $_SESSION['puntaje'];
-                $datos['foto_de_usuario']=$this->model->verFoto($usuario);
-                if ($rol == 'admin') {
-                    $this->render->printView('lobbyadmin', $datos);
-                } elseif ($rol == 'editor') {
-                    $this->render->printView('lobbyeditor', $datos);
+                $datos['foto_de_usuario'] = $this->model->verFoto($usuario);
+
+                if ($password === $datosObtenidos[0]['contrasenia']) {
+                    if ($rol == 'admin') {
+                        $this->render->printView('lobbyadmin', $datos);
+                        return;
+                    } elseif ($rol == 'editor') {
+                        $this->render->printView('lobbyeditor', $datos);
+                        return;
+                    } else {
+                        $this->render->printView('lobby', $datos);
+                        return;
+                    }
                 } else {
-                    $this->render->printView('lobby', $datos);
+                    $datos['error-login'] = 'contraseña invalida';
                 }
+
+            } else {
+                $datos['error-login'] = 'usuario o contraseña invalidos';
             }
+
+            $this->render->printView('index', $datos);
         }
     }
     public function usuarioDisponible($usuario, &$datos)
@@ -111,16 +125,16 @@ class AnimaliaController
         $mail->SMTPAuth = true;
         $mail->Username = 'animaliaJuego@hotmail.com'; // Tu correo electrónico
         $mail->Password = 'animalia1234'; // Tu contraseña
-        $mail->SMTPSecure = 'tls'; 
-        $mail->Port = 587; 
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
         $mail->setFrom('animaliaJuego@hotmail.com', 'Animalia');
-        $mail->addAddress($correoDestinatario, $nombreDestinatario); 
+        $mail->addAddress($correoDestinatario, $nombreDestinatario);
         $imagePath = 'public\horneroMail.png';
-        $mail->addEmbeddedImage($imagePath, 'imagen_id'); 
+        $mail->addEmbeddedImage($imagePath, 'imagen_id');
         $mail->isHTML(true);
         $mail->Subject = 'Registro exitoso';
         $mail->Body = ' <img src="cid:imagen_id" width="500px">';
         $mail->send();
     }
-    
+
 }
