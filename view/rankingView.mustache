@@ -9,11 +9,7 @@
                 <input type="hidden" name="user" value="{{user_name}}">
                 <button type="submit" name="enviar">👑 {{user_name}}</button>
             </form>
-            <span class="puntajeUsuario"> {{MAX(puntaje)}}</span><br>
-            <!-- <div class="qr">
-                 //Aca estaria el QR, AL HACER CLICK GENERA EL PDF DEL PERFIL Y LO MUESTRA EN OTRA PESTAÑA COMO UN ARCHIVO .PHP, guarda la url y los datos de usuario para renderizar 
-                <a href="/Ranking/imprimirQR/{{user_name}}" target="_blank">QR</a>
-            </div> -->
+            <span class="puntajeUsuario"> {{MAX(Maxpuntaje)}}</span><br>
         </div>
 
         {{/partida}}

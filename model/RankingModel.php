@@ -7,7 +7,7 @@ class RankingModel{
         $this->database = $database;
     }
     public function getRanking(){
-        $query = 'SELECT user_name, MAX(puntaje) FROM Partida 
+        $query = 'SELECT user_name, MAX(Maxpuntaje) FROM Partida 
         GROUP BY user_name
         ORDER BY MAX(puntaje) DESC LIMIT 7';
         return $this->database->query($query);
