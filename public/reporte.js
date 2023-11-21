@@ -1,43 +1,29 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const reportarBtn = document.getElementById("reportarBtn");
-  const mensajeElement = document.getElementById("mensaje");
+function reportarPregunta(idPregunta) {
+    $.ajax({
+        url: "/Partida/reportarPregunta",
+        type: "GET",
+        data: { id: idPregunta },
+        success: function (data) {
+            // La solicitud fue exitosa, puedes manejar la respuesta aquí
+            console.log(data);
+        },
+        error: function () {
+            // Hubo un error en la solicitud
+            console.error("Error al reportar la pregunta");
+        }
+    });
+}
 
-  reportarBtn.addEventListener("click", function (event) {
-      event.preventDefault();
+// Ejemplo de uso
+$(document).ready(function () {
+    const reportarBtn = $("#reportarBtn");
 
-      const idPregunta = document.querySelector('input[name="id"]').value;
+    reportarBtn.click(function (event) {
+        event.preventDefault();
 
-    
-      reportarPregunta(idPregunta);
-  });
+        const idPregunta = $('input[name="id"]').val();
 
-  function reportarPregunta(idPregunta) {
-     
-      const xhr = new XMLHttpRequest();
-
-
-      xhr.open("GET", "controller/Partida/reportarPregunta?id=" + idPregunta, true);
-
-
-  
-      xhr.onload = function () {
-          if (xhr.status >= 200 && xhr.status < 400) {
-              
-              mensajeElement.textContent = "Pregunta reportada correctamente";
-              console.log("Pregunta reportada correctamente");
-          } else {
-        
-              mensajeElement.textContent = "Error en el reporte";
-              console.error("Error al reportar la pregunta");
-          }
-      };
-
-
-      xhr.onerror = function () {
-          mensajeElement.textContent = "Error de red al intentar reportar la pregunta";
-          console.error("Error de red al intentar reportar la pregunta");
-      };
-
-      xhr.send();
-  }
+        reportarPregunta(idPregunta);
+    });
 });
+
