@@ -132,13 +132,15 @@ h3 {
     height: max-content;
     align-items: center;
 }
-.formularioo input{
+
+.formularioo input {
     border: none;
     width: 100%;
-    margin-top:0.313em;
+    margin-top: 0.313em;
     border-radius: 0.313em;
     padding: 1%;
 }
+
 .mensaje-error-registro {
     color: red;
 }
@@ -773,8 +775,26 @@ hr {
 }
 
 .foto {
-    width: 150px;
+    width: 20%;
+    height: auto;
+    border-radius: 50%;
 }
+
+.foto.flotante {
+    animation: flotar 2s infinite alternate ease-in-out;
+}
+
+@keyframes flotar {
+    from {
+        transform: translateX(-5px);
+    }
+
+    to {
+        transform: translateX(5px);
+    }
+}
+
+
 
 .input_mas_grande {
     width: 21.188em;

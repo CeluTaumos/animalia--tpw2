@@ -6,15 +6,24 @@
     </div>
     <div class="perfil">
         <h1 class="centrado nombre">Perfil</h1>
-    
+
         {{#usuario}}
-            <img src=".{{foto_de_perfil}}" alt="fotico" class="foto">
+        <section class="centrado centradito">
+
+            <img src=".{{foto_de_perfil}}" alt="fotico" class="foto flotante">
+
+
+
+
+
             <p>Usuario: {{user_name}}</p>
             <p>Nombre: {{nombre_completo}}</p>
             <p>Fecha de nacimiento: {{anio_de_nacimiento}}</p>
             <p>Mail: {{mail}}</p>
             <p>Nivel: {{nivel}}</p>
-        {{/usuario}} 
+
+        </section>
+        {{/usuario}}
         <div class="centrado mt">
             <button onclick="mostrarPopup()" class="boton-sec">Editar perfil</button>
             <a href="/Perfil/mostrarPantallaSugerencias" class="boton-sec">Sugerir Pregunta</a>
@@ -25,13 +34,13 @@
 
     <div id="popupEditarPerfil" class="w3-modal">
         <div class="w3-modal-content w3-animate-top w3-card-4">
-            <header class="w3-container w3-pink"> 
+            <header class="w3-container w3-pink">
                 <span onclick="cerrarPopup()" class="w3-button w3-display-topright">&times;</span>
                 <h2>Editar Perfil</h2>
             </header>
             <section class="modificarPerfil">
                 <div class="actualizar">
-                    <form action="/Perfil/editar" method="post" class="formularioo"> 
+                    <form action="/Perfil/editar" method="post" class="formularioo">
                         <input type="text" placeholder="Ingrese su nuevo username" name="user">
                         <input type="text" placeholder="Ingrese su nombre" name="name">
                         <input type="date" placeholder="Ingrese su fecha de nacimiento" name="date">
