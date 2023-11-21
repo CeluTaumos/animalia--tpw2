@@ -28,6 +28,8 @@ class AnimaliaController
             $nombre = $_POST["nombre"];
             $fecha = $_POST["fecha"];
             $sexo = $_POST["sexo"];
+
+            $sexo = isset($_POST["sexo"]) ? $_POST["sexo"] : null;
             $mail = $_POST["email"];
             $imagen = $_FILES["file"];
 
