@@ -125,14 +125,7 @@ class PerfilController{
         
         foreach ($resultado as $fila) {
             $datos['sugeridas']['descripcionPregunta'] = $fila['pregunta_descripcion'];
-            // if (is_string($fila['respuesta_descripcion'])) {
-            //     $datos['respuestas'][] = htmlspecialchars($fila['respuesta_descripcion'], ENT_QUOTES, 'UTF-8');
-            // }
-            // if (is_numeric($fila['es_correcta'])) {
-            //     $datos['respuestas'][] = htmlspecialchars($fila['es_correcta'], ENT_QUOTES, 'UTF-8');
-            // }
-            // var_dump($datos['respuestas']);
-            // var_dump($datos['respuestas'][3][1]);
+        
             $respuesta = [
                 'descripcion' => htmlspecialchars($fila['respuesta_descripcion'], ENT_QUOTES, 'UTF-8'),
                 'es_correcta' => htmlspecialchars($fila['es_correcta'], ENT_QUOTES, 'UTF-8')
@@ -144,6 +137,25 @@ class PerfilController{
         }
         $datos['usuario'] = $_SESSION['user'];
         $this->render->printView('editarSugerencias', $datos);
+    }
+    public function mostrarPantallaReportadas(){
+        $datos['reportadas'] = $this->model->getReportadas();
+        $resultado = $this->model->getPreguntasSugeridas();
+        
+        foreach ($resultado as $fila) {
+            $datos['sugeridas']['descripcionPregunta'] = $fila['pregunta_descripcion'];
+        
+            $respuesta = [
+                'descripcion' => htmlspecialchars($fila['respuesta_descripcion'], ENT_QUOTES, 'UTF-8'),
+                'es_correcta' => htmlspecialchars($fila['es_correcta'], ENT_QUOTES, 'UTF-8')
+            ];
+            $datos['respuestas'][] = $respuesta;
+            $datos['sugeridas']['numeroPregunta'] = $fila['pregunta'];
+            $datos['sugeridas']['categoria'] = $fila['pregunta_categoria'];
+            $datos['sugeridas']['dificultad'] =1;
+        }
+        $datos['usuario'] = $_SESSION['user'];
+        $this->render->printView('reportadas', $datos);
     }
     public function editarPreguntas(){
         $datos['pregunta'] = $this->model->obtenerPreguntas();
