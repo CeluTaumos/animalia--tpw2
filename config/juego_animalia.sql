@@ -80,7 +80,7 @@ ADD COLUMN respuestas_totales INT DEFAULT 0;
 create table Partida (
 id int(11) AUTO_INCREMENT PRIMARY KEY,
 user_name VARCHAR(10) NOT NULL,
-constraint user_name_fk foreign key (user_name) references usuario(user_name) ON UPDATE CASCADE,
+constraint fkuser_name foreign key (user_name) references usuario(user_name) ON UPDATE CASCADE,
 puntaje int(11) not null,
 Maxpuntaje int(10) DEFAULT 0 NOT NULL,
 fecha DATETIME
@@ -89,6 +89,15 @@ ALTER TABLE partida
 ADD COLUMN respuestas_correctas INT DEFAULT 0;
 ALTER TABLE partida
 ADD COLUMN cant_preguntas_entregadas INT DEFAULT 0;
+
+create table trampitas (
+id int(11) AUTO_INCREMENT PRIMARY KEY,
+user_name VARCHAR(10) NOT NULL,
+constraint user_name_fk foreign key (user_name) references usuario(user_name) ON UPDATE CASCADE,
+cant_trampitas_bomba int(11) DEFAULT 0 NOT NULL,
+cant_trampitas_giro int(11) DEFAULT 0 NOT NULL,
+cant_trampitas_joker int(11) DEFAULT 0 NOT NULL
+);
 
 insert into usuario(user_name, contrasenia, nombre_completo, anio_de_nacimiento, sexo, mail, foto_de_perfil, rol, nivel)values
 ("micaa","1234", "Micaela Zara", "2003-07-21", "f", "m1ca3l4@hotmail.com", "./public/hornero-realista.png", "jugador", "principiante"), 

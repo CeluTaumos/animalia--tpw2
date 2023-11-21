@@ -193,4 +193,28 @@ class PartidaModel
         $query = "UPDATE usuario SET respuestas_correctas = respuestas_correctas + 1 WHERE user_name = '" . $usuario . "'";
         $this->database->queryB($query);
     }
+    public function insertarTrampas($user, $cantidad, $trampa){
+        if($trampa == 'bomba'){
+            $query = "INSERT INTO trampitas (user_name, cant_trampitas_bomba) VALUES ('$user', '$cantidad')";
+            $this->database->queryB($query);
+        }
+        if($trampa == 'giro'){
+            $query = "INSERT INTO trampitas (user_name, cant_trampitas_giro) VALUES ('$user', '$cantidad')";
+            $this->database->queryB($query);
+        }
+        if($trampa == 'joker'){
+            $query = "INSERT INTO trampitas (user_name, cant_trampitas_joker) VALUES ('$user', '$cantidad')";
+            $this->database->queryB($query);
+        }
+        
+    }
+    public function mostrarTrampitas($user){
+        $query = "SELECT 
+            SUM(cant_trampitas_bomba) AS total_bomba,
+            SUM(cant_trampitas_giro) AS total_giro,
+            SUM(cant_trampitas_joker) AS total_joker
+            FROM trampitas
+            WHERE user_name = '$user'";
+        return $this->database->query($query);
+    }
 }

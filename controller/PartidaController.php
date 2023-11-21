@@ -18,7 +18,9 @@ class PartidaController
     //INTENTE REFACTORIZAR PERO ---NO FUNKA
     public function mostrarPantallaPartida()
     {
-
+        $trampasDisponibles = $this->getTrampitas();
+        $datos['trampas'] = $trampasDisponibles[0];
+        //var_dump($datos['trampas']['total_bomba']);
 
         if (!isset($_SESSION['preguntas_disponibles'])) {
             $_SESSION['preguntas_disponibles'] = array();
@@ -127,6 +129,11 @@ class PartidaController
         $datos['puntaje'] = $_SESSION['puntaje'];
         $this->render->printView('pantallaPerdedor', $datos);
     }
+    public function pantallaCompra()
+    {
+        $datos['puntaje'] = $_SESSION['puntaje'];
+        $this->render->printView('compra', $datos);
+    }
 
     public function reportarPregunta()
     {
@@ -137,7 +144,30 @@ class PartidaController
 
         }
     }
-
-
+    public function compraExitosa(){
+            //Agregar tabla que guarde usuario, cantidad de trampitas y tipo
+            $user= $_SESSION['user'];
+            if($_POST['productQuantity'] > 0){
+                $cantidad1 = $_POST['productQuantity'];
+                $trampa = $_POST['trampabomba'];
+                $this->model->insertarTrampas($user, $cantidad1, $trampa);
+            }
+            if($_POST['productQuantity2'] > 0){
+                $cantidad2 = $_POST['productQuantity2'];
+                $trampa = $_POST['trampagiro'];
+                $this->model->insertarTrampas($user, $cantidad2, $trampa);
+            }
+            if($_POST['productQuantity3'] > 0){
+                $cantidad3 = $_POST['productQuantity3'];
+                $trampa = $_POST['trampajoker'];
+                $this->model->insertarTrampas($user, $cantidad3, $trampa);
+            }
+            echo "Compra exitosa, se han agregado las trampitas a su inventario";
+            $this->pantallaCompra();
+        }
+    public function getTrampitas(){
+            $user = $_SESSION['user'];
+            return $this->model->mostrarTrampitas($user);
+        }
 
 }

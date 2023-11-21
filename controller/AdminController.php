@@ -137,9 +137,29 @@ class AdminController
     }
     public function graficoMundial()
     {
-        $data = array(40, 60, 21, 33);
-        $piepos = array(0.2, 0.35, 0.6, 0.28, 0.3, 0.7, 0.85, 0.7);
-        $titles = array('Yankees', 'Europeos', 'Latam', 'Canguros');
+        $filtro = $_POST['filtro'];
+        if($filtro==1){
+            $data = array(10, 0, 8, 5);
+            $piepos = array( 0.2, 0.7, 0.85, 0.7);
+            $titles = array('Latam', 'Canguros');
+        }else if($filtro==2){
+            $data = array(40, 60, 33);
+            $piepos = array(0.2, 0.35, 0.3, 0.7, 0.85, 0.7);
+            $titles = array('Europeos', 'Latam', 'Canguros');
+        }
+        else if($filtro==3){
+            $data = array(1, 21, 33);
+            $piepos = array( 0.2, 0.28, 0.3, 0.7, 0.85, 0.7);
+            $titles = array('Yankees', 'Latam', 'Canguros');
+        }
+        else{
+            $data = array(40, 60, 21, 33);
+            $piepos = array(0.2, 0.35, 0.6, 0.28, 0.3, 0.7, 0.85, 0.7);
+            $titles = array('Yankees', 'Europeos', 'Latam', 'Canguros');
+        }
+        
+        
+        
         $n = count($piepos) / 2;
         // A new graph
         $graph = new PieGraph(450, 300, 'auto');
@@ -169,7 +189,7 @@ class AdminController
             $p[$i]->SetHeight(5);
             $p[$i]->SetEdge(false);
             $p[$i]->ExplodeSlice(1, 7);
-            $p[$i]->value->Show(false);
+            $p[$i]->value->Show(true);
         }
         $graph->SetAntiAliasing(false);
         $graph->Stroke();
