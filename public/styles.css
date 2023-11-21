@@ -678,6 +678,9 @@ a {
     border-radius: 25px;
     border: none;
 }
+.inline{
+    display: inline;
+}
 hr{
     width: 650px;
 }

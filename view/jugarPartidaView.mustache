@@ -17,12 +17,11 @@
                 {{/respuesta}}
             </form>
             <div class="botonera">
-                <a href="/Partida/pantallaCompra" class="trampita"> 💣 </a>
-                <a href="/Partida/pantallaCompra" class="trampita"> 💫 </a>
-                <a href="/Partida/pantallaCompra" class="trampita"> 🃏 </a>
-                <!-- <button class="trampita"> 💣 </button>
-                <button class="trampita"> 💫 </button>
-                <button class="trampita"> 🃏 </button> -->
+                {{#trampas}}
+                <button class="trampita">{{total_bomba}} 💣 </button>
+                <button class="trampita">{{total_giro}} 💫 </button>
+                <button class="trampita">{{total_joker}} 🃏 </button>
+                {{/trampas}}
             </div>
         </div>
             <input type="hidden" value="{{id}}" name="id">

@@ -4,25 +4,95 @@
     <button class="boton-sec ranking"><a href="/Ranking/mostrarPantallaRanking">Ranking</a></button>
     <button class="boton-sec ranking"><a href="/Animalia/mostrarPantallaInicial">Cerrar Sesión</a></button>
 </div>
-<div class="tabla">
-    <h2 class="nombre">Una trampita = un hornero</h2>
-    <span>Canjea 1 Trampita por </span>
-    <img src="../public/billete.jpg" width="200" alt="">
-
-    <div class="pago">
-        <span>Tarjeta de débito o crédito</span>
-        <hr>
-        <legend>Numero de la tarjeta</legend>
-        <input class="pago" type="text" name="" id="" autocomplete="cc-number" placeholder="1234 1234 1234 1234" inputmode="numeric">
-        <legend>Nombre completo como aparece en la tarjeta:</legend>
-        <input class="pago" type="text">
-        <legend>Expiración:</legend>
-        <input class="pago1" type="text" autocomplete="cc-exp" inputmode="numeric" placeholder="MM / AA">
-        <legend>CVC</legend>
-        <input class="pago1" type="text" placeholder="CVC">
-        <input class="boton-sec" type="submit" value="Continuar">
-    </div>
+<div class="fila">
+    <div class="tabla">
+        <h2 class="nombre">Una trampita = un hornero</h2>
+        <span>Canjea 1 Trampita por </span>
+        <img src="../public/billete.jpg" width="200" alt="">
     
+        <div class="pago">
+            <form action="/Partida/compraExitosa" method="post">
+            <span>Tarjeta de débito o crédito</span>
+            <hr>
+            <legend>Numero de la tarjeta</legend>
+            <input class="pago" type="text" name="" id="" autocomplete="cc-number" placeholder="1234 1234 1234 1234" inputmode="numeric">
+            <legend>Nombre completo como aparece en la tarjeta:</legend>
+            <input class="pago" type="text">
+            <legend>Expiración:</legend>
+            <input class="pago1" type="text" autocomplete="cc-exp" inputmode="numeric" placeholder="MM / AA">
+            <legend>CVC</legend>
+            <input class="pago1" type="text" placeholder="CVC">
+            
+        </div>
+        
+    </div>
+    <div class="tabla">
+        
+            <legend>Selecciona la cantidad de trampitas a comprar</legend>
+            <br>
+            
+            <legend> 💣 X </legend>
+            <br>
+            <input class="pago" type="number" name="productQuantity" id="productQuantity" min="0" value="1" oninput="updateTotal()">
+            <br>
+            <input type="hidden" value="bomba" name="trampabomba">
+            <label for="totalAmount">Monto Total:</label>
+            <br>
+            <span id="totalAmount">$1000</span>
+            <legend> 💫 X </legend>
+            <br>
+            <input class="pago" type="number" name="productQuantity2" id="productQuantity2" min="0" value="1" oninput="updateTotal2()">
+            <br>
+            <input type="hidden" value="giro" name="trampagiro">
+            <label for="totalAmount2">Monto Total:</label>
+            <br>
+            <span id="totalAmount2">$1000</span>
+            <legend> 🃏 X </legend>
+            <br>
+            <input class="pago" type="number" name="productQuantity3" id="productQuantity3" min="0" value="1" oninput="updateTotal3()">
+            <br>
+            <input type="hidden" value="joker" name="trampajoker">
+            <label for="totalAmount3">Monto Total:</label>
+            <br>
+            <span id="totalAmount3">$1000</span>
+            <br>
+            <label for="totalCompra">Total de la compra:</label>
+            <span id="totalCompra">$3000</span>
+            <input class="boton-sec" type="submit" value="Continuar">
+        </form>
+    </div>
 </div>
+
 <a class="boton-sec mt-10"href="/Lobby/mostrarPantallaLobby">VOLVER AL
     LOBBY</a>
+    <script>
+        function updateTotal() {
+          var quantity = parseInt(document.getElementById('productQuantity').value);
+          var pricePerUnit = 1000;
+          var totalAmount = quantity * pricePerUnit;
+          document.getElementById('totalAmount').textContent = '$' + totalAmount.toFixed(2);
+          updateTotalCompra();
+        }
+        function updateTotal2() {
+          var quantity = parseInt(document.getElementById('productQuantity2').value);
+          var pricePerUnit = 1000;
+          var totalAmount = quantity * pricePerUnit;
+          document.getElementById('totalAmount2').textContent = '$' + totalAmount.toFixed(2);
+          updateTotalCompra();
+        }
+        function updateTotal3() {
+          var quantity = parseInt(document.getElementById('productQuantity3').value);
+          var pricePerUnit = 1000;
+          var totalAmount = quantity * pricePerUnit;
+          document.getElementById('totalAmount3').textContent = '$' + totalAmount.toFixed(2);
+          updateTotalCompra();
+        }
+        function updateTotalCompra() {
+            var totalCompra =
+            parseInt(document.getElementById('totalAmount').textContent.slice(1)) +
+            parseInt(document.getElementById('totalAmount2').textContent.slice(1)) +
+            parseInt(document.getElementById('totalAmount3').textContent.slice(1));
+
+            document.getElementById('totalCompra').textContent = '$' + totalCompra.toFixed(2);
+  }
+      </script>
