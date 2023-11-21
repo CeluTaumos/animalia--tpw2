@@ -794,6 +794,16 @@ hr {
     }
 }
 
+audio {
+    width: 80%;
+    max-width: 25em;
+    margin: 0;
+    border-radius: 0.5em;
+    margin: 1%;
+    color: pink;
+}
+
+
 
 
 .input_mas_grande {
