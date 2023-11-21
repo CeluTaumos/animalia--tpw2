@@ -36,8 +36,8 @@ class PartidaModel
     public function getDescripcion($idRandom)
     {
         $query = "SELECT descripcion FROM pregunta WHERE id like '%$idRandom%'";
-        $result = $this->database->queryB($query);
-        return $result;
+        $result = $this->database->query($query);
+        return $result[0]['descripcion'];
     }
     public function reportar($descripcion, $id)
     {

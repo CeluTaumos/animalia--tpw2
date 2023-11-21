@@ -1,43 +1,30 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const reportarBtn = document.getElementById("reportarBtn");
-  const mensajeElement = document.getElementById("mensaje");
+function reportarPregunta(idPregunta) {
+  $.ajax({
+      url: "/Partida/reportarPregunta",
+      type: "GET",
+      data: { id: idPregunta },
+      success: function (data) {
+          // La solicitud fue exitosa, actualiza el mensaje
+          $("#mensaje").text("Pregunta reportada correctamente");
+          console.log("Pregunta reportada correctamente");
+      },
+      error: function () {
+          // Hubo un error en la solicitud, actualiza el mensaje de error
+          $("#mensaje").text("Error al reportar la pregunta");
+          console.error("Error al reportar la pregunta");
+      }
+  });
+}
 
-  reportarBtn.addEventListener("click", function (event) {
+// Ejemplo de uso
+$(document).ready(function () {
+  const reportarBtn = $("#reportarBtn");
+
+  reportarBtn.click(function (event) {
       event.preventDefault();
 
-      const idPregunta = document.querySelector('input[name="id"]').value;
+      const idPregunta = $('input[name="id"]').val();
 
-    
       reportarPregunta(idPregunta);
   });
-
-  function reportarPregunta(idPregunta) {
-     
-      const xhr = new XMLHttpRequest();
-
-
-      xhr.open("GET", "controller/Partida/reportarPregunta?id=" + idPregunta, true);
-
-
-  
-      xhr.onload = function () {
-          if (xhr.status >= 200 && xhr.status < 400) {
-              
-              mensajeElement.textContent = "Pregunta reportada correctamente";
-              console.log("Pregunta reportada correctamente");
-          } else {
-        
-              mensajeElement.textContent = "Error en el reporte";
-              console.error("Error al reportar la pregunta");
-          }
-      };
-
-
-      xhr.onerror = function () {
-          mensajeElement.textContent = "Error de red al intentar reportar la pregunta";
-          console.error("Error de red al intentar reportar la pregunta");
-      };
-
-      xhr.send();
-  }
 });

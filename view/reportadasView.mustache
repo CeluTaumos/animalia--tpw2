@@ -1,0 +1,20 @@
+
+<div class="caja fila">
+ 
+    
+    
+    <div class="tabla">
+        <h1 class="centrado nombre">Últimas preguntas reportadas</h1>
+        {{#reportadas}}
+        <form action="/Perfil/eliminarPreguntaReportada" method="post"  class="sg">
+            <span>{{descripcion_reporte}}</span> 
+            <input type="hidden" name="id" value="{{pregunta_id}}">
+            <input type="submit" value="x" class="delete">
+        </form>
+        
+        {{/reportadas}}
+    </div>
+</div>
+<div class="caja">
+<a href="/Lobby/mostrarPantallaLobby" class="boton mt centrado">volver al lobby</a>
+</div>

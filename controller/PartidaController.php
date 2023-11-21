@@ -132,20 +132,12 @@ class PartidaController
     {
         if (isset($_GET['id'])) {
             $idPreguntaReportada = $_GET['id'];
-            echo "ID de la pregunta reportada: " . $idPreguntaReportada;
-    
             $pregunta = $this->model->getDescripcion($idPreguntaReportada);
-    
-            // Agrega mensajes de depuración
-            echo "Descripción de la pregunta: " . $pregunta;
-    
             $this->model->reportar($pregunta, $idPreguntaReportada);
-            echo "Pregunta reportada correctamente.";
-        } else {
-            echo "Error: No se proporcionó el parámetro 'id'.";
+
         }
     }
-    
+
 
 
 }
