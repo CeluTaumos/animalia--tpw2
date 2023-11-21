@@ -1,11 +1,11 @@
-<div class="contenedorPadre">
+<div class="contenedorPadre centradito">
     <div class="botonera">
         <button class="boton-sec ranking"><a href="/Partida/mostrarPantallaPartida">Jugar otra vez</a></button>
         <button class="boton-sec ranking"><a href="/Ranking/mostrarPantallaRanking">Ranking</a></button>
         <button class="boton-sec ranking"><a href="/Animalia/mostrarPantallaInicial">Cerrar Sesión</a></button>
     </div>
     <div class="perfil">
-        <h1 class="centrado nombre ">Perfil</h1>
+        <h1 class="centrado nombre">Perfil</h1>
     
         {{#usuario}}
             <img src=".{{foto_de_perfil}}" alt="fotico" class="foto">
@@ -15,20 +15,41 @@
             <p>Mail: {{mail}}</p>
             <p>Nivel: {{nivel}}</p>
         {{/usuario}} 
-        <div class=" centrado mt">
-            <a class="boton-sec">Editar perfil</a>
+        <div class="centrado mt">
+            <button onclick="mostrarPopup()" class="boton-sec">Editar perfil</button>
             <a href="/Perfil/mostrarPantallaSugerencias" class="boton-sec">Sugerir Pregunta</a>
             <a href="/Perfil/mostrarPantallaSugerencias" class="boton-sec">Añadir categoría</a>
         </div>
-        <div class="actualizar">
-            <form action="/Perfil/editar" method="post" class="formulario" > 
-                <input type="text" placeholder="Ingrese su nuevo username" name="user">
-                <input type="text" placeholder="Ingrese su nombre" name="name">
-                <input type="date" placeholder="Ingrese su fecha de nacimiento" name="date">
-                <input type="text" placeholder="Ingrese su nuevo correo" name="mail">
-                <input type="submit" value="Editar" class="boton-sec">
-            </form>
+    </div>
+
+    <!-- Popup para editar perfil -->
+    <div id="popupEditarPerfil" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top w3-card-4">
+            <header class="w3-container w3-pink"> 
+                <span onclick="cerrarPopup()" class="w3-button w3-display-topright">&times;</span>
+                <h2>Editar Perfil</h2>
+            </header>
+            <section class="modificarPerfil">
+                <div class="actualizar">
+                    <form action="/Perfil/editar" method="post" class="formularioo"> 
+                        <input type="text" placeholder="Ingrese su nuevo username" name="user">
+                        <input type="text" placeholder="Ingrese su nombre" name="name">
+                        <input type="date" placeholder="Ingrese su fecha de nacimiento" name="date">
+                        <input type="text" placeholder="Ingrese su nuevo correo" name="mail">
+                        <input type="submit" value="CONFIRMAR CAMBIOS" class="boton-sec">
+                    </form>
+                </div>
+            </section>
         </div>
+    </div>
 </div>
 
-</div>
+<script>
+    function mostrarPopup() {
+        document.getElementById("popupEditarPerfil").style.display = "block";
+    }
+
+    function cerrarPopup() {
+        document.getElementById("popupEditarPerfil").style.display = "none";
+    }
+</script>

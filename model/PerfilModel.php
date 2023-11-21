@@ -136,9 +136,7 @@ class PerfilModel{
             $query = "UPDATE partida SET user_name = '$newUser' WHERE user_name = '$usuario'";
             $this->database->queryB($query);
         }
-        // if($newUser !== ""){
-        //     $query = "UPDATE usuario SET user_name = '$newUser' WHERE nombre_completo = '$newName'";
-        // }
+      
     }
 }
 

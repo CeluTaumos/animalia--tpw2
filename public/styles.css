@@ -71,6 +71,13 @@ h3 {
     fill: palevioletred;
 }
 
+.centradito {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .contenedorPapa {
     display: flex;
@@ -116,6 +123,22 @@ h3 {
     box-shadow: 11px 9px 29px -8px rgba(50, 58, 74, 0.74);
 }
 
+.formularioo {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 5%;
+    height: max-content;
+    align-items: center;
+}
+.formularioo input{
+    border: none;
+    width: 100%;
+    margin-top:0.313em;
+    border-radius: 0.313em;
+    padding: 1%;
+}
 .mensaje-error-registro {
     color: red;
 }
@@ -278,7 +301,7 @@ select {
     justify-content: center;
     margin: 5px 10px;
     color: white;
-    
+
 }
 
 .trampita {
@@ -294,7 +317,7 @@ select {
     color: white;
     margin: 0 1px;
     text-decoration: none;
-    
+
 }
 
 .boton-sec:hover {
@@ -588,16 +611,22 @@ a {
 }
 
 .perfil {
-    width: 90%;
+    display: flex;
+    width: 60%;
     margin: 2%;
     background-color: rgb(71 112 192 / 52%);
     padding: 5%;
     box-shadow: 11px 9px 29px -8px rgba(50, 58, 74, 0.74);
     border-radius: 10px;
-
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
+.modificarPerfil {
+    background-color: #1396ec;
+}
 
 .contenedorPadre {
     display: flex;
