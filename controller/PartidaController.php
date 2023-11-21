@@ -127,6 +127,11 @@ class PartidaController
         $datos['puntaje'] = $_SESSION['puntaje'];
         $this->render->printView('pantallaPerdedor', $datos);
     }
+    public function pantallaCompra()
+    {
+        $datos['puntaje'] = $_SESSION['puntaje'];
+        $this->render->printView('compra', $datos);
+    }
 
     public function reportarPregunta()
     {

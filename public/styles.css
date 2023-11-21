@@ -672,7 +672,21 @@ a {
     display: flex;
     flex-direction: row;
 }
-
+.pago{
+    outline: none;
+    width: 300px;
+    border-radius: 25px;
+    border: none;
+}
+hr{
+    width: 650px;
+}
+.pago1{
+    width: 100px;
+    outline: none;
+    border-radius: 25px;
+    border: none;
+}
 .preguntas {
     display: flex;
     flex-direction: column;

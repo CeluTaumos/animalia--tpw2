@@ -1,5 +1,4 @@
 <div class=" partida">
-
     {{#pregunta}}
     <div class="cardPartida {{tipo}}">
         <p id="mensaje"></p>
@@ -10,7 +9,6 @@
             <img src="{{imagen}}" width="200" height="150" alt="gift">
             <h1>{{descripcion}}</h1>
         </div>
-
         <div>
             <form action="/Partida/verificarRespuesta" method="post" class="caja">
                 {{#respuesta}}
@@ -19,23 +17,18 @@
                 {{/respuesta}}
             </form>
             <div class="botonera">
-                <button class="trampita"> 💣 </button>
+                <a href="/Partida/pantallaCompra" class="trampita"> 💣 </a>
+                <a href="/Partida/pantallaCompra" class="trampita"> 💫 </a>
+                <a href="/Partida/pantallaCompra" class="trampita"> 🃏 </a>
+                <!-- <button class="trampita"> 💣 </button>
                 <button class="trampita"> 💫 </button>
-                <button class="trampita"> 🃏 </button>
+                <button class="trampita"> 🃏 </button> -->
             </div>
         </div>
-
-        
             <input type="hidden" value="{{id}}" name="id">
             <input class="boton-sec centro" type="submit" name="enviar" value="Reportar Pregunta" id="reportarBtn">
-       
         {{/pregunta}}
-        <!-- <button class="boton-sec centro">Reportar Pregunta</button> -->
-
     </div>
-
     <script src="../public/barratiempo.js"></script>
-
     <script src="../public/reporte.js"></script>
-
 </div>
