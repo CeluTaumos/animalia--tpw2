@@ -62,14 +62,13 @@ h3 {
 
 
 .account {
-    width: 100px;
-    height: 100px;
+    width: 6.25em;
+    height: 6.25em;
     fill: #F9F5E3;
 }
 
 .account:hover {
-    fill: #FF0000;
-    /* Cambia a rojo cuando el mouse está sobre él */
+    fill:palevioletred;
 }
 
 
@@ -426,6 +425,7 @@ footer img {
     font-size: 1.563em;
     font-family: 'Lilita One', cursive;
     letter-spacing: 0.125em;
+    text-align: center;
 
 }
 
@@ -731,8 +731,8 @@ a {
 
 .gr-padre {
     display: flex;
-    flex-wrap: wrap; /* Permitir que las cajas se envuelvan en filas si no hay espacio suficiente */
-    justify-content: space-around; /* Distribuir las cajas uniformemente en el contenedor */
+    flex-wrap: wrap; 
+    justify-content: space-around; 
 }
 
 .gr {
@@ -742,20 +742,20 @@ a {
     padding: 2%;
     border-radius: 1em;
     margin: 2%;
-    width: calc(30% - 4%); /* Utilizar calc para calcular el ancho exacto (30% con márgenes) */
+    width: calc(30% - 4%);
     height: auto;
     background: rgb(99, 186, 228);
     background: linear-gradient(164deg, rgba(99, 108, 228, 0.7120973389355743) 13%, rgba(167, 131, 215, 0.6644782913165266) 57%, rgba(224, 175, 242, 0.6336659663865547) 97%);
     align-items: center;
     justify-content: center;
-    text-align: center; /* Centrar el texto */
+    text-align: center; 
 }
 
 .gr img {
-    width: 80%; /* Ajustar el ancho de la imagen al 80% del contenedor */
-    max-width: 100%; /* Garantizar que no se desborde del contenedor */
-    height: auto; /* Mantener la proporción original */
-    margin-bottom: 10px; /* Espacio opcional entre la imagen y los enlaces */
+    width: 80%; 
+    max-width: 100%; 
+    height: auto; 
+    margin-bottom: 10px; 
 }
 
 .gr a {
@@ -855,7 +855,10 @@ a {
     .index {
         background-size: cover;
     }
-
+.contenedorPapa{
+    display: flex;
+    flex-direction: column;
+}
     .partida {
         background-size: cover;
         padding: 0.625em;
@@ -966,12 +969,7 @@ a {
 }
 
 #map {
-    height: 300px; /* Ajusta la altura según sea necesario */
-    width: 100%;  /* O ajusta el ancho según sea necesario */
+    height:18.75em; 
+    width: 100%;  
   }
 
-/* body {
-    font-family: 'Lilita One', cursive;
-    height: 100%;
-    background-color: #facdde;
-} */
